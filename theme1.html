@@ -34,22 +34,10 @@
       background: white;
       object-fit: cover;
     }
-    .header-text h1 {
-      margin: 0;
-      font-size: 1.1rem;
-    }
-    .header-text p {
-      margin: 0;
-      font-size: 0.8rem;
-      color: #ffea99;
-    }
-    main {
-      padding: 1rem;
-    }
-    .section-nav {
-      text-align: center;
-      margin-bottom: 10px;
-    }
+    .header-text h1 { margin: 0; font-size: 1.05rem; }
+    .header-text p { margin: 0; font-size: 0.8rem; color: #ffea99; }
+    main { padding: 1rem; }
+    .section-nav { text-align: center; margin-bottom: 10px; }
     .sub-btn {
       display: inline-block;
       margin: 4px;
@@ -61,14 +49,8 @@
       font-size: 0.85rem;
       cursor: pointer;
     }
-    .sub-btn.active {
-      background: #003366;
-      color: white;
-    }
-    .sub-btn:hover {
-      background: gold;
-      color: #003366;
-    }
+    .sub-btn.active { background: #003366; color: white; }
+    .sub-btn:hover { background: gold; color: #003366; }
     #contentBox {
       background: white;
       border-radius: 16px;
@@ -80,10 +62,7 @@
       font-size: 0.95rem;
       line-height: 1.5;
     }
-    .nav-row {
-      margin-top: 16px;
-      text-align: center;
-    }
+    .nav-row { margin-top: 16px; text-align: center; }
     .btn {
       display: inline-block;
       margin: 6px;
@@ -96,10 +75,7 @@
       cursor: pointer;
       font-size: 0.9rem;
     }
-    .btn:hover {
-      background: gold;
-      color: #003366;
-    }
+    .btn:hover { background: gold; color: #003366; }
   </style>
 </head>
 <body>
@@ -128,52 +104,49 @@
       <div id="vocab" class="sub-content">
         <h3>🧠 Vocabulary — Games & Hobbies</h3>
         <ul>
-          <li>to play board games</li>
-          <li>to draw and paint</li>
-          <li>to dance / to sing</li>
-          <li>to play computer games</li>
-          <li>to collect stickers / toys</li>
+          <li>🎨 paint — рисовать</li>
+          <li>🎲 play games — играть в игры</li>
+          <li>🎵 sing songs — петь песни</li>
+          <li>📖 read books — читать книги</li>
+          <li>🏃 run — бегать</li>
         </ul>
-        <p><i>Task:</i> Write three sentences: “I like…” / “I don’t like…”</p>
+        <p><i>Task:</i> Match the English words with their pictures.</p>
       </div>
 
       <div id="grammar" class="sub-content" style="display:none;">
-        <h3>📘 Grammar — Present Simple</h3>
-        <p><b>I like</b> games. <b>I don’t like</b> chess.</p>
-        <p><i>Task:</i> Complete:  
-        <br>1) He ___ (like) to draw.  
-        <br>2) They ___ (not like) to play cards.</p>
+        <h3>📘 Grammar — Like / Don’t Like</h3>
+        <p><b>I like dancing.</b><br><b>I don’t like running.</b></p>
+        <p><i>Task:</i> Write 3 sentences about your hobbies.</p>
       </div>
 
       <div id="listening" class="sub-content" style="display:none;">
-        <h3>🎧 Listening</h3>
-        <p>Listen to the sentences and choose the right picture (coming soon 🎵).</p>
+        <h3>🎧 Listening — What Do You Like?</h3>
+        <p>Listen and choose: What hobby does the girl like? (audio coming soon 🎧)</p>
       </div>
 
       <div id="reading" class="sub-content" style="display:none;">
-        <h3>📖 Reading</h3>
-        <p><b>My Hobby</b><br> I like painting pictures and playing chess with my dad. Every weekend I draw something new. My sister likes dancing. We have fun together!</p>
-        <p><i>Task:</i> Answer: What is his hobby? What does his sister like?</p>
+        <h3>📖 Reading — My Hobby</h3>
+        <p>My name is Aliya. I like drawing and playing games. I don’t like running. My favorite color is blue.</p>
+        <p><i>Task:</i> What does Aliya like? What doesn’t she like?</p>
       </div>
 
       <div id="speaking" class="sub-content" style="display:none;">
         <h3>🗣️ Speaking</h3>
-        <p>Say aloud: “I like playing games. My favorite game is…” 🎤</p>
+        <p>Say: “I like…” / “I don’t like…” 🎤</p>
       </div>
 
       <div id="writing" class="sub-content" style="display:none;">
         <h3>✍️ Writing</h3>
-        <p>Write 4 sentences about your hobby.<br><i>Example:</i> I like dancing. I don’t like chess.</p>
+        <p>Write 3 sentences about your hobbies:<br>1) I like …<br>2) I don’t like …<br>3) My favorite hobby is …</p>
       </div>
 
       <div id="chat" class="sub-content" style="display:none;">
         <h3>💬 AI Bayan Chat</h3>
-        <p>Ask Bayan for help! Example: “Bayan, how do you say ‘рисовать’ in English?”</p>
+        <p>Ask Bayan: “How do you say ‘Я люблю рисовать’ in English?”</p>
       </div>
     </div>
 
     <div class="nav-row">
-      <button class="btn" onclick="goBack()">⬅ Back</button>
       <button class="btn" onclick="goMenu()">🏠 Menu</button>
       <button class="btn" onclick="goNext()">Next ➡️</button>
     </div>
@@ -186,7 +159,6 @@
       document.querySelectorAll('.sub-btn').forEach(b=>b.classList.remove('active'));
       event.target.classList.add('active');
     }
-    function goBack() { window.location.href = "index.html"; }
     function goMenu() { window.location.href = "index.html"; }
     function goNext() { window.location.href = "theme2.html"; }
   </script>
