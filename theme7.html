@@ -1,173 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Theme 7 — Children’s Rights and Responsibilities</title>
-  <style>
-    body {
-      font-family: Verdana, sans-serif;
-      background: linear-gradient(180deg,#fff6e5 0%,#f3e0b8 100%);
-      margin: 0;
-      color: #002b5c;
-      text-align: center;
-    }
-    header {
-      background: linear-gradient(90deg,#003366,#004b99);
-      color: white;
-      padding: 0.6rem 1rem;
-      border-bottom: 5px solid gold;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .header-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .logo {
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-      border: 3px solid gold;
-      background: white;
-      object-fit: cover;
-    }
-    .header-text h1 { margin: 0; font-size: 1rem; }
-    .header-text p { margin: 0; font-size: 0.8rem; color: #ffea99; }
-    main { padding: 1rem; }
-    .section-nav { text-align: center; margin-bottom: 10px; }
-    .sub-btn {
-      display: inline-block;
-      margin: 4px;
-      padding: 6px 10px;
-      border-radius: 10px;
-      border: 1px solid #003366;
-      background: #ffffff;
-      color: #003366;
-      font-size: 0.85rem;
-      cursor: pointer;
-    }
-    .sub-btn.active { background: #003366; color: white; }
-    .sub-btn:hover { background: gold; color: #003366; }
-    #contentBox {
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-      padding: 15px;
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: left;
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-    .nav-row { margin-top: 16px; text-align: center; }
-    .btn {
-      display: inline-block;
-      margin: 6px;
-      padding: 8px 14px;
-      border-radius: 10px;
-      border: none;
-      background: #003366;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      font-size: 0.9rem;
-    }
-    .btn:hover { background: gold; color: #003366; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Theme 7 — Children’s Rights & Responsibilities</title>
+<style>
+  body {
+    font-family: Verdana, sans-serif;
+    background: linear-gradient(180deg,#fff6e5 0%,#f3e0b8 100%);
+    margin: 0;
+    color: #002b5c;
+    text-align: center;
+  }
+  header {
+    background: linear-gradient(90deg,#003366,#004b99);
+    color: white;
+    padding: 0.6rem 1rem;
+    border-bottom: 5px solid gold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    width: 55px; height: 55px;
+    border-radius: 50%;
+    border: 3px solid gold;
+    object-fit: cover;
+    background: white;
+  }
+  h2 {color:#003366;}
+  section {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 15px;
+    max-width: 800px;
+    margin: 15px auto;
+    text-align: left;
+    line-height: 1.5;
+  }
+  h3 {
+    background: #003366;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 8px;
+  }
+  .btn {
+    display:inline-block;
+    margin:6px;
+    padding:8px 14px;
+    border:none;
+    border-radius:10px;
+    background:#003366;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+  }
+  .btn:hover {background:gold; color:#003366;}
+  #resultBox {
+    background:#fff3cd;
+    border:2px solid gold;
+    border-radius:10px;
+    padding:10px;
+    margin:20px auto;
+    max-width:400px;
+  }
+</style>
 </head>
 <body>
-  <header>
-    <div class="header-left">
-      <img src="logo.png" alt="AI Bayan Logo" class="logo">
-      <div class="header-text">
-        <h1>Theme 7 — Children’s Rights and Responsibilities</h1>
-        <p>English with AI Bayan</p>
-      </div>
+<header>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <img src="logo.png" class="logo">
+    <div>
+      <h1 style="margin:0;font-size:1rem;">Theme 7 — Children’s Rights & Responsibilities</h1>
+      <p style="margin:0;color:#ffea99;">English with AI Bayan</p>
     </div>
-  </header>
+  </div>
+</header>
 
-  <main>
-    <div class="section-nav">
-      <button class="sub-btn active" onclick="show('vocab')">Vocabulary</button>
-      <button class="sub-btn" onclick="show('grammar')">Grammar</button>
-      <button class="sub-btn" onclick="show('listening')">Listening</button>
-      <button class="sub-btn" onclick="show('reading')">Reading</button>
-      <button class="sub-btn" onclick="show('speaking')">Speaking</button>
-      <button class="sub-btn" onclick="show('writing')">Writing</button>
-      <button class="sub-btn" onclick="show('chat')">AI Bayan Chat</button>
-    </div>
+<main>
+  <h2>📜 Children’s Rights & Responsibilities</h2>
+  <p style="font-style:italic;">Let’s learn about our rights and duties!</p>
 
-    <div id="contentBox">
-      <div id="vocab" class="sub-content">
-        <h3>🧠 Vocabulary — Rights and Responsibilities</h3>
-        <ul>
-          <li>📚 education — образование</li>
-          <li>🏠 home — дом</li>
-          <li>🍽️ food — еда</li>
-          <li>❤️ love — любовь</li>
-          <li>🧹 responsibility — ответственность</li>
-        </ul>
-        <p><i>Task:</i> Match each right with its meaning.</p>
-      </div>
+  <!-- Vocabulary -->
+  <section>
+    <h3>🧠 Vocabulary</h3>
+    <ul>
+      <li>right — право</li>
+      <li>responsibility — обязанность</li>
+      <li>education — образование</li>
+      <li>respect — уважать</li>
+      <li>help others — помогать другим</li>
+      <li>follow the rules — соблюдать правила</li>
+    </ul>
+    <p><b>Task:</b> Read and translate each word.</p>
+    <button class="btn" onclick="addStar()">✅ Done</button>
+  </section>
 
-      <div id="grammar" class="sub-content" style="display:none;">
-        <h3>📘 Grammar — Must / Mustn’t</h3>
-        <p><b>You must go to school.</b><br><b>You mustn’t be rude.</b></p>
-        <p><i>Task:</i> Complete:<br>
-        1) You ___ help your parents.<br>
-        2) You ___ fight with friends.</p>
-      </div>
+  <!-- Grammar -->
+  <section>
+    <h3>📘 Grammar — Must / Mustn’t</h3>
+    <p><b>We use “must” for rules and duties:</b><br>
+       You must go to school. / You must help your parents.  
+       You mustn’t be rude. / You mustn’t fight.</p>
+    <p><b>Task:</b> Complete:<br>
+      1) You ___ respect teachers.<br>
+      2) You ___ be late for class.</p>
+    <button class="btn" onclick="addStar()">✅ Done</button>
+  </section>
 
-      <div id="listening" class="sub-content" style="display:none;">
-        <h3>🎧 Listening — At School</h3>
-        <p>Listen and decide: What rights do children have? (audio coming soon 🎧)</p>
-      </div>
+  <!-- Listening -->
+  <section>
+    <h3>🎧 Listening</h3>
+    <p>Listen: “Children must go to school.”  
+       What is the main rule? 🏫</p>
+    <button class="btn" onclick="addStar()">✅ Done</button>
+  </section>
 
-      <div id="reading" class="sub-content" style="display:none;">
-        <h3>📖 Reading — Children’s Rights</h3>
-        <p>Every child has the right to go to school, to play, and to be loved. Children must respect others and study well.</p>
-        <p><i>Task:</i> What rights are mentioned in the text?</p>
-      </div>
+  <!-- Reading -->
+  <section>
+    <h3>📖 Reading</h3>
+    <p>Every child has the right to education, love and care.  
+       Children must study, respect parents and teachers, and help others.  
+       We all must follow the rules to live in peace and friendship.</p>
+    <p><b>Task:</b> What rights and responsibilities do children have?</p>
+    <button class="btn" onclick="addStar()">✅ Done</button>
+  </section>
 
-      <div id="speaking" class="sub-content" style="display:none;">
-        <h3>🗣️ Speaking</h3>
-        <p>Say: “Children must go to school.” / “We mustn’t shout.” 🎤</p>
-      </div>
+  <!-- Speaking -->
+  <section>
+    <h3>🗣️ Speaking</h3>
+    <p>Say: “I must help my parents.” / “I mustn’t fight with friends.” 🎤</p>
+    <button class="btn" onclick="addStar()">✅ Done</button>
+  </section>
 
-      <div id="writing" class="sub-content" style="display:none;">
-        <h3>✍️ Writing</h3>
-        <p>Write 3 sentences:<br>
-        1) I must …<br>
-        2) I mustn’t …<br>
-        3) Every child has the right to …</p>
-      </div>
+  <!-- Writing -->
+  <section>
+    <h3>✍️ Writing</h3>
+    <p>Write 3 sentences about your rights and duties:</p>
+    <p>Example: I have the right to learn. I must help others. I must respect my teachers.</p>
+    <button class="btn" onclick="addStar()">✅ Done</button>
+  </section>
 
-      <div id="chat" class="sub-content" style="display:none;">
-        <h3>💬 AI Bayan Chat</h3>
-        <p>Ask Bayan: “How do you say ‘дети должны ходить в школу’ in English?”</p>
-      </div>
-    </div>
+  <!-- Result -->
+  <div id="resultBox">
+    <h3>🎯 Lesson Complete</h3>
+    <p id="starsText">You have 0 ⭐ for this lesson.</p>
+    <button class="btn" onclick="finishLesson()">Finish Lesson</button>
+  </div>
 
-    <div class="nav-row">
-      <button class="btn" onclick="goBack()">⬅ Back</button>
-      <button class="btn" onclick="goMenu()">🏠 Menu</button>
-      <button class="btn" onclick="goNext()">Next ➡️</button>
-    </div>
-  </main>
+  <div style="margin-top:16px;">
+    <button class="btn" onclick="goBack()">⬅ Back</button>
+    <button class="btn" onclick="goMenu()">🏠 Menu</button>
+    <button class="btn" onclick="goNext()">Next ➡️</button>
+  </div>
+  <p style="font-size:0.8rem;color:#444;margin-top:10px;">Created by Bayan team</p>
+</main>
 
-  <script>
-    function show(tab) {
-      document.querySelectorAll('.sub-content').forEach(e=>e.style.display='none');
-      document.getElementById(tab).style.display='block';
-      document.querySelectorAll('.sub-btn').forEach(b=>b.classList.remove('active'));
-      event.target.classList.add('active');
-    }
-    function goBack() { window.location.href = "theme6.html"; }
-    function goMenu() { window.location.href = "index.html"; }
-    function goNext() { window.location.href = "theme8.html"; }
-  </script>
+<script>
+let stars = 0;
+function addStar(){
+  stars++;
+  document.getElementById('starsText').innerText = "You have " + stars + " ⭐ for this lesson.";
+}
+function finishLesson(){
+  alert("🎉 Great job! You got " + stars + "⭐ in this lesson!");
+  localStorage.setItem("lesson7Stars", stars);
+}
+function goBack(){window.location.href="theme6.html";}
+function goMenu(){window.location.href="index.html";}
+function goNext(){window.location.href="theme8.html";}
+</script>
 </body>
 </html>
