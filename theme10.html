@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Theme 10 — People at Work</title>
+<title>Theme 11 — What Do You Do?</title>
 <style>
   body {
     font-family: Verdana, sans-serif;
@@ -72,72 +72,82 @@
   <div style="display:flex;align-items:center;gap:10px;">
     <img src="logo.png" class="logo">
     <div>
-      <h1 style="margin:0;font-size:1rem;">Theme 10 — People at Work</h1>
+      <h1 style="margin:0;font-size:1rem;">Theme 11 — What Do You Do?</h1>
       <p style="margin:0;color:#ffea99;">English with AI Bayan</p>
     </div>
   </div>
 </header>
 
 <main>
-  <h2>🏢 People at Work</h2>
-  <p style="font-style:italic;">Let’s learn where people work and what they do!</p>
+  <h2>💬 What Do You Do?</h2>
+  <p style="font-style:italic;">Let’s learn to ask and answer about jobs!</p>
 
   <!-- Vocabulary -->
   <section>
     <h3>🧠 Vocabulary</h3>
     <ul>
-      <li>office — офис</li>
-      <li>hospital — больница</li>
-      <li>school — школа</li>
-      <li>factory — завод</li>
-      <li>shop — магазин</li>
-      <li>fire station — пожарная станция</li>
+      <li>job — работа</li>
+      <li>teacher — учитель</li>
+      <li>doctor — врач</li>
+      <li>driver — водитель</li>
+      <li>office worker — офисный работник</li>
+      <li>police officer — полицейский</li>
     </ul>
-    <p><b>Task:</b> Read each place and match it with a job (teacher, doctor, worker...).</p>
+    <p><b>Task:</b> Read each word and say it aloud with translation.</p>
     <button class="btn" onclick="addStar()">✅ Done</button>
   </section>
 
   <!-- Grammar -->
   <section>
-    <h3>📘 Grammar — He works / She works</h3>
-    <p><b>We use “He works / She works” to say where a person works:</b><br>
-       He works in a shop. / She works at school.</p>
-    <p><b>Task:</b> Complete:<br>
-      1) My father ___ in an office.<br>
-      2) My mother ___ at a hospital.</p>
+    <h3>📘 Grammar — What do you do?</h3>
+    <p><b>Question and Answer:</b><br>
+       ❓ What do you do? — 💬 I’m a teacher. <br>
+       ❓ Where do you work? — 💬 I work at school. <br>
+       ❓ Do you like your job? — 💬 Yes, I do.</p>
+    <p><b>Task:</b> Write and practice your answers:</p>
+    <p>1) What do you do? → ___________<br>
+       2) Where do you work? → ___________<br>
+       3) Do you like your job? → ___________</p>
     <button class="btn" onclick="addStar()">✅ Done</button>
   </section>
 
   <!-- Listening -->
   <section>
     <h3>🎧 Listening</h3>
-    <p>Listen: “My brother works at the fire station. He is a firefighter.”  
-       Where does he work? 🚒</p>
+    <p>Listen: “What do you do?” — “I’m a doctor. I work in a hospital.”  
+       What is the person’s job? 👩‍⚕️</p>
     <button class="btn" onclick="addStar()">✅ Done</button>
   </section>
 
   <!-- Reading -->
   <section>
     <h3>📖 Reading</h3>
-    <p>People work in different places.  
-       Teachers work at school, doctors work in hospitals, and shop assistants work in shops.  
-       Engineers work in factories and offices. Firefighters help people at the fire station.</p>
-    <p><b>Task:</b> Where does a teacher work? Where does a firefighter work?</p>
+    <p>Ali is a driver. He works in a big city.  
+       He drives a bus every morning.  
+       His friend Aida is a teacher. She works at school and helps children learn English.</p>
+    <p><b>Task:</b> Who drives a bus? Who helps children learn English?</p>
     <button class="btn" onclick="addStar()">✅ Done</button>
   </section>
 
   <!-- Speaking -->
   <section>
     <h3>🗣️ Speaking</h3>
-    <p>Say: “My mother works in a hospital.” / “My father works in an office.” 🎤</p>
+    <p>Ask your partner: “What do you do?”  
+       Answer: “I’m a student.” / “I’m a teacher.” 🎤</p>
     <button class="btn" onclick="addStar()">✅ Done</button>
   </section>
 
   <!-- Writing -->
   <section>
     <h3>✍️ Writing</h3>
-    <p>Write 3 sentences about people at work:</p>
-    <p>Example: My aunt works in a shop. My uncle works at a school. My friend works in an office.</p>
+    <p>Write 3 question–answer pairs:</p>
+    <p>Example:<br>
+      Q: What do you do?<br>
+      A: I’m a pilot.<br>
+      Q: Where do you work?<br>
+      A: I work at the airport.<br>
+      Q: Do you like your job?<br>
+      A: Yes, I do.</p>
     <button class="btn" onclick="addStar()">✅ Done</button>
   </section>
 
@@ -164,11 +174,11 @@ function addStar(){
 }
 function finishLesson(){
   alert("🎉 Great job! You got " + stars + "⭐ in this lesson!");
-  localStorage.setItem("lesson10Stars", stars);
+  localStorage.setItem("lesson11Stars", stars);
 }
-function goBack(){window.location.href="theme9.html";}
+function goBack(){window.location.href="theme10.html";}
 function goMenu(){window.location.href="index.html";}
-function goNext(){window.location.href="theme11.html";}
+function goNext(){window.location.href="theme12.html";}
 </script>
 </body>
 </html>
