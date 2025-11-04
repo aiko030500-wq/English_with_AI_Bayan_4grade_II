@@ -34,24 +34,37 @@
       background: white;
       object-fit: cover;
     }
-    .header-text h1 { margin: 0; font-size: 1.05rem; }
+    .header-text h1 { margin: 0; font-size: 1rem; }
     .header-text p { margin: 0; font-size: 0.8rem; color: #ffea99; }
     main { padding: 1rem; }
-    .round-box {
+    .round-btn {
+      display: block;
+      width: 90%;
+      max-width: 400px;
+      margin: 10px auto;
+      padding: 10px 16px;
+      border-radius: 12px;
+      border: none;
+      background: #003366;
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .round-btn:hover { background: gold; color: #003366; transform: translateY(-2px); }
+    .challenge-box {
       background: white;
       border-radius: 16px;
       box-shadow: 0 0 8px rgba(0,0,0,0.1);
       padding: 15px;
       max-width: 800px;
-      margin: 10px auto;
+      margin: 0 auto;
       text-align: left;
       font-size: 0.95rem;
       line-height: 1.5;
     }
-    .round-box h3 {
-      color: #003366;
-      margin-top: 0;
-    }
+    .hidden { display: none; }
     .btn {
       display: inline-block;
       margin: 6px;
@@ -65,7 +78,6 @@
       font-size: 0.9rem;
     }
     .btn:hover { background: gold; color: #003366; }
-    .star { color: gold; font-size: 1.2rem; }
   </style>
 </head>
 <body>
@@ -80,59 +92,72 @@
   </header>
 
   <main>
-    <h2>🎯 Final Challenge — 6 Rounds</h2>
-    <p>Complete all the tasks and earn stars ⭐! Your final score will appear below.</p>
+    <h2>🎯 Final Challenge — All Skills Exam</h2>
+    <p>Complete all 6 rounds and earn your final stars ⭐!</p>
 
-    <div id="round1" class="round-box">
-      <h3>🧠 Round 1 — Vocabulary Sprint</h3>
-      <p>Match the words with their meanings or pictures.</p>
-      <button class="btn" onclick="addStar()">✅ Done</button>
+    <div id="menuBox">
+      <button class="round-btn" onclick="startRound('vocab')">🧠 Vocabulary Sprint</button>
+      <button class="round-btn" onclick="startRound('grammar')">📘 Grammar Mix</button>
+      <button class="round-btn" onclick="startRound('listening')">🎧 Listening Mystery</button>
+      <button class="round-btn" onclick="startRound('reading')">📖 Reading Text</button>
+      <button class="round-btn" onclick="startRound('dictation')">✍️ Dictation</button>
+      <button class="round-btn" onclick="startRound('speaking')">🗣️ Speaking Challenge</button>
     </div>
 
-    <div id="round2" class="round-box">
-      <h3>📘 Round 2 — Grammar Mix</h3>
-      <p>Choose the correct form: <b>He (play/plays) football every day.</b></p>
-      <button class="btn" onclick="addStar()">✅ Done</button>
+    <div id="challengeBox" class="challenge-box hidden">
+      <h3 id="roundTitle">Round</h3>
+      <div id="roundContent">Round content goes here.</div>
+      <div style="text-align:center;margin-top:10px;">
+        <button class="btn" onclick="nextRound()">Next ➡️</button>
+        <button class="btn" onclick="backToMenu()">🏠 Back to Menu</button>
+      </div>
     </div>
 
-    <div id="round3" class="round-box">
-      <h3>🎧 Round 3 — Listening Mystery</h3>
-      <p>Listen and answer: What did the boy do yesterday? (audio coming soon 🎧)</p>
-      <button class="btn" onclick="addStar()">✅ Done</button>
-    </div>
-
-    <div id="round4" class="round-box">
-      <h3>📖 Round 4 — Reading Text</h3>
-      <p>Read: “Aigerim loves sports. She goes jogging every morning.”<br>Question: What does she do every morning?</p>
-      <button class="btn" onclick="addStar()">✅ Done</button>
-    </div>
-
-    <div id="round5" class="round-box">
-      <h3>✍️ Round 5 — Dictation</h3>
-      <p>Listen and write: “Children can help their parents at home.” ✍️</p>
-      <button class="btn" onclick="addStar()">✅ Done</button>
-    </div>
-
-    <div id="round6" class="round-box">
-      <h3>🗣️ Round 6 — Speaking Challenge</h3>
-      <p>Say 3 sentences about yourself: your name, your favourite sport, and your dream job 🎤.</p>
-      <button class="btn" onclick="addStar()">✅ Done</button>
-    </div>
-
-    <h3>⭐ Your Total Stars: <span id="starCount">0</span></h3>
-
-    <div class="nav-row">
+    <div style="margin-top:20px;text-align:center;">
       <button class="btn" onclick="goBack()">⬅ Back</button>
-      <button class="btn" onclick="goMenu()">🏠 Menu</button>
+      <button class="btn" onclick="goMenu()">🏠 Main Menu</button>
     </div>
   </main>
 
   <script>
-    let stars = 0;
-    function addStar() {
-      stars++;
-      document.getElementById("starCount").innerText = stars;
+    let currentRound = 0;
+    const rounds = [
+      { id: 'vocab', title: '🧠 Vocabulary Sprint', content: 'Translate: run, jump, play, sing, swim.' },
+      { id: 'grammar', title: '📘 Grammar Mix', content: 'Complete: She ___ playing. / They ___ swim on Sundays.' },
+      { id: 'listening', title: '🎧 Listening Mystery', content: 'Listen and choose: What sound do you hear? (coming soon 🎧)' },
+      { id: 'reading', title: '📖 Reading Text', content: 'Text: Tom plays football every weekend. He likes his team.' },
+      { id: 'dictation', title: '✍️ Dictation', content: 'Write what you hear: “We can help each other.”' },
+      { id: 'speaking', title: '🗣️ Speaking Challenge', content: 'Say your answers: “I like music.” / “I play football.” 🎤' }
+    ];
+
+    function startRound(id) {
+      currentRound = rounds.findIndex(r => r.id === id);
+      document.getElementById('menuBox').classList.add('hidden');
+      document.getElementById('challengeBox').classList.remove('hidden');
+      showRound();
     }
+
+    function showRound() {
+      const round = rounds[currentRound];
+      document.getElementById('roundTitle').innerText = round.title;
+      document.getElementById('roundContent').innerText = round.content;
+    }
+
+    function nextRound() {
+      currentRound++;
+      if (currentRound < rounds.length) {
+        showRound();
+      } else {
+        alert("🎉 Congratulations! You completed all rounds!");
+        backToMenu();
+      }
+    }
+
+    function backToMenu() {
+      document.getElementById('menuBox').classList.remove('hidden');
+      document.getElementById('challengeBox').classList.add('hidden');
+    }
+
     function goBack() { window.location.href = "theme12.html"; }
     function goMenu() { window.location.href = "index.html"; }
   </script>
