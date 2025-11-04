@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English with AI Bayan 4grade II (Online)</title>
+<style>
+  body {
+    font-family: Verdana, sans-serif;
+    background: linear-gradient(180deg,#fff6e5 0%,#f3e0b8 100%);
+    margin: 0;
+    color: #002b5c;
+    text-align: center;
+  }
+  header {
+    background: #003366;
+    color: white;
+    padding: 1rem;
+    border-bottom: 5px solid gold;
+  }
+  main { padding: 1rem; }
+
+  .btn {
+    display: inline-block;
+    margin: 6px;
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: none;
+    background: #003366;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  .btn:hover { background: gold; color: #003366; }
+
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+  .overlay-card {
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    border: 4px solid gold;
+  }
+  .overlay-card input {
+    width: 100%;
+    padding: 8px;
+    margin: 6px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+  .overlay-card button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border-radius: 10px;
+    border: none;
+    background: #003366;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .overlay-card button:hover {
+    background: gold;
+    color: #003366;
+  }
+  .logo-main {
+    width: 120px; height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid gold;
+    margin-bottom: 6px;
+  }
+  .topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+    gap: 10px;
+    max-width: 900px;
+    margin: 0 auto 15px;
+  }
+  .topic-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 10px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.08);
+    cursor: pointer;
+    border: 2px solid #dde6ff;
+  }
+  .topic-card:hover { border-color: gold; transform: translateY(-1px); }
+  .topic-title { font-weight: bold; margin-bottom: 4px; }
+  .topic-emoji { font-size: 1.3rem; }
+
+  #welcomeBox {
+    background: linear-gradient(180deg, #fff9ec 0%, #f8e4ba 100%);
+    border: 3px solid gold;
+    border-radius: 20px;
+    padding: 16px;
+    width: 90%;
+    max-width: 600px;
+    margin: 16px auto 20px;
+    box-shadow: 0 0 15px rgba(255,215,0,0.4);
+  }
+  #welcomeBox h2 { margin: 4px 0; font-size: 1.4rem; }
+  #totalStars { font-weight: bold; color:#d48a00; }
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div class="overlay" id="loginOverlay">
+  <div class="overlay-card">
+    <h1>English with AI Bayan</h1>
+    <input type="password" id="pinInput" placeholder="Enter PIN" maxlength="4">
+    <button onclick="checkPin()">Enter</button>
+  </div>
+</div>
+
+<header>
+  <h1>English with AI Bayan 4grade II</h1>
+</header>
+
+<main>
+  <div id="welcomeBox" style="display:none;">
+    <img src="logo.png" alt="AI Bayan Logo" class="logo-main">
+    <h2 id="welcomeText"></h2>
+    <p>You have <span id="totalStars">0</span> ⭐ total stars!</p>
+  </div>
+
+  <div id="studentMenu" style="display:none;">
+    <div class="topics-grid">
+      <div class="topic-card" onclick="openLesson(1)"><div class="topic-title">1. Let’s Have Fun!</div><div class="topic-emoji">🎨</div></div>
+      <div class="topic-card" onclick="openLesson(2)"><div class="topic-title">2. Sports and Exercises</div><div class="topic-emoji">🏃‍♀️</div></div>
+      <div class="topic-card" onclick="openLesson(3)"><div class="topic-title">3. Sports Around the World</div><div class="topic-emoji">🌍</div></div>
+      <div class="topic-card" onclick="openLesson(4)"><div class="topic-title">4. Arts and Music</div><div class="topic-emoji">🎵</div></div>
+      <div class="topic-card" onclick="openLesson(5)"><div class="topic-title">5. Popular Team Sports</div><div class="topic-emoji">⚽</div></div>
+      <div class="topic-card" onclick="openLesson(6)"><div class="topic-title">6. Museum of Kazakh Musical Instruments</div><div class="topic-emoji">🎻</div></div>
+      <div class="topic-card" onclick="openLesson(7)"><div class="topic-title">7. Children’s Rights & Responsibilities</div><div class="topic-emoji">📜</div></div>
+      <div class="topic-card" onclick="openLesson(8)"><div class="topic-title">8. Different Jobs</div><div class="topic-emoji">🧰</div></div>
+      <div class="topic-card" onclick="openLesson(9)"><div class="topic-title">9. Professions</div><div class="topic-emoji">👩‍⚕️</div></div>
+      <div class="topic-card" onclick="openLesson(10)"><div class="topic-title">10. People at Work</div><div class="topic-emoji">🏢</div></div>
+      <div class="topic-card" onclick="openLesson(11)"><div class="topic-title">11. What Do You Do?</div><div class="topic-emoji">💬</div></div>
+      <div class="topic-card" onclick="openLesson(12)"><div class="topic-title">12. You Can Help!</div><div class="topic-emoji">❤️</div></div>
+      <div class="topic-card" onclick="openLesson(13)"><div class="topic-title">13. Final Challenge</div><div class="topic-emoji">🎯</div></div>
+    </div>
+  </div>
+
+  <div id="teacherJournal" style="display:none;">
+    <h2>🏫 Teacher Journal</h2>
+    <table border="1" cellpadding="6" cellspacing="0" style="margin:auto;border-collapse:collapse;">
+      <tr><th>Lesson</th><th>Stars</th></tr>
+      <script>
+        for(let i=1;i<=13;i++){
+          document.write("<tr><td>Lesson "+i+"</td><td id='t"+i+"'></td></tr>");
+        }
+      </script>
+    </table>
+    <p style="margin-top:10px;">Total: <b><span id="teacherTotal"></span> ⭐</b></p>
+    <button class="btn" onclick="logout()">Logout</button>
+  </div>
+</main>
+
+<script>
+function checkPin(){
+  const pin=document.getElementById('pinInput').value.trim();
+  if(pin==='6856'){ // student
+    document.getElementById('loginOverlay').style.display='none';
+    document.getElementById('studentMenu').style.display='block';
+    document.getElementById('welcomeBox').style.display='block';
+    updateStars();
+  } else if(pin==='9995'){ // teacher
+    document.getElementById('loginOverlay').style.display='none';
+    document.getElementById('teacherJournal').style.display='block';
+    showJournal();
+  } else {
+    alert('❌ Wrong PIN');
+  }
+}
+function openLesson(n){ window.location.href="theme"+n+".html"; }
+function logout(){ window.location.href='index.html'; }
+
+function updateStars(){
+  let total=0;
+  for(let i=1;i<=13;i++){
+    total += Number(localStorage.getItem("lesson"+i+"Stars")) || 0;
+  }
+  document.getElementById('totalStars').innerText=total;
+  document.getElementById('welcomeText').innerText="Hello, Student!";
+}
+function showJournal(){
+  let total=0;
+  for(let i=1;i<=13;i++){
+    const s=Number(localStorage.getItem("lesson"+i+"Stars")) || 0;
+    document.getElementById('t'+i).innerText=s;
+    total+=s;
+  }
+  document.getElementById('teacherTotal').innerText=total;
+}
+</script>
+</body>
+</html>
