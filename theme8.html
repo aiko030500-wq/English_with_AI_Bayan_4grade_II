@@ -1,176 +1,679 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Theme 8 — Different Jobs</title>
-<style>
-  body {
-    font-family: Verdana, sans-serif;
-    background: linear-gradient(180deg,#fff6e5 0%,#f3e0b8 100%);
-    margin: 0;
-    color: #002b5c;
-    text-align: center;
-  }
-  header {
-    background: linear-gradient(90deg,#003366,#004b99);
-    color: white;
-    padding: 0.6rem 1rem;
-    border-bottom: 5px solid gold;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .logo {
-    width: 55px; height: 55px;
-    border-radius: 50%;
-    border: 3px solid gold;
-    object-fit: cover;
-    background: white;
-  }
-  h2 {color:#003366;}
-  section {
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    padding: 15px;
-    max-width: 800px;
-    margin: 15px auto;
-    text-align: left;
-    line-height: 1.5;
-  }
-  h3 {
-    background: #003366;
-    color: white;
-    padding: 6px 10px;
-    border-radius: 8px;
-  }
-  .btn {
-    display:inline-block;
-    margin:6px;
-    padding:8px 14px;
-    border:none;
-    border-radius:10px;
-    background:#003366;
-    color:white;
-    font-weight:bold;
-    cursor:pointer;
-  }
-  .btn:hover {background:gold; color:#003366;}
-  #resultBox {
-    background:#fff3cd;
-    border:2px solid gold;
-    border-radius:10px;
-    padding:10px;
-    margin:20px auto;
-    max-width:400px;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theme 8 — Wonderful World!</title>
+  <style>
+    body {
+      font-family: Verdana, sans-serif;
+      background: linear-gradient(180deg,#f0fff5 0%,#c9f1da 100%);
+      margin: 0;
+      color: #145234;
+      text-align: center;
+    }
+    header {
+      background: linear-gradient(90deg,#147a4b,#28a745);
+      color: white;
+      padding: 0.6rem 1rem;
+      border-bottom: 5px solid #ffcc66;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      width: 55px; height: 55px;
+      border-radius: 50%;
+      border: 3px solid #ffcc66;
+      object-fit: cover;
+      background: white;
+    }
+    h2 {color:#147a4b;}
+    section {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 15px;
+      max-width: 800px;
+      margin: 15px auto;
+      text-align: left;
+      line-height: 1.5;
+      font-size: 0.95rem;
+    }
+    h3 {
+      background: #147a4b;
+      color: white;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    .btn {
+      display:inline-block;
+      margin:6px;
+      padding:8px 14px;
+      border:none;
+      border-radius:10px;
+      background:#147a4b;
+      color:white;
+      font-weight:bold;
+      cursor:pointer;
+      font-size:0.9rem;
+    }
+    .btn:hover {background:#ffcc66; color:#147a4b;}
+    textarea {
+      width:100%;
+      border-radius:10px;
+      border:1px solid #ccc;
+      padding:6px;
+      font-family:inherit;
+      font-size:0.9rem;
+    }
+    input[type="text"] {
+      width:100%;
+      max-width:380px;
+      border-radius:8px;
+      border:1px solid #ccc;
+      padding:4px 6px;
+      font-family:inherit;
+      font-size:0.9rem;
+    }
+    select {
+      border-radius:8px;
+      padding:2px 4px;
+      font-size:0.9rem;
+    }
+  </style>
 </head>
 <body>
 <header>
   <div style="display:flex;align-items:center;gap:10px;">
-    <img src="logo.png" class="logo">
+    <img src="logo.png" class="logo" alt="AI Bayan logo">
     <div>
-      <h1 style="margin:0;font-size:1rem;">Theme 8 — Different Jobs</h1>
-      <p style="margin:0;color:#ffea99;">English with AI Bayan</p>
+      <h1 style="margin:0;font-size:1rem;">Theme 8 — Wonderful World!</h1>
+      <p style="margin:0;color:#ffe9b5;">English with AI Bayan</p>
     </div>
   </div>
 </header>
 
 <main>
-  <h2>🧰 Different Jobs</h2>
-  <p style="font-style:italic;">Learn about everyday jobs and workers!</p>
+  <h2>🌍 Wonderful World!</h2>
+  <p style="font-style:italic;">Adjectives, movement and inventions</p>
+  <p id="lessonStarsLine"><b>You have 0 ⭐ in this lesson.</b></p>
 
-  <!-- Vocabulary -->
+  <!-- ========== VOCABULARY (adjectives & actions) ========== -->
   <section>
-    <h3>🧠 Vocabulary</h3>
+    <h3>🧠 VOCABULARY — Adjectives and actions</h3>
+
+    <p><b>Listen to AI Bayan. Choose the correct meaning.</b></p>
+
+    <!-- Q1 -->
+    <p>1) AI Bayan:
+      <button class="btn" onclick="speakVocab('The cheetah is very fast.')">▶ Play</button>
+      <button class="btn" onclick="stopBayan()">⏹ Stop</button>
+    </p>
+    <p>Choose the correct meaning:</p>
+    <label><input type="radio" name="v1" value="1"> The cheetah can run quickly.</label><br>
+    <label><input type="radio" name="v1" value="0"> The cheetah is very slow.</label><br>
+    <label><input type="radio" name="v1" value="0"> The cheetah is very small.</label><br>
+
+    <!-- Q2 -->
+    <p>2) AI Bayan:
+      <button class="btn" onclick="speakVocab('The elephant is big and strong.')">▶ Play</button>
+      <button class="btn" onclick="stopBayan()">⏹ Stop</button>
+    </p>
+    <p>Choose the correct meaning:</p>
+    <label><input type="radio" name="v2" value="1"> The elephant is large and powerful.</label><br>
+    <label><input type="radio" name="v2" value="0"> The elephant is small and weak.</label><br>
+    <label><input type="radio" name="v2" value="0"> The elephant is fast and dangerous.</label><br>
+
+    <!-- Q3 -->
+    <p>3) AI Bayan:
+      <button class="btn" onclick="speakVocab('Birds can fly high in the sky.')">▶ Play</button>
+      <button class="btn" onclick="stopBayan()">⏹ Stop</button>
+    </p>
+    <p>Choose the correct meaning:</p>
+    <label><input type="radio" name="v3" value="1"> Birds can move in the air.</label><br>
+    <label><input type="radio" name="v3" value="0"> Birds can swim in the sea.</label><br>
+    <label><input type="radio" name="v3" value="0"> Birds only walk on the ground.</label><br>
+
+    <!-- Q4 -->
+    <p>4) AI Bayan:
+      <button class="btn" onclick="speakVocab('He can climb up the mountain.')">▶ Play</button>
+      <button class="btn" onclick="stopBayan()">⏹ Stop</button>
+    </p>
+    <p>Choose the correct meaning:</p>
+    <label><input type="radio" name="v4" value="1"> He can go to the top of the mountain.</label><br>
+    <label><input type="radio" name="v4" value="0"> He can swim across the river.</label><br>
+    <label><input type="radio" name="v4" value="0"> He can fly over the mountain.</label><br>
+
+    <!-- Q5 -->
+    <p>5) AI Bayan:
+      <button class="btn" onclick="speakVocab('This city is very beautiful.')">▶ Play</button>
+      <button class="btn" onclick="stopBayan()">⏹ Stop</button>
+    </p>
+    <p>Choose the correct meaning:</p>
+    <label><input type="radio" name="v5" value="1"> The city is very nice to look at.</label><br>
+    <label><input type="radio" name="v5" value="0"> The city is very dangerous.</label><br>
+    <label><input type="radio" name="v5" value="0"> The city is very slow.</label><br>
+
+    <!-- Q6 -->
+    <p>6) AI Bayan:
+      <button class="btn" onclick="speakVocab('The river moves quickly across the valley.')">▶ Play</button>
+      <button class="btn" onclick="stopBayan()">⏹ Stop</button>
+    </p>
+    <p>Choose the correct meaning:</p>
+    <label><input type="radio" name="v6" value="1"> The water goes fast through the valley.</label><br>
+    <label><input type="radio" name="v6" value="0"> The river is small and slow.</label><br>
+    <label><input type="radio" name="v6" value="0"> The river does not move.</label><br>
+
+    <button class="btn" onclick="checkVocab()">Check ✅</button>
+    <div id="vocabStars" style="font-size:1.1rem;margin-top:8px;"></div>
+  </section>
+
+  <!-- ========== GRAMMAR (comparatives & superlatives + Wh-) ========== -->
+  <section>
+    <h3>📘 GRAMMAR — Comparatives and superlatives</h3>
+
+    <p><b>1. Remember:</b></p>
+    <p>
+      big → <b>bigger</b> → the <b>biggest</b><br>
+      fast → <b>faster</b> → the <b>fastest</b><br>
+      beautiful → <b>more beautiful</b> → the <b>most beautiful</b>
+    </p>
+
+    <p><b>Choose the correct form:</b></p>
+
+    <p>1) A cheetah is ___ than a cat.</p>
+    <label><input type="radio" name="q1" value="faster"> faster</label><br>
+    <label><input type="radio" name="q1" value="fastest"> fastest</label><br>
+
+    <p>2) Mount Everest is the ___ mountain in the world.</p>
+    <label><input type="radio" name="q2" value="tallest"> tallest</label><br>
+    <label><input type="radio" name="q2" value="taller"> taller</label><br>
+
+    <p>3) A bike is ___ than a car.</p>
+    <label><input type="radio" name="q3" value="slower"> slower</label><br>
+    <label><input type="radio" name="q3" value="slowest"> slowest</label><br>
+
+    <hr>
+
+    <p><b>Wh- questions:</b></p>
+
+    <p>4) “___ is the fastest animal in the world?”</p>
+    <label><input type="radio" name="q4" value="what"> What</label><br>
+    <label><input type="radio" name="q4" value="where"> Where</label><br>
+
+    <p>5) “___ invention do you think is the most important?”</p>
+    <label><input type="radio" name="q5" value="which"> Which</label><br>
+    <label><input type="radio" name="q5" value="who"> Who</label><br>
+
+    <button class="btn" onclick="checkGrammar()">Check ✅</button>
+    <div id="grammarStars" style="font-size:1.1rem;margin-top:8px;"></div>
+
+    <p><b>Write your own sentence:</b> (practice)</p>
+    <p>Example: The plane is faster than the car.</p>
+    <input id="writeGrammar" type="text" placeholder="Type your comparative sentence here...">
+  </section>
+
+  <!-- ========== LISTENING (Famous Inventors) ========== -->
+  <section>
+    <h3>🎧 LISTENING — Famous inventors</h3>
+
+    <p><b>1. Listen to AI Bayan:</b></p>
+    <button class="btn" onclick="bayanListening()">▶ Play</button>
+    <button class="btn" onclick="stopBayan()">⏹ Stop</button>
+
+    <p style="margin-top:8px;font-size:0.9rem;color:#444;">
+      Listen about three famous inventors. Then choose True or False.
+    </p>
+
+    <p><b>2. True or False?</b></p>
+
+    <p>1) Thomas Edison invented the light bulb.</p>
+    <select id="t1">
+      <option>—</option><option>True</option><option>False</option>
+    </select>
+
+    <p>2) The Wright brothers invented the telephone.</p>
+    <select id="t2">
+      <option>—</option><option>True</option><option>False</option>
+    </select>
+
+    <p>3) Alexander Graham Bell invented the telephone.</p>
+    <select id="t3">
+      <option>—</option><option>True</option><option>False</option>
+    </select>
+
+    <button class="btn" onclick="checkListening()">Check ✅</button>
+    <div id="listenStars" style="font-size:1.1rem;margin-top:8px;"></div>
+  </section>
+
+  <!-- ========== READING (My dream invention) ========== -->
+  <section>
+    <h3>📖 READING — My dream invention</h3>
+
+    <p><b>1. Read or listen:</b></p>
+    <button class="btn" onclick="bayanReading()">▶ Play</button>
+    <button class="btn" onclick="stopBayan()">⏹ Stop</button>
+
+    <div style="margin-top:10px; background:#ecfff4; border-radius:10px; padding:10px;">
+      <p>
+        My dream invention is a smart school bag.  
+        It is smaller and lighter than a normal bag, but it is stronger.  
+        The bag can speak and help students with their homework.  
+        It can also show the way to school and play quiet music.  
+        I think it is the most useful invention for children in the future.
+      </p>
+    </div>
+
+    <p><b>2. Answer the questions:</b></p>
+    <ol>
+      <li>What is the dream invention?<br>
+        <input id="r1" type="text" placeholder="Your answer..."></li><br>
+      <li>Is the bag heavier or lighter than a normal bag?<br>
+        <input id="r2" type="text" placeholder="Your answer..."></li><br>
+      <li>Why is this invention useful?<br>
+        <input id="r3" type="text" placeholder="Your answer..."></li>
+    </ol>
+
+    <button class="btn" onclick="checkReading()">Check ✅</button>
+    <div id="readStars" style="font-size:1.1rem;margin-top:8px;"></div>
+  </section>
+
+  <!-- ========== SPEAKING ========== -->
+  <section>
+    <h3>🗣️ SPEAKING — Compare and imagine</h3>
+
+    <p><b>1. Listen to questions:</b></p>
+    <button class="btn" onclick="bayanSpeaking()">▶ Play</button>
+    <button class="btn" onclick="stopBayan()">⏹ Stop</button>
+
+    <p style="margin-top:8px;"><b>Questions:</b></p>
     <ul>
-      <li>doctor — врач</li>
-      <li>teacher — учитель</li>
-      <li>driver — водитель</li>
-      <li>cook — повар</li>
-      <li>builder — строитель</li>
-      <li>policeman — полицейский</li>
+      <li>What is faster, a car or a bike? Why?</li>
+      <li>What is the most beautiful place you know?</li>
+      <li>What invention do you think is the most important?</li>
     </ul>
-    <p><b>Task:</b> Read each word and say what they do.</p>
-    <button class="btn" onclick="addStar()">✅ Done</button>
+
+    <p><b>2. Answer into the microphone:</b></p>
+    <button class="btn" onclick="startSpeak()">🎙 Start recording</button>
+    <button class="btn" onclick="stopSpeak()">⏹ Stop</button>
+
+    <div id="speakStars" style="font-size:1.1rem;margin-top:10px;"></div>
   </section>
 
-  <!-- Grammar -->
+  <!-- ========== WRITING (comparatives + my invention) ========== -->
   <section>
-    <h3>📘 Grammar — He/She is a ...</h3>
-    <p><b>We use “He is / She is a ...” to say what job a person has:</b><br>
-       He is a doctor. / She is a teacher.</p>
-    <p><b>Task:</b> Complete:<br>
-      1) My father is a ___.<br>
-      2) She is a ___ in a restaurant.</p>
-    <button class="btn" onclick="addStar()">✅ Done</button>
+    <h3>✍️ WRITING — Comparisons & My dream invention</h3>
+
+    <p><b>A. Write comparative or superlative sentences.</b></p>
+
+    <p>1) A plane / fast / a car</p>
+    <input id="w1" type="text" placeholder="Example: A plane is faster than a car.">
+
+    <p>2) The Pacific Ocean / big / all the oceans</p>
+    <input id="w2" type="text" placeholder="Example: The Pacific Ocean is the biggest ocean.">
+
+    <p>3) My phone / useful / my toy</p>
+    <input id="w3" type="text" placeholder="Example: My phone is more useful than my toy.">
+
+    <button class="btn" onclick="checkWritingSentences()">Check sentences ✅</button>
+    <div id="writeSentStars" style="font-size:1.1rem;margin-top:6px;"></div>
+
+    <hr>
+
+    <p><b>B. My dream invention</b></p>
+    <p>Write 3–4 sentences. Use some adjectives and comparatives (bigger, smaller, faster, more useful…).</p>
+    <button class="btn" onclick="bayanDictation()">▶ Example</button>
+    <button class="btn" onclick="stopBayan()">⏹ Stop</button>
+
+    <textarea id="writeBox" rows="5" placeholder="Write your text here..."></textarea><br>
+    <button class="btn" onclick="checkDictation()">Check my text ✅</button>
+    <div id="dictStars" style="font-size:1.1rem;margin-top:6px;"></div>
   </section>
 
-  <!-- Listening -->
-  <section>
-    <h3>🎧 Listening</h3>
-    <p>Listen: “My mother is a doctor. She helps sick people.”  
-       What job does she have? 👩‍⚕️</p>
-    <button class="btn" onclick="addStar()">✅ Done</button>
+  <!-- ========== LESSON RESULT ========== -->
+  <section style="text-align:center;margin-top:25px;">
+    <h3>🎯 Lesson Complete!</h3>
+    <p>You have earned <b><span id="finalStars">0</span> ⭐</b> in this lesson.</p>
+
+    <button class="btn" onclick="finishLesson()">Save & Show Result ✅</button>
+
+    <div id="finalMessage" style="margin-top:10px;font-size:1.1rem;color:#147a4b;"></div>
+
+    <div style="margin-top:18px;">
+      <button class="btn" onclick="goBack()">⬅ Back</button>
+      <button class="btn" onclick="goMenu()">🏠 Main Menu</button>
+      <button class="btn" onclick="goNext()">Next ➡️</button>
+    </div>
   </section>
 
-  <!-- Reading -->
-  <section>
-    <h3>📖 Reading</h3>
-    <p>People have different jobs.  
-       A doctor helps sick people.  
-       A teacher works at school.  
-       A driver drives a car or bus.  
-       A cook makes tasty food in a café.</p>
-    <p><b>Task:</b> Who works at school? Who drives a car?</p>
-    <button class="btn" onclick="addStar()">✅ Done</button>
-  </section>
-
-  <!-- Speaking -->
-  <section>
-    <h3>🗣️ Speaking</h3>
-    <p>Say: “My mother is a teacher.” / “My uncle is a driver.” 🎤</p>
-    <button class="btn" onclick="addStar()">✅ Done</button>
-  </section>
-
-  <!-- Writing -->
-  <section>
-    <h3>✍️ Writing</h3>
-    <p>Write 3 sentences about jobs in your family:</p>
-    <p>Example: My mother is a doctor. My father is a driver. My sister is a student.</p>
-    <button class="btn" onclick="addStar()">✅ Done</button>
-  </section>
-
-  <!-- Result -->
-  <div id="resultBox">
-    <h3>🎯 Lesson Complete</h3>
-    <p id="starsText">You have 0 ⭐ for this lesson.</p>
-    <button class="btn" onclick="finishLesson()">Finish Lesson</button>
-  </div>
-
-  <div style="margin-top:16px;">
-    <button class="btn" onclick="goBack()">⬅ Back</button>
-    <button class="btn" onclick="goMenu()">🏠 Menu</button>
-    <button class="btn" onclick="goNext()">Next ➡️</button>
-  </div>
-  <p style="font-size:0.8rem;color:#444;margin-top:10px;">Created by Bayan team</p>
+  <p style="font-size:0.8rem;color:#444;margin-top:10px;text-align:center;">
+    Created by Bayan team
+  </p>
 </main>
 
 <script>
-let stars = 0;
-function addStar(){
-  stars++;
-  document.getElementById('starsText').innerText = "You have " + stars + " ⭐ for this lesson.";
-}
-function finishLesson(){
-  alert("🎉 Great job! You got " + stars + "⭐ in this lesson!");
-  localStorage.setItem("lesson8Stars", stars);
-}
-function goBack(){window.location.href="theme7.html";}
-function goMenu(){window.location.href="index.html";}
-function goNext(){window.location.href="theme9.html";}
+  // ⭐ TOTAL STARS (no limit)
+  let totalStars = 0;
+  function addStar() {
+    totalStars++;
+    updateStarsText();
+  }
+  function updateStarsText(){
+    document.getElementById('lessonStarsLine').innerText =
+      "You have " + totalStars + " ⭐ in this lesson.";
+    const fs = document.getElementById('finalStars');
+    if(fs) fs.innerText = totalStars;
+  }
+
+  // Flags: to avoid double stars for the same answers
+  const scored = {
+    v1:false, v2:false, v3:false, v4:false, v5:false, v6:false,
+    g1:false, g2:false, g3:false, g4:false, g5:false,
+    l1:false, l2:false, l3:false,
+    r1:false, r2:false, r3:false,
+    w1:false, w2:false, w3:false,
+    dict:false
+  };
+
+  // ---------- TTS (AI Bayan voice) ----------
+  function speakBayanText(text){
+    if(!('speechSynthesis' in window)){
+      alert("Your browser does not support speech synthesis 😔");
+      return;
+    }
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang = "en-US";
+    utter.rate = 0.9;
+    utter.pitch = 1.05;
+    utter.volume = 1;
+    const voices = speechSynthesis.getVoices();
+    const femaleEn = voices.find(v => v.lang.includes("en") && v.name.toLowerCase().includes("female"));
+    if(femaleEn) utter.voice = femaleEn;
+    speechSynthesis.speak(utter);
+  }
+
+  function stopBayan(){
+    window.speechSynthesis.cancel();
+  }
+
+  // ---------- VOCABULARY ----------
+  function speakVocab(text){
+    speakBayanText(text);
+  }
+
+  function checkVocab(){
+    let starsHere = 0;
+    const q1 = document.querySelector('input[name="v1"]:checked');
+    if(q1 && q1.value === "1" && !scored.v1){ scored.v1=true; addStar(); starsHere++; }
+
+    const q2 = document.querySelector('input[name="v2"]:checked');
+    if(q2 && q2.value === "1" && !scored.v2){ scored.v2=true; addStar(); starsHere++; }
+
+    const q3 = document.querySelector('input[name="v3"]:checked');
+    if(q3 && q3.value === "1" && !scored.v3){ scored.v3=true; addStar(); starsHere++; }
+
+    const q4 = document.querySelector('input[name="v4"]:checked');
+    if(q4 && q4.value === "1" && !scored.v4){ scored.v4=true; addStar(); starsHere++; }
+
+    const q5 = document.querySelector('input[name="v5"]:checked');
+    if(q5 && q5.value === "1" && !scored.v5){ scored.v5=true; addStar(); starsHere++; }
+
+    const q6 = document.querySelector('input[name="v6"]:checked');
+    if(q6 && q6.value === "1" && !scored.v6){ scored.v6=true; addStar(); starsHere++; }
+
+    const box = document.getElementById('vocabStars');
+    if(starsHere > 0){
+      box.innerHTML = "⭐ +" + starsHere + " vocabulary stars!";
+    } else {
+      box.innerHTML = "No new stars. Check answers or you already got them.";
+    }
+  }
+
+  // ---------- GRAMMAR ----------
+  function checkGrammar(){
+    let starsHere = 0;
+
+    const q1 = document.querySelector('input[name="q1"]:checked');
+    if(q1 && q1.value === "faster" && !scored.g1){ scored.g1=true; addStar(); starsHere++; }
+
+    const q2 = document.querySelector('input[name="q2"]:checked');
+    if(q2 && q2.value === "tallest" && !scored.g2){ scored.g2=true; addStar(); starsHere++; }
+
+    const q3 = document.querySelector('input[name="q3"]:checked');
+    if(q3 && q3.value === "slower" && !scored.g3){ scored.g3=true; addStar(); starsHere++; }
+
+    const q4 = document.querySelector('input[name="q4"]:checked');
+    if(q4 && q4.value === "what" && !scored.g4){ scored.g4=true; addStar(); starsHere++; }
+
+    const q5 = document.querySelector('input[name="q5"]:checked');
+    if(q5 && q5.value === "which" && !scored.g5){ scored.g5=true; addStar(); starsHere++; }
+
+    const box = document.getElementById('grammarStars');
+    if(starsHere > 0){
+      box.innerHTML = "⭐ +" + starsHere + " grammar stars!";
+    } else {
+      box.innerHTML = "No new stars. Check again or you already got them.";
+    }
+  }
+
+  // ---------- LISTENING ----------
+  function bayanListening(){
+    const t =
+      "Thomas Edison was an American inventor. He invented the electric light bulb, " +
+      "so houses and streets became brighter and safer. " +
+      "Alexander Graham Bell invented the telephone, " +
+      "so people could speak to each other across long distances. " +
+      "The Wright brothers invented the first successful airplane, " +
+      "and now planes are one of the fastest ways to travel in the world.";
+    speakBayanText(t);
+  }
+
+  function checkListening(){
+    let starsHere = 0;
+
+    if(document.getElementById('t1').value === 'True' && !scored.l1){
+      scored.l1 = true; addStar(); starsHere++;
+    }
+    if(document.getElementById('t2').value === 'False' && !scored.l2){
+      scored.l2 = true; addStar(); starsHere++;
+    }
+    if(document.getElementById('t3').value === 'True' && !scored.l3){
+      scored.l3 = true; addStar(); starsHere++;
+    }
+
+    const box = document.getElementById('listenStars');
+    if(starsHere > 0){
+      box.innerHTML = "⭐ +" + starsHere + " listening stars!";
+    } else {
+      box.innerHTML = "No new stars. Check your answers.";
+    }
+  }
+
+  // ---------- READING ----------
+  function bayanReading(){
+    const t =
+      "My dream invention is a smart school bag. " +
+      "It is smaller and lighter than a normal bag, but it is stronger. " +
+      "The bag can speak and help students with their homework. " +
+      "It can also show the way to school and play quiet music. " +
+      "I think it is the most useful invention for children in the future.";
+    speakBayanText(t);
+  }
+
+  function checkReading(){
+    let starsHere = 0;
+    const a1 = document.getElementById('r1').value.toLowerCase();
+    const a2 = document.getElementById('r2').value.toLowerCase();
+    const a3 = document.getElementById('r3').value.toLowerCase();
+
+    if(!scored.r1 &&
+       (a1.includes("smart school bag") || a1.includes("a smart school bag") || a1.includes("bag"))){
+      scored.r1 = true; addStar(); starsHere++;
+    }
+    if(!scored.r2 &&
+       (a2.includes("lighter") || a2.includes("it is lighter"))){
+      scored.r2 = true; addStar(); starsHere++;
+    }
+    if(!scored.r3 &&
+       (a3.includes("useful") || a3.includes("help") || a3.includes("homework"))){
+      scored.r3 = true; addStar(); starsHere++;
+    }
+
+    const box = document.getElementById('readStars');
+    if(starsHere > 0){
+      box.innerHTML = "⭐ +" + starsHere + " reading stars!";
+    } else {
+      box.innerHTML = "No new stars. Check answers or you already got them.";
+    }
+  }
+
+  // ---------- SPEAKING ----------
+  let recognition;
+  function bayanSpeaking(){
+    const t =
+      "Now let's talk about our wonderful world and inventions. " +
+      "What is faster, a car or a bike? Why? " +
+      "What is the most beautiful place you know? " +
+      "What invention do you think is the most important?";
+    speakBayanText(t);
+  }
+
+  function startSpeak(){
+    if(!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)){
+      alert("Speech recognition is not supported in this browser.");
+      return;
+    }
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    recognition = new SR();
+    recognition.lang = "en-US";
+    recognition.onresult = function(event){
+      const speech = event.results[0][0].transcript.toLowerCase();
+      let starsHere = 0;
+      if(
+        speech.includes("faster") || speech.includes("slower") ||
+        speech.includes("beautiful") || speech.includes("the most") ||
+        speech.includes("invention") || speech.includes("important") ||
+        speech.includes("car") || speech.includes("bike") || speech.includes("plane")
+      ){
+        addStar();
+        starsHere++;
+      }
+      const box = document.getElementById('speakStars');
+      if(starsHere > 0){
+        box.innerHTML = "⭐ +" + starsHere + " speaking star!<br>You said: " + speech;
+      } else {
+        box.innerHTML = "You said: " + speech +
+          "<br>Try to use words like faster, slower, beautiful, the most important invention...";
+      }
+    };
+    recognition.start();
+  }
+
+  function stopSpeak(){
+    if(recognition) recognition.stop();
+  }
+
+  // ---------- WRITING: SENTENCES ----------
+  function checkWritingSentences(){
+    let starsHere = 0;
+    const s1 = document.getElementById('w1').value.toLowerCase();
+    const s2 = document.getElementById('w2').value.toLowerCase();
+    const s3 = document.getElementById('w3').value.toLowerCase();
+
+    if(!scored.w1 &&
+       s1.includes("plane") && s1.includes("car") &&
+       (s1.includes("faster") || s1.includes("the fastest"))){
+      scored.w1 = true; addStar(); starsHere++;
+    }
+
+    if(!scored.w2 &&
+       (s2.includes("pacific") || s2.includes("pacific ocean")) &&
+       (s2.includes("biggest") || s2.includes("the biggest") || s2.includes("the largest"))){
+      scored.w2 = true; addStar(); starsHere++;
+    }
+
+    if(!scored.w3 &&
+       s3.includes("phone") &&
+       (s3.includes("more useful") || s3.includes("the most useful") || s3.includes("useful"))){
+      scored.w3 = true; addStar(); starsHere++;
+    }
+
+    const box = document.getElementById('writeSentStars');
+    if(starsHere > 0){
+      box.innerHTML = "⭐ +" + starsHere + " writing stars!";
+    } else {
+      box.innerHTML = "No new stars. Check your sentences or you already got them.";
+    }
+  }
+
+  // ---------- WRITING: MY DREAM INVENTION ----------
+  function bayanDictation(){
+    const t =
+      "My dream invention is a flying car. " +
+      "It is smaller than a plane but faster than a normal car. " +
+      "It can fly over traffic and it is very safe and comfortable. " +
+      "I think it is the most exciting invention for the future.";
+    speakBayanText(t);
+  }
+
+  function checkDictation(){
+    const text = document.getElementById("writeBox").value.toLowerCase();
+    const keywords = [
+      "invention","bigger","smaller","faster","slower",
+      "more useful","most useful","plane","car","world","future"
+    ];
+    let found = 0;
+    for(const w of keywords){
+      if(text.includes(w)) found++;
+    }
+    let starsHere = 0;
+    if(!scored.dict && found >= 3){
+      scored.dict = true;
+      addStar();
+      starsHere++;
+    }
+
+    const box = document.getElementById('dictStars');
+    if(starsHere > 0){
+      box.innerHTML = "⭐ +" + starsHere + " writing star!";
+    } else {
+      box.innerHTML = "Try to write 3–4 sentences and use words like faster, smaller, more useful, invention, future.";
+    }
+  }
+
+  // ---------- FINISH + NAVIGATION ----------
+  function finishLesson(){
+    document.getElementById("finalStars").innerText = totalStars;
+    let msg = "";
+    if(totalStars >= 20){
+      msg = "🌟🌟🌟 Amazing! Creative world explorer!";
+    } else if(totalStars >= 12){
+      msg = "🌟🌟 Great job! You understand this wonderful world!";
+    } else if(totalStars >= 6){
+      msg = "🌟 Good start! Keep practising!";
+    } else {
+      msg = "Keep going! Every star is progress!";
+    }
+    document.getElementById("finalMessage").innerText = msg;
+
+    const studentName = localStorage.getItem("studentName") || "Unknown Student";
+    const allResults = JSON.parse(localStorage.getItem("teacherJournal") || "{}");
+    allResults[studentName] = allResults[studentName] || {};
+    allResults[studentName]["Lesson 8"] = totalStars;
+    localStorage.setItem("teacherJournal", JSON.stringify(allResults));
+    localStorage.setItem("lesson8Stars", totalStars);
+
+    alert("Lesson 8 saved! " + studentName + " got " + totalStars + "⭐.");
+  }
+
+  function goBack(){ window.location.href = "theme7.html"; }
+  function goMenu(){ window.location.href = "index.html"; }
+  function goNext(){ window.location.href = "theme9.html"; }
+
+  // init
+  updateStarsText();
 </script>
 </body>
 </html>
