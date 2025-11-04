@@ -1,76 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Theme 1 — Let’s Have Fun!</title>
-<style>
-  body {
-    font-family: Verdana, sans-serif;
-    background: linear-gradient(180deg,#fff6e5 0%,#f3e0b8 100%);
-    margin: 0;
-    color: #002b5c;
-    text-align: center;
-  }
-  header {
-    background: linear-gradient(90deg,#003366,#004b99);
-    color: white;
-    padding: 0.6rem 1rem;
-    border-bottom: 5px solid gold;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .logo {
-    width: 55px; height: 55px;
-    border-radius: 50%;
-    border: 3px solid gold;
-    object-fit: cover;
-    background: white;
-  }
-  h2 {color:#003366;}
-  section {
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    padding: 15px;
-    max-width: 800px;
-    margin: 15px auto;
-    text-align: left;
-    line-height: 1.5;
-  }
-  h3 {
-    background: #003366;
-    color: white;
-    padding: 6px 10px;
-    border-radius: 8px;
-  }
-  .btn {
-    display:inline-block;
-    margin:6px;
-    padding:8px 14px;
-    border:none;
-    border-radius:10px;
-    background:#003366;
-    color:white;
-    font-weight:bold;
-    cursor:pointer;
-  }
-  .btn:hover {background:gold; color:#003366;}
-  #resultBox {
-    background:#fff3cd;
-    border:2px solid gold;
-    border-radius:10px;
-    padding:10px;
-    margin:20px auto;
-    max-width:400px;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theme 1 — Let’s Have Fun!</title>
+  <style>
+    body {
+      font-family: Verdana, sans-serif;
+      background: linear-gradient(180deg,#fff6e5 0%,#f3e0b8 100%);
+      margin: 0;
+      color: #002b5c;
+      text-align: center;
+    }
+    header {
+      background: linear-gradient(90deg,#003366,#004b99);
+      color: white;
+      padding: 0.6rem 1rem;
+      border-bottom: 5px solid gold;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      width: 55px; height: 55px;
+      border-radius: 50%;
+      border: 3px solid gold;
+      object-fit: cover;
+      background: white;
+    }
+    h2 {color:#003366;}
+    section {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 15px;
+      max-width: 800px;
+      margin: 15px auto;
+      text-align: left;
+      line-height: 1.5;
+      font-size: 0.95rem;
+    }
+    h3 {
+      background: #003366;
+      color: white;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    .btn {
+      display:inline-block;
+      margin:6px;
+      padding:8px 14px;
+      border:none;
+      border-radius:10px;
+      background:#003366;
+      color:white;
+      font-weight:bold;
+      cursor:pointer;
+      font-size:0.9rem;
+    }
+    .btn:hover {background:gold; color:#003366;}
+    #resultBox {
+      background:#fff3cd;
+      border:2px solid gold;
+      border-radius:10px;
+      padding:10px;
+      margin:20px auto;
+      max-width:400px;
+      text-align:center;
+    }
+    ul {margin-top:6px;}
+  </style>
 </head>
 <body>
 <header>
   <div style="display:flex;align-items:center;gap:10px;">
-    <img src="logo.png" class="logo">
+    <img src="logo.png" class="logo" alt="AI Bayan logo">
     <div>
       <h1 style="margin:0;font-size:1rem;">Theme 1 — Let’s Have Fun!</h1>
       <p style="margin:0;color:#ffea99;">English with AI Bayan</p>
@@ -80,61 +85,122 @@
 
 <main>
   <h2>🎨 Let’s Have Fun!</h2>
-  <p style="font-style:italic;">Games, hobbies and free time</p>
+  <p style="font-style:italic;">Games, hobbies and free time activities</p>
 
   <!-- Vocabulary -->
   <section>
-    <h3>🧠 Vocabulary</h3>
+    <h3>🧠 VOCABULARY — Fun activities</h3>
+    <p><b>1. Look and say.</b> Read the words and repeat them.</p>
     <ul>
-      <li>play games — играть в игры</li>
-      <li>draw — рисовать</li>
-      <li>dance — танцевать</li>
-      <li>listen to music — слушать музыку</li>
-      <li>read books — читать книги</li>
+      <li>play games</li>
+      <li>draw pictures</li>
+      <li>ride a bike</li>
+      <li>watch cartoons</li>
+      <li>listen to music</li>
+      <li>read comics</li>
+      <li>dance</li>
+      <li>play football</li>
     </ul>
-    <p><b>Task:</b> Translate each phrase into Russian.</p>
-    <button class="btn" onclick="addStar()">✅ Done</button>
+
+    <p><b>2. Tick ✔ your favourite activities.</b></p>
+    <p>Write in your notebook: “I like ...” with 3 activities.</p>
+
+    <p><b>3. Match.</b> In your notebook, match:</p>
+    <ul>
+      <li>a) ride &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1) music</li>
+      <li>b) listen to  2) pictures</li>
+      <li>c) draw &nbsp;&nbsp;&nbsp;&nbsp; 3) a bike</li>
+    </ul>
+
+    <button class="btn" onclick="addStar()">✅ Done (Vocabulary)</button>
   </section>
 
   <!-- Grammar -->
   <section>
-    <h3>📘 Grammar — Present Simple</h3>
-    <p><b>I play games.</b> / <b>She plays games.</b><br>
-       Add “-s” for he/she/it!</p>
-    <p><b>Task:</b> Complete:<br>
-      1) I ___ football every day.<br>
-      2) She ___ to music.</p>
-    <button class="btn" onclick="addStar()">✅ Done</button>
+    <h3>📘 GRAMMAR — I like / I don’t like</h3>
+    <p><b>1. Read.</b></p>
+    <p>
+      I like playing games. <br>
+      I like drawing pictures. <br>
+      I don’t like dancing. <br>
+      I don’t like reading comics.
+    </p>
+
+    <p><b>2. Choose.</b> Circle the correct words in your notebook.</p>
+    <p>
+      1) I <u>like / don’t like</u> watching cartoons. <br>
+      2) I <u>like / don’t like</u> playing football.
+    </p>
+
+    <p><b>3. Write.</b> Write 2 sentences about yourself:</p>
+    <p>“I like ...” and “I don’t like ...”</p>
+
+    <button class="btn" onclick="addStar()">✅ Done (Grammar)</button>
   </section>
 
   <!-- Listening -->
   <section>
-    <h3>🎧 Listening</h3>
-    <p>Listen and choose: What does he do after school? (🎧 coming soon)</p>
-    <button class="btn" onclick="addStar()">✅ Done</button>
+    <h3>🎧 LISTENING — What do they like?</h3>
+    <p><b>Teacher part:</b> Say or play 3–4 sentences, for example:</p>
+    <ul>
+      <li>“Hi! I’m Tom. I like playing football and I like riding my bike.”</li>
+      <li>“Hello! I’m Anna. I like drawing and watching cartoons.”</li>
+    </ul>
+
+    <p><b>Task:</b> Students listen and write in their notebook:</p>
+    <p>“Tom: football, ride a bike” / “Anna: draw, watch cartoons”</p>
+
+    <button class="btn" onclick="addStar()">✅ Done (Listening)</button>
   </section>
 
   <!-- Reading -->
   <section>
-    <h3>📖 Reading</h3>
-    <p>Tom likes to play games and listen to music. He doesn’t like to draw. His friend Anna likes dancing.</p>
-    <p><b>Task:</b> What do Tom and Anna like?</p>
-    <button class="btn" onclick="addStar()">✅ Done</button>
+    <h3>📖 READING — After-school fun</h3>
+    <p><b>1. Read the text.</b></p>
+    <p>
+      After school, Sam goes home and does his homework.  
+      Then he plays games on the computer and listens to music.  
+      His sister, Aida, likes drawing pictures and reading comics.  
+      In the evening, they watch cartoons together.
+    </p>
+
+    <p><b>2. Answer the questions.</b> (in your notebook)</p>
+    <ol>
+      <li>What does Sam do after school?</li>
+      <li>What does Aida like doing?</li>
+      <li>What do they do in the evening?</li>
+    </ol>
+
+    <button class="btn" onclick="addStar()">✅ Done (Reading)</button>
   </section>
 
   <!-- Speaking -->
   <section>
-    <h3>🗣️ Speaking</h3>
-    <p>Say: “I like to dance.” / “I don’t like to read books.” 🎤</p>
-    <button class="btn" onclick="addStar()">✅ Done</button>
+    <h3>🗣️ SPEAKING — Let’s talk</h3>
+    <p><b>1. Practice with a partner.</b></p>
+    <p>Use the model:</p>
+    <p>
+      A: What do you like doing? <br>
+      B: I like (playing games / drawing / riding my bike).
+    </p>
+
+    <p><b>2. Say 3 sentences about yourself.</b></p>
+    <p>“I like ... / I like ... / I don’t like ...”</p>
+
+    <button class="btn" onclick="addStar()">✅ Done (Speaking)</button>
   </section>
 
   <!-- Writing -->
   <section>
-    <h3>✍️ Writing</h3>
-    <p>Write 3 sentences about your hobbies:</p>
-    <p>Example: I like to draw. I play games with my friends.</p>
-    <button class="btn" onclick="addStar()">✅ Done</button>
+    <h3>✍️ WRITING — My fun time</h3>
+    <p><b>1. Plan.</b> Choose 3–4 activities you like.</p>
+    <p><b>2. Write.</b> In your notebook, write a short text (3–4 sentences):</p>
+    <p>
+      Example: “After school I play games and watch cartoons.  
+      At the weekend I ride my bike. I don’t like dancing.”
+    </p>
+
+    <button class="btn" onclick="addStar()">✅ Done (Writing)</button>
   </section>
 
   <!-- Result -->
@@ -149,21 +215,23 @@
     <button class="btn" onclick="goMenu()">🏠 Menu</button>
     <button class="btn" onclick="goNext()">Next ➡️</button>
   </div>
+  <p style="font-size:0.8rem;color:#444;margin-top:10px;">Created by Bayan team</p>
 </main>
 
 <script>
-let stars = 0;
-function addStar(){
-  stars++;
-  document.getElementById('starsText').innerText = "You have " + stars + " ⭐ for this lesson.";
-}
-function finishLesson(){
-  alert("🎉 Great job! You got " + stars + "⭐ in this lesson!");
-  localStorage.setItem("lesson1Stars", stars);
-}
-function goBack(){window.location.href="index.html";}
-function goMenu(){window.location.href="index.html";}
-function goNext(){window.location.href="theme2.html";}
+  let stars = 0;
+  function addStar(){
+    stars++;
+    document.getElementById('starsText').innerText =
+      "You have " + stars + " ⭐ for this lesson.";
+  }
+  function finishLesson(){
+    alert("🎉 Great job! You got " + stars + "⭐ in this lesson!");
+    localStorage.setItem("lesson1Stars", stars);
+  }
+  function goBack(){window.location.href="index.html";}
+  function goMenu(){window.location.href="index.html";}
+  function goNext(){window.location.href="theme2.html";}
 </script>
 </body>
 </html>
