@@ -1,180 +1,677 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Theme 3 — Sports Around the World</title>
-<style>
-  body {
-    font-family: Verdana, sans-serif;
-    background: linear-gradient(180deg,#fff6e5 0%,#f3e0b8 100%);
-    margin: 0;
-    color: #002b5c;
-    text-align: center;
-  }
-  header {
-    background: linear-gradient(90deg,#003366,#004b99);
-    color: white;
-    padding: 0.6rem 1rem;
-    border-bottom: 5px solid gold;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .logo {
-    width: 55px; height: 55px;
-    border-radius: 50%;
-    border: 3px solid gold;
-    object-fit: cover;
-    background: white;
-  }
-  h2 {color:#003366;}
-  section {
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    padding: 15px;
-    max-width: 800px;
-    margin: 15px auto;
-    text-align: left;
-    line-height: 1.5;
-  }
-  h3 {
-    background: #003366;
-    color: white;
-    padding: 6px 10px;
-    border-radius: 8px;
-  }
-  .btn {
-    display:inline-block;
-    margin:6px;
-    padding:8px 14px;
-    border:none;
-    border-radius:10px;
-    background:#003366;
-    color:white;
-    font-weight:bold;
-    cursor:pointer;
-  }
-  .btn:hover {background:gold; color:#003366;}
-  #resultBox {
-    background:#fff3cd;
-    border:2px solid gold;
-    border-radius:10px;
-    padding:10px;
-    margin:20px auto;
-    max-width:400px;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theme 3 — Sports Around the World</title>
+  <style>
+    body {
+      font-family: Verdana, sans-serif;
+      background: linear-gradient(180deg,#e7f4ff 0%,#c9e0ff 100%);
+      margin: 0;
+      color: #002b5c;
+      text-align: center;
+    }
+    header {
+      background: linear-gradient(90deg,#003366,#0055aa);
+      color: white;
+      padding: 0.6rem 1rem;
+      border-bottom: 5px solid #7ad0ff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      width: 55px; height: 55px;
+      border-radius: 50%;
+      border: 3px solid #7ad0ff;
+      object-fit: cover;
+      background: white;
+    }
+    h2 {color:#003366;}
+    section {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 15px;
+      max-width: 800px;
+      margin: 15px auto;
+      text-align: left;
+      line-height: 1.5;
+      font-size: 0.95rem;
+    }
+    h3 {
+      background: #003366;
+      color: white;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    .btn {
+      display:inline-block;
+      margin:6px;
+      padding:8px 14px;
+      border:none;
+      border-radius:10px;
+      background:#003366;
+      color:white;
+      font-weight:bold;
+      cursor:pointer;
+      font-size:0.9rem;
+    }
+    .btn:hover {background:#7ad0ff; color:#003366;}
+    textarea {
+      width:100%;
+      border-radius:10px;
+      border:1px solid #ccc;
+      padding:6px;
+      font-family:inherit;
+      font-size:0.9rem;
+    }
+    input[type="text"] {
+      width:100%;
+      max-width:380px;
+      border-radius:8px;
+      border:1px solid #ccc;
+      padding:4px 6px;
+      font-family:inherit;
+      font-size:0.9rem;
+    }
+    select {
+      border-radius:8px;
+      padding:2px 4px;
+      font-size:0.9rem;
+    }
+  </style>
 </head>
 <body>
 <header>
   <div style="display:flex;align-items:center;gap:10px;">
-    <img src="logo.png" class="logo">
+    <img src="logo.png" class="logo" alt="AI Bayan logo">
     <div>
       <h1 style="margin:0;font-size:1rem;">Theme 3 — Sports Around the World</h1>
-      <p style="margin:0;color:#ffea99;">English with AI Bayan</p>
+      <p style="margin:0;color:#d9f4ff;">English with AI Bayan</p>
     </div>
   </div>
 </header>
 
 <main>
   <h2>🌍 Sports Around the World</h2>
-  <p style="font-style:italic;">Learn about famous sports in different countries!</p>
+  <p style="font-style:italic;">Ice hockey, table tennis, ice skating and more</p>
+  <p id="lessonStarsLine"><b>You have 0 ⭐ in this lesson.</b></p>
 
-  <!-- Vocabulary -->
+  <!-- ========== VOCABULARY (sports & equipment) ========== -->
   <section>
-    <h3>🧠 Vocabulary</h3>
+    <h3>🧠 VOCABULARY — Sports and equipment</h3>
+
+    <p><b>AI Bayan говорит предложение. Ребёнок выбирает правильный перевод на русский.</b></p>
+
+    <!-- Q1 -->
+    <p>1) AI Bayan:
+      <button class="btn" onclick="speakVocab('Alex plays ice hockey in Canada.')">▶ Play</button>
+      <button class="btn" onclick="stopBayan()">⏹ Stop</button>
+    </p>
+    <p>Choose the correct translation:</p>
+    <label><input type="radio" name="v1" value="1"> Алекс играет в хоккей с шайбой в Канаде.</label><br>
+    <label><input type="radio" name="v1" value="0"> Алекс играет в теннис в Канаде.</label><br>
+    <label><input type="radio" name="v1" value="0"> Алекс играет в футбол в Казахстане.</label><br>
+
+    <!-- Q2 -->
+    <p>2) AI Bayan:
+      <button class="btn" onclick="speakVocab('Lee plays table tennis with his friends.')">▶ Play</button>
+      <button class="btn" onclick="stopBayan()">⏹ Stop</button>
+    </p>
+    <p>Choose the correct translation:</p>
+    <label><input type="radio" name="v2" value="0"> Ли катается на коньках со своими друзьями.</label><br>
+    <label><input type="radio" name="v2" value="1"> Ли играет в настольный теннис со своими друзьями.</label><br>
+    <label><input type="radio" name="v2" value="0"> Ли бегает с друзьями по утрам.</label><br>
+
+    <!-- Q3 -->
+    <p>3) AI Bayan:
+      <button class="btn" onclick="speakVocab('Oraz goes ice skating at Medeu Ice Rink.')">▶ Play</button>
+      <button class="btn" onclick="stopBayan()">⏹ Stop</button>
+    </p>
+    <p>Choose the correct translation:</p>
+    <label><input type="radio" name="v3" value="0"> Ораз играет в баскетбол на Медеу.</label><br>
+    <label><input type="radio" name="v3" value="1"> Ораз катается на коньках на катке Медеу.</label><br>
+    <label><input type="radio" name="v3" value="0"> Ораз плавает в бассейне Медеу.</label><br>
+
+    <!-- Q4 -->
+    <p>4) AI Bayan:
+      <button class="btn" onclick="speakVocab('They play basketball at the weekend.')">▶ Play</button>
+      <button class="btn" onclick="stopBayan()">⏹ Stop</button>
+    </p>
+    <p>Choose the correct translation:</p>
+    <label><input type="radio" name="v4" value="1"> Они играют в баскетбол по выходным.</label><br>
+    <label><input type="radio" name="v4" value="0"> Они плавают по выходным.</label><br>
+    <label><input type="radio" name="v4" value="0"> Они бегают по выходным.</label><br>
+
+    <!-- Q5 -->
+    <p>5) AI Bayan:
+      <button class="btn" onclick="speakVocab('Ice hockey players wear helmets and gloves.')">▶ Play</button>
+      <button class="btn" onclick="stopBayan()">⏹ Stop</button>
+    </p>
+    <p>Choose the correct translation:</p>
+    <label><input type="radio" name="v5" value="1"> Игроки в хоккей носят шлемы и перчатки.</label><br>
+    <label><input type="radio" name="v5" value="0"> Игроки в хоккей носят кепки и очки.</label><br>
+    <label><input type="radio" name="v5" value="0"> Игроки в хоккей носят плавки и очки.</label><br>
+
+    <!-- Q6 -->
+    <p>6) AI Bayan:
+      <button class="btn" onclick="speakVocab('She has a gold medal from the race.')">▶ Play</button>
+      <button class="btn" onclick="stopBayan()">⏹ Stop</button>
+    </p>
+    <p>Choose the correct translation:</p>
+    <label><input type="radio" name="v6" value="0"> У неё есть золотой мяч с соревнований.</label><br>
+    <label><input type="radio" name="v6" value="1"> У неё есть золотая медаль с забега.</label><br>
+    <label><input type="radio" name="v6" value="0"> У неё есть серебряный шлем с забега.</label><br>
+
+    <button class="btn" onclick="checkVocab()">Check ✅</button>
+    <div id="vocabStars" style="font-size:1.1rem;margin-top:8px;"></div>
+  </section>
+
+  <!-- ========== GRAMMAR (Present Simple, negatives, Let's, enjoy) ========== -->
+  <section>
+    <h3>📘 GRAMMAR — Present Simple & Let’s</h3>
+
+    <p><b>1. Present Simple (habits):</b></p>
+    <p>
+      We use <b>Present Simple</b> to talk about habits and things we do regularly.<br>
+      I play table tennis. / He plays ice hockey. / They don’t go ice skating.
+    </p>
+
+    <p><b>Choose the correct form:</b></p>
+
+    <p>1) I ___ play basketball every day.</p>
+    <label><input type="radio" name="q1" value="dont"> don’t</label><br>
+    <label><input type="radio" name="q1" value="doesnt"> doesn’t</label><br>
+
+    <p>2) He ___ play table tennis on Mondays.</p>
+    <label><input type="radio" name="q2" value="dont"> don’t</label><br>
+    <label><input type="radio" name="q2" value="doesnt"> doesn’t</label><br>
+
+    <p>3) They ___ like playing ice hockey.</p>
+    <label><input type="radio" name="q3" value="dont"> don’t</label><br>
+    <label><input type="radio" name="q3" value="doesnt"> doesn’t</label><br>
+
+    <hr>
+
+    <p><b>2. Let’s + verb (suggestions):</b></p>
+    <p>We say <b>Let’s + verb</b> to make a suggestion.</p>
+    <p>4) “___ go ice skating at the weekend!”</p>
+    <label><input type="radio" name="q4" value="lets"> Let’s</label><br>
+    <label><input type="radio" name="q4" value="we"> We</label><br>
+
+    <hr>
+
+    <p><b>3. enjoy / don’t like + verb-ing:</b></p>
+    <p>5) “I ___ playing table tennis with my friends.”</p>
+    <label><input type="radio" name="q5" value="enjoy"> enjoy</label><br>
+    <label><input type="radio" name="q5" value="dont like"> don’t like</label><br>
+
+    <button class="btn" onclick="checkGrammar()">Check ✅</button>
+    <div id="grammarStars" style="font-size:1.1rem;margin-top:8px;"></div>
+
+    <p><b>4. Write your own sentence:</b> (practice)</p>
+    <p>Example: I don’t play ice hockey, but I enjoy playing basketball.</p>
+    <input id="writeGrammar" type="text" placeholder="Type your sentence here...">
+  </section>
+
+  <!-- ========== LISTENING (Alex, Jim, Oraz, Lee) ========== -->
+  <section>
+    <h3>🎧 LISTENING — Friends around the world</h3>
+
+    <p><b>1. Listen to AI Bayan:</b></p>
+    <button class="btn" onclick="bayanListening()">▶ Play</button>
+    <button class="btn" onclick="stopBayan()">⏹ Stop</button>
+
+    <p style="margin-top:8px;font-size:0.9rem;color:#444;">
+      (Teacher note: по мотивам SB — Alex, Jim, Oraz, Lee и их виды спорта.)
+    </p>
+
+    <p><b>2. True or False?</b></p>
+
+    <p>1) Alex plays ice hockey.</p>
+    <select id="t1">
+      <option>—</option><option>True</option><option>False</option>
+    </select>
+
+    <p>2) Lee plays ice hockey.</p>
+    <select id="t2">
+      <option>—</option><option>True</option><option>False</option>
+    </select>
+
+    <p>3) Oraz goes ice skating at the weekend.</p>
+    <select id="t3">
+      <option>—</option><option>True</option><option>False</option>
+    </select>
+
+    <button class="btn" onclick="checkListening()">Check ✅</button>
+    <div id="listenStars" style="font-size:1.1rem;margin-top:8px;"></div>
+  </section>
+
+  <!-- ========== READING (short text about sports around the world) ========== -->
+  <section>
+    <h3>📖 READING — Sports in different countries</h3>
+
+    <p><b>1. Read or listen:</b></p>
+    <button class="btn" onclick="bayanReading()">▶ Play</button>
+    <button class="btn" onclick="stopBayan()">⏹ Stop</button>
+
+    <div style="margin-top:10px; background:#e9fff4; border-radius:10px; padding:10px;">
+      <p>
+        People around the world love different sports.  
+        In Canada, many children play ice hockey and go ice skating.  
+        In Kazakhstan, children like going to Medeu Ice Rink and playing basketball at school.  
+        In some countries, children enjoy playing table tennis and football after school.  
+        Sports help us make friends and stay healthy.
+      </p>
+    </div>
+
+    <p><b>2. Answer the questions:</b></p>
+    <ol>
+      <li>What sport do many children play in Canada?<br>
+        <input id="r1" type="text" placeholder="Your answer..."></li><br>
+      <li>What do children in Kazakhstan like doing?<br>
+        <input id="r2" type="text" placeholder="Your answer..."></li><br>
+      <li>Why are sports good for us?<br>
+        <input id="r3" type="text" placeholder="Your answer..."></li>
+    </ol>
+
+    <button class="btn" onclick="checkReading()">Check ✅</button>
+    <div id="readStars" style="font-size:1.1rem;margin-top:8px;"></div>
+  </section>
+
+  <!-- ========== SPEAKING ========== -->
+  <section>
+    <h3>🗣️ SPEAKING — Talk about sports around the world</h3>
+
+    <p><b>1. Listen to questions:</b></p>
+    <button class="btn" onclick="bayanSpeaking()">▶ Play</button>
+    <button class="btn" onclick="stopBayan()">⏹ Stop</button>
+
+    <p style="margin-top:8px;"><b>Questions:</b></p>
     <ul>
-      <li>football (soccer) — футбол</li>
-      <li>baseball — бейсбол</li>
-      <li>hockey — хоккей</li>
-      <li>cricket — крикет</li>
-      <li>sumo wrestling — сумо</li>
+      <li>What sports do you like playing?</li>
+      <li>Do you know any sports from other countries?</li>
+      <li>Would you like to go ice skating at Medeu?</li>
     </ul>
-    <p><b>Task:</b> Match each sport with the country where it is popular.</p>
-    <ul>
-      <li>Japan → ?</li>
-      <li>USA → ?</li>
-      <li>England → ?</li>
-    </ul>
-    <button class="btn" onclick="addStar()">✅ Done</button>
+
+    <p><b>2. Answer into the microphone:</b></p>
+    <button class="btn" onclick="startSpeak()">🎙 Start recording</button>
+    <button class="btn" onclick="stopSpeak()">⏹ Stop</button>
+
+    <div id="speakStars" style="font-size:1.1rem;margin-top:10px;"></div>
   </section>
 
-  <!-- Grammar -->
+  <!-- ========== WRITING (перевод + диктант) ========== -->
   <section>
-    <h3>📘 Grammar — Present Simple (Facts)</h3>
-    <p><b>We use Present Simple to talk about facts:</b><br>
-       People <b>play</b> football in many countries.<br>
-       Japan <b>has</b> many sumo wrestlers.</p>
-    <p><b>Task:</b> Complete the sentences:<br>
-      1) People ___ hockey in Canada.<br>
-      2) Kids in England ___ cricket.</p>
-    <button class="btn" onclick="addStar()">✅ Done</button>
+    <h3>✍️ WRITING — Translation & Dictation</h3>
+
+    <p><b>A. Translate into English:</b></p>
+    <p>1) Я не играю в хоккей с шайбой каждый день.</p>
+    <textarea id="w1" rows="2" placeholder="Your translation..."></textarea>
+
+    <p>2) Он не играет в настольный теннис по понедельникам.</p>
+    <textarea id="w2" rows="2" placeholder="Your translation..."></textarea>
+
+    <p>3) Давай пойдём кататься на коньках в эти выходные!</p>
+    <textarea id="w3" rows="2" placeholder="Your translation..."></textarea>
+
+    <button class="btn" onclick="checkWritingTranslate()">Check translation ✅</button>
+    <div id="writeTransStars" style="font-size:1.1rem;margin-top:6px;"></div>
+
+    <hr>
+
+    <p><b>B. Dictation by AI Bayan:</b></p>
+    <p>Listen and write the text. Pay attention to punctuation.</p>
+    <button class="btn" onclick="bayanWords()">▶ Words</button>
+    <button class="btn" onclick="bayanDictation()">▶ Text</button>
+    <button class="btn" onclick="stopBayan()">⏹ Stop</button>
+
+    <p style="margin-top:6px;font-size:0.85rem;color:#444;">
+      (Short dictation about sports around the world.)
+    </p>
+
+    <textarea id="writeBox" rows="5" placeholder="Write the text here..."></textarea><br>
+    <button class="btn" onclick="checkDictation()">Check dictation ✅</button>
+    <div id="dictStars" style="font-size:1.1rem;margin-top:6px;"></div>
   </section>
 
-  <!-- Listening -->
-  <section>
-    <h3>🎧 Listening</h3>
-    <p>Listen: “In Brazil, children love playing football.”  
-       What sport do they like? ⚽</p>
-    <button class="btn" onclick="addStar()">✅ Done</button>
+  <!-- ========== LESSON RESULT ========== -->
+  <section style="text-align:center;margin-top:25px;">
+    <h3>🎯 Lesson Complete!</h3>
+    <p>You have earned <b><span id="finalStars">0</span> ⭐</b> in this lesson.</p>
+
+    <button class="btn" onclick="finishLesson()">Save & Show Result ✅</button>
+
+    <div id="finalMessage" style="margin-top:10px;font-size:1.1rem;color:#003366;"></div>
+
+    <div style="margin-top:18px;">
+      <button class="btn" onclick="goBack()">⬅ Back</button>
+      <button class="btn" onclick="goMenu()">🏠 Main Menu</button>
+      <button class="btn" onclick="goNext()">Next ➡️</button>
+    </div>
   </section>
 
-  <!-- Reading -->
-  <section>
-    <h3>📖 Reading</h3>
-    <p>People around the world love different sports.  
-       In England, people play cricket.  
-       In Japan, sumo wrestling is very popular.  
-       In Canada, many people play hockey on ice.</p>
-    <p><b>Task:</b> What sports are popular in England, Japan and Canada?</p>
-    <button class="btn" onclick="addStar()">✅ Done</button>
-  </section>
-
-  <!-- Speaking -->
-  <section>
-    <h3>🗣️ Speaking</h3>
-    <p>Say: “People play football in my country.” / “In Japan, people like sumo.” 🎤</p>
-    <button class="btn" onclick="addStar()">✅ Done</button>
-  </section>
-
-  <!-- Writing -->
-  <section>
-    <h3>✍️ Writing</h3>
-    <p>Write 3 sentences about popular sports in your country:</p>
-    <p>Example: People in Kazakhstan play football and volleyball. They like running and skating.</p>
-    <button class="btn" onclick="addStar()">✅ Done</button>
-  </section>
-
-  <!-- Result -->
-  <div id="resultBox">
-    <h3>🎯 Lesson Complete</h3>
-    <p id="starsText">You have 0 ⭐ for this lesson.</p>
-    <button class="btn" onclick="finishLesson()">Finish Lesson</button>
-  </div>
-
-  <div style="margin-top:16px;">
-    <button class="btn" onclick="goBack()">⬅ Back</button>
-    <button class="btn" onclick="goMenu()">🏠 Menu</button>
-    <button class="btn" onclick="goNext()">Next ➡️</button>
-  </div>
-  <p style="font-size:0.8rem;color:#444;margin-top:10px;">Created by Bayan team</p>
+  <p style="font-size:0.8rem;color:#444;margin-top:10px;text-align:center;">
+    Created by Bayan team
+  </p>
 </main>
 
 <script>
-let stars = 0;
-function addStar(){
-  stars++;
-  document.getElementById('starsText').innerText = "You have " + stars + " ⭐ for this lesson.";
-}
-function finishLesson(){
-  alert("🎉 Great job! You got " + stars + "⭐ in this lesson!");
-  localStorage.setItem("lesson3Stars", stars);
-}
-function goBack(){window.location.href="theme2.html";}
-function goMenu(){window.location.href="index.html";}
-function goNext(){window.location.href="theme4.html";}
+  // ОБЩИЙ СЧЁТ ЗВЁЗД (без лимита)
+  let totalStars = 0;
+  function addStar() {
+    totalStars++;
+    updateStarsText();
+  }
+  function updateStarsText(){
+    document.getElementById('lessonStarsLine').innerText =
+      "You have " + totalStars + " ⭐ in this lesson.";
+    const fs = document.getElementById('finalStars');
+    if(fs) fs.innerText = totalStars;
+  }
+
+  // Флаги — чтобы за один и тот же ответ не начислять звезду повторно
+  const scored = {
+    v1:false, v2:false, v3:false, v4:false, v5:false, v6:false,
+    g1:false, g2:false, g3:false, g4:false, g5:false,
+    l1:false, l2:false, l3:false,
+    r1:false, r2:false, r3:false,
+    w1:false, w2:false, w3:false,
+    dict:false
+  };
+
+  // ---------- TTS (AI Bayan voice) ----------
+  function speakBayanText(text){
+    if(!('speechSynthesis' in window)){
+      alert("Ваш браузер не поддерживает озвучку 😔");
+      return;
+    }
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang = "en-US";
+    utter.rate = 0.9;
+    utter.pitch = 1.05;
+    utter.volume = 1;
+    const voices = speechSynthesis.getVoices();
+    const femaleEn = voices.find(v => v.lang.includes("en") && v.name.toLowerCase().includes("female"));
+    if(femaleEn) utter.voice = femaleEn;
+    speechSynthesis.speak(utter);
+  }
+
+  function stopBayan(){
+    window.speechSynthesis.cancel();
+  }
+
+  // ---------- VOCABULARY ----------
+  function speakVocab(text){
+    speakBayanText(text);
+  }
+
+  function checkVocab(){
+    let starsHere = 0;
+
+    const q1 = document.querySelector('input[name="v1"]:checked');
+    if(q1 && q1.value === "1" && !scored.v1){ scored.v1=true; addStar(); starsHere++; }
+    const q2 = document.querySelector('input[name="v2"]:checked');
+    if(q2 && q2.value === "1" && !scored.v2){ scored.v2=true; addStar(); starsHere++; }
+    const q3 = document.querySelector('input[name="v3"]:checked');
+    if(q3 && q3.value === "1" && !scored.v3){ scored.v3=true; addStar(); starsHere++; }
+    const q4 = document.querySelector('input[name="v4"]:checked');
+    if(q4 && q4.value === "1" && !scored.v4){ scored.v4=true; addStar(); starsHere++; }
+    const q5 = document.querySelector('input[name="v5"]:checked');
+    if(q5 && q5.value === "1" && !scored.v5){ scored.v5=true; addStar(); starsHere++; }
+    const q6 = document.querySelector('input[name="v6"]:checked');
+    if(q6 && q6.value === "1" && !scored.v6){ scored.v6=true; addStar(); starsHere++; }
+
+    const box = document.getElementById('vocabStars');
+    if(starsHere > 0){
+      box.innerHTML = "⭐ +" + starsHere + " vocabulary stars!";
+    } else {
+      box.innerHTML = "No new stars. Check answers or you already got them.";
+    }
+  }
+
+  // ---------- GRAMMAR ----------
+  function checkGrammar(){
+    let starsHere = 0;
+
+    const q1 = document.querySelector('input[name="q1"]:checked');
+    if(q1 && q1.value === "dont" && !scored.g1){ scored.g1=true; addStar(); starsHere++; }
+
+    const q2 = document.querySelector('input[name="q2"]:checked');
+    if(q2 && q2.value === "doesnt" && !scored.g2){ scored.g2=true; addStar(); starsHere++; }
+
+    const q3 = document.querySelector('input[name="q3"]:checked');
+    if(q3 && q3.value === "dont" && !scored.g3){ scored.g3=true; addStar(); starsHere++; }
+
+    const q4 = document.querySelector('input[name="q4"]:checked');
+    if(q4 && q4.value === "lets" && !scored.g4){ scored.g4=true; addStar(); starsHere++; }
+
+    const q5 = document.querySelector('input[name="q5"]:checked');
+    if(q5 && q5.value === "enjoy" && !scored.g5){ scored.g5=true; addStar(); starsHere++; }
+
+    const box = document.getElementById('grammarStars');
+    if(starsHere > 0){
+      box.innerHTML = "⭐ +" + starsHere + " grammar stars!";
+    } else {
+      box.innerHTML = "No new stars. Check again or you already got them.";
+    }
+  }
+
+  // ---------- LISTENING ----------
+  function bayanListening(){
+    const t = "Hello, I am Alex. I play ice hockey in Canada. " +
+              "My friend Jim plays ice hockey too. We wear helmets, gloves and ice skates. " +
+              "Lee plays table tennis with his friends. " +
+              "Oraz goes ice skating at the weekend at Medeu Ice Rink in Kazakhstan.";
+    speakBayanText(t);
+  }
+
+  function checkListening(){
+    let starsHere = 0;
+
+    if(document.getElementById('t1').value === 'True' && !scored.l1){
+      scored.l1 = true; addStar(); starsHere++;
+    }
+    if(document.getElementById('t2').value === 'False' && !scored.l2){
+      scored.l2 = true; addStar(); starsHere++;
+    }
+    if(document.getElementById('t3').value === 'True' && !scored.l3){
+      scored.l3 = true; addStar(); starsHere++;
+    }
+
+    const box = document.getElementById('listenStars');
+    if(starsHere > 0){
+      box.innerHTML = "⭐ +" + starsHere + " listening stars!";
+    } else {
+      box.innerHTML = "No new stars. Check your answers.";
+    }
+  }
+
+  // ---------- READING ----------
+  function bayanReading(){
+    const t =
+      "People around the world love different sports. " +
+      "In Canada, many children play ice hockey and go ice skating. " +
+      "In Kazakhstan, children like going to Medeu Ice Rink and playing basketball at school. " +
+      "In some countries, children enjoy playing table tennis and football after school. " +
+      "Sports help us make friends and stay healthy.";
+    speakBayanText(t);
+  }
+
+  function checkReading(){
+    let starsHere = 0;
+    const a1 = document.getElementById('r1').value.toLowerCase();
+    const a2 = document.getElementById('r2').value.toLowerCase();
+    const a3 = document.getElementById('r3').value.toLowerCase();
+
+    if(!scored.r1 && (a1.includes("ice hockey") || a1.includes("hockey"))){
+      scored.r1 = true; addStar(); starsHere++;
+    }
+    if(!scored.r2 && (a2.includes("medeu") || a2.includes("ice rink") || a2.includes("basketball"))){
+      scored.r2 = true; addStar(); starsHere++;
+    }
+    if(!scored.r3 && (a3.includes("friends") || a3.includes("healthy") || a3.includes("health"))){
+      scored.r3 = true; addStar(); starsHere++;
+    }
+
+    const box = document.getElementById('readStars');
+    if(starsHere > 0){
+      box.innerHTML = "⭐ +" + starsHere + " reading stars!";
+    } else {
+      box.innerHTML = "No new stars. Check answers or you already got them.";
+    }
+  }
+
+  // ---------- SPEAKING ----------
+  let recognition;
+  function bayanSpeaking(){
+    const t = "Now let's talk about sports around the world. " +
+              "What sports do you like playing? " +
+              "Do you know any sports from other countries? " +
+              "Would you like to go ice skating at Medeu?";
+    speakBayanText(t);
+  }
+
+  function startSpeak(){
+    if(!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)){
+      alert("Speech recognition is not supported in this browser.");
+      return;
+    }
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    recognition = new SR();
+    recognition.lang = "en-US";
+    recognition.onresult = function(event){
+      const speech = event.results[0][0].transcript.toLowerCase();
+      let starsHere = 0;
+      if(
+        speech.includes("football") || speech.includes("volleyball") ||
+        speech.includes("basketball") || speech.includes("ice hockey") ||
+        speech.includes("hockey") || speech.includes("table tennis") ||
+        speech.includes("ice skating") || speech.includes("medeu") ||
+        speech.includes("canada") || speech.includes("kazakhstan")
+      ){
+        addStar();
+        starsHere++;
+      }
+      const box = document.getElementById('speakStars');
+      if(starsHere > 0){
+        box.innerHTML = "⭐ +" + starsHere + " speaking star!<br>You said: " + speech;
+      } else {
+        box.innerHTML = "You said: " + speech + "<br>Try to use words like: ice hockey, table tennis, ice skating, Medeu...";
+      }
+    };
+    recognition.start();
+  }
+
+  function stopSpeak(){
+    if(recognition) recognition.stop();
+  }
+
+  // ---------- WRITING: TRANSLATION ----------
+  function checkWritingTranslate(){
+    let starsHere = 0;
+    const a1 = document.getElementById('w1').value.toLowerCase();
+    const a2 = document.getElementById('w2').value.toLowerCase();
+    const a3 = document.getElementById('w3').value.toLowerCase();
+
+    if(!scored.w1 && a1.includes("i") && a1.includes("don't") && a1.includes("play") &&
+       (a1.includes("ice hockey") || a1.includes("hockey")) && a1.includes("every day")){
+      scored.w1 = true; addStar(); starsHere++;
+    }
+    if(!scored.w2 && (a2.includes("he") || a2.includes("he does not") || a2.includes("he doesn't")) &&
+       a2.includes("doesn't") && a2.includes("play") &&
+       (a2.includes("table tennis") || a2.includes("table-tennis")) &&
+       a2.includes("on mondays")){
+      scored.w2 = true; addStar(); starsHere++;
+    }
+    if(!scored.w3 && (a3.includes("let's") || a3.includes("lets")) &&
+       (a3.includes("go") && (a3.includes("ice skating") || a3.includes("skating"))) &&
+       (a3.includes("this weekend") || a3.includes("at the weekend"))){
+      scored.w3 = true; addStar(); starsHere++;
+    }
+
+    const box = document.getElementById('writeTransStars');
+    if(starsHere > 0){
+      box.innerHTML = "⭐ +" + starsHere + " translation stars!";
+    } else {
+      box.innerHTML = "No new stars. Check your sentences or you already got them.";
+    }
+  }
+
+  // ---------- WRITING: DICTATION ----------
+  function bayanWords(){
+    const t = "ice hockey, table tennis, ice skating, basketball, medal, helmet, gloves.";
+    speakBayanText(t);
+  }
+
+  function bayanDictation(){
+    const t = "Around the world, children play many sports. " +
+              "Some children play ice hockey and wear helmets and gloves. " +
+              "Others enjoy playing table tennis, basketball and football. " +
+              "Sports are fun and they help us stay healthy.";
+    speakBayanText(t);
+  }
+
+  function checkDictation(){
+    const text = document.getElementById("writeBox").value.toLowerCase();
+    const keywords = ["ice hockey","table tennis","basketball","helmet","gloves","healthy","sports"];
+    let found = 0;
+    for(const w of keywords){
+      if(text.includes(w)) found++;
+    }
+    let punctuationOk = (text.split(".").length - 1) >= 2;
+
+    let starsHere = 0;
+    if(!scored.dict && found >= 5 && punctuationOk){
+      scored.dict = true;
+      addStar();
+      starsHere++;
+    }
+
+    const box = document.getElementById('dictStars');
+    if(starsHere > 0){
+      box.innerHTML = "⭐ +" + starsHere + " dictation star!";
+    } else if(found >= 4){
+      box.innerHTML = "Good, but check words and punctuation.";
+    } else {
+      box.innerHTML = "Listen again and try to write all key words with dots.";
+    }
+  }
+
+  // ---------- FINISH + NAVIGATION ----------
+  function finishLesson(){
+    document.getElementById("finalStars").innerText = totalStars;
+    let msg = "";
+    if(totalStars >= 20){
+      msg = "🌟🌟🌟 Amazing! World sport star!";
+    } else if(totalStars >= 12){
+      msg = "🌟🌟 Great job! Very active!";
+    } else if(totalStars >= 6){
+      msg = "🌟 Good start! Keep practicing!";
+    } else {
+      msg = "Keep going! Every star is progress!";
+    }
+    document.getElementById("finalMessage").innerText = msg;
+
+    const studentName = localStorage.getItem("studentName") || "Unknown Student";
+    const allResults = JSON.parse(localStorage.getItem("teacherJournal") || "{}");
+    allResults[studentName] = allResults[studentName] || {};
+    allResults[studentName]["Lesson 3"] = totalStars;
+    localStorage.setItem("teacherJournal", JSON.stringify(allResults));
+    localStorage.setItem("lesson3Stars", totalStars);
+
+    alert("Lesson 3 saved! " + studentName + " got " + totalStars + "⭐.");
+  }
+
+  function goBack(){ window.location.href = "index.html"; }
+  function goMenu(){ window.location.href = "index.html"; }
+  function goNext(){ window.location.href = "theme4.html"; }
+
+  // init
+  updateStarsText();
 </script>
 </body>
 </html>
