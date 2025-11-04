@@ -100,116 +100,171 @@
   <p style="font-style:italic;">Children playing, moving and having fun</p>
   <p id="lessonStarsLine"><b>You have 0 ⭐ in this lesson.</b></p>
 
-  <!-- ========== VOCABULARY (по картинке в парке) ========== -->
+  <!-- ========== VOCABULARY (sports words + park) ========== -->
   <section>
-    <h3>🧠 VOCABULARY — In the park</h3>
+    <h3>🧠 VOCABULARY — Sports and games</h3>
 
     <p><b>AI Bayan говорит предложение. Ребёнок выбирает правильный перевод.</b></p>
 
     <!-- Q1 -->
     <p>1) AI Bayan:
+      <button class="btn" onclick="speakVocab('I like playing football.')">▶ Play</button>
+      <button class="btn" onclick="stopBayan()">⏹ Stop</button>
+    </p>
+    <p>Choose the correct translation:</p>
+    <label><input type="radio" name="v1" value="1"> Я люблю играть в футбол.</label><br>
+    <label><input type="radio" name="v1" value="0"> Я люблю смотреть фильмы.</label><br>
+    <label><input type="radio" name="v1" value="0"> Я люблю кататься на велосипеде.</label><br>
+
+    <!-- Q2 -->
+    <p>2) AI Bayan:
+      <button class="btn" onclick="speakVocab('She plays volleyball after school.')">▶ Play</button>
+      <button class="btn" onclick="stopBayan()">⏹ Stop</button>
+    </p>
+    <p>Choose the correct translation:</p>
+    <label><input type="radio" name="v2" value="0"> Она играет в теннис после школы.</label><br>
+    <label><input type="radio" name="v2" value="1"> Она играет в волейбол после школы.</label><br>
+    <label><input type="radio" name="v2" value="0"> Она плавает после школы.</label><br>
+
+    <!-- Q3 -->
+    <p>3) AI Bayan:
+      <button class="btn" onclick="speakVocab('We go swimming on Saturdays.')">▶ Play</button>
+      <button class="btn" onclick="stopBayan()">⏹ Stop</button>
+    </p>
+    <p>Choose the correct translation:</p>
+    <label><input type="radio" name="v3" value="0"> Мы играем в баскетбол по субботам.</label><br>
+    <label><input type="radio" name="v3" value="1"> Мы ходим плавать по субботам.</label><br>
+    <label><input type="radio" name="v3" value="0"> Мы бегаем по субботам.</label><br>
+
+    <!-- Q4 -->
+    <p>4) AI Bayan:
       <button class="btn" onclick="speakVocab('They are playing hide-and-seek in the park.')">▶ Play</button>
       <button class="btn" onclick="stopBayan()">⏹ Stop</button>
     </p>
     <p>Choose the correct translation:</p>
-    <label><input type="radio" name="v1" value="1"> Они играют в прятки в парке.</label><br>
-    <label><input type="radio" name="v1" value="0"> Они катаются на велосипедах в парке.</label><br>
-    <label><input type="radio" name="v1" value="0"> Они смотрят телевизор дома.</label><br>
+    <label><input type="radio" name="v4" value="1"> Они играют в прятки в парке.</label><br>
+    <label><input type="radio" name="v4" value="0"> Они катаются на коньках на катке.</label><br>
+    <label><input type="radio" name="v4" value="0"> Они играют в теннис в спортзале.</label><br>
 
-    <!-- Q2 -->
-    <p>2) AI Bayan:
+    <!-- Q5 -->
+    <p>5) AI Bayan:
       <button class="btn" onclick="speakVocab('Aliya is flying a kite.')">▶ Play</button>
       <button class="btn" onclick="stopBayan()">⏹ Stop</button>
     </p>
     <p>Choose the correct translation:</p>
-    <label><input type="radio" name="v2" value="0"> Алия ловит рыбу.</label><br>
-    <label><input type="radio" name="v2" value="1"> Алия запускает воздушного змея.</label><br>
-    <label><input type="radio" name="v2" value="0"> Алия играет в прятки.</label><br>
+    <label><input type="radio" name="v5" value="0"> Алия ловит рыбу.</label><br>
+    <label><input type="radio" name="v5" value="1"> Алия запускает воздушного змея.</label><br>
+    <label><input type="radio" name="v5" value="0"> Алия играет в баскетбол.</label><br>
 
-    <!-- Q3 -->
-    <p>3) AI Bayan:
-      <button class="btn" onclick="speakVocab('The boys are fishing in the lake.')">▶ Play</button>
+    <!-- Q6 -->
+    <p>6) AI Bayan:
+      <button class="btn" onclick="speakVocab('The boys are playing basketball in the gym.')">▶ Play</button>
       <button class="btn" onclick="stopBayan()">⏹ Stop</button>
     </p>
     <p>Choose the correct translation:</p>
-    <label><input type="radio" name="v3" value="0"> Мальчики играют в догонялки в парке.</label><br>
-    <label><input type="radio" name="v3" value="1"> Мальчики ловят рыбу на озере.</label><br>
-    <label><input type="radio" name="v3" value="0"> Мальчики рисуют картинки дома.</label><br>
+    <label><input type="radio" name="v6" value="1"> Мальчики играют в баскетбол в спортзале.</label><br>
+    <label><input type="radio" name="v6" value="0"> Мальчики играют в теннис на улице.</label><br>
+    <label><input type="radio" name="v6" value="0"> Мальчики плавают в бассейне.</label><br>
 
     <button class="btn" onclick="checkVocab()">Check ✅</button>
     <div id="vocabStars" style="font-size:1.1rem;margin-top:8px;"></div>
   </section>
 
-  <!-- ========== GRAMMAR (Present Continuous) ========== -->
+  <!-- ========== GRAMMAR (Present Continuous + pronouns) ========== -->
   <section>
-    <h3>📘 GRAMMAR — What are they doing?</h3>
+    <h3>📘 GRAMMAR — Present Continuous & Pronouns</h3>
 
-    <p><b>1. Read:</b></p>
+    <p><b>1. Present Continuous (what is happening now):</b></p>
     <p>
-      We use <b>am / is / are + verb-ing</b> to say what is happening now.<br>
-      She is flying a kite. / They are playing hide-and-seek.
+      <b>am / is / are + verb-ing</b><br>
+      I am running. / She is playing tennis. / They are swimming.
     </p>
 
-    <p><b>2. Choose the correct option:</b></p>
-    <p>1) He ___ fishing in the lake.</p>
+    <p><b>Choose the correct form:</b></p>
+    <p>1) He ___ playing tennis.</p>
     <label><input type="radio" name="q1" value="is"> is</label><br>
     <label><input type="radio" name="q1" value="are"> are</label><br>
 
-    <p>2) They ___ playing tag in the park.</p>
+    <p>2) They ___ playing football in the park.</p>
     <label><input type="radio" name="q2" value="is"> is</label><br>
     <label><input type="radio" name="q2" value="are"> are</label><br>
 
-    <p>3) Aliya ___ flying a kite.</p>
+    <p>3) I ___ going running in the morning.</p>
     <label><input type="radio" name="q3" value="am"> am</label><br>
     <label><input type="radio" name="q3" value="is"> is</label><br>
+
+    <hr>
+
+    <p><b>2. Subject / Object / Possessive Pronouns:</b></p>
+    <p>
+      <b>Subject pronouns:</b> I, you, he, she, it, we, they<br>
+      <b>Object pronouns:</b> me, you, him, her, it, us, them<br>
+      <b>Possessive adjectives:</b> my, your, his, her, our, their<br>
+      <b>Possessive pronouns:</b> mine, yours, his, hers, ours, theirs
+    </p>
+
+    <p><b>Choose the correct pronoun:</b></p>
+
+    <p>4) This is my brother. I play basketball with ___.</p>
+    <label><input type="radio" name="q4" value="him"> him</label><br>
+    <label><input type="radio" name="q4" value="he"> he</label><br>
+
+    <p>5) We have a new volleyball. It is ___ volleyball.</p>
+    <label><input type="radio" name="q5" value="our"> our</label><br>
+    <label><input type="radio" name="q5" value="ours"> ours</label><br>
+
+    <p>6) These skates are ___. (They belong to me.)</p>
+    <label><input type="radio" name="q6" value="my"> my</label><br>
+    <label><input type="radio" name="q6" value="mine"> mine</label><br>
+
+    <p>7) Aidos and Ali are friends. This ball is ___. (belongs to them)</p>
+    <label><input type="radio" name="q7" value="their"> their</label><br>
+    <label><input type="radio" name="q7" value="theirs"> theirs</label><br>
 
     <button class="btn" onclick="checkGrammar()">Check ✅</button>
     <div id="grammarStars" style="font-size:1.1rem;margin-top:8px;"></div>
 
     <p><b>3. Write your own sentence:</b> (practice)</p>
-    <p>Example: We are having fun in the park.</p>
+    <p>Example: This is my racket. It is mine.</p>
     <input id="writeGrammar" type="text" placeholder="Type your sentence here...">
   </section>
 
-  <!-- ========== LISTENING (по сцене в парке) ========== -->
+  <!-- ========== LISTENING (Best Friends / children & sports) ========== -->
   <section>
-    <h3>🎧 LISTENING — Children at the park</h3>
+    <h3>🎧 LISTENING — Friends and sports</h3>
 
     <p><b>1. Listen to AI Bayan:</b></p>
     <button class="btn" onclick="bayanListening()">▶ Play</button>
     <button class="btn" onclick="stopBayan()">⏹ Stop</button>
 
     <p style="margin-top:8px;font-size:0.9rem;color:#444;">
-      (Teacher note: based on the park picture — children playing hide-and-seek, flying a kite, fishing, playing tag, having fun.)
+      (Teacher note: текст по мотивам Student’s Book — дети и их виды спорта.)
     </p>
 
     <p><b>2. True or False?</b></p>
 
-    <p>1) Some children are playing hide-and-seek.
-      <select id="t1">
-        <option>—</option><option>True</option><option>False</option>
-      </select>
-    </p>
+    <p>1) Alex plays ice hockey.</p>
+    <select id="t1">
+      <option>—</option><option>True</option><option>False</option>
+    </select>
 
-    <p>2) A girl is fishing in the lake.
-      <select id="t2">
-        <option>—</option><option>True</option><option>False</option>
-      </select>
-    </p>
+    <p>2) Lee plays basketball.</p>
+    <select id="t2">
+      <option>—</option><option>True</option><option>False</option>
+    </select>
 
-    <p>3) Two children are flying a kite together.
-      <select id="t3">
-        <option>—</option><option>True</option><option>False</option>
-      </select>
-    </p>
+    <p>3) Oraz goes ice skating at the weekend.</p>
+    <select id="t3">
+      <option>—</option><option>True</option><option>False</option>
+    </select>
 
     <button class="btn" onclick="checkListening()">Check ✅</button>
     <div id="listenStars" style="font-size:1.1rem;margin-top:8px;"></div>
   </section>
 
-  <!-- ========== READING (по WB: дети в парке) ========== -->
+  <!-- ========== READING (короткий текст про спорт) ========== -->
   <section>
-    <h3>📖 READING — At the park</h3>
+    <h3>📖 READING — Our favourite sports</h3>
 
     <p><b>1. Read or listen:</b></p>
     <button class="btn" onclick="bayanReading()">▶ Play</button>
@@ -217,20 +272,21 @@
 
     <div style="margin-top:10px; background:#e9fff4; border-radius:10px; padding:10px;">
       <p>
-        Look at the park! The children are having fun.  
-        Some children are playing hide-and-seek behind the trees.  
-        A boy is fishing in the lake.  
-        A girl is flying a kite and two friends are playing tag on the grass.
+        My friends and I love sports.  
+        I like playing football and volleyball.  
+        My friend Dana likes playing tennis and table tennis.  
+        My brother enjoys going swimming and running in the park.  
+        At the weekend, we all play games together and have fun.
       </p>
     </div>
 
     <p><b>2. Answer the questions:</b></p>
     <ol>
-      <li>What are the children doing in the park?<br>
+      <li>What sports do I like playing?<br>
         <input id="r1" type="text" placeholder="Your answer..."></li><br>
-      <li>Who is fishing?<br>
+      <li>What sports does Dana like?<br>
         <input id="r2" type="text" placeholder="Your answer..."></li><br>
-      <li>What are two friends doing on the grass?<br>
+      <li>What does my brother enjoy doing?<br>
         <input id="r3" type="text" placeholder="Your answer..."></li>
     </ol>
 
@@ -248,9 +304,9 @@
 
     <p style="margin-top:8px;"><b>Questions:</b></p>
     <ul>
-      <li>What games do you like playing?</li>
+      <li>What sports do you like playing?</li>
       <li>Do you like running or swimming?</li>
-      <li>What are you doing in PE lessons?</li>
+      <li>Who do you play sports with?</li>
     </ul>
 
     <p><b>2. Answer into the microphone:</b></p>
@@ -265,13 +321,13 @@
     <h3>✍️ WRITING — Translation & Dictation</h3>
 
     <p><b>A. Translate into English:</b></p>
-    <p>1) Они играют в прятки в парке.</p>
+    <p>1) Они играют в волейбол после школы.</p>
     <textarea id="w1" rows="2" placeholder="Your translation..."></textarea>
 
-    <p>2) Девочка запускает воздушного змея.</p>
+    <p>2) Мой брат любит плавать и бегать.</p>
     <textarea id="w2" rows="2" placeholder="Your translation..."></textarea>
 
-    <p>3) Мальчик ловит рыбу на озере.</p>
+    <p>3) Это наша ракетка. Она наша.</p>
     <textarea id="w3" rows="2" placeholder="Your translation..."></textarea>
 
     <button class="btn" onclick="checkWritingTranslate()">Check translation ✅</button>
@@ -286,7 +342,7 @@
     <button class="btn" onclick="stopBayan()">⏹ Stop</button>
 
     <p style="margin-top:6px;font-size:0.85rem;color:#444;">
-      (Teacher note – short text about sports and exercises.)
+      (Short dictation text with sports and pronouns.)
     </p>
 
     <textarea id="writeBox" rows="5" placeholder="Write the text here..."></textarea><br>
@@ -331,8 +387,8 @@
 
   // ФЛАГИ, чтобы за один и тот же ответ звезду дать только один раз
   const scored = {
-    v1:false, v2:false, v3:false,
-    g1:false, g2:false, g3:false,
+    v1:false, v2:false, v3:false, v4:false, v5:false, v6:false,
+    g1:false, g2:false, g3:false, g4:false, g5:false, g6:false, g7:false,
     l1:false, l2:false, l3:false,
     r1:false, r2:false, r3:false,
     w1:false, w2:false, w3:false,
@@ -370,21 +426,27 @@
 
     const q1 = document.querySelector('input[name="v1"]:checked');
     if(q1 && q1.value === "1" && !scored.v1){
-      scored.v1 = true;
-      addStar();
-      starsHere++;
+      scored.v1 = true; addStar(); starsHere++;
     }
     const q2 = document.querySelector('input[name="v2"]:checked');
     if(q2 && q2.value === "1" && !scored.v2){
-      scored.v2 = true;
-      addStar();
-      starsHere++;
+      scored.v2 = true; addStar(); starsHere++;
     }
     const q3 = document.querySelector('input[name="v3"]:checked');
     if(q3 && q3.value === "1" && !scored.v3){
-      scored.v3 = true;
-      addStar();
-      starsHere++;
+      scored.v3 = true; addStar(); starsHere++;
+    }
+    const q4 = document.querySelector('input[name="v4"]:checked');
+    if(q4 && q4.value === "1" && !scored.v4){
+      scored.v4 = true; addStar(); starsHere++;
+    }
+    const q5 = document.querySelector('input[name="v5"]:checked');
+    if(q5 && q5.value === "1" && !scored.v5){
+      scored.v5 = true; addStar(); starsHere++;
+    }
+    const q6 = document.querySelector('input[name="v6"]:checked');
+    if(q6 && q6.value === "1" && !scored.v6){
+      scored.v6 = true; addStar(); starsHere++;
     }
 
     const box = document.getElementById('vocabStars');
@@ -401,23 +463,32 @@
 
     const q1 = document.querySelector('input[name="q1"]:checked');
     if(q1 && q1.value === "is" && !scored.g1){
-      scored.g1 = true;
-      addStar();
-      starsHere++;
+      scored.g1 = true; addStar(); starsHere++;
     }
-
     const q2 = document.querySelector('input[name="q2"]:checked');
     if(q2 && q2.value === "are" && !scored.g2){
-      scored.g2 = true;
-      addStar();
-      starsHere++;
+      scored.g2 = true; addStar(); starsHere++;
+    }
+    const q3 = document.querySelector('input[name="q3"]:checked');
+    if(q3 && q3.value === "am" && !scored.g3){
+      scored.g3 = true; addStar(); starsHere++;
     }
 
-    const q3 = document.querySelector('input[name="q3"]:checked');
-    if(q3 && q3.value === "is" && !scored.g3){
-      scored.g3 = true;
-      addStar();
-      starsHere++;
+    const q4 = document.querySelector('input[name="q4"]:checked');
+    if(q4 && q4.value === "him" && !scored.g4){
+      scored.g4 = true; addStar(); starsHere++;
+    }
+    const q5 = document.querySelector('input[name="q5"]:checked');
+    if(q5 && q5.value === "our" && !scored.g5){
+      scored.g5 = true; addStar(); starsHere++;
+    }
+    const q6 = document.querySelector('input[name="q6"]:checked');
+    if(q6 && q6.value === "mine" && !scored.g6){
+      scored.g6 = true; addStar(); starsHere++;
+    }
+    const q7 = document.querySelector('input[name="q7"]:checked');
+    if(q7 && q7.value === "theirs" && !scored.g7){
+      scored.g7 = true; addStar(); starsHere++;
     }
 
     const box = document.getElementById('grammarStars');
@@ -430,9 +501,9 @@
 
   // ---------- LISTENING ----------
   function bayanListening(){
-    const t = "Look at the park. Some children are playing hide and seek. " +
-              "A boy is fishing in the lake. A girl is flying a kite. " +
-              "Two friends are playing tag on the grass. Everyone is having fun.";
+    const t = "Alex plays ice hockey. He trains at the ice rink. " +
+              "Lee plays table tennis with his friends. " +
+              "Oraz goes ice skating at the weekend. They all love sports.";
     speakBayanText(t);
   }
 
@@ -440,19 +511,13 @@
     let starsHere = 0;
 
     if(document.getElementById('t1').value === 'True' && !scored.l1){
-      scored.l1 = true;
-      addStar();
-      starsHere++;
+      scored.l1 = true; addStar(); starsHere++;
     }
     if(document.getElementById('t2').value === 'False' && !scored.l2){
-      scored.l2 = true;
-      addStar();
-      starsHere++;
+      scored.l2 = true; addStar(); starsHere++;
     }
     if(document.getElementById('t3').value === 'True' && !scored.l3){
-      scored.l3 = true;
-      addStar();
-      starsHere++;
+      scored.l3 = true; addStar(); starsHere++;
     }
 
     const box = document.getElementById('listenStars');
@@ -466,10 +531,11 @@
   // ---------- READING ----------
   function bayanReading(){
     const t =
-      "Look at the park. The children are having fun. " +
-      "Some children are playing hide and seek behind the trees. " +
-      "A boy is fishing in the lake. " +
-      "A girl is flying a kite and two friends are playing tag on the grass.";
+      "My friends and I love sports. " +
+      "I like playing football and volleyball. " +
+      "My friend Dana likes playing tennis and table tennis. " +
+      "My brother enjoys going swimming and running in the park. " +
+      "At the weekend, we all play games together and have fun.";
     speakBayanText(t);
   }
 
@@ -479,20 +545,14 @@
     const a2 = document.getElementById('r2').value.toLowerCase();
     const a3 = document.getElementById('r3').value.toLowerCase();
 
-    if(!scored.r1 && (a1.includes("having fun") || a1.includes("playing") || a1.includes("games") || a1.includes("sport"))){
-      scored.r1 = true;
-      addStar();
-      starsHere++;
+    if(!scored.r1 && (a1.includes("football") || a1.includes("volleyball"))){
+      scored.r1 = true; addStar(); starsHere++;
     }
-    if(!scored.r2 && (a2.includes("boy") || a2.includes("he") || a2.includes("fishing"))){
-      scored.r2 = true;
-      addStar();
-      starsHere++;
+    if(!scored.r2 && (a2.includes("tennis") || a2.includes("table tennis"))){
+      scored.r2 = true; addStar(); starsHere++;
     }
-    if(!scored.r3 && (a3.includes("playing tag") || (a3.includes("two") && a3.includes("friends")))){
-      scored.r3 = true;
-      addStar();
-      starsHere++;
+    if(!scored.r3 && (a3.includes("swimming") || a3.includes("running"))){
+      scored.r3 = true; addStar(); starsHere++;
     }
 
     const box = document.getElementById('readStars');
@@ -507,9 +567,9 @@
   let recognition;
   function bayanSpeaking(){
     const t = "Now let's talk about sports and exercises. " +
-              "What games do you like playing? " +
+              "What sports do you like playing? " +
               "Do you like running or swimming? " +
-              "What are you doing in P E lessons?";
+              "Who do you play sports with?";
     speakBayanText(t);
   }
 
@@ -524,9 +584,9 @@
     recognition.onresult = function(event){
       const speech = event.results[0][0].transcript.toLowerCase();
       let starsHere = 0;
-      if(speech.includes("football") || speech.includes("basketball") ||
-         speech.includes("swim") || speech.includes("run") ||
-         speech.includes("hide and seek") || speech.includes("kite")){
+      if(speech.includes("football") || speech.includes("volleyball") ||
+         speech.includes("basketball") || speech.includes("swim") ||
+         speech.includes("run") || speech.includes("tennis")){
         addStar();
         starsHere++;
       }
@@ -534,7 +594,7 @@
       if(starsHere > 0){
         box.innerHTML = "⭐ +" + starsHere + " speaking star!<br>You said: " + speech;
       } else {
-        box.innerHTML = "You said: " + speech + "<br>Try to use sport words: football, run, swim, play...";
+        box.innerHTML = "You said: " + speech + "<br>Try to use sport words: football, volleyball, tennis, swim...";
       }
     };
     recognition.start();
@@ -551,20 +611,16 @@
     const a2 = document.getElementById('w2').value.toLowerCase();
     const a3 = document.getElementById('w3').value.toLowerCase();
 
-    if(!scored.w1 && a1.includes("they are") && a1.includes("playing") && a1.includes("hide") ){
-      scored.w1 = true;
-      addStar();
-      starsHere++;
+    if(!scored.w1 && a1.includes("they are") && a1.includes("playing") && a1.includes("volleyball")){
+      scored.w1 = true; addStar(); starsHere++;
     }
-    if(!scored.w2 && a2.includes("the girl") && a2.includes("is") && a2.includes("flying") && a2.includes("kite")){
-      scored.w2 = true;
-      addStar();
-      starsHere++;
+    if(!scored.w2 && a2.includes("my brother") && a2.includes("likes") &&
+       a2.includes("swimming") && a2.includes("running")){
+      scored.w2 = true; addStar(); starsHere++;
     }
-    if(!scored.w3 && a3.includes("the boy") && a3.includes("is") && a3.includes("fishing")){
-      scored.w3 = true;
-      addStar();
-      starsHere++;
+    if(!scored.w3 && a3.includes("this is") && (a3.includes("our racket") || a3.includes("our racquet")) &&
+       (a3.includes("it is ours") || a3.includes("it's ours"))){
+      scored.w3 = true; addStar(); starsHere++;
     }
 
     const box = document.getElementById('writeTransStars');
@@ -577,20 +633,20 @@
 
   // ---------- WRITING: DICTATION ----------
   function bayanWords(){
-    const t = "playing hide and seek, flying a kite, fishing in the lake, playing tag, having fun.";
+    const t = "football, volleyball, basketball, tennis, swimming, running, table tennis.";
     speakBayanText(t);
   }
 
   function bayanDictation(){
-    const t = "In the park we are playing games. " +
-              "Some children are flying a kite and some are fishing in the lake. " +
-              "We run, jump and have fun together.";
+    const t = "We like playing football and volleyball at school. " +
+              "On Saturdays, we go running in the park and sometimes we go swimming. " +
+              "Sports are fun and they are good for our health.";
     speakBayanText(t);
   }
 
   function checkDictation(){
     const text = document.getElementById("writeBox").value.toLowerCase();
-    const keywords = ["park","playing","kite","fishing","run","jump","fun"];
+    const keywords = ["football","volleyball","running","swimming","school","park","health"];
     let found = 0;
     for(const w of keywords){
       if(text.includes(w)) found++;
@@ -648,5 +704,3 @@
 </script>
 </body>
 </html>
-
- 
