@@ -1,205 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>English with AI Bayan 4grade II (ONLINE)</title>
-  <style>
-    body {
-      font-family: Verdana, sans-serif;
-      background: linear-gradient(180deg,#fff6e5 0%,#f3e0b8 100%);
-      margin: 0;
-      color: #002b5c;
-      text-align: center;
-    }
-    header {
-      background: #003366;
-      color: white;
-      padding: 1rem;
-      border-bottom: 5px solid gold;
-    }
-    main { padding: 1rem; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>English with AI Bayan 4grade II (ONLINE)</title>
+<style>
+/* ======= ОСНОВНОЙ СТИЛЬ ======= */
+body {
+  font-family: Verdana, sans-serif;
+  background: linear-gradient(180deg,#fff6e5 0%,#f3e0b8 100%);
+  margin: 0;
+  color: #002b5c;
+  text-align: center;
+}
+header {
+  background: #003366;
+  color: white;
+  padding: 1rem;
+  border-bottom: 5px solid gold;
+}
+main { padding: 1rem; }
 
-    .btn {
-      display: inline-block;
-      margin: 6px;
-      padding: 8px 14px;
-      border-radius: 10px;
-      border: none;
-      background: #003366;
-      color: #fff;
-      font-weight: bold;
-      cursor: pointer;
-      font-size: 0.9rem;
-    }
-    .btn:hover { background: gold; color: #003366; }
+.btn {
+  display: inline-block;
+  margin: 6px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: none;
+  background: #003366;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.btn:hover { background: gold; color: #003366; }
 
-    /* Login overlay */
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.55);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 999;
-    }
-    .overlay-card {
-      background: white;
-      padding: 20px;
-      border-radius: 16px;
-      width: 90%;
-      max-width: 400px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
-      border: 4px solid gold;
-    }
-    .overlay-card h1 {
-      margin-top: 0;
-      color: #003366;
-    }
-    .overlay-card input {
-      width: 100%;
-      padding: 8px;
-      margin: 6px 0;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-    }
-    .overlay-card button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 8px;
-      border-radius: 10px;
-      border: none;
-      background: #003366;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .overlay-card button:hover {
-      background: gold;
-      color: #003366;
-    }
+/* === LOGIN === */
+.overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 999;
+}
+.overlay-card {
+  background: white; padding: 20px; border-radius: 16px;
+  width: 90%; max-width: 400px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  border: 4px solid gold; text-align: center;
+}
+.overlay-card input {
+  width: 100%; padding: 8px; margin: 6px 0;
+  border-radius: 8px; border: 1px solid #ccc; font-size: 1rem;
+}
 
-    /* Welcome box */
-    .welcome-box {
-      text-align: center;
-      color: #003366;
-      background: linear-gradient(180deg, #fff9ec 0%, #f8e4ba 100%);
-      border: 3px solid gold;
-      border-radius: 20px;
-      padding: 16px;
-      width: 90%;
-      max-width: 600px;
-      margin: 16px auto 20px;
-      box-shadow: 0 0 15px rgba(255,215,0,0.4);
-    }
-    .welcome-box h2 {
-      font-size: 1.6rem;
-      margin: 4px 0;
-    }
-    .welcome-box p {
-      margin: 3px 0;
-      font-size: 1rem;
-    }
+/* === WELCOME === */
+.welcome-box {
+  display:none;
+  color:#003366;
+  background: linear-gradient(180deg,#fff9ec 0%,#f8e4ba 100%);
+  border: 3px solid gold; border-radius:20px;
+  padding:16px; width:90%; max-width:600px; margin:16px auto 20px;
+  box-shadow:0 0 15px rgba(255,215,0,0.4);
+}
+.logo-main {
+  width: 120px; height: 120px;
+  object-fit: cover; border-radius: 50%;
+  border: 3px solid gold; margin-bottom: 6px;
+}
 
-    .logo-main {
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 3px solid gold;
-      margin-bottom: 6px;
-    }
+/* === TOPICS GRID === */
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+  gap: 10px; max-width: 900px;
+  margin: 0 auto 15px;
+}
+.topic-card {
+  background:#fff;
+  border-radius:16px;
+  padding:10px;
+  box-shadow:0 0 8px rgba(0,0,0,0.08);
+  cursor:pointer;
+  border:2px solid #dde6ff;
+}
+.topic-card:hover {
+  border-color:gold;
+  transform:translateY(-1px);
+}
 
-    /* Topics grid */
-    .topics-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
-      gap: 10px;
-      max-width: 900px;
-      margin: 0 auto 15px;
-    }
-    .topic-card {
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 10px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.08);
-      cursor: pointer;
-      border: 2px solid #dde6ff;
-    }
-    .topic-card:hover {
-      border-color: gold;
-      transform: translateY(-1px);
-    }
-    .topic-title {
-      font-weight: bold;
-      margin-bottom: 4px;
-    }
-    .topic-emoji {
-      font-size: 1.3rem;
-    }
-
-    /* Section inside topic / chat / unit tests */
-    .section {
-      display: none;
-      max-width: 900px;
-      margin: 15px auto;
-      background: #ffffff;
-      border-radius: 16px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      padding: 15px;
-      text-align: left;
-    }
-    .section h2 { margin-top: 0; text-align: center; }
-    .section-nav button { margin: 3px; }
-
-    #starsSummary {
-      margin-top: 6px;
-      font-size: 0.85rem;
-      color: #444;
-    }
-
-    #aiChatLog {
-      max-height: 250px;
-      overflow-y: auto;
-      border: 1px solid #ddd;
-      padding: 8px;
-      border-radius: 10px;
-      background: #f9f9f9;
-      font-size: 0.9rem;
-    }
-    .chat-entry-user { color:#003366; margin-bottom:4px; }
-    .chat-entry-bot { color:#006400; margin-bottom:8px; }
-    textarea {
-      width:100%;
-      min-height:60px;
-      border-radius:10px;
-      border:1px solid #ccc;
-      padding:6px;
-      font-family:inherit;
-    }
-
-    .unit-test-question {
-      margin-bottom: 10px;
-      padding: 8px;
-      border-radius: 8px;
-      background: #f7f7ff;
-    }
-    .unit-test-question b {
-      display:block;
-      margin-bottom:4px;
-    }
-  </style>
+/* === SECTION === */
+.section {
+  display:none;
+  max-width:900px;
+  margin:15px auto;
+  background:#fff;
+  border-radius:16px;
+  box-shadow:0 0 10px rgba(0,0,0,0.1);
+  padding:15px;
+  text-align:left;
+}
+.section h2 {text-align:center;}
+</style>
 </head>
 <body>
 
-<!-- LOGIN OVERLAY -->
-<div class="overlay">
+<!-- === LOGIN === -->
+<div class="overlay" id="loginOverlay">
   <div class="overlay-card">
     <h1>English with AI Bayan 4grade II</h1>
     <p>Enter your <b>name</b> and PIN</p>
-    <input type="text" id="studentNameInput" placeholder="Student name (e.g. Aitach2)" autocomplete="off">
+    <input type="text" id="studentNameInput" placeholder="Student name" autocomplete="off">
     <input type="password" id="pin" maxlength="4" placeholder="PIN" autocomplete="off">
     <button onclick="checkPin()">Enter</button>
     <p style="font-size:0.8rem;color:#666;margin-top:8px;">
@@ -213,126 +123,90 @@
 </header>
 
 <main>
-
-  <!-- WELCOME BOX -->
-  <div class="welcome-box" id="welcomeBox" style="display:none;">
+  <!-- WELCOME -->
+  <div class="welcome-box" id="welcomeBox">
     <img src="img/ai_bayan_logo.png" alt="AI Bayan" class="logo-main">
     <h2>Hello, <span id="studentName"></span>!</h2>
-    <p>You have <b><span id="totalStars"></span> ⭐ stars</b>.</p>
-    <p id="lastActivityLine" style="font-size:0.85rem;color:#333;"></p>
-    <p id="starsSummary"></p>
+    <p>Choose a topic below 👇</p>
   </div>
 
-  <p>Choose a topic:</p>
-
-  <!-- TOPICS GRID (13 topics) -->
-  <div class="topics-grid">
-    <div class="topic-card" onclick="openTopic(1)">
-      <div class="topic-title">1. Let’s Have Fun!</div>
-      <div class="topic-emoji">🎨</div>
-    </div>
-    <div class="topic-card" onclick="openTopic(2)">
-      <div class="topic-title">2. Sports and Exercises</div>
-      <div class="topic-emoji">🏃‍♀️</div>
-    </div>
-    <div class="topic-card" onclick="openTopic(3)">
-      <div class="topic-title">3. Sports Around the World</div>
-      <div class="topic-emoji">🌍</div>
-    </div>
-    <div class="topic-card" onclick="openTopic(4)">
-      <div class="topic-title">4. Arts and Music</div>
-      <div class="topic-emoji">🎵</div>
-    </div>
-    <div class="topic-card" onclick="openTopic(5)">
-      <div class="topic-title">5. Popular Team Sports</div>
-      <div class="topic-emoji">⚽</div>
-    </div>
-    <div class="topic-card" onclick="openTopic(6)">
-      <div class="topic-title">6. Museum of Kazakh Musical Instruments</div>
-      <div class="topic-emoji">🎻</div>
-    </div>
-    <div class="topic-card" onclick="openTopic(7)">
-      <div class="topic-title">7. Children’s Rights & Responsibilities</div>
-      <div class="topic-emoji">📜</div>
-    </div>
-    <div class="topic-card" onclick="openTopic(8)">
-      <div class="topic-title">8. Different Jobs</div>
-      <div class="topic-emoji">🧰</div>
-    </div>
-    <div class="topic-card" onclick="openTopic(9)">
-      <div class="topic-title">9. Professions</div>
-      <div class="topic-emoji">👩‍⚕️</div>
-    </div>
-    <div class="topic-card" onclick="openTopic(10)">
-      <div class="topic-title">10. People at Work</div>
-      <div class="topic-emoji">🏢</div>
-    </div>
-    <div class="topic-card" onclick="openTopic(11)">
-      <div class="topic-title">11. What Do You Do?</div>
-      <div class="topic-emoji">💬</div>
-    </div>
-    <div class="topic-card" onclick="openTopic(12)">
-      <div class="topic-title">12. You Can Help!</div>
-      <div class="topic-emoji">❤️</div>
-    </div>
-    <div class="topic-card" onclick="openTopic(13)">
-      <div class="topic-title">13. Final Challenge</div>
-      <div class="topic-emoji">🎯</div>
-    </div>
+  <!-- TOPICS GRID -->
+  <div class="topics-grid" id="topicsGrid">
+    <div class="topic-card" onclick="openTopic(1)">🎨 1. Let’s Have Fun!</div>
+    <div class="topic-card" onclick="openTopic(2)">🏃‍♀️ 2. Sports and Exercises</div>
+    <div class="topic-card" onclick="openTopic(3)">🌍 3. Sports Around the World</div>
+    <div class="topic-card" onclick="openTopic(4)">🎵 4. Arts and Music</div>
+    <div class="topic-card" onclick="openTopic(5)">⚽ 5. Popular Team Sports</div>
+    <div class="topic-card" onclick="openTopic(6)">🎻 6. Museum of Kazakh Musical Instruments</div>
+    <div class="topic-card" onclick="openTopic(7)">📜 7. Children’s Rights & Responsibilities</div>
+    <div class="topic-card" onclick="openTopic(8)">🧰 8. Different Jobs</div>
+    <div class="topic-card" onclick="openTopic(9)">👩‍⚕️ 9. Professions</div>
+    <div class="topic-card" onclick="openTopic(10)">🏢 10. People at Work</div>
+    <div class="topic-card" onclick="openTopic(11)">💬 11. What Do You Do?</div>
+    <div class="topic-card" onclick="openTopic(12)">❤️ 12. You Can Help!</div>
+    <div class="topic-card" onclick="openTopic(13)">🎯 13. Final Challenge</div>
   </div>
 
-  <!-- TOPIC SECTION -->
+  <!-- TOPIC CONTENT -->
   <div id="topicSection" class="section">
     <h2 id="topicTitle">Topic</h2>
-    <!-- normal subnav for topics 1–12 -->
-    <div id="topicSubnav" class="section-nav" style="text-align:center;margin-bottom:8px;">
-      <button class="btn" onclick="setTopicSubsection('vocabulary')">Vocabulary</button>
-      <button class="btn" onclick="setTopicSubsection('grammar')">Grammar</button>
-      <button class="btn" onclick="setTopicSubsection('listening')">Listening</button>
-      <button class="btn" onclick="setTopicSubsection('reading')">Reading</button>
-      <button class="btn" onclick="setTopicSubsection('speaking')">Speaking</button>
-      <button class="btn" onclick="setTopicSubsection('writing')">Writing</button>
+    <p id="topicContent">Topic content will appear here.</p>
+    <div style="text-align:center;">
+      <button class="btn" onclick="goBack()">⬅ Back</button>
+      <button class="btn" id="nextBtn" onclick="nextTopic()">Next ➡️</button>
     </div>
-    <div id="topicContent"></div>
-  </div>
-
-  <!-- AI BAYAN CHAT -->
-  <div id="chatSection" class="section">
-    <h2>🤖 AI Bayan Chat</h2>
-    <p>Ask me about words, grammar or why something is wrong. I will answer in simple English (and sometimes with Russian help).</p>
-    <div id="aiChatLog"></div>
-    <textarea id="aiChatInput"
-              placeholder="Type your question here... (e.g. 'How do you say корова in English?')"></textarea>
-    <br>
-    <button class="btn" onclick="sendAiChat()">Ask AI Bayan</button>
-  </div>
-
-  <!-- UNIT TESTS SECTION -->
-  <div id="unitTestsSection" class="section">
-    <h2>📘 Unit Tests</h2>
-    <div id="unitTestsMenu"></div>
-    <div id="unitTestsContent" style="margin-top:10px;"></div>
-  </div>
-
-  <div style="margin-top:16px;">
-    <button class="btn" onclick="openChat()">💬 Open AI Bayan Chat</button>
-    <button class="btn" onclick="openUnitTests()">📘 Unit Tests</button>
-    <button class="btn" onclick="goToTeacher()">🏫 Teacher Journal</button>
   </div>
 </main>
 
-<script src="script.js"></script>
-  <script>
-function openTheme(themeNumber) {
-  // скрываем все темы
-  document.querySelectorAll('.theme').forEach(t => t.style.display = 'none');
-
-  // показываем выбранную
-  const chosen = document.getElementById('theme' + themeNumber);
-  if (chosen) {
-    chosen.style.display = 'block';
+<script>
+/* ======== LOGIN ======== */
+function checkPin(){
+  const name = document.getElementById("studentNameInput").value.trim();
+  const pin = document.getElementById("pin").value.trim();
+  if ((pin==="6856" || pin==="9995") && name!==""){
+    document.getElementById("loginOverlay").style.display="none";
+    document.getElementById("welcomeBox").style.display="block";
+    document.getElementById("studentName").textContent=name;
   } else {
-    alert("Тема " + themeNumber + " пока не добавлена 💡");
+    alert("❌ Wrong PIN or empty name.");
+  }
+}
+
+/* ======== TOPICS ======== */
+let currentTopic = 0;
+const topics = [
+  "🎨 Let’s Have Fun!",
+  "🏃‍♀️ Sports and Exercises",
+  "🌍 Sports Around the World",
+  "🎵 Arts and Music",
+  "⚽ Popular Team Sports",
+  "🎻 Museum of Kazakh Musical Instruments",
+  "📜 Children’s Rights & Responsibilities",
+  "🧰 Different Jobs",
+  "👩‍⚕️ Professions",
+  "🏢 People at Work",
+  "💬 What Do You Do?",
+  "❤️ You Can Help!",
+  "🎯 Final Challenge"
+];
+
+function openTopic(n){
+  currentTopic = n;
+  document.getElementById("topicsGrid").style.display="none";
+  document.getElementById("topicSection").style.display="block";
+  document.getElementById("topicTitle").textContent = topics[n-1];
+  document.getElementById("topicContent").innerHTML = "<p>Content for <b>"+topics[n-1]+"</b> will be here soon.</p>";
+  document.getElementById("nextBtn").style.display = n===13 ? "none":"inline-block";
+}
+
+function goBack(){
+  document.getElementById("topicSection").style.display="none";
+  document.getElementById("topicsGrid").style.display="grid";
+}
+
+function nextTopic(){
+  if(currentTopic<13){
+    openTopic(currentTopic+1);
   }
 }
 </script>
