@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Bayan 4grade II — Teacher Journal</title>
+  <style>
+    body {
+      font-family: Verdana, sans-serif;
+      background: linear-gradient(180deg,#eaf1ff 0%,#f8fbff 100%);
+      margin: 0;
+      color: #002b5c;
+      text-align: center;
+    }
+    header {
+      background: #003366;
+      color: white;
+      padding: 1rem;
+      border-bottom: 5px solid gold;
+    }
+    table {
+      width: 98%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      font-size: 0.85rem;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 6px;
+    }
+    th {
+      background: #003366;
+      color: white;
+    }
+    tr:nth-child(even) { background-color: #f9f9f9; }
+    input {
+      padding: 6px;
+      margin: 4px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #003366;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      margin: 6px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background: gold;
+      color: #003366;
+    }
+    footer {
+      margin: 15px;
+      color: #555;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>📘 English with AI Bayan 4grade II — Teacher Journal</h1>
+  <p>Teacher Mode (PIN 9995)</p>
+</header>
+
+<table id="journalTable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Grammar ⭐</th>
+      <th>Vocab ⭐</th>
+      <th>Phonics ⭐</th>
+      <th>Reading ⭐</th>
+      <th>Listening ⭐</th>
+      <th>Writing ⭐</th>
+      <th>Speaking ⭐</th>
+      <th>Quiz/Chat ⭐</th>
+      <th>Last Mode</th>
+      <th>Last Activity</th>
+      <th>Last Topic</th>
+      <th>Total ⭐</th>
+    </tr>
+  </thead>
+  <tbody id="journalBody"></tbody>
+</table>
+
+<div>
+  <input type="text" id="teacherStudentName" placeholder="Add student manually" />
+  <button onclick="addStudentManual()">Add Student</button>
+  <button onclick="clearJournal()">Clear Data</button>
+  <button onclick="goBack()">Back to App</button>
+</div>
+
+<footer>© 2025 English with AI Bayan 4grade II</footer>
+
+<script src="teacher.js"></script>
+</body>
+</html>
