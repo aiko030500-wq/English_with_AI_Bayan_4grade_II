@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theme 11 — What Do You Do?</title>
+  <style>
+    body {
+      font-family: Verdana, sans-serif;
+      background: linear-gradient(180deg,#fff6e5 0%,#f3e0b8 100%);
+      margin: 0;
+      color: #002b5c;
+      text-align: center;
+    }
+    header {
+      background: linear-gradient(90deg,#003366,#004b99);
+      color: white;
+      padding: 0.6rem 1rem;
+      border-bottom: 5px solid gold;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      border: 3px solid gold;
+      background: white;
+      object-fit: cover;
+    }
+    .header-text h1 { margin: 0; font-size: 1.05rem; }
+    .header-text p { margin: 0; font-size: 0.8rem; color: #ffea99; }
+    main { padding: 1rem; }
+    .section-nav { text-align: center; margin-bottom: 10px; }
+    .sub-btn {
+      display: inline-block;
+      margin: 4px;
+      padding: 6px 10px;
+      border-radius: 10px;
+      border: 1px solid #003366;
+      background: #ffffff;
+      color: #003366;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+    .sub-btn.active { background: #003366; color: white; }
+    .sub-btn:hover { background: gold; color: #003366; }
+    #contentBox {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      padding: 15px;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .nav-row { margin-top: 16px; text-align: center; }
+    .btn {
+      display: inline-block;
+      margin: 6px;
+      padding: 8px 14px;
+      border-radius: 10px;
+      border: none;
+      background: #003366;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .btn:hover { background: gold; color: #003366; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <img src="logo.png" alt="AI Bayan Logo" class="logo">
+      <div class="header-text">
+        <h1>Theme 11 — What Do You Do?</h1>
+        <p>English with AI Bayan</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="section-nav">
+      <button class="sub-btn active" onclick="show('vocab')">Vocabulary</button>
+      <button class="sub-btn" onclick="show('grammar')">Grammar</button>
+      <button class="sub-btn" onclick="show('listening')">Listening</button>
+      <button class="sub-btn" onclick="show('reading')">Reading</button>
+      <button class="sub-btn" onclick="show('speaking')">Speaking</button>
+      <button class="sub-btn" onclick="show('writing')">Writing</button>
+      <button class="sub-btn" onclick="show('chat')">AI Bayan Chat</button>
+    </div>
+
+    <div id="contentBox">
+      <div id="vocab" class="sub-content">
+        <h3>🧠 Vocabulary — Talking About Jobs</h3>
+        <ul>
+          <li>💬 What do you do? — Чем ты занимаешься?</li>
+          <li>👨‍🏫 I’m a teacher.</li>
+          <li>👩‍⚕️ I work in a hospital.</li>
+          <li>👨‍💻 I work with computers.</li>
+          <li>👩‍🍳 I’m a cook.</li>
+        </ul>
+        <p><i>Task:</i> Match each phrase with the correct job picture.</p>
+      </div>
+
+      <div id="grammar" class="sub-content" style="display:none;">
+        <h3>📘 Grammar — Asking and Answering</h3>
+        <p><b>What do you do?</b> — I’m a doctor.<br>
+           <b>Where do you work?</b> — I work in a hospital.</p>
+        <p><i>Task:</i> Ask 2 questions to your partner about their job.</p>
+      </div>
+
+      <div id="listening" class="sub-content" style="display:none;">
+        <h3>🎧 Listening — Who Is Speaking?</h3>
+        <p>Listen and decide: Is it a teacher, a driver, or a doctor? (audio coming soon 🎧)</p>
+      </div>
+
+      <div id="reading" class="sub-content" style="display:none;">
+        <h3>📖 Reading — My Job</h3>
+        <p>My name is Dana. I am a teacher. I work in a school. I love my students. I help them learn English.</p>
+        <p><i>Task:</i> Where does Dana work? What does she do?</p>
+      </div>
+
+      <div id="speaking" class="sub-content" style="display:none;">
+        <h3>🗣️ Speaking</h3>
+        <p>Practice in pairs:<br>
+        — What do you do?<br>
+        — I’m a …<br>
+        — Where do you work?<br>
+        — I work in …</p>
+      </div>
+
+      <div id="writing" class="sub-content" style="display:none;">
+        <h3>✍️ Writing</h3>
+        <p>Write 3 sentences about your parents’ jobs.<br>
+        1) My father is a …<br>
+        2) My mother works in …<br>
+        3) I want to be a …</p>
+      </div>
+
+      <div id="chat" class="sub-content" style="display:none;">
+        <h3>💬 AI Bayan Chat</h3>
+        <p>Ask Bayan: “How do you say ‘Я работаю в школе’ in English?”</p>
+      </div>
+    </div>
+
+    <div class="nav-row">
+      <button class="btn" onclick="goBack()">⬅ Back</button>
+      <button class="btn" onclick="goMenu()">🏠 Menu</button>
+      <button class="btn" onclick="goNext()">Next ➡️</button>
+    </div>
+  </main>
+
+  <script>
+    function show(tab) {
+      document.querySelectorAll('.sub-content').forEach(e=>e.style.display='none');
+      document.getElementById(tab).style.display='block';
+      document.querySelectorAll('.sub-btn').forEach(b=>b.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+    function goBack() { window.location.href = "theme10.html"; }
+    function goMenu() { window.location.href = "index.html"; }
+    function goNext() { window.location.href = "theme12.html"; }
+  </script>
+</body>
+</html>
