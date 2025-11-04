@@ -1,214 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>English with AI Bayan 4grade II (ONLINE)</title>
-<style>
-/* ======= ОСНОВНОЙ СТИЛЬ ======= */
-body {
-  font-family: Verdana, sans-serif;
-  background: linear-gradient(180deg,#fff6e5 0%,#f3e0b8 100%);
-  margin: 0;
-  color: #002b5c;
-  text-align: center;
-}
-header {
-  background: #003366;
-  color: white;
-  padding: 1rem;
-  border-bottom: 5px solid gold;
-}
-main { padding: 1rem; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>English with AI Bayan 4grade II</title>
+  <style>
+    body {
+      font-family: Verdana, sans-serif;
+      background: linear-gradient(180deg,#fff6e5 0%,#f3e0b8 100%);
+      margin: 0;
+      color: #002b5c;
+      text-align: center;
+    }
+    header {
+      background: linear-gradient(90deg,#003366,#004b99);
+      color: white;
+      padding: 0.6rem 1rem;
+      border-bottom: 5px solid gold;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      border: 3px solid gold;
+      background: white;
+      object-fit: cover;
+    }
+    .header-text h1 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+    .header-text p {
+      margin: 0;
+      font-size: 0.8rem;
+      color: #ffea99;
+    }
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+    .overlay-card {
+      background: white;
+      padding: 20px;
+      border-radius: 16px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      border: 4px solid gold;
+      text-align: center;
+    }
+    .overlay-card input {
+      width: 100%;
+      padding: 8px;
+      margin: 6px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    .overlay-card button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border-radius: 10px;
+      border: none;
+      background: #003366;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .overlay-card button:hover {
+      background: gold;
+      color: #003366;
+    }
 
-.btn {
-  display: inline-block;
-  margin: 6px;
-  padding: 8px 14px;
-  border-radius: 10px;
-  border: none;
-  background: #003366;
-  color: #fff;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 0.9rem;
-}
-.btn:hover { background: gold; color: #003366; }
-
-/* === LOGIN === */
-.overlay {
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,0.55);
-  display: flex; align-items: center; justify-content: center;
-  z-index: 999;
-}
-.overlay-card {
-  background: white; padding: 20px; border-radius: 16px;
-  width: 90%; max-width: 400px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
-  border: 4px solid gold; text-align: center;
-}
-.overlay-card input {
-  width: 100%; padding: 8px; margin: 6px 0;
-  border-radius: 8px; border: 1px solid #ccc; font-size: 1rem;
-}
-
-/* === WELCOME === */
-.welcome-box {
-  display:none;
-  color:#003366;
-  background: linear-gradient(180deg,#fff9ec 0%,#f8e4ba 100%);
-  border: 3px solid gold; border-radius:20px;
-  padding:16px; width:90%; max-width:600px; margin:16px auto 20px;
-  box-shadow:0 0 15px rgba(255,215,0,0.4);
-}
-.logo-main {
-  width: 120px; height: 120px;
-  object-fit: cover; border-radius: 50%;
-  border: 3px solid gold; margin-bottom: 6px;
-}
-
-/* === TOPICS GRID === */
-.topics-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
-  gap: 10px; max-width: 900px;
-  margin: 0 auto 15px;
-}
-.topic-card {
-  background:#fff;
-  border-radius:16px;
-  padding:10px;
-  box-shadow:0 0 8px rgba(0,0,0,0.08);
-  cursor:pointer;
-  border:2px solid #dde6ff;
-}
-.topic-card:hover {
-  border-color:gold;
-  transform:translateY(-1px);
-}
-
-/* === SECTION === */
-.section {
-  display:none;
-  max-width:900px;
-  margin:15px auto;
-  background:#fff;
-  border-radius:16px;
-  box-shadow:0 0 10px rgba(0,0,0,0.1);
-  padding:15px;
-  text-align:left;
-}
-.section h2 {text-align:center;}
-</style>
+    .welcome-box {
+      display: none;
+      background: linear-gradient(180deg,#fff9ec 0%,#f8e4ba 100%);
+      border: 3px solid gold;
+      border-radius: 20px;
+      padding: 16px;
+      width: 90%;
+      max-width: 600px;
+      margin: 20px auto;
+      box-shadow: 0 0 15px rgba(255,215,0,0.4);
+    }
+    .logo-main {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid gold;
+      background: white;
+      margin-bottom: 8px;
+    }
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+      gap: 10px;
+      max-width: 900px;
+      margin: 0 auto 25px;
+    }
+    .topic-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.08);
+      cursor: pointer;
+      border: 2px solid #dde6ff;
+      font-size: 0.95rem;
+      transition: 0.3s;
+    }
+    .topic-card:hover {
+      border-color: gold;
+      transform: translateY(-2px);
+    }
+  </style>
 </head>
 <body>
 
-<!-- === LOGIN === -->
-<div class="overlay" id="loginOverlay">
-  <div class="overlay-card">
-    <h1>English with AI Bayan 4grade II</h1>
-    <p>Enter your <b>name</b> and PIN</p>
-    <input type="text" id="studentNameInput" placeholder="Student name" autocomplete="off">
-    <input type="password" id="pin" maxlength="4" placeholder="PIN" autocomplete="off">
-    <button onclick="checkPin()">Enter</button>
-    <p style="font-size:0.8rem;color:#666;margin-top:8px;">
-      Student PIN: <b>6856</b> • Teacher PIN: <b>9995</b>
-    </p>
+  <!-- LOGIN -->
+  <div class="overlay" id="loginOverlay">
+    <div class="overlay-card">
+      <h1>English with AI Bayan</h1>
+      <p>Enter your name and PIN to start</p>
+      <input type="text" id="studentNameInput" placeholder="Your name" autocomplete="off">
+      <input type="password" id="pin" maxlength="4" placeholder="PIN" autocomplete="off">
+      <button onclick="checkPin()">Enter</button>
+    </div>
   </div>
-</div>
 
-<header>
-  <h1>English with AI Bayan 4grade II (ONLINE)</h1>
-</header>
+  <!-- HEADER -->
+  <header>
+    <div class="header-left">
+      <img src="logo.png" alt="AI Bayan Logo" class="logo">
+      <div class="header-text">
+        <h1>English with AI Bayan 4grade II</h1>
+        <p>by School №6 Aktau</p>
+      </div>
+    </div>
+    <div>
+      <span id="roleBadge">Role: —</span><br>
+      <span>⭐ <span id="stars">0</span></span>
+    </div>
+  </header>
 
-<main>
-  <!-- WELCOME -->
+  <!-- WELCOME BOX -->
   <div class="welcome-box" id="welcomeBox">
-    <img src="img/ai_bayan_logo.png" alt="AI Bayan" class="logo-main">
+    <img src="logo.png" class="logo-main" alt="AI Bayan">
     <h2>Hello, <span id="studentName"></span>!</h2>
     <p>Choose a topic below 👇</p>
   </div>
 
-  <!-- TOPICS GRID -->
-  <div class="topics-grid" id="topicsGrid">
-    <div class="topic-card" onclick="openTopic(1)">🎨 1. Let’s Have Fun!</div>
-    <div class="topic-card" onclick="openTopic(2)">🏃‍♀️ 2. Sports and Exercises</div>
-    <div class="topic-card" onclick="openTopic(3)">🌍 3. Sports Around the World</div>
-    <div class="topic-card" onclick="openTopic(4)">🎵 4. Arts and Music</div>
-    <div class="topic-card" onclick="openTopic(5)">⚽ 5. Popular Team Sports</div>
-    <div class="topic-card" onclick="openTopic(6)">🎻 6. Museum of Kazakh Musical Instruments</div>
-    <div class="topic-card" onclick="openTopic(7)">📜 7. Children’s Rights & Responsibilities</div>
-    <div class="topic-card" onclick="openTopic(8)">🧰 8. Different Jobs</div>
-    <div class="topic-card" onclick="openTopic(9)">👩‍⚕️ 9. Professions</div>
-    <div class="topic-card" onclick="openTopic(10)">🏢 10. People at Work</div>
-    <div class="topic-card" onclick="openTopic(11)">💬 11. What Do You Do?</div>
-    <div class="topic-card" onclick="openTopic(12)">❤️ 12. You Can Help!</div>
-    <div class="topic-card" onclick="openTopic(13)">🎯 13. Final Challenge</div>
+  <p id="chooseText">Main Menu — 13 Topics:</p>
+
+  <!-- TOPICS -->
+  <div class="topics-grid">
+    <div class="topic-card" onclick="go(1)">🎨 1. Let’s Have Fun!</div>
+    <div class="topic-card" onclick="go(2)">🏃 2. Sports and Exercises</div>
+    <div class="topic-card" onclick="go(3)">🌍 3. Sports Around the World</div>
+    <div class="topic-card" onclick="go(4)">🎵 4. Arts and Music</div>
+    <div class="topic-card" onclick="go(5)">⚽ 5. Popular Team Sports</div>
+    <div class="topic-card" onclick="go(6)">🎻 6. Museum of Kazakh Musical Instruments</div>
+    <div class="topic-card" onclick="go(7)">📜 7. Children’s Rights and Responsibilities</div>
+    <div class="topic-card" onclick="go(8)">🧰 8. Different Jobs</div>
+    <div class="topic-card" onclick="go(9)">👩‍⚕️ 9. Professions</div>
+    <div class="topic-card" onclick="go(10)">🏢 10. People at Work</div>
+    <div class="topic-card" onclick="go(11)">💬 11. What Do You Do?</div>
+    <div class="topic-card" onclick="go(12)">❤️ 12. You Can Help!</div>
+    <div class="topic-card" onclick="go(13)">🎯 13. Final Challenge</div>
   </div>
 
-  <!-- TOPIC CONTENT -->
-  <div id="topicSection" class="section">
-    <h2 id="topicTitle">Topic</h2>
-    <p id="topicContent">Topic content will appear here.</p>
-    <div style="text-align:center;">
-      <button class="btn" onclick="goBack()">⬅ Back</button>
-      <button class="btn" id="nextBtn" onclick="nextTopic()">Next ➡️</button>
-    </div>
-  </div>
-</main>
+  <script>
+    function checkPin() {
+      const name = document.getElementById("studentNameInput").value.trim();
+      const pin = document.getElementById("pin").value.trim();
+      if (!name || !pin) {
+        alert("❌ Enter your name and PIN.");
+        return;
+      }
+      if (pin === "6856") {
+        document.getElementById("roleBadge").textContent = "Role: Student";
+      } else if (pin === "9995") {
+        document.getElementById("roleBadge").textContent = "Role: Teacher";
+      } else {
+        alert("❌ Wrong PIN.");
+        return;
+      }
+      document.getElementById("loginOverlay").style.display = "none";
+      document.getElementById("welcomeBox").style.display = "block";
+      document.getElementById("studentName").textContent = name;
+    }
 
-<script>
-/* ======== LOGIN ======== */
-function checkPin(){
-  const name = document.getElementById("studentNameInput").value.trim();
-  const pin = document.getElementById("pin").value.trim();
-  if ((pin==="6856" || pin==="9995") && name!==""){
-    document.getElementById("loginOverlay").style.display="none";
-    document.getElementById("welcomeBox").style.display="block";
-    document.getElementById("studentName").textContent=name;
-  } else {
-    alert("❌ Wrong PIN or empty name.");
-  }
-}
-
-/* ======== TOPICS ======== */
-let currentTopic = 0;
-const topics = [
-  "🎨 Let’s Have Fun!",
-  "🏃‍♀️ Sports and Exercises",
-  "🌍 Sports Around the World",
-  "🎵 Arts and Music",
-  "⚽ Popular Team Sports",
-  "🎻 Museum of Kazakh Musical Instruments",
-  "📜 Children’s Rights & Responsibilities",
-  "🧰 Different Jobs",
-  "👩‍⚕️ Professions",
-  "🏢 People at Work",
-  "💬 What Do You Do?",
-  "❤️ You Can Help!",
-  "🎯 Final Challenge"
-];
-
-function openTopic(n){
-  currentTopic = n;
-  document.getElementById("topicsGrid").style.display="none";
-  document.getElementById("topicSection").style.display="block";
-  document.getElementById("topicTitle").textContent = topics[n-1];
-  document.getElementById("topicContent").innerHTML = "<p>Content for <b>"+topics[n-1]+"</b> will be here soon.</p>";
-  document.getElementById("nextBtn").style.display = n===13 ? "none":"inline-block";
-}
-
-function goBack(){
-  document.getElementById("topicSection").style.display="none";
-  document.getElementById("topicsGrid").style.display="grid";
-}
-
-function nextTopic(){
-  if(currentTopic<13){
-    openTopic(currentTopic+1);
-  }
-}
-</script>
+    function go(n) {
+      window.location.href = "theme" + n + ".html";
+    }
+  </script>
 </body>
 </html>
+
+
+
+  
+ 
