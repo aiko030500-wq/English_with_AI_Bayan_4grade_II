@@ -70,6 +70,28 @@
       text-align:center;
     }
     ul {margin-top:6px;}
+    textarea {
+      width:100%;
+      border-radius:10px;
+      border:1px solid #ccc;
+      padding:6px;
+      font-family:inherit;
+      font-size:0.9rem;
+    }
+    input[type="text"] {
+      width:100%;
+      max-width:380px;
+      border-radius:8px;
+      border:1px solid #ccc;
+      padding:4px 6px;
+      font-family:inherit;
+      font-size:0.9rem;
+    }
+    select {
+      border-radius:8px;
+      padding:2px 4px;
+      font-size:0.9rem;
+    }
   </style>
 </head>
 <body>
@@ -87,126 +109,199 @@
   <h2>🎨 Let’s Have Fun!</h2>
   <p style="font-style:italic;">Games, hobbies and free time activities</p>
 
-  <!-- Vocabulary -->
+  <!-- VOCABULARY -->
   <section>
-    <h3>🧠 VOCABULARY — Fun activities</h3>
-    <p><b>1. Look and say.</b> Read the words and repeat them.</p>
-    <ul>
-      <li>play games</li>
-      <li>draw pictures</li>
-      <li>ride a bike</li>
-      <li>watch cartoons</li>
-      <li>listen to music</li>
-      <li>read comics</li>
-      <li>dance</li>
-      <li>play football</li>
-    </ul>
+    <h3>🧠 VOCABULARY — Tick & Match</h3>
 
-    <p><b>2. Tick ✔ your favourite activities.</b></p>
-    <p>Write in your notebook: “I like ...” with 3 activities.</p>
+    <p><b>1. Tick ✔ your favourite activities:</b></p>
+    <form id="tickForm">
+      <label><input type="checkbox" value="play games"> play games</label><br>
+      <label><input type="checkbox" value="draw pictures"> draw pictures</label><br>
+      <label><input type="checkbox" value="ride a bike"> ride a bike</label><br>
+      <label><input type="checkbox" value="watch cartoons"> watch cartoons</label><br>
+      <label><input type="checkbox" value="listen to music"> listen to music</label><br>
+      <label><input type="checkbox" value="read comics"> read comics</label><br>
+      <button type="button" class="btn" onclick="checkTick()">Submit ✅</button>
+    </form>
+    <p id="tickResult"></p>
 
-    <p><b>3. Match.</b> In your notebook, match:</p>
-    <ul>
-      <li>a) ride &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1) music</li>
-      <li>b) listen to  2) pictures</li>
-      <li>c) draw &nbsp;&nbsp;&nbsp;&nbsp; 3) a bike</li>
-    </ul>
+    <hr>
 
-    <button class="btn" onclick="addStar()">✅ Done (Vocabulary)</button>
+    <p><b>2. Match the activities to the pictures (type the letter):</b></p>
+    <table style="width:100%;text-align:left;">
+      <tr><td>1) 🎨 draw pictures</td><td><input id="m1" placeholder="A/B/C/D" maxlength="1"></td></tr>
+      <tr><td>2) ⚽ play games / football</td><td><input id="m2" placeholder="A/B/C/D" maxlength="1"></td></tr>
+      <tr><td>3) 🎧 listen to music</td><td><input id="m3" placeholder="A/B/C/D" maxlength="1"></td></tr>
+    </table>
+    <p>Pictures:</p>
+    <p>A – 🎧  B – 🎨  C – ⚽  D – 📺</p>
+    <button class="btn" onclick="checkMatch()">Check Matching ✅</button>
+    <p id="matchResult"></p>
   </section>
 
-  <!-- Grammar -->
+  <!-- GRAMMAR -->
   <section>
     <h3>📘 GRAMMAR — I like / I don’t like</h3>
-    <p><b>1. Read.</b></p>
-    <p>
+
+    <p><b>1. Read the rule:</b></p>
+    <p>We use <b>I like</b> + verb + -ing to talk about what we enjoy.</p>
+    <p>Example: <br>
       I like playing games. <br>
-      I like drawing pictures. <br>
-      I don’t like dancing. <br>
-      I don’t like reading comics.
+      I don’t like dancing.
     </p>
 
-    <p><b>2. Choose.</b> Circle the correct words in your notebook.</p>
-    <p>
-      1) I <u>like / don’t like</u> watching cartoons. <br>
-      2) I <u>like / don’t like</u> playing football.
-    </p>
+    <p><b>2. Choose the correct option:</b></p>
+    <p>1) I ___ playing games.</p>
+    <label><input type="radio" name="q1" value="like"> like</label><br>
+    <label><input type="radio" name="q1" value="likes"> likes</label><br>
+    <label><input type="radio" name="q1" value="don’t like"> don’t like</label><br>
 
-    <p><b>3. Write.</b> Write 2 sentences about yourself:</p>
-    <p>“I like ...” and “I don’t like ...”</p>
+    <p>2) She ___ dancing.</p>
+    <label><input type="radio" name="q2" value="don’t like"> don’t like</label><br>
+    <label><input type="radio" name="q2" value="doesn’t like"> doesn’t like</label><br>
+    <label><input type="radio" name="q2" value="like"> like</label><br>
 
-    <button class="btn" onclick="addStar()">✅ Done (Grammar)</button>
+    <p>3) They ___ watching cartoons.</p>
+    <label><input type="radio" name="q3" value="likes"> likes</label><br>
+    <label><input type="radio" name="q3" value="like"> like</label><br>
+    <label><input type="radio" name="q3" value="don’t like"> don’t like</label><br>
+
+    <button class="btn" onclick="checkGrammar()">Check answers ✅</button>
+    <p id="grammarResult"></p>
+
+    <p><b>3. Write your own sentence:</b></p>
+    <p>Example: I like listening to music.</p>
+    <input id="writeGrammar" type="text" placeholder="Type your sentence here...">
+    <button class="btn" onclick="checkWrite()">Submit ✍️</button>
+    <p id="writeResult"></p>
   </section>
 
-  <!-- Listening -->
+  <!-- LISTENING -->
   <section>
-    <h3>🎧 LISTENING — What do they like?</h3>
-    <p><b>Teacher part:</b> Say or play 3–4 sentences, for example:</p>
-    <ul>
-      <li>“Hi! I’m Tom. I like playing football and I like riding my bike.”</li>
-      <li>“Hello! I’m Anna. I like drawing and watching cartoons.”</li>
-    </ul>
+    <h3>🎧 LISTENING — True or False</h3>
 
-    <p><b>Task:</b> Students listen and write in their notebook:</p>
-    <p>“Tom: football, ride a bike” / “Anna: draw, watch cartoons”</p>
+    <p><b>1. Listen to AI Bayan:</b></p>
+    <button class="btn" onclick="bayanListening()">▶ AI Bayan: listening text</button>
 
-    <button class="btn" onclick="addStar()">✅ Done (Listening)</button>
+    <details style="margin-top:8px;">
+      <summary><b>Text version (for teacher)</b></summary>
+      <p>
+        Tom: Hi! I’m Tom. I like playing football and riding my bike.<br>
+        Anna: Hello! I’m Anna. I like drawing and watching cartoons.<br>
+        Ben: I don’t like dancing, but I like listening to music.
+      </p>
+    </details>
+
+    <p><b>2. True or False?</b></p>
+    <p>1) Tom likes riding his bike.  
+      <select id="t1">
+        <option>—</option><option>True</option><option>False</option>
+      </select>
+    </p>
+    <p>2) Anna likes playing football.  
+      <select id="t2">
+        <option>—</option><option>True</option><option>False</option>
+      </select>
+    </p>
+    <p>3) Ben likes listening to music.  
+      <select id="t3">
+        <option>—</option><option>True</option><option>False</option>
+      </select>
+    </p>
+    <button class="btn" onclick="checkListening()">Check answers ✅</button>
+    <p id="listenResult"></p>
   </section>
 
-  <!-- Reading -->
+  <!-- READING -->
   <section>
     <h3>📖 READING — After-school fun</h3>
-    <p><b>1. Read the text.</b></p>
-    <p>
-      After school, Sam goes home and does his homework.  
-      Then he plays games on the computer and listens to music.  
-      His sister, Aida, likes drawing pictures and reading comics.  
-      In the evening, they watch cartoons together.
-    </p>
 
-    <p><b>2. Answer the questions.</b> (in your notebook)</p>
+    <p><b>1. Let AI Bayan read:</b></p>
+    <button class="btn" onclick="bayanReading()">▶ AI Bayan: reading text</button>
+
+    <details style="margin-top:8px;">
+      <summary><b>Text</b></summary>
+      <p>
+        After school, Sam goes home and does his homework.  
+        Then he plays games on the computer and listens to music.  
+        His sister, Aida, likes drawing pictures and reading comics.  
+        In the evening, they watch cartoons together.
+      </p>
+    </details>
+
+    <p><b>2. Answer the questions:</b></p>
     <ol>
-      <li>What does Sam do after school?</li>
-      <li>What does Aida like doing?</li>
-      <li>What do they do in the evening?</li>
+      <li>What does Sam do after school?<br>
+        <input id="r1" type="text" placeholder="Your answer..."></li><br>
+      <li>What does Aida like doing?<br>
+        <input id="r2" type="text" placeholder="Your answer..."></li><br>
+      <li>What do they do in the evening?<br>
+        <input id="r3" type="text" placeholder="Your answer..."></li>
     </ol>
 
-    <button class="btn" onclick="addStar()">✅ Done (Reading)</button>
+    <button class="btn" onclick="checkReading()">Check answers ✅</button>
+    <p id="readResult"></p>
   </section>
 
-  <!-- Speaking -->
+  <!-- SPEAKING -->
   <section>
-    <h3>🗣️ SPEAKING — Let’s talk</h3>
-    <p><b>1. Practice with a partner.</b></p>
-    <p>Use the model:</p>
-    <p>
-      A: What do you like doing? <br>
-      B: I like (playing games / drawing / riding my bike).
-    </p>
+    <h3>🗣️ SPEAKING — Talk with AI Bayan</h3>
 
-    <p><b>2. Say 3 sentences about yourself.</b></p>
-    <p>“I like ... / I like ... / I don’t like ...”</p>
+    <p><b>Questions:</b></p>
+    <ul>
+      <li>What do you like doing?</li>
+      <li>What don’t you like doing?</li>
+      <li>What do you do after school?</li>
+    </ul>
 
-    <button class="btn" onclick="addStar()">✅ Done (Speaking)</button>
+    <p><b>1. Click and answer aloud:</b></p>
+    <button class="btn" onclick="startSpeak()">🎙 Start recording</button>
+    <button class="btn" onclick="stopSpeak()">⏹ Stop</button>
+    <p id="speechResult"></p>
   </section>
 
-  <!-- Writing -->
+  <!-- WRITING -->
   <section>
-    <h3>✍️ WRITING — My fun time</h3>
-    <p><b>1. Plan.</b> Choose 3–4 activities you like.</p>
-    <p><b>2. Write.</b> In your notebook, write a short text (3–4 sentences):</p>
-    <p>
-      Example: “After school I play games and watch cartoons.  
-      At the weekend I ride my bike. I don’t like dancing.”
-    </p>
+    <h3>✍️ WRITING — Dictation</h3>
 
-    <button class="btn" onclick="addStar()">✅ Done (Writing)</button>
+    <p><b>1. Listen to AI Bayan saying the words.</b></p>
+    <button class="btn" onclick="bayanWords()">▶ AI Bayan: words</button>
+
+    <details style="margin-top:8px;">
+      <summary><b>Word list (for teacher)</b></summary>
+      <ul>
+        <li>play games</li>
+        <li>ride my bike</li>
+        <li>draw pictures</li>
+        <li>watch cartoons</li>
+        <li>listen to music</li>
+      </ul>
+    </details>
+
+    <hr>
+
+    <p><b>2. Listen to the short text and write it.</b></p>
+    <button class="btn" onclick="bayanDictation()">▶ AI Bayan: dictation text</button>
+
+    <details style="margin-top:8px;">
+      <summary><b>Text (for teacher)</b></summary>
+      <p>
+        After school I play games and listen to music.  
+        At the weekend I ride my bike and watch cartoons.  
+        I don’t like dancing but I like drawing pictures.
+      </p>
+    </details>
+
+    <p><b>3. Type what you heard:</b></p>
+    <textarea id="writeBox" rows="5" placeholder="Type here..."></textarea><br>
+    <button class="btn" onclick="checkDictation()">Check ✅</button>
+    <p id="writeFeedback"></p>
   </section>
 
-  <!-- Result -->
+  <!-- RESULT -->
   <div id="resultBox">
     <h3>🎯 Lesson Complete</h3>
-    <p id="starsText">You have 0 ⭐ for this lesson.</p>
+    <p id="starsText">You have 0 ⭐ in this lesson.</p>
     <button class="btn" onclick="finishLesson()">Finish Lesson</button>
   </div>
 
@@ -219,19 +314,218 @@
 </main>
 
 <script>
+  // GLOBAL STARS
   let stars = 0;
-  function addStar(){
-    stars++;
+  function updateStarsText(){
     document.getElementById('starsText').innerText =
-      "You have " + stars + " ⭐ for this lesson.";
+      "You have " + stars + " ⭐ in this lesson.";
   }
+
+  // VOCABULARY
+  function checkTick(){
+    const boxes = document.querySelectorAll('#tickForm input[type="checkbox"]:checked');
+    if(boxes.length > 0){
+      stars++;
+      document.getElementById('tickResult').innerText =
+        "Nice! You chose " + boxes.length + " activities. ⭐ +1!";
+      updateStarsText();
+    } else {
+      document.getElementById('tickResult').innerText = "Please tick at least one activity.";
+    }
+  }
+
+  function checkMatch(){
+    let score = 0;
+    if(document.getElementById('m1').value.toUpperCase() === 'B') score++;
+    if(document.getElementById('m2').value.toUpperCase() === 'C') score++;
+    if(document.getElementById('m3').value.toUpperCase() === 'A') score++;
+
+    if(score === 3){
+      stars++;
+      document.getElementById('matchResult').innerText =
+        "Perfect! All correct ⭐ +1! Total stars: " + stars;
+      updateStarsText();
+    } else {
+      document.getElementById('matchResult').innerText =
+        "You got " + score + "/3 correct. Try again.";
+    }
+  }
+
+  // GRAMMAR
+  function checkGrammar(){
+    let score = 0;
+    const q1 = document.querySelector('input[name="q1"]:checked');
+    const q2 = document.querySelector('input[name="q2"]:checked');
+    const q3 = document.querySelector('input[name="q3"]:checked');
+
+    if(q1 && q1.value === "like") score++;
+    if(q2 && q2.value === "doesn’t like") score++;
+    if(q3 && q3.value === "like") score++;
+
+    if(score === 3){
+      stars++;
+      document.getElementById("grammarResult").innerText =
+        "Perfect! All correct ⭐ +1! Total stars: " + stars;
+      updateStarsText();
+    } else {
+      document.getElementById("grammarResult").innerText =
+        "You got " + score + "/3 correct. Try again.";
+    }
+  }
+
+  function checkWrite(){
+    const ans = document.getElementById("writeGrammar").value.toLowerCase();
+    if(ans.includes("like") && ans.includes("ing")){
+      stars++;
+      document.getElementById("writeResult").innerText =
+        "Great! Your sentence looks correct ⭐ +1!";
+      updateStarsText();
+    } else {
+      document.getElementById("writeResult").innerText =
+        "Try to use “I like ...-ing”.";
+    }
+  }
+
+  // LISTENING (T/F)
+  function checkListening(){
+    let score = 0;
+    if(document.getElementById('t1').value === 'True') score++;
+    if(document.getElementById('t2').value === 'False') score++;
+    if(document.getElementById('t3').value === 'True') score++;
+
+    if(score === 3){
+      stars++;
+      document.getElementById('listenResult').innerText =
+        "Excellent! All correct ⭐ +1! Total stars: " + stars;
+      updateStarsText();
+    } else {
+      document.getElementById('listenResult').innerText =
+        "You got " + score + "/3 correct. Try again.";
+    }
+  }
+
+  // READING (short answers)
+  function checkReading(){
+    let score = 0;
+    const a1 = document.getElementById('r1').value.toLowerCase();
+    const a2 = document.getElementById('r2').value.toLowerCase();
+    const a3 = document.getElementById('r3').value.toLowerCase();
+
+    if(a1.includes("homework") || a1.includes("plays games") || a1.includes("play games")) score++;
+    if(a2.includes("drawing") || a2.includes("pictures") || a2.includes("reading")) score++;
+    if(a3.includes("watch") || a3.includes("cartoon")) score++;
+
+    if(score === 3){
+      stars++;
+      document.getElementById('readResult').innerText =
+        "Perfect! All correct ⭐ +1! Total stars: " + stars;
+      updateStarsText();
+    } else {
+      document.getElementById('readResult').innerText =
+        "You got " + score + "/3 correct. Try again.";
+    }
+  }
+
+  // SPEAKING (speech recognition)
+  let recognition;
+  function startSpeak(){
+    if(!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)){
+      alert("Speech recognition is not supported in this browser.");
+      return;
+    }
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    recognition = new SR();
+    recognition.lang = "en-US";
+    recognition.onresult = function(event){
+      const speech = event.results[0][0].transcript.toLowerCase();
+      let msg = "You said: " + speech;
+      if(speech.includes("like") || speech.includes("play") || speech.includes("games")){
+        stars++;
+        msg += "\n⭐ Great! +1 star!";
+        updateStarsText();
+      } else {
+        msg += "\nTry to say: “I like ...”";
+      }
+      document.getElementById("speechResult").innerText = msg;
+    };
+    recognition.start();
+  }
+  function stopSpeak(){
+    if(recognition){ recognition.stop(); }
+  }
+
+  // WRITING (dictation check)
+  function checkDictation(){
+    const text = document.getElementById("writeBox").value.toLowerCase();
+    const keywords = ["play", "games", "listen", "music", "bike", "cartoons", "drawing"];
+    let found = 0;
+    for(const w of keywords){
+      if(text.includes(w)) found++;
+    }
+
+    if(found >= 6){
+      stars++;
+      document.getElementById("writeFeedback").innerText =
+        "Excellent! You wrote almost everything correctly ⭐ +1! Total stars: " + stars;
+      updateStarsText();
+    } else if(found >= 4){
+      document.getElementById("writeFeedback").innerText =
+        "Good! You got many words right (" + found + "/7). Try to add the missing ones.";
+    } else {
+      document.getElementById("writeFeedback").innerText =
+        "Listen again and try to include all key words.";
+    }
+  }
+
+  // AI Bayan voice (TTS) helpers
+  function speak(text){
+    if(!('speechSynthesis' in window)){
+      alert("Speech synthesis is not supported in this browser.");
+      return;
+    }
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang = "en-US";
+    window.speechSynthesis.speak(utter);
+  }
+
+  function bayanListening(){
+    const t = "Tom: Hi, I am Tom. I like playing football and riding my bike. " +
+              "Anna: Hello, I am Anna. I like drawing and watching cartoons. " +
+              "Ben: I do not like dancing, but I like listening to music.";
+    speak(t);
+  }
+
+  function bayanReading(){
+    const t = "After school, Sam goes home and does his homework. " +
+              "Then he plays games on the computer and listens to music. " +
+              "His sister, Aida, likes drawing pictures and reading comics. " +
+              "In the evening, they watch cartoons together.";
+    speak(t);
+  }
+
+  function bayanWords(){
+    const t = "play games, ride my bike, draw pictures, watch cartoons, listen to music.";
+    speak(t);
+  }
+
+  function bayanDictation(){
+    const t = "After school I play games and listen to music. " +
+              "At the weekend I ride my bike and watch cartoons. " +
+              "I do not like dancing, but I like drawing pictures.";
+    speak(t);
+  }
+
+  // FINISH + NAVIGATION
   function finishLesson(){
-    alert("🎉 Great job! You got " + stars + "⭐ in this lesson!");
     localStorage.setItem("lesson1Stars", stars);
+    alert("🎉 Great job! You got " + stars + "⭐ in this lesson!");
   }
   function goBack(){window.location.href="index.html";}
   function goMenu(){window.location.href="index.html";}
   function goNext(){window.location.href="theme2.html";}
+
+  // init
+  updateStarsText();
 </script>
 </body>
 </html>
