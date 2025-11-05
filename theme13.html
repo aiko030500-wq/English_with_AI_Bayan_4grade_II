@@ -710,7 +710,39 @@ function bayanSpeak(text){
   speechSynthesis.speak(utter);
 }
 </script>
+  <script>
+// === 🎨 Тема 10: Team Spirit (People at Work) ===
+function setCustomColors() {
+  const root = document.documentElement;
+
+  // 🤝 Палитра командной работы — бирюзово-мятная
+  root.style.setProperty("--main-bg", "linear-gradient(180deg, #e0f7fa 0%, #b2ebf2 50%, #80deea 100%)");
+  root.style.setProperty("--header-bg", "#00796b");
+  root.style.setProperty("--header-text", "#e0f2f1");
+  root.style.setProperty("--btn-bg", "#009688");
+  root.style.setProperty("--btn-hover", "#4db6ac");
+  root.style.setProperty("--text-color", "#004d40");
+  root.style.setProperty("--border-color", "#26a69a");
+  root.style.setProperty("--accent", "#a7ffeb");
+
+  // применяем цвета
+  document.body.style.background = getComputedStyle(root).getPropertyValue("--main-bg");
+  document.body.style.color = getComputedStyle(root).getPropertyValue("--text-color");
+  document.querySelectorAll("header").forEach(h=>{
+    h.style.background = getComputedStyle(root).getPropertyValue("--header-bg");
+    h.style.color = getComputedStyle(root).getPropertyValue("--header-text");
+  });
+  document.querySelectorAll(".btn").forEach(btn=>{
+    btn.style.background = getComputedStyle(root).getPropertyValue("--btn-bg");
+    btn.onmouseenter = ()=>btn.style.background = getComputedStyle(root).getPropertyValue("--btn-hover");
+    btn.onmouseleave = ()=>btn.style.background = getComputedStyle(root).getPropertyValue("--btn-bg");
+  });
+}
+
+window.addEventListener("DOMContentLoaded", setCustomColors);
+</script>
 </body>
 </html>
+
 
 
