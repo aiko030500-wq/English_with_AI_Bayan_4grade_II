@@ -674,5 +674,41 @@
   // init
   updateStarsText();
 </script>
+  <!-- === Animation & Voice System === -->
+<script>
+// ====== ✅ CORRECT / ❌ WRONG ANIMATION ======
+function showResultAnimation(isCorrect, elementId){
+  const el=document.getElementById(elementId);
+  if(isCorrect){
+    el.innerHTML="✅ Correct! ⭐";
+    el.style.background="rgba(144,238,144,0.6)";
+    el.style.border="2px solid green";
+    el.style.transition="0.4s";
+    setTimeout(()=>{ el.style.background=""; el.style.border=""; el.innerHTML=""; },1500);
+  } else {
+    el.innerHTML="❌ Try again!";
+    el.style.background="rgba(255,182,193,0.6)";
+    el.style.border="2px solid red";
+    el.style.transition="0.4s";
+    navigator.vibrate?.(250);
+    setTimeout(()=>{ el.style.background=""; el.style.border=""; el.innerHTML=""; },1500);
+  }
+}
+
+// ====== 🗣️ AI Bayan Adaptive Voice ======
+function bayanSpeak(text){
+  const voices=speechSynthesis.getVoices();
+  let voice=voices.find(v=>v.lang.includes("en-GB")||v.name.includes("Google UK English Female"));
+  if(!voice){ voice=voices[0]; }
+  const utter=new SpeechSynthesisUtterance(text);
+  utter.voice=voice;
+  utter.lang="en-GB";
+  utter.rate=0.88;
+  utter.pitch=1.0;
+  speechSynthesis.speak(utter);
+}
+</script>
 </body>
 </html>
+
+
