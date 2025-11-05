@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🎨 Unit 1 – Let’s Have Fun! | English with AI Bayan</title>
+<title>English with AI Bayan 4grade II (Online)</title>
 <style>
   body {
     font-family: Verdana, sans-serif;
@@ -19,169 +19,269 @@
     border-bottom: 5px solid gold;
   }
   main { padding: 1rem; }
+
   .btn {
-    background: #003366;
-    color: white;
-    border: none;
+    display: inline-block;
+    margin: 6px;
     padding: 8px 14px;
     border-radius: 10px;
-    margin: 6px;
+    border: none;
+    background: #003366;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  .btn:hover { background: gold; color: #003366; }
+
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+  .overlay-card {
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    border: 4px solid gold;
+  }
+  .overlay-card input {
+    width: 100%;
+    padding: 8px;
+    margin: 6px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+  .overlay-card button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border-radius: 10px;
+    border: none;
+    background: #003366;
+    color: white;
     font-weight: bold;
     cursor: pointer;
   }
-  .btn:hover { background: gold; color: #003366; }
-  .task {
-    background: white;
-    border-radius: 14px;
-    padding: 12px;
-    margin: 14px auto;
-    max-width: 700px;
-    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  .overlay-card button:hover {
+    background: gold;
+    color: #003366;
   }
-  .question {
-    font-weight: bold;
+  .logo-main {
+    width: 120px; height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid gold;
     margin-bottom: 6px;
   }
-  .result {
-    font-weight: bold;
-    margin-top: 6px;
+  .topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+    gap: 10px;
+    max-width: 900px;
+    margin: 0 auto 15px;
   }
+  .topic-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 10px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.08);
+    cursor: pointer;
+    border: 2px solid #dde6ff;
+  }
+  .topic-card:hover { border-color: gold; transform: translateY(-1px); }
+  .topic-title { font-weight: bold; margin-bottom: 4px; }
+  .topic-emoji { font-size: 1.3rem; }
+
+  #welcomeBox {
+    background: linear-gradient(180deg, #fff9ec 0%, #f8e4ba 100%);
+    border: 3px solid gold;
+    border-radius: 20px;
+    padding: 16px;
+    width: 90%;
+    max-width: 600px;
+    margin: 16px auto 20px;
+    box-shadow: 0 0 15px rgba(255,215,0,0.4);
+  }
+  #welcomeBox h2 { margin: 4px 0; font-size: 1.4rem; }
+  #totalStars { font-weight: bold; color:#d48a00; }
 </style>
 </head>
 <body>
+
+<!-- LOGIN -->
+<div class="overlay" id="loginOverlay">
+  <div class="overlay-card">
+    <h1>English with AI Bayan</h1>
+    <input type="password" id="pinInput" placeholder="Enter PIN" maxlength="4">
+    <button onclick="checkPin()">Enter</button>
+  </div>
+</div>
+
 <header>
-  <h1>🎨 Unit 1 – Let’s Have Fun!</h1>
+  <h1>English with AI Bayan 4grade II</h1>
 </header>
 
 <main>
-<h2>Vocabulary – Guess the Word</h2>
-<div class="task">
-  <div class="question">What is “волейбол” in English?</div>
-  <button class="btn" onclick="checkAnswer(this,'football',false)">football</button>
-  <button class="btn" onclick="checkAnswer(this,'volleyball',true)">volleyball</button>
-  <button class="btn" onclick="checkAnswer(this,'basketball',false)">basketball</button>
-  <div id="res1" class="result"></div>
+  <div id="welcomeBox" style="display:none;">
+    <img src="logo.png" alt="AI Bayan Logo" class="logo-main">
+    <h2 id="welcomeText"></h2>
+    <p>You have <span id="totalStars">0</span> ⭐ total stars!</p>
+  </div>
+
+  <div id="studentMenu" style="display:none;">
+    <div class="topics-grid">
+      <div class="topic-card" onclick="openChatSection()">
+  <div class="topic-title">💬 AI Bayan Chat — Ask the Teacher</div>
+  <div class="topic-emoji">🤖</div>
+</div>
+      <div class="topic-card" onclick="openLesson(1)"><div class="topic-title">1. Let’s Have Fun!</div><div class="topic-emoji">🎨</div></div>
+      <div class="topic-card" onclick="openLesson(2)"><div class="topic-title">2. Sports and Exercises</div><div class="topic-emoji">🏃‍♀️</div></div>
+      <div class="topic-card" onclick="openLesson(3)"><div class="topic-title">3. Sports Around the World</div><div class="topic-emoji">🌍</div></div>
+      <div class="topic-card" onclick="openLesson(4)"><div class="topic-title">4. Arts and Music</div><div class="topic-emoji">🎵</div></div>
+      <div class="topic-card" onclick="openLesson(5)"><div class="topic-title">5. Popular Team Sports</div><div class="topic-emoji">⚽</div></div>
+      <div class="topic-card" onclick="openLesson(6)"><div class="topic-title">6. Museum of Kazakh Musical Instruments</div><div class="topic-emoji">🎻</div></div>
+      <div class="topic-card" onclick="openLesson(7)"><div class="topic-title">7. Children’s Rights & Responsibilities</div><div class="topic-emoji">📜</div></div>
+      <div class="topic-card" onclick="openLesson(8)"><div class="topic-title">8. Different Jobs</div><div class="topic-emoji">🧰</div></div>
+      <div class="topic-card" onclick="openLesson(9)"><div class="topic-title">9. Professions</div><div class="topic-emoji">👩‍⚕️</div></div>
+      <div class="topic-card" onclick="openLesson(10)"><div class="topic-title">10. People at Work</div><div class="topic-emoji">🏢</div></div>
+      <div class="topic-card" onclick="openLesson(11)"><div class="topic-title">11. What Do You Do?</div><div class="topic-emoji">💬</div></div>
+      <div class="topic-card" onclick="openLesson(12)"><div class="topic-title">12. You Can Help!</div><div class="topic-emoji">❤️</div></div>
+      <div class="topic-card" onclick="openLesson(13)"><div class="topic-title">13. Final Challenge</div><div class="topic-emoji">🎯</div></div>
+  <div style="margin-top:16px;">
+  <button class="btn" onclick="openUnitTests()">📘 Unit Tests</button>
+  <button class="btn" onclick="goToTeacher()">🏫 Teacher Journal</button>
+</div>
+  <div class="topic-emoji">🤖</div>
 </div>
 
-<div class="task">
-  <div class="question">What is “играть в прятки”?</div>
-  <button class="btn" onclick="checkAnswer(this,'to play hide-and-seek',true)">to play hide-and-seek</button>
-  <button class="btn" onclick="checkAnswer(this,'to run fast',false)">to run fast</button>
-  <button class="btn" onclick="checkAnswer(this,'to draw',false)">to draw</button>
-  <div id="res2" class="result"></div>
-</div>
+  <div id="teacherJournal" style="display:none;">
+    <h2>🏫 Teacher Journal</h2>
+    <table border="1" cellpadding="6" cellspacing="0" style="margin:auto;border-collapse:collapse;">
+      <tr><th>Lesson</th><th>Stars</th></tr>
+      <script>
+        for(let i=1;i<=13;i++){
+          document.write("<tr><td>Lesson "+i+"</td><td id='t"+i+"'></td></tr>");
+        }
+      </script>
+    </table>
+    <p style="margin-top:10px;">Total: <b><span id="teacherTotal"></span> ⭐</b></p>
+    <button class="btn" onclick="logout()">Logout</button>
+  </div>
+      
+  <!-- 💬 AI BAYAN CHAT SECTION -->
+<section id="chatSection" class="section" style="display:none;">
+  <h2>💬 AI Bayan Teacher Chat</h2>
+  <p>Ask AI Bayan about <b>grammar, vocabulary, translation, or pronunciation</b>.<br>
+  You can write in English or Russian — AI Bayan understands both!</p>
 
-<h2>Grammar – Choose the Correct Form</h2>
-<div class="task">
-  <div class="question">He’s having fun with ___ friends.</div>
-  <button class="btn" onclick="checkAnswer(this,'his',true)">his</button>
-  <button class="btn" onclick="checkAnswer(this,'he',false)">he</button>
-  <button class="btn" onclick="checkAnswer(this,'him',false)">him</button>
-  <div id="res3" class="result"></div>
-</div>
+  <div id="chatBox" 
+       style="max-height:300px;overflow-y:auto;border:1px solid #ccc;
+              padding:10px;border-radius:10px;background:#fff;"></div>
 
-<div class="task">
-  <div class="question">This ball is ___ .</div>
-  <button class="btn" onclick="checkAnswer(this,'my',false)">my</button>
-  <button class="btn" onclick="checkAnswer(this,'mine',true)">mine</button>
-  <button class="btn" onclick="checkAnswer(this,'me',false)">me</button>
-  <div id="res4" class="result"></div>
-</div>
-
-<h2>Listening – True or False</h2>
-<div class="task">
-  <p><i>Listen: “They’re playing tag.”</i></p>
-  <audio controls>
-    <source src="listen_tag.mp3" type="audio/mpeg">
-  </audio><br>
-  <button class="btn" onclick="checkAnswer(this,'true',true)">True</button>
-  <button class="btn" onclick="checkAnswer(this,'false',false)">False</button>
-  <div id="res5" class="result"></div>
-</div>
-
-<h2>Reading – Answer the Question</h2>
-<div class="task">
-  <p>Look at the park! Children are flying kites and playing volleyball.</p>
-  <div class="question">What are the children doing?</div>
-  <input type="text" id="ans6" placeholder="Type your answer..." style="padding:6px;border-radius:8px;">
-  <button class="btn" onclick="checkText('ans6','flying kites and playing volleyball')">Check</button>
-  <div id="res6" class="result"></div>
-</div>
-
-<h2>Writing – Translate and Write</h2>
-<div class="task">
-  <div class="question">Напиши по-английски: “Мы играем в футбол.”</div>
-  <input type="text" id="ans7" placeholder="Type here...">
-  <button class="btn" onclick="checkText('ans7','we are playing football')">Check</button>
-  <div id="res7" class="result"></div>
-</div>
-
-<h2>Speaking – Answer AI Bayan</h2>
-<div class="task">
-  <p><b>AI Bayan:</b> What do you like playing?</p>
-  <button class="btn" onclick="bayanSpeak('Please answer aloud: I like playing basketball, football, or games!')">🎤 Speak with me</button>
-</div>
-
-<div class="task">
-  <h3>Total Stars: <span id="stars">0</span> ⭐</h3>
-  <button class="btn" onclick="goBack()">⬅ Back</button>
-  <button class="btn" onclick="goMenu()">🏠 Menu</button>
-  <button class="btn" onclick="next()">➡ Next</button>
-</div>
+  <textarea id="chatInput" 
+            placeholder="Ask your question here..." 
+            style="width:100%;border-radius:8px;margin-top:8px;"></textarea><br>
+  <button class="btn" onclick="clearChat()">Clear</button>
+  <button class="btn" onclick="goMenu()">🏠 Back to Menu</button>
+</section>
 </main>
 
 <script>
-let stars=0;
-
-// ✅ / ❌ Animation + Voice
-function showResultAnimation(isCorrect, el){
-  el.style.transition="0.3s";
-  if(isCorrect){
-    el.innerHTML="✅ Correct! ⭐";
-    el.style.color="green";
-    bayanSpeak("Excellent! Correct answer!");
+function checkPin(){
+  const pin=document.getElementById('pinInput').value.trim();
+  if(pin==='6856'){ // student
+    document.getElementById('loginOverlay').style.display='none';
+    document.getElementById('studentMenu').style.display='block';
+    document.getElementById('welcomeBox').style.display='block';
+    updateStars();
+  } else if(pin==='9995'){ // teacher
+    document.getElementById('loginOverlay').style.display='none';
+    document.getElementById('teacherJournal').style.display='block';
+    showJournal();
   } else {
-    el.innerHTML="❌ Try again!";
-    el.style.color="red";
-    bayanSpeak("Not quite, try again!");
+    alert('❌ Wrong PIN');
   }
-  setTimeout(()=>{el.innerHTML="";},1500);
+}
+function openLesson(n){ window.location.href="theme"+n+".html"; }
+function logout(){ window.location.href='index.html'; }
+
+function updateStars(){
+  let total=0;
+  for(let i=1;i<=13;i++){
+    total += Number(localStorage.getItem("lesson"+i+"Stars")) || 0;
+  }
+  document.getElementById('totalStars').innerText=total;
+  document.getElementById('welcomeText').innerText="Hello, Student!";
+}
+function showJournal(){
+  let total=0;
+  for(let i=1;i<=13;i++){
+    const s=Number(localStorage.getItem("lesson"+i+"Stars")) || 0;
+    document.getElementById('t'+i).innerText=s;
+    total+=s;
+  }
+  document.getElementById('teacherTotal').innerText=total;
+}
+</script>
+  <script>
+function openChatSection(){
+  document.querySelectorAll('.section').forEach(s=>s.style.display='none');
+  document.getElementById('chatSection').style.display='block';
+}
+// ===== AI BAYAN CHAT FUNCTION =====
+async function askBayan(){
+  const q=document.getElementById('chatInput').value.trim();
+  if(!q){ alert("Type your question first."); return; }
+
+  const box=document.getElementById('chatBox');
+  box.innerHTML+=<p><b>You:</b> ${q}</p>;
+  box.innerHTML+=<p><i>AI Bayan is thinking...</i></p>;
+
+  let answer="";
+
+  // Simple smart replies
+  if(q.toLowerCase().includes("is playing")){
+    answer="We say 'is playing' because the action is happening now — Present Continuous tense. (Мы используем 'is playing', когда действие происходит прямо сейчас.)";
+  } else if(q.toLowerCase().includes("fun")){
+    answer="'Fun' means enjoyment. Example: 'Let’s have fun!' — Давай веселиться!";
+  } else if(q.toLowerCase().includes("can") && q.toLowerCase().includes("may")){
+    answer="'Can' is used for ability. 'May' is for permission or possibility. Example: I can swim. / May I go out?";
+  } else if(q.toLowerCase().includes("thank you")){
+    answer="You're welcome! 😊 Keep learning with AI Bayan!";
+  } else {
+    answer="Interesting question! Try to give me the full sentence — I’ll explain it in simple English 💬";
+  }
+
+  // Replace "thinking..."
+  box.innerHTML=box.innerHTML.replace(<p><i>AI Bayan is thinking...</i></p>,"");
+  box.innerHTML+=<p><b>AI Bayan:</b> ${answer}</p>;
+
+  // Voice
+  const utter=new SpeechSynthesisUtterance(answer);
+  utter.lang="en-US"; utter.rate=0.9; utter.pitch=1.05;
+  speechSynthesis.speak(utter);
+
+  document.getElementById('chatInput').value="";
+  box.scrollTop=box.scrollHeight;
 }
 
-// Check button answer
-function checkAnswer(btn,ans,isCorrect){
-  const res=btn.parentElement.querySelector(".result");
-  showResultAnimation(isCorrect,res);
-  if(isCorrect){ stars++; document.getElementById("stars").innerText=stars; saveProgress(); }
-}
-
-// Check written text
-function checkText(id,correct){
-  const el=document.getElementById(id);
-  const res=document.getElementById("res"+id.slice(-1));
-  const ans=el.value.trim().toLowerCase();
-  if(ans===correct){ showResultAnimation(true,res); stars++; document.getElementById("stars").innerText=stars; saveProgress(); }
-  else showResultAnimation(false,res);
-}
-
-// Save to localStorage
-function saveProgress(){
-  localStorage.setItem("lesson1Stars", stars);
-}
-
-// Navigation
-function goBack(){ window.history.back(); }
-function goMenu(){ window.location.href="index.html"; }
-function next(){ window.location.href="theme2.html"; }
-
-// Voice function
-function bayanSpeak(text){
-  const voices=speechSynthesis.getVoices();
-  let v=voices.find(x=>x.lang.includes("en-GB")) || voices.find(x=>x.lang.includes("en-US")) || voices[0];
-  const u=new SpeechSynthesisUtterance(text);
-  u.voice=v; u.rate=0.9; u.pitch=1.0; u.lang="en-GB";
-  speechSynthesis.speak(u);
+function clearChat(){
+  document.getElementById('chatBox').innerHTML="";
 }
 </script>
 </body>
 </html>
+  
+
+
+
+ 
