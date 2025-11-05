@@ -1,460 +1,315 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Theme 1 – Let’s Have Fun! | English with AI Bayan</title>
-<style>
-  body {
-    font-family: Verdana, sans-serif;
-    /* розово-фиолетовый фон */
-    background: linear-gradient(180deg,#ffeaf3 0%,#efd6f7 100%);
-    margin: 0;
-    color: #002b5c;
-    text-align: center;
-  }
-  header {
-    background: #7b3fa3;
-    color: white;
-    padding: 0.8rem;
-    border-bottom: 4px solid gold;
-  }
-  main {
-    padding: 1rem;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  h1 {
-    margin: 0;
-    font-size: 1.3rem;
-  }
-  .subtitle {
-    font-size: 0.9rem;
-    margin-top: 4px;
-    opacity: 0.9;
-  }
-  .info-bar {
-    margin: 10px auto 14px;
-    padding: 8px 12px;
-    background: rgba(255,255,255,0.8);
-    border-radius: 12px;
-    border: 2px solid #f2c8ff;
-    font-size: 0.9rem;
-    display: flex;
-    justify-content: space-between;
-    gap: 8px;
-  }
-  .info-bar div {
-    flex: 1;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>English with AI Bayan 4 Gr II (ONLINE)</title>
+  <style>
+    body {
+      font-family: Verdana, sans-serif;
+      background: linear-gradient(180deg,#fff6e5 0%,#f3e0b8 100%);
+      margin: 0;
+      color: #002b5c;
+      text-align: center;
+    }
+    header {
+      background: #003366;
+      color: white;
+      padding: 1rem;
+      border-bottom: 5px solid gold;
+    }
+    main { padding: 1rem; }
 
-  .task {
-    background: #ffffff;
-    border-radius: 16px;
-    padding: 14px;
-    margin: 10px auto;
-    box-shadow: 0 0 8px rgba(0,0,0,0.08);
-    text-align: left;
-  }
-  .task h2 {
-    margin-top: 0;
-    font-size: 1.1rem;
-    border-bottom: 2px solid #f2d4ff;
-    padding-bottom: 4px;
-  }
-  .task p {
-    margin: 6px 0;
-    font-size: 0.95rem;
-  }
-  .btn {
-    display: inline-block;
-    margin: 6px 4px;
-    padding: 6px 12px;
-    border-radius: 10px;
-    border: none;
-    background: #7b3fa3;
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 0.85rem;
-  }
-  .btn:hover {
-    background: gold;
-    color: #7b3fa3;
-  }
-  select, input[type="text"], textarea {
-    font-family: inherit;
-    font-size: 0.9rem;
-    padding: 4px 6px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    margin-top: 4px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  textarea {
-    min-height: 60px;
-    resize: vertical;
-  }
-  .feedback {
-    min-height: 24px;
-    margin-top: 6px;
-  }
-  .nav-bar {
-    margin-top: 16px;
-  }
-</style>
+    .btn {
+      display: inline-block;
+      margin: 6px;
+      padding: 8px 14px;
+      border-radius: 10px;
+      border: none;
+      background: #003366;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .btn:hover { background: gold; color: #003366; }
+
+    /* Login overlay */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+    .overlay-card {
+      background: white;
+      padding: 20px;
+      border-radius: 16px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      border: 4px solid gold;
+    }
+    .overlay-card h1 {
+      margin-top: 0;
+      color: #003366;
+    }
+    .overlay-card input {
+      width: 100%;
+      padding: 8px;
+      margin: 6px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    .overlay-card button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border-radius: 10px;
+      border: none;
+      background: #003366;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .overlay-card button:hover {
+      background: gold;
+      color: #003366;
+    }
+
+    /* Welcome box */
+    .welcome-box {
+      text-align: center;
+      color: #003366;
+      background: linear-gradient(180deg, #fff9ec 0%, #f8e4ba 100%);
+      border: 3px solid gold;
+      border-radius: 20px;
+      padding: 16px;
+      width: 90%;
+      max-width: 600px;
+      margin: 16px auto 20px;
+      box-shadow: 0 0 15px rgba(255,215,0,0.4);
+    }
+    .welcome-box h2 {
+      font-size: 1.6rem;
+      margin: 4px 0;
+    }
+    .welcome-box p {
+      margin: 3px 0;
+      font-size: 1rem;
+    }
+
+    .logo-main {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid gold;
+      margin-bottom: 6px;
+    }
+
+    /* Modules grid */
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+      gap: 10px;
+      max-width: 900px;
+      margin: 0 auto 15px;
+    }
+    .module-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.08);
+      cursor: pointer;
+      border: 2px solid #dde6ff;
+    }
+    .module-card:hover {
+      border-color: gold;
+      transform: translateY(-1px);
+    }
+    .module-title {
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+    .module-emoji {
+      font-size: 1.3rem;
+    }
+
+    /* Section inside module / chat */
+    .section {
+      display: none;
+      max-width: 900px;
+      margin: 15px auto;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 15px;
+      text-align: left;
+    }
+    .section h2 { margin-top: 0; text-align: center; }
+    .section-nav button { margin: 3px; }
+
+    #starsSummary {
+      margin-top: 6px;
+      font-size: 0.85rem;
+      color: #444;
+    }
+
+    #aiChatLog {
+      max-height: 250px;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      padding: 8px;
+      border-radius: 10px;
+      background: #f9f9f9;
+      font-size: 0.9rem;
+    }
+    .chat-entry-user { color:#003366; margin-bottom:4px; }
+    .chat-entry-bot { color:#006400; margin-bottom:8px; }
+    textarea {
+      width:100%;
+      min-height:60px;
+      border-radius:10px;
+      border:1px solid #ccc;
+      padding:6px;
+      font-family:inherit;
+    }
+  </style>
 </head>
 <body>
 
+<!-- LOGIN OVERLAY -->
+<div class="overlay">
+  <div class="overlay-card">
+    <h1>English with AI Bayan 4 Gr II</h1>
+    <p>Enter your <b>name</b> and PIN</p>
+    <input type="text" id="studentNameInput" placeholder="Student name (e.g. Aitach2)" autocomplete="off">
+    <input type="password" id="pin" maxlength="4" placeholder="PIN" autocomplete="off">
+    <button onclick="checkPin()">Enter</button>
+    <p style="font-size:0.8rem;color:#666;margin-top:8px;">
+      Student PIN: <b>6856</b> • Teacher PIN: <b>9995</b>
+    </p>
+  </div>
+</div>
+
 <header>
-  <h1>Theme 1 – Let’s Have Fun!</h1>
-  <div class="subtitle">English with AI Bayan 4grade II (ONLINE)</div>
+  <h1>English with AI Bayan 4 Gr II (ONLINE)</h1>
 </header>
 
 <main>
-  <!-- Инфо-панель: имя + звезды -->
-  <div class="info-bar">
-    <div><b>Student:</b> <span id="studentName">–</span></div>
-    <div><b>Lesson 1 stars:</b> <span id="lessonStars">0</span> ⭐</div>
+
+  <!-- WELCOME BOX: only name + stars + last activity -->
+  <div class="welcome-box" id="welcomeBox" style="display:none;">
+    <img src="img/ai_bayan_logo.png" alt="AI Bayan" class="logo-main">
+    <h2>Hello, <span id="studentName"></span>!</h2>
+    <p>You have <b><span id="totalStars"></span> ⭐ stars</b>.</p>
+    <p id="lastActivityLine" style="font-size:0.85rem;color:#333;"></p>
+    <p id="starsSummary"></p>
   </div>
 
-  <!-- 🧠 VOCABULARY -->
-  <section class="task">
-    <h2>🧠 Vocabulary – Guess the word</h2>
-    <p><b>1.</b> What is “волейбол” in English?</p>
-    <select id="voc1">
-      <option value="">-- choose --</option>
-      <option value="basketball">basketball</option>
-      <option value="volleyball">volleyball</option>
-      <option value="football">football</option>
-    </select>
-    <button class="btn" onclick="checkVoc1()">Check</button>
-    <button class="btn" onclick="bayanSpeak('volleyball')">🔊 Say it</button>
-    <div id="voc1Feedback" class="feedback"></div>
+  <p>Choose a module:</p>
 
-    <p><b>2.</b> What is “играть в прятки” in English?</p>
-    <select id="voc2">
-      <option value="">-- choose --</option>
-      <option value="play tag">play tag</option>
-      <option value="play hide-and-seek">play hide-and-seek</option>
-      <option value="go fishing">go fishing</option>
-    </select>
-    <button class="btn" onclick="checkVoc2()">Check</button>
-    <button class="btn" onclick="bayanSpeak('play hide and seek')">🔊 Say it</button>
-    <div id="voc2Feedback" class="feedback"></div>
-  </section>
+  <!-- MODULES GRID (13 modules) -->
+  <div class="modules-grid">
+    <div class="module-card" onclick="openModule(1)">
+      <div class="module-title">1. Let’s Have Fun!</div>
+      <div class="module-emoji">🎨</div>
+    </div>
+    <div class="module-card" onclick="openModule(2)">
+      <div class="module-title">2. Sports and Exercises</div>
+      <div class="module-emoji">🏃‍♀️</div>
+    </div>
+    <div class="module-card" onclick="openModule(3)">
+      <div class="module-title">3. Sports Around the World</div>
+      <div class="module-emoji">🌍</div>
+    </div>
+    <div class="module-card" onclick="openModule(4)">
+      <div class="module-title">4. Arts and Music</div>
+      <div class="module-emoji">🎵</div>
+    </div>
+    <div class="module-card" onclick="openModule(5)">
+      <div class="module-title">5. Popular Team Sports</div>
+      <div class="module-emoji">⚽</div>
+    </div>
+    <div class="module-card" onclick="openModule(6)">
+      <div class="module-title">6. Museum of Kazakh Musical Instruments</div>
+      <div class="module-emoji">🎻</div>
+    </div>
+    <div class="module-card" onclick="openModule(7)">
+      <div class="module-title">7. Children’s Rights & Responsibilities</div>
+      <div class="module-emoji">📜</div>
+    </div>
+    <div class="module-card" onclick="openModule(8)">
+      <div class="module-title">8. Different Jobs</div>
+      <div class="module-emoji">🧰</div>
+    </div>
+    <div class="module-card" onclick="openModule(9)">
+      <div class="module-title">9. Professions</div>
+      <div class="module-emoji">👩‍⚕️</div>
+    </div>
+    <div class="module-card" onclick="openModule(10)">
+      <div class="module-title">10. People at Work</div>
+      <div class="module-emoji">🏢</div>
+    </div>
+    <div class="module-card" onclick="openModule(11)">
+      <div class="module-title">11. What Do You Do?</div>
+      <div class="module-emoji">💬</div>
+    </div>
+    <div class="module-card" onclick="openModule(12)">
+      <div class="module-title">12. You Can Help!</div>
+      <div class="module-emoji">❤️</div>
+    </div>
+    <div class="module-card" onclick="openModule(13)">
+      <div class="module-title">13. Final Challenge</div>
+      <div class="module-emoji">🎯</div>
+    </div>
+  </div>
 
-  <!-- 📘 GRAMMAR -->
-  <section class="task">
-    <h2>📘 Grammar – Present Simple</h2>
-    <p><b>1.</b> He ___ football on Sundays.</p>
-    <select id="gr1">
-      <option value="">-- choose --</option>
-      <option value="play">play</option>
-      <option value="plays">plays</option>
-    </select>
-    <button class="btn" onclick="checkGr1()">Check</button>
-    <div id="gr1Feedback" class="feedback"></div>
+  <!-- MODULE SECTION -->
+  <div id="moduleSection" class="section">
+    <h2 id="moduleTitle">Module</h2>
+    <!-- Normal subnav only for modules 1–12 -->
+    <div id="moduleSubnav" class="section-nav" style="text-align:center;margin-bottom:8px;">
+      <button class="btn" onclick="setModuleSubsection('vocabulary')">Vocabulary</button>
+      <button class="btn" onclick="setModuleSubsection('grammar')">Grammar</button>
+      <button class="btn" onclick="setModuleSubsection('listening')">Listening</button>
+      <button class="btn" onclick="setModuleSubsection('reading')">Reading</button>
+      <button class="btn" onclick="setModuleSubsection('speaking')">Speaking</button>
+      <button class="btn" onclick="setModuleSubsection('writing')">Writing</button>
+    </div>
+    <div id="moduleContent"></div>
+  </div>
 
-    <p><b>2.</b> They ___ like playing tag.</p>
-    <select id="gr2">
-      <option value="">-- choose --</option>
-      <option value="don’t">don’t</option>
-      <option value="doesn’t">doesn’t</option>
-    </select>
-    <button class="btn" onclick="checkGr2()">Check</button>
-    <div id="gr2Feedback" class="feedback"></div>
-  </section>
+  <!-- AI BAYAN CHAT -->
+  <div id="chatSection" class="section">
+    <h2>🤖 AI Bayan Chat</h2>
+    <p>Ask me about words, grammar or why something is wrong. I will answer in simple English (and sometimes with Russian help).</p>
+    <div id="aiChatLog"></div>
+    <textarea id="aiChatInput"
+              placeholder="Type your question here... (e.g. 'How do you say корова in English?')"></textarea>
+    <br>
+    <button class="btn" onclick="sendAiChat()">Ask AI Bayan</button>
+  </div>
 
-  <!-- 🎧 LISTENING -->
-  <section class="task">
-    <h2>🎧 Listening – True or False</h2>
-    <p>Click <b>Play</b>, listen and choose.</p>
-    <button class="btn" onclick="playListening()">
-      🔊 Play text
-    </button>
-
-    <p style="margin-top:8px;"><b>Text:</b> (for teacher)  
-      “On Sunday, Jill walks in the park. Andy plays with a ball. Bob goes fishing in the lake.”</p>
-
-    <p><b>1.</b> Jill walks in the park. (T / F)</p>
-    <select id="lis1">
-      <option value="">-- choose --</option>
-      <option value="T">True</option>
-      <option value="F">False</option>
-    </select>
-    <button class="btn" onclick="checkLis1()">Check</button>
-    <div id="lis1Feedback" class="feedback"></div>
-
-    <p><b>2.</b> Bob plays volleyball in the lake. (T / F)</p>
-    <select id="lis2">
-      <option value="">-- choose --</option>
-      <option value="T">True</option>
-      <option value="F">False</option>
-    </select>
-    <button class="btn" onclick="checkLis2()">Check</button>
-    <div id="lis2Feedback" class="feedback"></div>
-  </section>
-
-  <!-- 📖 READING -->
-  <section class="task">
-    <h2>📖 Reading – Danial’s day</h2>
-    <p><b>Read the text:</b></p>
-    <p style="background:#fff6ff;border-radius:10px;padding:8px;font-size:0.9rem;">
-      Dear Arsen,<br>
-      I’m Danial. I’m ten years old. I get up at seven o’clock. I go to school in the morning. 
-      In the afternoon I do my homework and play the guitar. In the evening I watch TV and read. 
-      I go to bed at nine o’clock.<br>
-      Bye, Danial.
-    </p>
-
-    <p><b>Question:</b> How old is Danial?</p>
-    <input type="text" id="read1" placeholder="Type your answer in English">
-    <button class="btn" onclick="checkRead1()">Check</button>
-    <div id="read1Feedback" class="feedback"></div>
-  </section>
-
-  <!-- 🗣️ SPEAKING -->
-  <section class="task">
-    <h2>🗣️ Speaking – Talk about you</h2>
-    <p>Click on <b>Play question</b> and answer aloud:</p>
-    <button class="btn" onclick="bayanSpeak('Do you play games on your birthday? What games do you play?')">
-      🔊 Play question
-    </button>
-    <p style="font-size:0.9rem;margin-top:6px;">
-      (Teacher checks speaking. Stars можно ставить вручную.) 
-    </p>
-  </section>
-
-  <!-- ✍️ WRITING -->
-  <section class="task">
-    <h2>✍️ Writing – My fun day</h2>
-    <p>Write 2–3 sentences about your fun day in English.</p>
-    <p style="font-size:0.9rem;">Example: <i>I play tag with my friends. I fly a kite in the park.</i></p>
-    <textarea id="write1" placeholder="Write here..."></textarea>
-    <button class="btn" onclick="checkWriting()">Check & get a star</button>
-    <div id="write1Feedback" class="feedback"></div>
-  </section>
-
-  <!-- Навигация -->
-  <div class="nav-bar">
-    <button class="btn" onclick="goBack()">⬅ Back to Menu</button>
-    <button class="btn" onclick="goNext()">➡ Next Lesson</button>
+  <div style="margin-top:16px;">
+    <button class="btn" onclick="openChat()">💬 Open AI Bayan Chat</button>
+    <button class="btn" onclick="goToTeacher()">🏫 Teacher Journal</button>
   </div>
 </main>
 
-<!-- ✨ Анимации для ✅ ❌ и ⭐ -->
-<style>
-@keyframes pop {
-  0% { transform: scale(0.2); opacity: 0; }
-  60% { transform: scale(1.3); opacity: 1; }
-  100% { transform: scale(1); opacity: 0.9; }
-}
-@keyframes starSpin {
-  0% { transform: scale(0.5) rotate(0deg); opacity: 0; }
-  50% { transform: scale(1.3) rotate(20deg); opacity: 1; }
-  100% { transform: scale(1) rotate(0deg); opacity: 0; }
-}
-.feedback-icon {
-  font-size: 2rem;
-  display: inline-block;
-  animation: pop 0.5s ease-out;
-}
-.star {
-  display: inline-block;
-  font-size: 1.8rem;
-  color: gold;
-  margin-left: 5px;
-  animation: starSpin 0.8s ease-out;
-}
-</style>
-
-<script>
-// ====== Общие переменные ======
-let lessonStars = 0;
-let currentStudent = null;
-
-// загрузка информации при открытии страницы
-document.addEventListener("DOMContentLoaded", () => {
-  currentStudent = localStorage.getItem("currentStudent") || null;
-  if(currentStudent){
-    document.getElementById("studentName").innerText = currentStudent;
-    const saved = Number(localStorage.getItem(currentStudent+"_lesson1Stars")) || 0;
-    lessonStars = saved;
-    document.getElementById("lessonStars").innerText = lessonStars;
-  }
-});
-
-// добавить звезду за правильный ответ
-function addStar() {
-  if(!currentStudent) return;
-  lessonStars++;
-  document.getElementById("lessonStars").innerText = lessonStars;
-  localStorage.setItem(currentStudent+"_lesson1Stars", lessonStars);
-}
-
-// ✅ / ❌ + ⭐
-function showAnswerFeedback(isCorrect, elementId) {
-  const el = document.getElementById(elementId);
-  if (!el) return;
-  el.innerHTML = "";
-  const icon = document.createElement("span");
-  icon.className = "feedback-icon";
-  icon.textContent = isCorrect ? "✅" : "❌";
-  icon.style.color = isCorrect ? "green" : "red";
-  el.appendChild(icon);
-
-  if (isCorrect) {
-    const star = document.createElement("span");
-    star.className = "star";
-    star.textContent = "⭐";
-    el.appendChild(star);
-    addStar();
-  }
-
-  setTimeout(() => { el.innerHTML = ""; }, 1500);
-}
-
-// 🎙️ мягкий голос AI Bayan
-function bayanSpeak(text){
-  const speakNow = () => {
-    const voices = speechSynthesis.getVoices();
-    let voice = voices.find(v =>
-      v.name.includes("Google UK English Female") ||
-      v.name.includes("Microsoft Sonia Online") ||
-      v.lang === "en-GB"
-    );
-    if(!voice) voice = voices[0];
-
-    const utter = new SpeechSynthesisUtterance(text);
-    utter.voice  = voice;
-    utter.lang   = "en-GB";
-    utter.rate   = 0.9;
-    utter.pitch  = 1.0;
-    utter.volume = 1.0;
-    speechSynthesis.speak(utter);
-  };
-
-  if(speechSynthesis.getVoices().length === 0){
-    speechSynthesis.onvoiceschanged = speakNow;
-  } else {
-    speakNow();
-  }
-}
-
-// ====== Проверка заданий ======
-
-// Vocabulary 1
-function checkVoc1(){
-  const v = document.getElementById("voc1").value;
-  if(v === "volleyball"){
-    showAnswerFeedback(true, "voc1Feedback");
-    bayanSpeak("Volleyball. Well done!");
-  } else {
-    showAnswerFeedback(false, "voc1Feedback");
-    bayanSpeak("Not quite. Try again.");
-  }
-}
-// Vocabulary 2
-function checkVoc2(){
-  const v = document.getElementById("voc2").value;
-  if(v === "play hide-and-seek"){
-    showAnswerFeedback(true, "voc2Feedback");
-    bayanSpeak("Play hide and seek. Excellent!");
-  } else {
-    showAnswerFeedback(false, "voc2Feedback");
-    bayanSpeak("Not correct. Try again.");
-  }
-}
-
-// Grammar 1
-function checkGr1(){
-  const v = document.getElementById("gr1").value;
-  if(v === "plays"){
-    showAnswerFeedback(true, "gr1Feedback");
-    bayanSpeak("He plays football on Sundays.");
-  } else {
-    showAnswerFeedback(false, "gr1Feedback");
-    bayanSpeak("Remember: He plays with S.");
-  }
-}
-
-// Grammar 2
-function checkGr2(){
-  const v = document.getElementById("gr2").value;
-  if(v === "don’t"){
-    showAnswerFeedback(true, "gr2Feedback");
-    bayanSpeak("They don't like playing tag.");
-  } else {
-    showAnswerFeedback(false, "gr2Feedback");
-    bayanSpeak("We use don't with they.");
-  }
-}
-
-// Listening – play text
-function playListening(){
-  bayanSpeak("On Sunday, Jill walks in the park. Andy plays with a ball. Bob goes fishing in the lake.");
-}
-
-// Listening 1
-function checkLis1(){
-  const v = document.getElementById("lis1").value;
-  if(v === "T"){
-    showAnswerFeedback(true, "lis1Feedback");
-    bayanSpeak("Correct. Jill walks in the park.");
-  } else {
-    showAnswerFeedback(false, "lis1Feedback");
-    bayanSpeak("Listen again. Jill walks in the park.");
-  }
-}
-
-// Listening 2
-function checkLis2(){
-  const v = document.getElementById("lis2").value;
-  // фраза неверная -> правильный ответ F
-  if(v === "F"){
-    showAnswerFeedback(true, "lis2Feedback");
-    bayanSpeak("Correct. Bob goes fishing, he does not play volleyball.");
-  } else {
-    showAnswerFeedback(false, "lis2Feedback");
-    bayanSpeak("Listen again. Bob goes fishing.");
-  }
-}
-
-// Reading
-function checkRead1(){
-  const ans = document.getElementById("read1").value.trim().toLowerCase();
-  // допустим: "he is ten", "ten", "he is ten years old"
-  if(ans.includes("ten")){
-    showAnswerFeedback(true, "read1Feedback");
-    bayanSpeak("Correct. He is ten years old.");
-  } else {
-    showAnswerFeedback(false, "read1Feedback");
-    bayanSpeak("Read again. He is ten years old.");
-  }
-}
-
-// Writing – проверяем, что текст не пустой и хотя бы 5 символов
-function checkWriting(){
-  const txt = document.getElementById("write1").value.trim();
-  if(txt.length >= 5){
-    showAnswerFeedback(true, "write1Feedback");
-    bayanSpeak("Great! Thank you for your writing.");
-  } else {
-    showAnswerFeedback(false, "write1Feedback");
-    bayanSpeak("Please write at least one sentence.");
-  }
-}
-
-// Навигация
-function goBack(){
-  window.location.href = "index.html";
-}
-function goNext(){
-  window.location.href = "theme2.html";
-}
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
+
+  
+
+    
+
+    
+
+
