@@ -729,6 +729,37 @@ function bayanSpeak(text){
   speechSynthesis.speak(utter);
 }
 </script>
+  <script>
+// === 🎨 Тема 8: Sunny Career (Different Jobs) ===
+function setCustomColors() {
+  const root = document.documentElement;
+
+  // ☀️ Тёплая палитра: работа и радость
+  root.style.setProperty("--main-bg", "linear-gradient(180deg, #fffde7 0%, #fff9c4 50%, #ffecb3 100%)");
+  root.style.setProperty("--header-bg", "#f9a825");
+  root.style.setProperty("--header-text", "#fff8e1");
+  root.style.setProperty("--btn-bg", "#fbc02d");
+  root.style.setProperty("--btn-hover", "#fff176");
+  root.style.setProperty("--text-color", "#5d4037");
+  root.style.setProperty("--border-color", "#fdd835");
+  root.style.setProperty("--accent", "#ffca28");
+
+  // применяем цвета
+  document.body.style.background = getComputedStyle(root).getPropertyValue("--main-bg");
+  document.body.style.color = getComputedStyle(root).getPropertyValue("--text-color");
+  document.querySelectorAll("header").forEach(h=>{
+    h.style.background = getComputedStyle(root).getPropertyValue("--header-bg");
+    h.style.color = getComputedStyle(root).getPropertyValue("--header-text");
+  });
+  document.querySelectorAll(".btn").forEach(btn=>{
+    btn.style.background = getComputedStyle(root).getPropertyValue("--btn-bg");
+    btn.onmouseenter = ()=>btn.style.background = getComputedStyle(root).getPropertyValue("--btn-hover");
+    btn.onmouseleave = ()=>btn.style.background = getComputedStyle(root).getPropertyValue("--btn-bg");
+  });
+}
+
+window.addEventListener("DOMContentLoaded", setCustomColors);
+</script>
 </body>
 </html>
 
