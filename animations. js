@@ -1,0 +1,82 @@
+// === 🌟 ANIMATIONS.JS — общий файл эффектов для всех тем English with AI Bayan ===
+
+// ✅ / ❌ Анимация правильных и неправильных ответов
+function showResultAnimation(isCorrect, elementId) {
+  const el = document.getElementById(elementId);
+  if (!el) return;
+
+  if (isCorrect) {
+    el.innerHTML = "✅ Correct! ⭐";
+    el.style.background = "rgba(144,238,144,0.6)";
+    el.style.border = "2px solid green";
+    el.style.borderRadius = "10px";
+    el.style.transition = "0.4s";
+    el.style.padding = "5px";
+    sparkleStars();
+    setTimeout(() => {
+      el.style.background = "";
+      el.style.border = "";
+      el.innerHTML = "";
+    }, 1500);
+  } else {
+    el.innerHTML = "❌ Try again!";
+    el.style.background = "rgba(255,182,193,0.6)";
+    el.style.border = "2px solid red";
+    el.style.borderRadius = "10px";
+    el.style.transition = "0.4s";
+    el.style.padding = "5px";
+    navigator.vibrate?.(250);
+    setTimeout(() => {
+      el.style.background = "";
+      el.style.border = "";
+      el.innerHTML = "";
+    }, 1500);
+  }
+}
+
+// 🌟 Вспышка звезды при правильном ответе
+function sparkleStars(x = window.innerWidth / 2, y = window.innerHeight / 2) {
+  const star = document.createElement("div");
+  star.textContent = "⭐";
+  star.style.position = "fixed";
+  star.style.left = `${x}px`;
+  star.style.top = `${y}px`;
+  star.style.fontSize = "1.8rem";
+  star.style.opacity = "1";
+  star.style.transition = "all 1.2s ease-out";
+  star.style.pointerEvents = "none";
+  document.body.appendChild(star);
+  setTimeout(() => {
+    star.style.top = `${y - 80}px`;
+    star.style.opacity = "0";
+  }, 50);
+  setTimeout(() => star.remove(), 1300);
+}
+
+// 🗣️ Голос AI Bayan (мягкий, британский)
+function bayanSpeak(text) {
+  if (!("speechSynthesis" in window)) {
+    alert("Your browser does not support speech synthesis 😔");
+    return;
+  }
+  const voices = speechSynthesis.getVoices();
+  let voice =
+    voices.find(
+      (v) =>
+        (v.name.toLowerCase().includes("female") ||
+          v.name.toLowerCase().includes("uk")) &&
+        v.lang.includes("en-GB")
+    ) || voices.find((v) => v.lang.includes("en"));
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.voice = voice;
+  utter.lang = "en-GB";
+  utter.rate = 0.9;  // средняя скорость
+  utter.pitch = 1.0; // естественный тон
+  utter.volume = 1;
+  speechSynthesis.speak(utter);
+}
+
+// ⏹️ Остановка речи
+function stopBayan() {
+  window.speechSynthesis.cancel();
+}
