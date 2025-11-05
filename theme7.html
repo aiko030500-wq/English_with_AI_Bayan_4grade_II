@@ -706,6 +706,37 @@ function bayanSpeak(text){
   speechSynthesis.speak(utter);
 }
 </script>
+  <script>
+// === 🎨 Тема 7: Peace & Kindness (Children’s Rights and Responsibilities) ===
+function setCustomColors() {
+  const root = document.documentElement;
+
+  // 💙 Мягкая “детская” палитра
+  root.style.setProperty("--main-bg", "linear-gradient(180deg, #eaf8ff 0%, #d1ecff 50%, #e1f5fe 100%)");
+  root.style.setProperty("--header-bg", "#6a5acd");
+  root.style.setProperty("--header-text", "#ffffff");
+  root.style.setProperty("--btn-bg", "#7e57c2");
+  root.style.setProperty("--btn-hover", "#b39ddb");
+  root.style.setProperty("--text-color", "#2c387e");
+  root.style.setProperty("--border-color", "#ce93d8");
+  root.style.setProperty("--accent", "#ffd54f");
+
+  // применяем цвета
+  document.body.style.background = getComputedStyle(root).getPropertyValue("--main-bg");
+  document.body.style.color = getComputedStyle(root).getPropertyValue("--text-color");
+  document.querySelectorAll("header").forEach(h=>{
+    h.style.background = getComputedStyle(root).getPropertyValue("--header-bg");
+    h.style.color = getComputedStyle(root).getPropertyValue("--header-text");
+  });
+  document.querySelectorAll(".btn").forEach(btn=>{
+    btn.style.background = getComputedStyle(root).getPropertyValue("--btn-bg");
+    btn.onmouseenter = ()=>btn.style.background = getComputedStyle(root).getPropertyValue("--btn-hover");
+    btn.onmouseleave = ()=>btn.style.background = getComputedStyle(root).getPropertyValue("--btn-bg");
+  });
+}
+
+window.addEventListener("DOMContentLoaded", setCustomColors);
+</script>
 </body>
 </html>
 
