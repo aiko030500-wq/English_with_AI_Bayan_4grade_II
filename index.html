@@ -172,6 +172,23 @@
     <p style="margin-top:10px;">Total: <b><span id="teacherTotal"></span> ⭐</b></p>
     <button class="btn" onclick="logout()">Logout</button>
   </div>
+  <!-- 💬 AI BAYAN CHAT SECTION -->
+<section id="chatSection" class="section" style="display:none;">
+  <h2>💬 AI Bayan Teacher Chat</h2>
+  <p>Ask AI Bayan about <b>grammar, vocabulary, translation, or pronunciation</b>.<br>
+  You can write in English or Russian — AI Bayan understands both!</p>
+
+  <div id="chatBox" 
+       style="max-height:300px;overflow-y:auto;border:1px solid #ccc;
+              padding:10px;border-radius:10px;background:#fff;"></div>
+
+  <textarea id="chatInput" 
+            placeholder="Ask your question here..." 
+            style="width:100%;border-radius:8px;margin-top:8px;"></textarea><br>
+  <button class="btn" onclick="askBayan()">Ask</button>
+  <button class="btn" onclick="clearChat()">Clear</button>
+  <button class="btn" onclick="goMenu()">🏠 Back to Menu</button>
+</section>
 </main>
 
 <script>
