@@ -19,7 +19,6 @@
     border-bottom: 5px solid gold;
   }
   main { padding: 1rem; }
-
   .btn {
     display: inline-block;
     margin: 6px;
@@ -33,7 +32,6 @@
     font-size: 0.9rem;
   }
   .btn:hover { background: gold; color: #003366; }
-
   .overlay {
     position: fixed;
     inset: 0;
@@ -60,7 +58,6 @@
     border: 1px solid #ccc;
     font-size: 1rem;
   }
-
   .logo-main {
     width: 120px;
     height: 120px;
@@ -69,7 +66,6 @@
     border: 3px solid gold;
     margin-bottom: 6px;
   }
-
   .topics-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
@@ -90,7 +86,6 @@
     border-color: gold;
     transform: translateY(-1px);
   }
-
   #welcomeBox {
     background: linear-gradient(180deg,#fff9ec 0%,#f8e4ba 100%);
     border: 3px solid gold;
@@ -103,18 +98,9 @@
   }
   #welcomeBox h2 { margin: 4px 0; font-size: 1.4rem; }
   #totalStars { font-weight: bold; color:#d48a00; }
-
-  .section {
-    display: none;
-    margin-top: 16px;
-  }
-
-  table {
-    font-size: 0.85rem;
-  }
-  th, td {
-    padding: 4px 6px;
-  }
+  .section { display: none; margin-top: 16px; }
+  table { font-size: 0.85rem; }
+  th, td { padding: 4px 6px; }
 </style>
 </head>
 <body>
@@ -134,14 +120,12 @@
 </header>
 
 <main>
-  <!-- 👋 Welcome box -->
   <div id="welcomeBox" style="display:none;">
     <img src="logo.png" alt="AI Bayan Logo" class="logo-main">
     <h2 id="welcomeText"></h2>
     <p>You have <span id="totalStars">0</span> ⭐ total stars!</p>
   </div>
 
-  <!-- 🧒 Student menu -->
   <div id="studentMenu" style="display:none;">
     <div class="topics-grid">
       <div class="topic-card" onclick="openLesson(1)">1. 🎨 Let’s Have Fun!</div>
@@ -157,14 +141,11 @@
       <div class="topic-card" onclick="openLesson(11)">11. 💬 What Do You Do?</div>
       <div class="topic-card" onclick="openLesson(12)">12. ❤️ You Can Help!</div>
       <div class="topic-card" onclick="openLesson(13)">13. 🎯 Final Challenge</div>
-      <div class="topic-card" onclick="openChatSection()">
-        💬 AI Bayan Chat — Ask the Teacher 🤖
-      </div>
+      <div class="topic-card" onclick="openChatSection()">💬 AI Bayan Chat — Ask the Teacher 🤖</div>
     </div>
     <button class="btn" onclick="openTeacherJournal()">🏫 Teacher Journal</button>
   </div>
 
-  <!-- 🏫 Teacher Journal -->
   <div id="teacherJournal" class="section">
     <h2>🏫 Teacher Journal</h2>
     <table border="1" cellpadding="4" cellspacing="0" style="margin:auto;border-collapse:collapse;">
@@ -182,20 +163,13 @@
     <button class="btn" onclick="logout()">Logout</button>
   </div>
 
-  <!-- 💬 AI Bayan ONLINE CHAT -->
   <section id="chatSection" class="section" style="max-width:900px;margin:0 auto;">
     <h2>💬 AI Bayan — Online Teacher Chat</h2>
-    <p>Ask about <b>grammar, vocabulary, translation or homework</b>.<br>
-       You can write in English or Russian.</p>
+    <p>Ask about <b>grammar, vocabulary, translation or homework</b>.<br>You can write in English or Russian.</p>
 
-    <div id="chatBox"
-         style="max-height:320px;overflow-y:auto;border:1px solid #ccc;
-                padding:10px;border-radius:10px;background:#fff;
-                text-align:left;font-size:0.9rem;"></div>
+    <div id="chatBox" style="max-height:320px;overflow-y:auto;border:1px solid #ccc;padding:10px;border-radius:10px;background:#fff;text-align:left;font-size:0.9rem;"></div>
 
-    <textarea id="chatInput"
-              placeholder="Type your question here..."
-              style="width:100%;border-radius:8px;margin-top:8px;min-height:60px;"></textarea><br>
+    <textarea id="chatInput" placeholder="Type your question here..." style="width:100%;border-radius:8px;margin-top:8px;min-height:60px;"></textarea><br>
 
     <button class="btn" onclick="askBayan()">Ask AI Bayan</button>
     <button class="btn" onclick="clearChat()">Clear</button>
@@ -204,19 +178,11 @@
 </main>
 
 <script>
-// ✅ Разрешённые имена (англ. вариант)
-const allowedNames = [
-  "Aylin2","Aitach2","Zhakhangir2","Alvi2","Narmin2","Balman2",
-  "Dima2","Ilyas2","Kirill2","Irada2","Shyngys2","Sultan2",
-  "Kira2","Damir2","Arai2","Bayan2","Jury2","Jury3"
-];
+const allowedNames = ["Aylin2","Aitach2","Zhakhangir2","Alvi2","Narmin2","Balman2","Dima2","Ilyas2","Kirill2","Irada2","Shyngys2","Sultan2","Kira2","Damir2","Arai2","Bayan2","Jury2","Jury3"];
 
-// 🔐 вход по имени + PIN
 function checkLogin(){
   const name = document.getElementById("nameInput").value.trim();
   const pin  = document.getElementById("pinInput").value.trim();
-
-  // ученик
   if(allowedNames.includes(name) && pin === "6856"){
     localStorage.setItem("currentStudent", name);
     document.getElementById("loginOverlay").style.display = "none";
@@ -224,19 +190,15 @@ function checkLogin(){
     document.getElementById("welcomeBox").style.display    = "block";
     document.getElementById("welcomeText").innerText = "Hello, " + name + "!";
     updateStars();
-  }
-  // учитель
-  else if(name.toLowerCase() === "teacher" && pin === "9995"){
+  } else if(name.toLowerCase() === "teacher" && pin === "9995"){
     document.getElementById("loginOverlay").style.display = "none";
     document.getElementById("teacherJournal").style.display = "block";
     buildJournal();
-  }
-  else {
+  } else {
     alert("❌ Access denied. Check your name or PIN.");
   }
 }
 
-// ⭐ обновление звёзд для текущего ученика
 function updateStars(){
   const name = localStorage.getItem("currentStudent");
   if(!name) return;
@@ -246,11 +208,9 @@ function updateStars(){
   }
   total += Number(localStorage.getItem(name+"_chatStars")) || 0;
   document.getElementById("totalStars").innerText = total;
-  // можно сохранить общий итог в отдельный ключ
   localStorage.setItem(name+"_totalStars", total);
 }
 
-// 🏫 Teacher Journal – заполняем таблицу
 function buildJournal(){
   const body = document.getElementById("journalBody");
   body.innerHTML = "";
@@ -270,41 +230,20 @@ function buildJournal(){
   });
 }
 
-// открыть тему
-function openLesson(n){
-  window.location.href = "theme"+n+".html";
-}
-
-// открыть журнал из меню ученика
+function openLesson(n){ window.location.href = "theme"+n+".html"; }
 function openTeacherJournal(){
-  document.getElementById("studentMenu").style.display   = "none";
+  document.getElementById("studentMenu").style.display = "none";
   document.getElementById("teacherJournal").style.display = "block";
   buildJournal();
 }
-
-// вернуться в меню
-function goMenu(){
-  window.location.href = "index.html";
-}
-
-// выйти
-function logout(){
-  localStorage.removeItem("currentStudent");
-  window.location.href = "index.html";
-}
-
-// 💬 открыть чат
+function goMenu(){ window.location.href = "index.html"; }
+function logout(){ localStorage.removeItem("currentStudent"); window.location.href = "index.html"; }
 function openChatSection(){
   document.getElementById("studentMenu").style.display = "none";
-  document.getElementById("teacherJournal").style.display = "none";
   document.getElementById("chatSection").style.display = "block";
 }
 
-// ================== 🤖 AI BAYAN ONLINE CHAT ==================
-
-// ⚠️ ТУТ НУЖЕН ТВОЙ КЛЮЧ OPENAI (НЕ КЛАДИ С ЭТИМ ФАЙЛОМ НА ОТКРЫТЫЙ GITHUB!)
-const OPENAI_API_KEY = "YOUR_OPENAI_API_KEY_HERE";
-
+// ✅ Новый fetch с Render backend
 async function askBayan(){
   const input = document.getElementById('chatInput');
   const box   = document.getElementById('chatBox');
@@ -321,37 +260,22 @@ async function askBayan(){
   input.value = "";
 
   try {
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    const response = await fetch("https://ai-bayan-backend.onrender.com/ask", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer " + OPENAI_API_KEY
-      },
-      body: JSON.stringify({
-        model: "gpt-4.1-mini",
-        messages: [
-          {
-            role: "system",
-            content: "You are AI Bayan, a kind English teacher for 4th grade kids in Kazakhstan. Explain in simple English, add short Russian help if needed, be very clear and friendly."
-          },
-          { role: "user", content: question }
-        ]
-      })
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question })
     });
 
     const data = await response.json();
-    const answer = data.choices?.[0]?.message?.content || "Sorry, I cannot answer right now.";
+    const answer = data.answer || "Sorry, I cannot answer right now.";
 
     const thinking = document.getElementById("thinking");
     if(thinking) thinking.remove();
 
     box.innerHTML += `<p><b>AI Bayan:</b> ${answer}</p>`;
     box.scrollTop = box.scrollHeight;
-
-    // можно озвучивать ответ
     bayanSpeak(answer);
 
-    // +1 звезда за активность в чате
     const name = localStorage.getItem("currentStudent");
     if(name){
       let chatStars = Number(localStorage.getItem(name+"_chatStars")) || 0;
@@ -359,137 +283,29 @@ async function askBayan(){
       localStorage.setItem(name+"_chatStars", chatStars);
       updateStars();
     }
-
   } catch(err){
     const thinking = document.getElementById("thinking");
     if(thinking) thinking.remove();
-    box.innerHTML += `<p><b>AI Bayan:</b> Sorry, there was an error connecting to the server.</p>`;
+    box.innerHTML += `<p><b>AI Bayan:</b> ❌ Server connection error.</p>`;
     console.error(err);
   }
 }
 
-function clearChat(){
-  document.getElementById('chatBox').innerHTML = "";
-}
+function clearChat(){ document.getElementById('chatBox').innerHTML = ""; }
 
-// 🎙️ мягкий голос AI Bayan
 function bayanSpeak(text){
   const speakNow = () => {
     const voices = speechSynthesis.getVoices();
-    let voice = voices.find(v =>
-      v.name.includes("Google UK English Female") ||
-      v.name.includes("Microsoft Sonia Online") ||
-      v.lang === "en-GB"
-    );
+    let voice = voices.find(v => v.lang === "en-GB" || v.name.includes("Google UK English Female"));
     if(!voice) voice = voices[0];
-
     const utter = new SpeechSynthesisUtterance(text);
-    utter.voice  = voice;
-    utter.lang   = "en-GB";
-    utter.rate   = 0.9;
-    utter.pitch  = 1.0;
-    utter.volume = 1.0;
+    utter.voice = voice; utter.lang = "en-GB";
+    utter.rate = 0.9; utter.pitch = 1.0; utter.volume = 1.0;
     speechSynthesis.speak(utter);
   };
-
-  if(speechSynthesis.getVoices().length === 0){
-    speechSynthesis.onvoiceschanged = speakNow;
-  } else {
-    speakNow();
-  }
-}
-</script>...
-<script src="animations.js"></script>
-  <style>
-  .result-icon {
-    font-size: 2.5rem;
-    opacity: 0;
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    transform: scale(0.5);
-    position: fixed;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.5);
-    z-index: 9999;
-  }
-  .result-icon.show {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  .correct {
-    color: #4CAF50; /* зелёная галочка */
-  }
-  .wrong {
-    color: #e53935; /* красный крестик */
-  }
-</style>
-
-<div id="feedbackIcon" class="result-icon"></div>
-
-<script>
-function showResult(isCorrect) {
-  const icon = document.getElementById("feedbackIcon");
-  if (isCorrect) {
-    icon.textContent = "✔";
-    icon.className = "result-icon correct show";
-  } else {
-    icon.textContent = "✖";
-    icon.className = "result-icon wrong show";
-  }
-  setTimeout(() => {
-    icon.classList.remove("show");
-  }, 800);
+  if(speechSynthesis.getVoices().length === 0){ speechSynthesis.onvoiceschanged = speakNow; } else { speakNow(); }
 }
 </script>
-  <!-- ✅ Анимация галочки и крестика -->
-<style>
-  .result-icon {
-    font-size: 3rem;
-    opacity: 0;
-    transform: scale(0.5);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    position: fixed;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.5);
-    z-index: 9999;
-    pointer-events: none;
-  }
-  .result-icon.show {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  .correct {
-    color: #00c853; /* ярко-зелёная галочка */
-    text-shadow: 0 0 15px #7fff8c;
-  }
-  .wrong {
-    color: #ff1744; /* красный крестик */
-    text-shadow: 0 0 15px #ff7f7f;
-  }
-</style>
-
-<!-- Иконка (появляется при ответах) -->
-<div id="feedbackIcon" class="result-icon"></div>
-
-<script>
-  // 🎯 показать галочку или крестик
-  function showResult(isCorrect) {
-    const icon = document.getElementById("feedbackIcon");
-    if (isCorrect) {
-      icon.textContent = "✔";
-      icon.className = "result-icon correct show";
-    } else {
-      icon.textContent = "✖";
-      icon.className = "result-icon wrong show";
-    }
-    // через 0.9 сек скрыть
-    setTimeout(() => {
-      icon.classList.remove("show");
-    }, 900);
-  }
-</script>
-  <button onclick="showResult(true)">✔ Test Correct</button>
-<button onclick="showResult(false)">✖ Test Wrong</button>
 </body>
 </html>
+    
