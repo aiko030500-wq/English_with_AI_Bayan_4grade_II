@@ -164,6 +164,13 @@ Everyone is happy and active!
 <p>You have earned <b><span id="finalStars">0</span> ⭐</b> in this lesson.</p>
 <button class="btn" onclick="finishLesson()">Save & Show Result ✅</button>
 <div id="finalMessage" style="margin-top:10px;font-size:1.1rem;color:#8b5e3c;"></div>
+
+<!-- ✅ добавлены кнопки -->
+<div style="margin-top:18px;">
+  <button class="btn" onclick="goBack()">⬅ Back</button>
+  <button class="btn" onclick="goMenu()">🏠 Main Menu</button>
+  <button class="btn" onclick="goNext()">Next ➡️</button>
+</div>
 </section>
 </main>
 
@@ -181,6 +188,9 @@ function bayanReading(){speak('It is Sports Day at school. The students are runn
 function checkReading(){let c=0;if(r1.value.toLowerCase().includes('sports'))c++;if(r2.value.toLowerCase().includes('run')||r2.value.toLowerCase().includes('jump'))c++;if(r3.value.toLowerCase().includes('yes'))c++;if(c>0){addStar();readStars.innerText='⭐ '+c+' correct!';}}
 function checkWriting(){let c=0;[w1,w2,w3].forEach(x=>{if(x.value.trim()!=='')c++;});if(c>0){addStar();writeStars.innerText='⭐ '+c+' sentences!';}}
 function finishLesson(){finalStars.innerText=totalStars;const msg=totalStars>=10?'🌟 Excellent! You love sports!':'Good effort! Keep training!';finalMessage.innerText=msg;const name=localStorage.getItem('studentName')||'Unknown Student';const all=JSON.parse(localStorage.getItem('teacherJournal')||'{}');all[name]=all[name]||{};all[name]['Lesson 2']=totalStars;localStorage.setItem('teacherJournal',JSON.stringify(all));localStorage.setItem('lesson2Stars',totalStars);alert('Lesson 2 saved! '+name+' got '+totalStars+'⭐.');}
+function goBack(){location.href='theme1.html';}
+function goMenu(){location.href='index.html';}
+function goNext(){location.href='theme3.html';}
 </script>
 </body>
 </html>
@@ -190,9 +200,6 @@ function finishLesson(){finalStars.innerText=totalStars;const msg=totalStars>=10
 
 
 
-    
-    
-  
 
 
 
