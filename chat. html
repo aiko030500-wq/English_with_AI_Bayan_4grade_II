@@ -69,10 +69,10 @@ button {
 
 <script>
 /* 🌟 ВСТАВЬ СВОЙ API-КЛЮЧ ОТ OPENAI СЮДА */
-const 
-/* -----AI Bayan Chat	
-sk-...vlAA
-All------------------------------------------ */
+const OPENAI_API_KEY = "AI_Bayan_Key	
+sk-...Rw8A
+All ";
+/* --------------------------------------- */
 
 async function aiAnswer(prompt) {
   const res = await fetch("https://api.openai.com/v1/chat/completions", {
