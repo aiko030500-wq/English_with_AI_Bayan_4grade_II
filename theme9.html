@@ -1,766 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Theme 9 — People and Jobs (Professions)</title>
-  <style>
-    body {
-      font-family: Verdana, sans-serif;
-      background: linear-gradient(180deg,#fff7f0 0%,#ffd9b8 100%);
-      margin: 0;
-      color: #5a2a00;
-      text-align: center;
-    }
-    header {
-      background: linear-gradient(90deg,#b85c00,#ff8c1a);
-      color: white;
-      padding: 0.6rem 1rem;
-      border-bottom: 5px solid #ffcc66;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .logo {
-      width: 55px; height: 55px;
-      border-radius: 50%;
-      border: 3px solid #ffcc66;
-      object-fit: cover;
-      background: white;
-    }
-    h2 {color:#b85c00;}
-    section {
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      padding: 15px;
-      max-width: 800px;
-      margin: 15px auto;
-      text-align: left;
-      line-height: 1.5;
-      font-size: 0.95rem;
-    }
-    h3 {
-      background: #b85c00;
-      color: white;
-      padding: 6px 10px;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
-    .btn {
-      display:inline-block;
-      margin:6px;
-      padding:8px 14px;
-      border:none;
-      border-radius:10px;
-      background:#b85c00;
-      color:white;
-      font-weight:bold;
-      cursor:pointer;
-      font-size:0.9rem;
-    }
-    .btn:hover {background:#ffcc66; color:#b85c00;}
-    textarea {
-      width:100%;
-      border-radius:10px;
-      border:1px solid #ccc;
-      padding:6px;
-      font-family:inherit;
-      font-size:0.9rem;
-    }
-    input[type="text"] {
-      width:100%;
-      max-width:380px;
-      border-radius:8px;
-      border:1px solid #ccc;
-      padding:4px 6px;
-      font-family:inherit;
-      font-size:0.9rem;
-    }
-    select {
-      border-radius:8px;
-      padding:2px 4px;
-      font-size:0.9rem;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Theme 9 — Professions</title>
+<style>
+body {
+  font-family: Verdana, sans-serif;
+  background: radial-gradient(circle at top,#fffde7 0%,#fff8e1 40%,#ffecb3 100%);
+  margin:0;
+  color:#8d6e00;
+  text-align:center;
+}
+header {
+  background:linear-gradient(90deg,#f9a825,#fbc02d);
+  color:white;
+  padding:0.6rem 1rem;
+  border-bottom:5px solid #fff59d;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.logo {
+  width:55px;height:55px;
+  border-radius:50%;
+  border:3px solid #fff9c4;
+  background:white;
+  object-fit:cover;
+}
+h2{color:#f57f17;}
+section {
+  background:rgba(255,255,255,0.98);
+  border-radius:18px;
+  box-shadow:0 0 12px rgba(0,0,0,0.12);
+  padding:15px;
+  max-width:860px;
+  margin:15px auto;
+  text-align:left;
+  line-height:1.5;
+  font-size:0.95rem;
+}
+h3 {
+  background:linear-gradient(90deg,#f9a825,#ffd54f);
+  color:white;
+  padding:6px 10px;
+  border-radius:10px;
+  font-size:1rem;
+}
+.btn {
+  display:inline-block;
+  margin:6px;
+  padding:8px 14px;
+  border:none;
+  border-radius:10px;
+  background:#f9a825;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  font-size:0.9rem;
+}
+.btn:hover{background:#ffe082;color:#8d6e00;}
+input[type="text"],textarea,select{
+  border-radius:8px;
+  border:1px solid #ccc;
+  padding:6px;
+  font-family:inherit;
+  font-size:0.9rem;
+}
+input[type="text"]{width:100%;max-width:380px;}
+textarea{width:100%;}
+.round-label{
+  display:inline-block;
+  background:#fff59d;
+  color:#8d6e00;
+  padding:2px 8px;
+  border-radius:999px;
+  font-size:0.75rem;
+  font-weight:bold;
+  margin-left:6px;
+}
+.mark-icon{margin-left:8px;font-size:1.2rem;font-weight:bold;}
+.correctMark{color:#00c853;}
+.wrongMark{color:#ff1744;}
+</style>
 </head>
 <body>
 <header>
   <div style="display:flex;align-items:center;gap:10px;">
     <img src="logo.png" class="logo" alt="AI Bayan logo">
     <div>
-      <h1 style="margin:0;font-size:1rem;">Theme 9 — People and Jobs (Professions)</h1>
-      <p style="margin:0;color:#ffe9b5;">English with AI Bayan</p>
+      <h1 style="margin:0;font-size:1rem;">Theme 9 — Professions</h1>
+      <p style="margin:0;color:#fffde7;">English with AI Bayan — People and their jobs</p>
     </div>
   </div>
 </header>
 
 <main>
-  <h2>👩‍⚕️ People and Jobs</h2>
-  <p style="font-style:italic;">Jobs, workplaces and helping people</p>
-  <p id="lessonStarsLine"><b>You have 0 ⭐ in this lesson.</b></p>
-
-  <!-- ========== VOCABULARY (jobs & actions) ========== -->
-  <section>
-    <h3>🧠 VOCABULARY — Jobs and what people do</h3>
-
-    <p><b>Listen to AI Bayan. Choose the correct job.</b></p>
-
-    <!-- Q1 -->
-    <p>1) AI Bayan:
-      <button class="btn" onclick="speakVocab('He works on a farm. He grows fruit and vegetables.')">▶ Play</button>
-      <button class="btn" onclick="stopBayan()">⏹ Stop</button>
-    </p>
-    <p>Who is he?</p>
-    <label><input type="radio" name="v1" value="1"> a farmer</label><br>
-    <label><input type="radio" name="v1" value="0"> a teacher</label><br>
-    <label><input type="radio" name="v1" value="0"> an actor</label><br>
-
-    <!-- Q2 -->
-    <p>2) AI Bayan:
-      <button class="btn" onclick="speakVocab('She helps sick animals at the animal clinic.')">▶ Play</button>
-      <button class="btn" onclick="stopBayan()">⏹ Stop</button>
-    </p>
-    <p>Who is she?</p>
-    <label><input type="radio" name="v2" value="1"> a vet</label><br>
-    <label><input type="radio" name="v2" value="0"> a doctor</label><br>
-    <label><input type="radio" name="v2" value="0"> a pilot</label><br>
-
-    <!-- Q3 -->
-    <p>3) AI Bayan:
-      <button class="btn" onclick="speakVocab('He flies a big plane and travels to many countries.')">▶ Play</button>
-      <button class="btn" onclick="stopBayan()">⏹ Stop</button>
-    </p>
-    <p>Who is he?</p>
-    <label><input type="radio" name="v3" value="1"> a pilot</label><br>
-    <label><input type="radio" name="v3" value="0"> a taxi driver</label><br>
-    <label><input type="radio" name="v3" value="0"> a firefighter</label><br>
-
-    <!-- Q4 -->
-    <p>4) AI Bayan:
-      <button class="btn" onclick="speakVocab('She teaches English to children at school.')">▶ Play</button>
-      <button class="btn" onclick="stopBayan()">⏹ Stop</button>
-    </p>
-    <p>Who is she?</p>
-    <label><input type="radio" name="v4" value="1"> a teacher</label><br>
-    <label><input type="radio" name="v4" value="0"> a cook</label><br>
-    <label><input type="radio" name="v4" value="0"> a police officer</label><br>
-
-    <!-- Q5 -->
-    <p>5) AI Bayan:
-      <button class="btn" onclick="speakVocab('He puts out fires and saves people and animals.')">▶ Play</button>
-      <button class="btn" onclick="stopBayan()">⏹ Stop</button>
-    </p>
-    <p>Who is he?</p>
-    <label><input type="radio" name="v5" value="1"> a firefighter</label><br>
-    <label><input type="radio" name="v5" value="0"> a doctor</label><br>
-    <label><input type="radio" name="v5" value="0"> a farmer</label><br>
-
-    <!-- Q6 -->
-    <p>6) AI Bayan:
-      <button class="btn" onclick="speakVocab('She helps people in the city and wears a uniform.')">▶ Play</button>
-      <button class="btn" onclick="stopBayan()">⏹ Stop</button>
-    </p>
-    <p>Who is she?</p>
-    <label><input type="radio" name="v6" value="1"> a police officer</label><br>
-    <label><input type="radio" name="v6" value="0"> an astronaut</label><br>
-    <label><input type="radio" name="v6" value="0"> a vet</label><br>
-
-    <button class="btn" onclick="checkVocab()">Check ✅</button>
-    <div id="vocabStars" style="font-size:1.1rem;margin-top:8px;"></div>
-  </section>
-
-  <!-- ========== GRAMMAR (a/an/the, object pronouns, Wh-) ========== -->
-  <section>
-    <h3>📘 GRAMMAR — a, an, the & object pronouns</h3>
-
-    <p><b>1. Articles a / an / the</b></p>
-    <p>
-      We use <b>a</b> before a consonant sound: a teacher, a doctor. <br>
-      We use <b>an</b> before a vowel sound: an actor, an astronaut. <br>
-      We use <b>the</b> for something specific: the teacher in our class.
-    </p>
-
-    <p><b>Choose the correct article:</b></p>
-
-    <p>1) This is George. He’s ___ pilot.</p>
-    <label><input type="radio" name="g1" value="a"> a</label><br>
-    <label><input type="radio" name="g1" value="an"> an</label><br>
-
-    <p>2) That’s his plane. ___ plane is big.</p>
-    <label><input type="radio" name="g2" value="a"> a</label><br>
-    <label><input type="radio" name="g2" value="the"> the</label><br>
-
-    <p>3) This is Tim. He’s ___ actor.</p>
-    <label><input type="radio" name="g3" value="a"> a</label><br>
-    <label><input type="radio" name="g3" value="an"> an</label><br>
-
-    <p>4) That’s his hat. ___ hat is blue.</p>
-    <label><input type="radio" name="g4" value="a"> a</label><br>
-    <label><input type="radio" name="g4" value="the"> the</label><br>
-
-    <hr>
-
-    <p><b>2. Object pronouns & question words</b></p>
-    <p>me, you, him, her, it, us, them</p>
-
-    <p>5) I’m your teacher. Listen to ___!</p>
-    <label><input type="radio" name="g5" value="me"> me</label><br>
-    <label><input type="radio" name="g5" value="you"> you</label><br>
-
-    <p>6) This is my baby sister. Look at ___!</p>
-    <label><input type="radio" name="g6" value="him"> him</label><br>
-    <label><input type="radio" name="g6" value="her"> her</label><br>
-
-    <p>7) ___ is that? It’s my cousin Jake.</p>
-    <label><input type="radio" name="g7" value="who"> Who</label><br>
-    <label><input type="radio" name="g7" value="what"> What</label><br>
-
-    <button class="btn" onclick="checkGrammar()">Check ✅</button>
-    <div id="grammarStars" style="font-size:1.1rem;margin-top:8px;"></div>
-
-    <p><b>Write your own sentence with a job:</b></p>
-    <p>Example: My mum is a doctor. She helps sick people.</p>
-    <input id="writeGrammar" type="text" placeholder="Type your sentence here...">
-  </section>
-
-  <!-- ========== LISTENING (people and jobs) ========== -->
-  <section>
-    <h3>🎧 LISTENING — People and jobs</h3>
-
-    <p><b>1. Listen to AI Bayan:</b></p>
-    <button class="btn" onclick="bayanListening()">▶ Play</button>
-    <button class="btn" onclick="stopBayan()">⏹ Stop</button>
-
-    <p style="margin-top:8px;font-size:0.9rem;color:#444;">
-      Listen about three people and their jobs. Then choose True or False.
-    </p>
-
-    <p><b>2. True or False?</b></p>
-
-    <p>1) The doctor works in a hospital and helps sick people.</p>
-    <select id="t1">
-      <option>—</option><option>True</option><option>False</option>
-    </select>
-
-    <p>2) The farmer works in a shop in the city centre.</p>
-    <select id="t2">
-      <option>—</option><option>True</option><option>False</option>
-    </select>
-
-    <p>3) The actor works in a theatre and acts in plays.</p>
-    <select id="t3">
-      <option>—</option><option>True</option><option>False</option>
-    </select>
-
-    <button class="btn" onclick="checkListening()">Check ✅</button>
-    <div id="listenStars" style="font-size:1.1rem;margin-top:8px;"></div>
-  </section>
-
-  <!-- ========== READING (People in our town) ========== -->
-  <section>
-    <h3>📖 READING — People in our town</h3>
-
-    <p><b>1. Read or listen:</b></p>
-    <button class="btn" onclick="bayanReading()">▶ Play</button>
-    <button class="btn" onclick="stopBayan()">⏹ Stop</button>
-
-    <div style="margin-top:10px; background:#fff2e5; border-radius:10px; padding:10px;">
-      <p>
-        In our town, people have many different jobs.  
-        Mrs Brown is a doctor. She works in a hospital and helps sick people.  
-        Mr Green is a farmer. He works on a farm and grows fruit and vegetables.  
-        Ms Lee is a teacher. She works at school and teaches English.  
-        Mr Black is a vet. He helps and saves animals at the animal clinic.  
-        All these jobs are important for the people in our town.
-      </p>
-    </div>
-
-    <p><b>2. Answer the questions:</b></p>
-    <ol>
-      <li>Who helps sick people?<br>
-        <input id="r1" type="text" placeholder="Your answer..."></li><br>
-      <li>Who works at school?<br>
-        <input id="r2" type="text" placeholder="Your answer..."></li><br>
-      <li>Who helps and saves animals?<br>
-        <input id="r3" type="text" placeholder="Your answer..."></li>
-    </ol>
-
-    <button class="btn" onclick="checkReading()">Check ✅</button>
-    <div id="readStars" style="font-size:1.1rem;margin-top:8px;"></div>
-  </section>
-
-  <!-- ========== SPEAKING ========== -->
-  <section>
-    <h3>🗣️ SPEAKING — Talk about jobs</h3>
-
-    <p><b>1. Listen to questions:</b></p>
-    <button class="btn" onclick="bayanSpeaking()">▶ Play</button>
-    <button class="btn" onclick="stopBayan()">⏹ Stop</button>
-
-    <p style="margin-top:8px;"><b>Questions:</b></p>
-    <ul>
-      <li>What does your mum or dad do?</li>
-      <li>What job do you want to have in the future?</li>
-      <li>Why is this job important?</li>
-    </ul>
-
-    <p><b>2. Answer into the microphone:</b></p>
-    <button class="btn" onclick="startSpeak()">🎙 Start recording</button>
-    <button class="btn" onclick="stopSpeak()">⏹ Stop</button>
-
-    <div id="speakStars" style="font-size:1.1rem;margin-top:10px;"></div>
-  </section>
-
-  <!-- ========== WRITING (about jobs) ========== -->
-  <section>
-    <h3>✍️ WRITING — My dream job</h3>
-
-    <p><b>A. Write about different jobs.</b></p>
-
-    <p>1) Write a sentence about a doctor.</p>
-    <input id="w1" type="text" placeholder="Example: A doctor helps sick people.">
-
-    <p>2) Write a sentence about a farmer.</p>
-    <input id="w2" type="text" placeholder="Example: A farmer grows fruit and vegetables.">
-
-    <p>3) Write a sentence about a police officer.</p>
-    <input id="w3" type="text" placeholder="Example: A police officer helps people in the city.">
-
-    <button class="btn" onclick="checkWritingSentences()">Check sentences ✅</button>
-    <div id="writeSentStars" style="font-size:1.1rem;margin-top:6px;"></div>
-
-    <hr>
-
-    <p><b>B. My dream job</b></p>
-    <p>Write 3–4 sentences. Say what your dream job is, where you work and why you like it.</p>
-    <button class="btn" onclick="bayanDictation()">▶ Example</button>
-    <button class="btn" onclick="stopBayan()">⏹ Stop</button>
-
-    <textarea id="writeBox" rows="5" placeholder="Write your text here..."></textarea><br>
-    <button class="btn" onclick="checkDictation()">Check my text ✅</button>
-    <div id="dictStars" style="font-size:1.1rem;margin-top:6px;"></div>
-  </section>
-
-  <!-- ========== LESSON RESULT ========== -->
-  <section style="text-align:center;margin-top:25px;">
-    <h3>🎯 Lesson Complete!</h3>
-    <p>You have earned <b><span id="finalStars">0</span> ⭐</b> in this lesson.</p>
-
-    <button class="btn" onclick="finishLesson()">Save & Show Result ✅</button>
-
-    <div id="finalMessage" style="margin-top:10px;font-size:1.1rem;color:#b85c00;"></div>
-
-    <div style="margin-top:18px;">
-      <button class="btn" onclick="goBack()">⬅ Back</button>
-      <button class="btn" onclick="goMenu()">🏠 Main Menu</button>
-      <button class="btn" onclick="goNext()">Next ➡️</button>
-    </div>
-  </section>
-
-  <p style="font-size:0.8rem;color:#444;margin-top:10px;text-align:center;">
-    Created by Bayan team
-  </p>
-</main>
-
-<script>
-  // ⭐ TOTAL STARS (no limit)
-  let totalStars = 0;
-  function addStar() {
-    totalStars++;
-    updateStarsText();
-  }
-  function updateStarsText(){
-    document.getElementById('lessonStarsLine').innerText =
-      "You have " + totalStars + " ⭐ in this lesson.";
-    const fs = document.getElementById('finalStars');
-    if(fs) fs.innerText = totalStars;
-  }
-
-  // Флаги, чтобы не начислять звезду дважды за одно и то же
-  const scored = {
-    v1:false, v2:false, v3:false, v4:false, v5:false, v6:false,
-    g1:false, g2:false, g3:false, g4:false, g5:false, g6:false, g7:false,
-    l1:false, l2:false, l3:false,
-    r1:false, r2:false, r3:false,
-    w1:false, w2:false, w3:false,
-    dict:false
-  };
-
-  // ---------- TTS (AI Bayan voice) ----------
-  function speakBayanText(text){
-    if(!('speechSynthesis' in window)){
-      alert("Your browser does not support speech synthesis 😔");
-      return;
-    }
-    const utter = new SpeechSynthesisUtterance(text);
-    utter.lang = "en-US";
-    utter.rate = 0.9;
-    utter.pitch = 1.05;
-    utter.volume = 1;
-    const voices = speechSynthesis.getVoices();
-    const femaleEn = voices.find(v => v.lang.includes("en") && v.name.toLowerCase().includes("female"));
-    if(femaleEn) utter.voice = femaleEn;
-    speechSynthesis.speak(utter);
-  }
-
-  function stopBayan(){
-    window.speechSynthesis.cancel();
-  }
-
-  // ---------- VOCABULARY ----------
-  function speakVocab(text){
-    speakBayanText(text);
-  }
-
-  function checkVocab(){
-    let starsHere = 0;
-    const q1 = document.querySelector('input[name="v1"]:checked');
-    if(q1 && q1.value === "1" && !scored.v1){ scored.v1=true; addStar(); starsHere++; }
-
-    const q2 = document.querySelector('input[name="v2"]:checked');
-    if(q2 && q2.value === "1" && !scored.v2){ scored.v2=true; addStar(); starsHere++; }
-
-    const q3 = document.querySelector('input[name="v3"]:checked');
-    if(q3 && q3.value === "1" && !scored.v3){ scored.v3=true; addStar(); starsHere++; }
-
-    const q4 = document.querySelector('input[name="v4"]:checked');
-    if(q4 && q4.value === "1" && !scored.v4){ scored.v4=true; addStar(); starsHere++; }
-
-    const q5 = document.querySelector('input[name="v5"]:checked');
-    if(q5 && q5.value === "1" && !scored.v5){ scored.v5=true; addStar(); starsHere++; }
-
-    const q6 = document.querySelector('input[name="v6"]:checked');
-    if(q6 && q6.value === "1" && !scored.v6){ scored.v6=true; addStar(); starsHere++; }
-
-    const box = document.getElementById('vocabStars');
-    if(starsHere > 0){
-      box.innerHTML = "⭐ +" + starsHere + " vocabulary stars!";
-    } else {
-      box.innerHTML = "No new stars. Check answers or you already got them.";
-    }
-  }
-
-  // ---------- GRAMMAR ----------
-  function checkGrammar(){
-    let starsHere = 0;
-
-    const q1 = document.querySelector('input[name="g1"]:checked');
-    if(q1 && q1.value === "a" && !scored.g1){ scored.g1=true; addStar(); starsHere++; }
-
-    const q2 = document.querySelector('input[name="g2"]:checked');
-    if(q2 && q2.value === "the" && !scored.g2){ scored.g2=true; addStar(); starsHere++; }
-
-    const q3 = document.querySelector('input[name="g3"]:checked');
-    if(q3 && q3.value === "an" && !scored.g3){ scored.g3=true; addStar(); starsHere++; }
-
-    const q4 = document.querySelector('input[name="g4"]:checked');
-    if(q4 && q4.value === "the" && !scored.g4){ scored.g4=true; addStar(); starsHere++; }
-
-    const q5 = document.querySelector('input[name="g5"]:checked');
-    if(q5 && q5.value === "me" && !scored.g5){ scored.g5=true; addStar(); starsHere++; }
-
-    const q6 = document.querySelector('input[name="g6"]:checked');
-    if(q6 && q6.value === "her" && !scored.g6){ scored.g6=true; addStar(); starsHere++; }
-
-    const q7 = document.querySelector('input[name="g7"]:checked');
-    if(q7 && q7.value === "who" && !scored.g7){ scored.g7=true; addStar(); starsHere++; }
-
-    const box = document.getElementById('grammarStars');
-    if(starsHere > 0){
-      box.innerHTML = "⭐ +" + starsHere + " grammar stars!";
-    } else {
-      box.innerHTML = "No new stars. Check again or you already got them.";
-    }
-  }
-
-  // ---------- LISTENING ----------
-  function bayanListening(){
-    const t =
-      "First, listen about Anna. She is a doctor. " +
-      "She works in a hospital and helps sick people every day. " +
-      "Next, this is Peter. He is a farmer. He works on a farm in the countryside. " +
-      "He grows fruit and vegetables and looks after animals. " +
-      "Finally, this is Sara. She is an actor. She works in a theatre and acts in plays for children.";
-    speakBayanText(t);
-  }
-
-  function checkListening(){
-    let starsHere = 0;
-
-    if(document.getElementById('t1').value === 'True' && !scored.l1){
-      scored.l1 = true; addStar(); starsHere++;
-    }
-    if(document.getElementById('t2').value === 'False' && !scored.l2){
-      scored.l2 = true; addStar(); starsHere++;
-    }
-    if(document.getElementById('t3').value === 'True' && !scored.l3){
-      scored.l3 = true; addStar(); starsHere++;
-    }
-
-    const box = document.getElementById('listenStars');
-    if(starsHere > 0){
-      box.innerHTML = "⭐ +" + starsHere + " listening stars!";
-    } else {
-      box.innerHTML = "No new stars. Check your answers.";
-    }
-  }
-
-  // ---------- READING ----------
-  function bayanReading(){
-    const t =
-      "In our town, people have many different jobs. " +
-      "Mrs Brown is a doctor. She works in a hospital and helps sick people. " +
-      "Mr Green is a farmer. He works on a farm and grows fruit and vegetables. " +
-      "Ms Lee is a teacher. She works at school and teaches English. " +
-      "Mr Black is a vet. He helps and saves animals at the animal clinic. " +
-      "All these jobs are important for the people in our town.";
-    speakBayanText(t);
-  }
-
-  function checkReading(){
-    let starsHere = 0;
-    const a1 = document.getElementById('r1').value.toLowerCase();
-    const a2 = document.getElementById('r2').value.toLowerCase();
-    const a3 = document.getElementById('r3').value.toLowerCase();
-
-    if(!scored.r1 &&
-       (a1.includes("doctor") || a1.includes("mrs brown"))){
-      scored.r1 = true; addStar(); starsHere++;
-    }
-    if(!scored.r2 &&
-       (a2.includes("teacher") || a2.includes("ms lee"))){
-      scored.r2 = true; addStar(); starsHere++;
-    }
-    if(!scored.r3 &&
-       (a3.includes("vet") || a3.includes("mr black"))){
-      scored.r3 = true; addStar(); starsHere++;
-    }
-
-    const box = document.getElementById('readStars');
-    if(starsHere > 0){
-      box.innerHTML = "⭐ +" + starsHere + " reading stars!";
-    } else {
-      box.innerHTML = "No new stars. Check answers or you already got them.";
-    }
-  }
-
-  // ---------- SPEAKING ----------
-  let recognition;
-  function bayanSpeaking(){
-    const t =
-      "Now let's talk about jobs. " +
-      "What does your mum or dad do? " +
-      "What job do you want to have in the future? " +
-      "Why is this job important?";
-    speakBayanText(t);
-  }
-
-  function startSpeak(){
-    if(!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)){
-      alert("Speech recognition is not supported in this browser.");
-      return;
-    }
-    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-    recognition = new SR();
-    recognition.lang = "en-US";
-    recognition.onresult = function(event){
-      const speech = event.results[0][0].transcript.toLowerCase();
-      let starsHere = 0;
-      if(
-        speech.includes("teacher") || speech.includes("doctor") ||
-        speech.includes("vet") || speech.includes("firefighter") ||
-        speech.includes("police") || speech.includes("pilot") ||
-        speech.includes("farmer") || speech.includes("cook") ||
-        speech.includes("driver") || speech.includes("actor") ||
-        speech.includes("astronaut") || speech.includes("job") ||
-        speech.includes("work")
-      ){
-        addStar();
-        starsHere++;
-      }
-      const box = document.getElementById('speakStars');
-      if(starsHere > 0){
-        box.innerHTML = "⭐ +" + starsHere + " speaking star!<br>You said: " + speech;
-      } else {
-        box.innerHTML = "You said: " + speech +
-          "<br>Try to use words like teacher, doctor, farmer, police officer, firefighter, job, work...";
-      }
-    };
-    recognition.start();
-  }
-
-  function stopSpeak(){
-    if(recognition) recognition.stop();
-  }
-
-  // ---------- WRITING: SENTENCES ----------
-  function checkWritingSentences(){
-    let starsHere = 0;
-    const s1 = document.getElementById('w1').value.toLowerCase();
-    const s2 = document.getElementById('w2').value.toLowerCase();
-    const s3 = document.getElementById('w3').value.toLowerCase();
-
-    if(!scored.w1 &&
-       s1.includes("doctor") &&
-       (s1.includes("help") || s1.includes("sick") || s1.includes("hospital"))){
-      scored.w1 = true; addStar(); starsHere++;
-    }
-
-    if(!scored.w2 &&
-       s2.includes("farmer") &&
-       (s2.includes("grows") || s2.includes("grow") || s2.includes("farm"))){
-      scored.w2 = true; addStar(); starsHere++;
-    }
-
-    if(!scored.w3 &&
-       (s3.includes("police officer") || s3.includes("policeman") || s3.includes("police woman") || s3.includes("policewoman")) &&
-       (s3.includes("help") || s3.includes("city") || s3.includes("people"))){
-      scored.w3 = true; addStar(); starsHere++;
-    }
-
-    const box = document.getElementById('writeSentStars');
-    if(starsHere > 0){
-      box.innerHTML = "⭐ +" + starsHere + " writing stars!";
-    } else {
-      box.innerHTML = "No new stars. Check your sentences or you already got them.";
-    }
-  }
-
-  // ---------- WRITING: MY DREAM JOB ----------
-  function bayanDictation(){
-    const t =
-      "My dream job is to be a vet. " +
-      "I want to work in an animal clinic and help sick animals. " +
-      "I think this job is very important and interesting, " +
-      "because animals cannot speak and they need our help.";
-    speakBayanText(t);
-  }
-
-  function checkDictation(){
-    const text = document.getElementById("writeBox").value.toLowerCase();
-    const keywords = [
-      "job","doctor","teacher","vet","firefighter","police",
-      "pilot","farmer","cook","driver","actor","astronaut",
-      "because","help","people","animals","important"
-    ];
-    let found = 0;
-    for(const w of keywords){
-      if(text.includes(w)) found++;
-    }
-    let starsHere = 0;
-    if(!scored.dict && found >= 3){
-      scored.dict = true;
-      addStar();
-      starsHere++;
-    }
-
-    const box = document.getElementById('dictStars');
-    if(starsHere > 0){
-      box.innerHTML = "⭐ +" + starsHere + " writing star!";
-    } else {
-      box.innerHTML = "Try to write 3–4 sentences and use words like job, doctor, teacher, help, important, people, animals.";
-    }
-  }
-
-  // ---------- FINISH + NAVIGATION ----------
-  function finishLesson(){
-    document.getElementById("finalStars").innerText = totalStars;
-    let msg = "";
-    if(totalStars >= 20){
-      msg = "🌟🌟🌟 Great work! Job expert!";
-    } else if(totalStars >= 12){
-      msg = "🌟🌟 Very good! You know many jobs!";
-    } else if(totalStars >= 6){
-      msg = "🌟 Good start! Keep practising!";
-    } else {
-      msg = "Keep going! Every star is progress!";
-    }
-    document.getElementById("finalMessage").innerText = msg;
-
-    const studentName = localStorage.getItem("studentName") || "Unknown Student";
-    const allResults = JSON.parse(localStorage.getItem("teacherJournal") || "{}");
-    allResults[studentName] = allResults[studentName] || {};
-    allResults[studentName]["Lesson 9"] = totalStars;
-    localStorage.setItem("teacherJournal", JSON.stringify(allResults));
-    localStorage.setItem("lesson9Stars", totalStars);
-
-    alert("Lesson 9 saved! " + studentName + " got " + totalStars + "⭐.");
-  }
-
-  function goBack(){ window.location.href = "theme8.html"; }
-  function goMenu(){ window.location.href = "index.html"; }
-  function goNext(){ window.location.href = "theme10.html"; }
-
-  // init
-  updateStarsText();
-</script>
-  <!-- === Animation & Voice System === -->
-<script>
-// ====== ✅ CORRECT / ❌ WRONG ANIMATION ======
-function showResultAnimation(isCorrect, elementId){
-  const el=document.getElementById(elementId);
-  if(isCorrect){
-    el.innerHTML="✅ Correct! ⭐";
-    el.style.background="rgba(144,238,144,0.6)";
-    el.style.border="2px solid green";
-    el.style.transition="0.4s";
-    setTimeout(()=>{ el.style.background=""; el.style.border=""; el.innerHTML=""; },1500);
-  } else {
-    el.innerHTML="❌ Try again!";
-    el.style.background="rgba(255,182,193,0.6)";
-    el.style.border="2px solid red";
-    el.style.transition="0.4s";
-    navigator.vibrate?.(250);
-    setTimeout(()=>{ el.style.background=""; el.style.border=""; el.innerHTML=""; },1500);
-  }
-}
-
-// ====== 🗣️ AI Bayan Adaptive Voice ======
-function bayanSpeak(text){
-  const voices=speechSynthesis.getVoices();
-  let voice=voices.find(v=>v.lang.includes("en-GB")||v.name.includes("Google UK English Female"));
-  if(!voice){ voice=voices[0]; }
-  const utter=new SpeechSynthesisUtterance(text);
-  utter.voice=voice;
-  utter.lang="en-GB";
-  utter.rate=0.88;
-  utter.pitch=1.0;
-  speechSynthesis.speak(utter);
-}
-</script>
-  <script>
-// === 🎨 Тема 8: Sunny Career (Different Jobs) ===
-function setCustomColors() {
-  const root = document.documentElement;
-
-  // ☀️ Тёплая палитра: работа и радость
-  root.style.setProperty("--main-bg", "linear-gradient(180deg, #fffde7 0%, #fff9c4 50%, #ffecb3 100%)");
-  root.style.setProperty("--header-bg", "#f9a825");
-  root.style.setProperty("--header-text", "#fff8e1");
-  root.style.setProperty("--btn-bg", "#fbc02d");
-  root.style.setProperty("--btn-hover", "#fff176");
-  root.style.setProperty("--text-color", "#5d4037");
-  root.style.setProperty("--border-color", "#fdd835");
-  root.style.setProperty("--accent", "#ffca28");
-
-  // применяем цвета
-  document.body.style.background = getComputedStyle(root).getPropertyValue("--main-bg");
-  document.body.style.color = getComputedStyle(root).getPropertyValue("--text-color");
-  document.querySelectorAll("header").forEach(h=>{
-    h.style.background = getComputedStyle(root).getPropertyValue("--header-bg");
-    h.style.color = getComputedStyle(root).getPropertyValue("--header-text");
-  });
-  document.querySelectorAll(".btn").forEach(btn=>{
-    btn.style.background = getComputedStyle(root).getPropertyValue("--btn-bg");
-    btn.onmouseenter = ()=>btn.style.background = getComputedStyle(root).getPropertyValue("--btn-hover");
-    btn.onmouseleave = ()=>btn.style.background = getComputedStyle(root).getPropertyValue("--btn-bg");
-  });
-}
-
-window.addEventListener("DOMContentLoaded", setCustomColors);
-</script>
-  <script src="animations.js"></script>
-</body>
-</html>
-
+<h2>💛 Professions</h2>
+<p style="font-style:italic;color:#f57f17;">Learning about what people do in their work</p>
+<p id="lessonStarsLine"><b>You have 0 ⭐ in this lesson.</b></p>
+
+<!-- ===== VOCABULARY ===== -->
+<section>
+<h3>🧠 Vocabulary — Jobs <span class="round-label">Vocabulary</span></h3>
+<p><b>Choose the correct translation (на русский).</b></p>
+
+<p>1) nurse  
+<button class="btn" onclick="speakVocab('A nurse helps doctors and takes care of sick people.')">▶ Play</button>
+<button class="btn" onclick="stopBayan()">⏹ Stop</button></p>
+<label><input type="radio" name="v1" value="1"> медсестра</label><br>
+<label><input type="radio" name="v1" value="0"> строитель</label><br>
+
+<p>2) pilot  
+<button class="btn" onclick="speakVocab('A pilot flies an airplane.')">▶ Play</button>
+<button class="btn" onclick="stopBayan()">⏹ Stop</button></p>
+<label><input type="radio" name="v2" value="1"> пилот</label><br>
+<label><input type="radio" name="v2" value="0"> художник</label><br>
+
+<p>3) artist  
+<button class="btn" onclick="speakVocab('An artist draws and paints pictures.')">▶ Play</button>
+<button class="btn" onclick="stopBayan()">⏹ Stop</button></p>
+<label><input type="radio" name="v3" value="1"> художник</label><br>
+<label><input type="radio" name="v3" value="0"> водитель</label><br>
+
+<p>4) farmer  
+<button class="btn" onclick="speakVocab('A farmer grows vegetables and looks after animals.')">▶ Play</button>
+<button class="btn" onclick="stopBayan()">⏹ Stop</button></p>
+<label><input type="radio" name="v4" value="1"> фермер</label><br>
+<label><input type="radio" name="v4" value="0"> певец</label><br>
+
+<p>5) singer  
+<button class="btn" onclick="speakVocab('A singer sings songs on stage.')">▶ Play</button>
+<button class="btn" onclick="stopBayan()">⏹ Stop</button></p>
+<label><input type="radio" name="v5" value="1"> певец</label><br>
+<label><input type="radio" name="v5" value="0"> врач</label><br>
+
+<button class="btn" onclick="checkVocab()">Check vocabulary ✅</button>
+<div id="vocabStars" style="font-size:1.1rem;margin-top:8px;"></div>
+</section>
+
+<!-- ===== GRAMMAR ===== -->
+<section>
+<h3>📘 Grammar — What does he/she do? <span class="round-label">Grammar</span></h3>
+<p><b>We use “What does he/she do?” to ask about jobs.</b></p>
+<p>Example: He is a farmer. He grows vegetables.</p>
+
+<p>1) She is a nurse. She ___ people in the hospital.</p>
+<label><input type="radio" name="g1" value="helps"> helps</label><br>
+<label><input type="radio" name="g1" value="drives"> drives</label><br>
+
+<p>2) He is a pilot. He ___ planes.</p>
+<label><input type="radio" name="g2" value="flies"> flies</label><br>
+<label><input type="radio" name="g2" value="paints"> paints</label><br>
+
+<p>3) The artist ___ beautiful pictures.</p>
+<label><input type="radio" name="g3" value="paints"> paints</label><br>
+<label><input type="radio" name="g3" value="flies"> flies</label><br>
+
+<button class="btn" onclick="checkGrammar()">Check grammar ✅</button>
+<div id="grammarStars" style="font-size:1.1rem;margin-top:8px;"></div>
+</section>
+
+<!-- ===== LISTENING ===== -->
+<section>
+<h3>🎧 Listening — At Work <span class="round-label">Listening</span></h3>
+<p><b>Listen and choose True or False.</b></p>
+<button class="btn" onclick="bayanListening()">▶ Play</button>
+<button class="btn" onclick="stopBayan()">⏹ Stop</button>
+
+<p>1) The farmer works on a farm.</p>
+<select id="t1"><option>—</option><option>True</option><option>False</option></select>
+<p>2) The nurse flies an airplane.</p>
+<select id="t2"><option>—</option><option>True</option><option>False</option></select>
+<p>3) The singer sings songs on stage.</p>
+<select id="t3"><option>—</option><option>True</option><option>False</option></select>
+
+<button class="btn" onclick="checkListening()">Check liste
+
+    
+   
+   
+    
+     
+    
