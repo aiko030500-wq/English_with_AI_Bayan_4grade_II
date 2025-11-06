@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Theme 6 — Museum of Kazakh Musical Instruments</title>
+  <title>Theme 5 — Animals and Nature</title>
   <style>
     body {
       font-family: Verdana, sans-serif;
-      background: linear-gradient(180deg,#eef7ff 0%,#d5e8ff 100%);
+      background: radial-gradient(circle at top, #fffde7 0%, #e8f5e9 40%, #c8e6c9 100%);
       margin: 0;
-      color: #003055;
+      color: #25215a;
       text-align: center;
     }
     header {
-      background: linear-gradient(90deg,#003366,#2966ba);
+      background: linear-gradient(90deg,#388e3c,#66bb6a);
       color: white;
       padding: 0.6rem 1rem;
-      border-bottom: 5px solid #ffcc66;
+      border-bottom: 5px solid #ffd54f;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -24,27 +24,27 @@
     .logo {
       width: 55px; height: 55px;
       border-radius: 50%;
-      border: 3px solid #ffcc66;
+      border: 3px solid #ffd54f;
       object-fit: cover;
       background: white;
     }
-    h2 {color:#003366;}
+    h2 {color:#2e7d32;}
     section {
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      background: rgba(255,255,255,0.98);
+      border-radius: 18px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.12);
       padding: 15px;
-      max-width: 800px;
+      max-width: 860px;
       margin: 15px auto;
       text-align: left;
       line-height: 1.5;
       font-size: 0.95rem;
     }
     h3 {
-      background: #003366;
+      background: linear-gradient(90deg,#43a047,#81c784);
       color: white;
       padding: 6px 10px;
-      border-radius: 8px;
+      border-radius: 10px;
       font-size: 1rem;
     }
     .btn {
@@ -53,35 +53,35 @@
       padding:8px 14px;
       border:none;
       border-radius:10px;
-      background:#003366;
+      background:#43a047;
       color:white;
       font-weight:bold;
       cursor:pointer;
       font-size:0.9rem;
     }
-    .btn:hover {background:#ffcc66; color:#003366;}
-    textarea {
-      width:100%;
-      border-radius:10px;
+    .btn:hover {background:#ffd54f; color:#1b5e20;}
+    input[type="text"], textarea, select {
+      border-radius:8px;
       border:1px solid #ccc;
       padding:6px;
       font-family:inherit;
       font-size:0.9rem;
     }
-    input[type="text"] {
-      width:100%;
-      max-width:380px;
-      border-radius:8px;
-      border:1px solid #ccc;
-      padding:4px 6px;
-      font-family:inherit;
-      font-size:0.9rem;
+    input[type="text"]{width:100%;max-width:380px;}
+    textarea{width:100%;}
+    .round-label {
+      display:inline-block;
+      background:#ffd54f;
+      color:#2e7d32;
+      padding:2px 8px;
+      border-radius:999px;
+      font-size:0.75rem;
+      font-weight:bold;
+      margin-left:6px;
     }
-    select {
-      border-radius:8px;
-      padding:2px 4px;
-      font-size:0.9rem;
-    }
+    .mark-icon{margin-left:8px;font-size:1.2rem;font-weight:bold;}
+    .correctMark{color:#00c853;}
+    .wrongMark{color:#ff1744;}
   </style>
 </head>
 <body>
@@ -89,230 +89,174 @@
   <div style="display:flex;align-items:center;gap:10px;">
     <img src="logo.png" class="logo" alt="AI Bayan logo">
     <div>
-      <h1 style="margin:0;font-size:1rem;">Theme 6 — Museum of Kazakh Musical Instruments</h1>
-      <p style="margin:0;color:#ffe9b5;">English with AI Bayan</p>
+      <h1 style="margin:0;font-size:1rem;">Theme 5 — Animals and Nature</h1>
+      <p style="margin:0;color:#fffde7;">English with AI Bayan — Animals and Nature</p>
     </div>
   </div>
 </header>
 
 <main>
-  <h2>🎵 Museum of Kazakh Musical Instruments</h2>
-  <p style="font-style:italic;">kobyz, dombyra, sybyzgy, uran, dangyra</p>
+  <h2>🐾 Animals and Nature</h2>
+  <p style="font-style:italic;color:#2e7d32;">Talking about wild and domestic animals and nature</p>
   <p id="lessonStarsLine"><b>You have 0 ⭐ in this lesson.</b></p>
 
-  <!-- ========== VOCABULARY (instruments + look like) ========== -->
+  <!-- ========= VOCABULARY ========= -->
   <section>
-    <h3>🧠 VOCABULARY — Kazakh musical instruments</h3>
+    <h3>🧠 Vocabulary — Animals and nature words <span class="round-label">Vocabulary</span></h3>
+    <p><b>Listen to AI Bayan and choose the correct translation (на русский).</b></p>
 
-    <p><b>AI Bayan читает предложение. Ребёнок выбирает правильный перевод на русский.</b></p>
-
-    <!-- Q1 -->
-    <p>1) AI Bayan:
-      <button class="btn" onclick="speakVocab('The kobyz looks like a violin.')">▶ Play</button>
+    <p>1) Word: <b>cat</b> 
+      AI Bayan: <button class="btn" onclick="speakVocab('A cat is a small animal that lives in the house and likes milk.')">▶ Play</button>
       <button class="btn" onclick="stopBayan()">⏹ Stop</button>
     </p>
-    <p>Choose the correct translation:</p>
-    <label><input type="radio" name="v1" value="1"> Кобыз похож на скрипку.</label><br>
-    <label><input type="radio" name="v1" value="0"> Кобыз похож на гитару.</label><br>
-    <label><input type="radio" name="v1" value="0"> Кобыз похож на барабан.</label><br>
+    <label><input type="radio" name="v1" value="1"> кошка</label><br>
+    <label><input type="radio" name="v1" value="0"> собака</label><br>
+    <label><input type="radio" name="v1" value="0"> птица</label><br>
 
-    <!-- Q2 -->
-    <p>2) AI Bayan:
-      <button class="btn" onclick="speakVocab('The dombyra looks like a guitar.')">▶ Play</button>
+    <p>2) Word: <b>dog</b> 
+      AI Bayan: <button class="btn" onclick="speakVocab('A dog is a friendly animal that barks and guards the house.')">▶ Play</button>
       <button class="btn" onclick="stopBayan()">⏹ Stop</button>
     </p>
-    <p>Choose the correct translation:</p>
-    <label><input type="radio" name="v2" value="1"> Домбыра похожа на гитару.</label><br>
-    <label><input type="radio" name="v2" value="0"> Домбыра похожа на флейту.</label><br>
-    <label><input type="radio" name="v2" value="0"> Домбыра похожа на трубу.</label><br>
+    <label><input type="radio" name="v2" value="1"> собака</label><br>
+    <label><input type="radio" name="v2" value="0"> кошка</label><br>
+    <label><input type="radio" name="v2" value="0"> рыба</label><br>
 
-    <!-- Q3 -->
-    <p>3) AI Bayan:
-      <button class="btn" onclick="speakVocab('The sybyzgy looks like a flute.')">▶ Play</button>
+    <p>3) Word: <b>bird</b> 
+      AI Bayan: <button class="btn" onclick="speakVocab('A bird can fly and builds a nest in a tree.')">▶ Play</button>
       <button class="btn" onclick="stopBayan()">⏹ Stop</button>
     </p>
-    <p>Choose the correct translation:</p>
-    <label><input type="radio" name="v3" value="1"> Сыбызгы похож на флейту.</label><br>
-    <label><input type="radio" name="v3" value="0"> Сыбызгы похож на трубу.</label><br>
-    <label><input type="radio" name="v3" value="0"> Сыбызгы похож на барабан.</label><br>
+    <label><input type="radio" name="v3" value="1"> птица</label><br>
+    <label><input type="radio" name="v3" value="0"> слон</label><br>
+    <label><input type="radio" name="v3" value="0"> кошка</label><br>
 
-    <!-- Q4 -->
-    <p>4) AI Bayan:
-      <button class="btn" onclick="speakVocab('The uran looks like a trumpet.')">▶ Play</button>
+    <p>4) Word: <b>lion</b> 
+      AI Bayan: <button class="btn" onclick="speakVocab('A lion is a big wild cat that lives in Africa.')">▶ Play</button>
       <button class="btn" onclick="stopBayan()">⏹ Stop</button>
     </p>
-    <p>Choose the correct translation:</p>
-    <label><input type="radio" name="v4" value="1"> Уран похож на трубу.</label><br>
-    <label><input type="radio" name="v4" value="0"> Уран похож на флейту.</label><br>
-    <label><input type="radio" name="v4" value="0"> Уран похож на скрипку.</label><br>
+    <label><input type="radio" name="v4" value="1"> лев</label><br>
+    <label><input type="radio" name="v4" value="0"> тигр</label><br>
+    <label><input type="radio" name="v4" value="0"> медведь</label><br>
 
-    <!-- Q5 -->
-    <p>5) AI Bayan:
-      <button class="btn" onclick="speakVocab('The dangyra looks like a drum.')">▶ Play</button>
+    <p>5) Word: <b>fish</b> 
+      AI Bayan: <button class="btn" onclick="speakVocab('A fish lives in water and can swim.')">▶ Play</button>
       <button class="btn" onclick="stopBayan()">⏹ Stop</button>
     </p>
-    <p>Choose the correct translation:</p>
-    <label><input type="radio" name="v5" value="1"> Дангыра похожа на барабан.</label><br>
-    <label><input type="radio" name="v5" value="0"> Дангыра похожа на скрипку.</label><br>
-    <label><input type="radio" name="v5" value="0"> Дангыра похожа на трубу.</label><br>
+    <label><input type="radio" name="v5" value="1"> рыба</label><br>
+    <label><input type="radio" name="v5" value="0"> птица</label><br>
+    <label><input type="radio" name="v5" value="0"> кошка</label><br>
 
-    <!-- Q6 -->
-    <p>6) AI Bayan:
-      <button class="btn" onclick="speakVocab('There are many musical instruments in the museum.')">▶ Play</button>
+    <p>6) Word: <b>elephant</b> 
+      AI Bayan: <button class="btn" onclick="speakVocab('An elephant is a very big animal with a long trunk.')">▶ Play</button>
       <button class="btn" onclick="stopBayan()">⏹ Stop</button>
     </p>
-    <p>Choose the correct translation:</p>
-    <label><input type="radio" name="v6" value="1"> В музее много музыкальных инструментов.</label><br>
-    <label><input type="radio" name="v6" value="0"> В школе много музыкальных инструментов.</label><br>
-    <label><input type="radio" name="v6" value="0"> В музее мало музыкальных инструментов.</label><br>
+    <label><input type="radio" name="v6" value="1"> слон</label><br>
+    <label><input type="radio" name="v6" value="0"> лошадь</label><br>
+    <label><input type="radio" name="v6" value="0"> тигр</label><br>
 
-    <button class="btn" onclick="checkVocab()">Check ✅</button>
+    <button class="btn" onclick="checkVocab()">Check vocabulary ✅</button>
     <div id="vocabStars" style="font-size:1.1rem;margin-top:8px;"></div>
   </section>
 
-  <!-- ========== GRAMMAR (there is/are, this/that, look like, prepositions) ========== -->
+  <!-- ========= GRAMMAR ========= -->
   <section>
-    <h3>📘 GRAMMAR — In the museum</h3>
-
-    <p><b>1. There is / There are:</b></p>
+    <h3>📘 Grammar — There is / There are <span class="round-label">Grammar</span></h3>
+    <p><b>There is + singular, There are + plural:</b></p>
     <p>
-      <b>There is</b> + one thing or uncountable: There is a museum in the park. <br>
-      <b>There are</b> + many things: There are many instruments in the museum.
+      There is a cat in the garden. <br>
+      There are many birds in the trees. <br>
+      We use this to say what we can see in nature.
     </p>
 
-    <p><b>Choose the correct form:</b></p>
+    <p><b>Choose the correct answer:</b></p>
 
-    <p>1) ___ a museum in Panfilov Park.</p>
-    <label><input type="radio" name="q1" value="there is"> There is</label><br>
-    <label><input type="radio" name="q1" value="there are"> There are</label><br>
+    <p>1) ___ a dog in the yard.</p>
+    <label><input type="radio" name="g1" value="thereis"> There is</label><br>
+    <label><input type="radio" name="g1" value="thereare"> There are</label><br>
 
-    <p>2) ___ many musical instruments in the museum.</p>
-    <label><input type="radio" name="q2" value="there is"> There is</label><br>
-    <label><input type="radio" name="q2" value="there are"> There are</label><br>
+    <p>2) ___ three birds in the tree.</p>
+    <label><input type="radio" name="g2" value="thereare"> There are</label><br>
+    <label><input type="radio" name="g2" value="thereis"> There is</label><br>
 
-    <hr>
+    <p>3) ___ a lion at the zoo.</p>
+    <label><input type="radio" name="g3" value="thereis"> There is</label><br>
+    <label><input type="radio" name="g3" value="thereare"> There are</label><br>
 
-    <p><b>2. This / That / These / Those & look like:</b></p>
+    <p>4) ___ many fish in the river.</p>
+    <label><input type="radio" name="g4" value="thereare"> There are</label><br>
+    <label><input type="radio" name="g4" value="thereis"> There is</label><br>
 
-    <p>3) “___ kobyz looks like a violin.”</p>
-    <label><input type="radio" name="q3" value="the"> The</label><br>
-    <label><input type="radio" name="q3" value="a"> A</label><br>
+    <p>5) ___ an elephant in the photo.</p>
+    <label><input type="radio" name="g5" value="thereis"> There is</label><br>
+    <label><input type="radio" name="g5" value="thereare"> There are</label><br>
 
-    <p>4) “___ dombyra is on the wall.” (one instrument close to you)</p>
-    <label><input type="radio" name="q4" value="this"> This</label><br>
-    <label><input type="radio" name="q4" value="those"> Those</label><br>
-
-    <hr>
-
-    <p><b>3. Prepositions of place:</b></p>
-
-    <p>5) The museum is ___ Panfilov Park.</p>
-    <label><input type="radio" name="q5" value="in"> in</label><br>
-    <label><input type="radio" name="q5" value="on"> on</label><br>
-
-    <button class="btn" onclick="checkGrammar()">Check ✅</button>
+    <button class="btn" onclick="checkGrammar()">Check grammar ✅</button>
     <div id="grammarStars" style="font-size:1.1rem;margin-top:8px;"></div>
-
-    <p><b>4. Write your own sentence:</b> (practice)</p>
-    <p>Example: The sybyzgy looks like a flute.</p>
-    <input id="writeGrammar" type="text" placeholder="Type your sentence here...">
   </section>
-
-  <!-- ========== LISTENING (Museum text) ========== -->
+  <!-- ========= LISTENING ========= -->
   <section>
-    <h3>🎧 LISTENING — The Museum text</h3>
-
+    <h3>🎧 Listening — Animals in the zoo <span class="round-label">Listening</span></h3>
     <p><b>1. Listen to AI Bayan:</b></p>
     <button class="btn" onclick="bayanListening()">▶ Play</button>
     <button class="btn" onclick="stopBayan()">⏹ Stop</button>
 
-    <p style="margin-top:8px;font-size:0.9rem;color:#444;">
-      (Текст из Student’s Book о музее.)
+    <p style="margin-top:8px;font-size:0.9rem;color:#2e7d32;">
+      Listen about animals and choose True or False.
     </p>
 
-    <p><b>2. True or False?</b></p>
+    <p>1) The lions are sleeping under a tree.</p>
+    <select id="t1"><option>—</option><option>True</option><option>False</option></select>
 
-    <p>1) The museum is in Astana.</p>
-    <select id="t1">
-      <option>—</option><option>True</option><option>False</option>
-    </select>
+    <p>2) The elephants are swimming in the lake.</p>
+    <select id="t2"><option>—</option><option>True</option><option>False</option></select>
 
-    <p>2) The kobyz looks like a guitar.</p>
-    <select id="t2">
-      <option>—</option><option>True</option><option>False</option>
-    </select>
+    <p>3) The birds are flying in the sky.</p>
+    <select id="t3"><option>—</option><option>True</option><option>False</option></select>
 
-    <p>3) The uran looks like a trumpet.</p>
-    <select id="t3">
-      <option>—</option><option>True</option><option>False</option>
-    </select>
-
-    <p>4) The dangyra looks like a flute.</p>
-    <select id="t4">
-      <option>—</option><option>True</option><option>False</option>
-    </select>
-
-    <p>5) The museum is in Panfilov Park.</p>
-    <select id="t5">
-      <option>—</option><option>True</option><option>False</option>
-    </select>
-
-    <p>6) The museum is open on Mondays.</p>
-    <select id="t6">
-      <option>—</option><option>True</option><option>False</option>
-    </select>
-
-    <button class="btn" onclick="checkListening()">Check ✅</button>
+    <button class="btn" onclick="checkListening()">Check listening ✅</button>
     <div id="listenStars" style="font-size:1.1rem;margin-top:8px;"></div>
   </section>
 
-  <!-- ========== READING (text on screen + questions) ========== -->
+  <!-- ========= READING ========= -->
   <section>
-    <h3>📖 READING — The Museum of Kazakh Musical Instruments</h3>
+    <h3>📖 Reading — My Pet and Favourite Animal <span class="round-label">Reading</span></h3>
 
     <p><b>1. Read or listen:</b></p>
     <button class="btn" onclick="bayanReading()">▶ Play</button>
     <button class="btn" onclick="stopBayan()">⏹ Stop</button>
 
-    <div style="margin-top:10px; background:#f0f7ff; border-radius:10px; padding:10px;">
+    <div style="margin-top:10px;background:#f1f8e9;border-radius:10px;padding:10px;">
       <p>
-        The Museum of Kazakh Musical Instruments is in Almaty.  
-        There are many musical instruments in this museum.  
-        Some musical instruments from Kazakhstan look like musical instruments from other countries.  
-        The kobyz looks like a violin and the dombyra like a guitar.  
-        The uran looks like a trumpet, the sybyzgy like a flute and the dangyra like a drum.  
-        The museum is in Panfilov Park, and it is open from Tuesday to Sunday, 10 a.m. to 7 p.m.  
-        Come and visit!
+        Hello! I’m Tom. I have a dog called Lucky. He is my pet and my best friend.  
+        Lucky likes running and playing in the garden. I feed him every day.  
+        At the zoo I like seeing lions and elephants. They are big and strong.  
+        In the forest I can see birds and squirrels in the trees. Nature is beautiful!
       </p>
     </div>
 
-    <p><b>2. Answer the questions:</b></p>
     <ol>
-      <li>Where is the museum?<br>
+      <li>What pet does Tom have?<br>
         <input id="r1" type="text" placeholder="Your answer..."></li><br>
-      <li>Which instrument looks like a guitar?<br>
+      <li>What animals does he like at the zoo?<br>
         <input id="r2" type="text" placeholder="Your answer..."></li><br>
-      <li>When is the museum open?<br>
+      <li>What does he see in the forest?<br>
         <input id="r3" type="text" placeholder="Your answer..."></li>
     </ol>
 
-    <button class="btn" onclick="checkReading()">Check ✅</button>
+    <button class="btn" onclick="checkReading()">Check reading ✅</button>
     <div id="readStars" style="font-size:1.1rem;margin-top:8px;"></div>
   </section>
 
-  <!-- ========== SPEAKING ========== -->
+  <!-- ========= SPEAKING ========= -->
   <section>
-    <h3>🗣️ SPEAKING — Talk about instruments</h3>
-
+    <h3>🗣 Speaking — My Favourite Animal <span class="round-label">Speaking</span></h3>
     <p><b>1. Listen to questions:</b></p>
     <button class="btn" onclick="bayanSpeaking()">▶ Play</button>
     <button class="btn" onclick="stopBayan()">⏹ Stop</button>
 
-    <p style="margin-top:8px;"><b>Questions:</b></p>
-    <ul>
-      <li>What Kazakh musical instruments do you know?</li>
-      <li>Which instrument do you like best?</li>
-      <li>Would you like to visit this museum?</li>
+    <ul style="margin-top:8px;">
+      <li>What is your favourite animal?</li>
+      <li>Do you have a pet?</li>
+      <li>What animals live in Kazakhstan?</li>
     </ul>
 
     <p><b>2. Answer into the microphone:</b></p>
@@ -322,44 +266,36 @@
     <div id="speakStars" style="font-size:1.1rem;margin-top:10px;"></div>
   </section>
 
-  <!-- ========== WRITING (translation + favourite instrument) ========== -->
+  <!-- ========= WRITING ========= -->
   <section>
-    <h3>✍️ WRITING — Translation & My favourite instrument</h3>
+    <h3>✍ Writing — My Animal <span class="round-label">Writing</span></h3>
 
-    <p><b>A. Translate into English:</b></p>
-    <p>1) Музей казахских музыкальных инструментов находится в Алматы.</p>
-    <textarea id="w1" rows="2" placeholder="Your translation..."></textarea>
+    <p>1) Write: “My favourite animal is …”</p>
+    <input id="w1" type="text" placeholder="Example: My favourite animal is a lion.">
+    <p>2) Describe it with It is …</p>
+    <input id="w2" type="text" placeholder="Example: It is big and strong.">
+    <p>3) Say why you like it.</p>
+    <input id="w3" type="text" placeholder="Example: I like it because it is brave.">
 
-    <p>2) В музее много музыкальных инструментов.</p>
-    <textarea id="w2" rows="2" placeholder="Your translation..."></textarea>
-
-    <p>3) Кобыз похож на скрипку, а домбыра похожа на гитару.</p>
-    <textarea id="w3" rows="2" placeholder="Your translation..."></textarea>
-
-    <button class="btn" onclick="checkWritingTranslate()">Check translation ✅</button>
-    <div id="writeTransStars" style="font-size:1.1rem;margin-top:6px;"></div>
+    <button class="btn" onclick="checkWritingSentences()">Check sentences ✅</button>
+    <div id="writeSentStars" style="font-size:1.1rem;margin-top:6px;"></div>
 
     <hr>
-
-    <p><b>B. My favourite Kazakh instrument:</b></p>
-    <p>Write 3–4 sentences about your favourite Kazakh musical instrument.</p>
-    <button class="btn" onclick="bayanDictation()">▶ Example</button>
-    <button class="btn" onclick="stopBayan()">⏹ Stop</button>
-
-    <textarea id="writeBox" rows="5" placeholder="Write your text here..."></textarea><br>
+    <p><b>Write 3–5 sentences about your favourite animal and nature.</b></p>
+    <textarea id="writeBox" rows="5" placeholder="Write about your animal here..."></textarea><br>
     <button class="btn" onclick="checkDictation()">Check my text ✅</button>
     <div id="dictStars" style="font-size:1.1rem;margin-top:6px;"></div>
   </section>
 
-  <!-- ========== LESSON RESULT ========== -->
+  <!-- ========= LESSON RESULT ========= -->
   <section style="text-align:center;margin-top:25px;">
     <h3>🎯 Lesson Complete!</h3>
     <p>You have earned <b><span id="finalStars">0</span> ⭐</b> in this lesson.</p>
-
+    <p id="finalTotalText" style="color:#2e7d32;font-weight:bold;">
+      🌟 You earned a total of 0 stars in this lesson!
+    </p>
     <button class="btn" onclick="finishLesson()">Save & Show Result ✅</button>
-
-    <div id="finalMessage" style="margin-top:10px;font-size:1.1rem;color:#003366;"></div>
-
+    <div id="finalMessage" style="margin-top:10px;font-size:1.1rem;color:#2e7d32;"></div>
     <div style="margin-top:18px;">
       <button class="btn" onclick="goBack()">⬅ Back</button>
       <button class="btn" onclick="goMenu()">🏠 Main Menu</button>
@@ -367,400 +303,154 @@
     </div>
   </section>
 
-  <p style="font-size:0.8rem;color:#444;margin-top:10px;text-align:center;">
+  <p style="font-size:0.8rem;color:#eee;margin-top:10px;text-align:center;">
     Created by Bayan team
   </p>
 </main>
 
 <script>
-  // ОБЩИЙ СЧЁТ ЗВЁЗД (без лимита)
-  let totalStars = 0;
-  function addStar() {
-    totalStars++;
-    updateStarsText();
-  }
-  function updateStarsText(){
-    document.getElementById('lessonStarsLine').innerText =
-      "You have " + totalStars + " ⭐ in this lesson.";
-    const fs = document.getElementById('finalStars');
-    if(fs) fs.innerText = totalStars;
-  }
-
-  // Флаги, чтобы не давать 2 звезды за один и тот же ответ
-  const scored = {
-    v1:false, v2:false, v3:false, v4:false, v5:false, v6:false,
-    g1:false, g2:false, g3:false, g4:false, g5:false,
-    l1:false, l2:false, l3:false, l4:false, l5:false, l6:false,
-    r1:false, r2:false, r3:false,
-    w1:false, w2:false, w3:false,
-    dict:false
-  };
-
-  // ---------- TTS (AI Bayan voice) ----------
-  function speakBayanText(text){
-    if(!('speechSynthesis' in window)){
-      alert("Ваш браузер не поддерживает озвучку 😔");
-      return;
-    }
-    const utter = new SpeechSynthesisUtterance(text);
-    utter.lang = "en-US";
-    utter.rate = 0.9;
-    utter.pitch = 1.05;
-    utter.volume = 1;
-    const voices = speechSynthesis.getVoices();
-    const femaleEn = voices.find(v => v.lang.includes("en") && v.name.toLowerCase().includes("female"));
-    if(femaleEn) utter.voice = femaleEn;
-    speechSynthesis.speak(utter);
-  }
-
-  function stopBayan(){
-    window.speechSynthesis.cancel();
-  }
-
-  // ---------- VOCABULARY ----------
-  function speakVocab(text){
-    speakBayanText(text);
-  }
-
-  function checkVocab(){
-    let starsHere = 0;
-    const q1 = document.querySelector('input[name="v1"]:checked');
-    if(q1 && q1.value === "1" && !scored.v1){ scored.v1=true; addStar(); starsHere++; }
-    const q2 = document.querySelector('input[name="v2"]:checked');
-    if(q2 && q2.value === "1" && !scored.v2){ scored.v2=true; addStar(); starsHere++; }
-    const q3 = document.querySelector('input[name="v3"]:checked');
-    if(q3 && q3.value === "1" && !scored.v3){ scored.v3=true; addStar(); starsHere++; }
-    const q4 = document.querySelector('input[name="v4"]:checked');
-    if(q4 && q4.value === "1" && !scored.v4){ scored.v4=true; addStar(); starsHere++; }
-    const q5 = document.querySelector('input[name="v5"]:checked');
-    if(q5 && q5.value === "1" && !scored.v5){ scored.v5=true; addStar(); starsHere++; }
-    const q6 = document.querySelector('input[name="v6"]:checked');
-    if(q6 && q6.value === "1" && !scored.v6){ scored.v6=true; addStar(); starsHere++; }
-
-    const box = document.getElementById('vocabStars');
-    if(starsHere > 0){
-      box.innerHTML = "⭐ +" + starsHere + " vocabulary stars!";
-    } else {
-      box.innerHTML = "No new stars. Check answers or you already got them.";
-    }
-  }
-
-  // ---------- GRAMMAR ----------
-  function checkGrammar(){
-    let starsHere = 0;
-
-    const q1 = document.querySelector('input[name="q1"]:checked');
-    if(q1 && q1.value === "there is" && !scored.g1){ scored.g1=true; addStar(); starsHere++; }
-
-    const q2 = document.querySelector('input[name="q2"]:checked');
-    if(q2 && q2.value === "there are" && !scored.g2){ scored.g2=true; addStar(); starsHere++; }
-
-    const q3 = document.querySelector('input[name="q3"]:checked');
-    if(q3 && q3.value === "the" && !scored.g3){ scored.g3=true; addStar(); starsHere++; }
-
-    const q4 = document.querySelector('input[name="q4"]:checked');
-    if(q4 && q4.value === "this" && !scored.g4){ scored.g4=true; addStar(); starsHere++; }
-
-    const q5 = document.querySelector('input[name="q5"]:checked');
-    if(q5 && q5.value === "in" && !scored.g5){ scored.g5=true; addStar(); starsHere++; }
-
-    const box = document.getElementById('grammarStars');
-    if(starsHere > 0){
-      box.innerHTML = "⭐ +" + starsHere + " grammar stars!";
-    } else {
-      box.innerHTML = "No new stars. Check again or you already got them.";
-    }
-  }
-
-  // ---------- LISTENING ----------
-  function bayanListening(){
-    const t = "The Museum of Kazakh Musical Instruments is in Almaty. " +
-              "There are many musical instruments in this museum. " +
-              "Some musical instruments from Kazakhstan look like musical instruments from other countries. " +
-              "The kobyz looks like a violin and the dombyra like a guitar. " +
-              "The uran looks like a trumpet, the sybyzgy like a flute and the dangyra like a drum. " +
-              "The museum is in Panfilov Park, and it is open from Tuesday to Sunday, ten a.m. to seven p.m. " +
-              "Come and visit!";
-    speakBayanText(t);
-  }
-
-  function checkListening(){
-    let starsHere = 0;
-
-    if(document.getElementById('t1').value === 'False' && !scored.l1){
-      scored.l1 = true; addStar(); starsHere++;
-    }
-    if(document.getElementById('t2').value === 'False' && !scored.l2){
-      scored.l2 = true; addStar(); starsHere++;
-    }
-    if(document.getElementById('t3').value === 'True' && !scored.l3){
-      scored.l3 = true; addStar(); starsHere++;
-    }
-    if(document.getElementById('t4').value === 'False' && !scored.l4){
-      scored.l4 = true; addStar(); starsHere++;
-    }
-    if(document.getElementById('t5').value === 'True' && !scored.l5){
-      scored.l5 = true; addStar(); starsHere++;
-    }
-    if(document.getElementById('t6').value === 'False' && !scored.l6){
-      scored.l6 = true; addStar(); starsHere++;
-    }
-
-    const box = document.getElementById('listenStars');
-    if(starsHere > 0){
-      box.innerHTML = "⭐ +" + starsHere + " listening stars!";
-    } else {
-      box.innerHTML = "No new stars. Check your answers.";
-    }
-  }
-
-  // ---------- READING ----------
-  function bayanReading(){
-    bayanListening(); // тот же текст
-  }
-
-  function checkReading(){
-    let starsHere = 0;
-    const a1 = document.getElementById('r1').value.toLowerCase();
-    const a2 = document.getElementById('r2').value.toLowerCase();
-    const a3 = document.getElementById('r3').value.toLowerCase();
-
-    if(!scored.r1 && a1.includes("almaty")){
-      scored.r1 = true; addStar(); starsHere++;
-    }
-    if(!scored.r2 &&
-       (a2.includes("dombyra") || a2.includes("dombra"))){
-      scored.r2 = true; addStar(); starsHere++;
-    }
-    if(!scored.r3 &&
-       (a3.includes("tuesday") || a3.includes("sunday") || a3.includes("10") || a3.includes("seven") || a3.includes("7"))){
-      scored.r3 = true; addStar(); starsHere++;
-    }
-
-    const box = document.getElementById('readStars');
-    if(starsHere > 0){
-      box.innerHTML = "⭐ +" + starsHere + " reading stars!";
-    } else {
-      box.innerHTML = "No new stars. Check answers or you already got them.";
-    }
-  }
-
-  // ---------- SPEAKING ----------
-  let recognition;
-  function bayanSpeaking(){
-    const t = "Now let's talk about Kazakh musical instruments. " +
-              "What instruments do you know? " +
-              "Which instrument do you like best? " +
-              "Would you like to visit this museum?";
-    speakBayanText(t);
-  }
-
-  function startSpeak(){
-    if(!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)){
-      alert("Speech recognition is not supported in this browser.");
-      return;
-    }
-    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-    recognition = new SR();
-    recognition.lang = "en-US";
-    recognition.onresult = function(event){
-      const speech = event.results[0][0].transcript.toLowerCase();
-      let starsHere = 0;
-      if(
-        speech.includes("kobyz") || speech.includes("dombyra") || speech.includes("dombra") ||
-        speech.includes("sybyzgy") || speech.includes("uran") || speech.includes("dangyra") ||
-        speech.includes("instrument") || speech.includes("museum") ||
-        speech.includes("violin") || speech.includes("guitar") || speech.includes("flute") ||
-        speech.includes("drum") || speech.includes("trumpet")
-      ){
-        addStar();
-        starsHere++;
-      }
-      const box = document.getElementById('speakStars');
-      if(starsHere > 0){
-        box.innerHTML = "⭐ +" + starsHere + " speaking star!<br>You said: " + speech;
-      } else {
-        box.innerHTML = "You said: " + speech +
-          "<br>Try to use words like: kobyz, dombyra, sybyzgy, uran, dangyra, museum...";
-      }
-    };
-    recognition.start();
-  }
-
-  function stopSpeak(){
-    if(recognition) recognition.stop();
-  }
-
-  // ---------- WRITING: TRANSLATION ----------
-  function checkWritingTranslate(){
-    let starsHere = 0;
-    const a1 = document.getElementById('w1').value.toLowerCase();
-    const a2 = document.getElementById('w2').value.toLowerCase();
-    const a3 = document.getElementById('w3').value.toLowerCase();
-
-    if(!scored.w1 &&
-       a1.includes("museum of kazakh musical instruments") &&
-       a1.includes("is in almaty")){
-      scored.w1 = true; addStar(); starsHere++;
-    }
-
-    if(!scored.w2 &&
-       a2.includes("there are") &&
-       a2.includes("many") &&
-       a2.includes("musical instruments") &&
-       a2.includes("museum")){
-      scored.w2 = true; addStar(); starsHere++;
-    }
-
-    if(!scored.w3 &&
-       a3.includes("kobyz") &&
-       a3.includes("looks like a violin") &&
-       (a3.includes("dombyra") || a3.includes("dombra")) &&
-       a3.includes("looks like a guitar")){
-      scored.w3 = true; addStar(); starsHere++;
-    }
-
-    const box = document.getElementById('writeTransStars');
-    if(starsHere > 0){
-      box.innerHTML = "⭐ +" + starsHere + " translation stars!";
-    } else {
-      box.innerHTML = "No new stars. Check your sentences or you already got them.";
-    }
-  }
-
-  // ---------- WRITING: MY FAVOURITE INSTRUMENT ----------
-  function bayanDictation(){
-    const t = "My favourite Kazakh musical instrument is the dombyra. " +
-              "It looks like a guitar and it has two strings. " +
-              "I like its beautiful sound. " +
-              "People play the dombyra at concerts and at home.";
-    speakBayanText(t);
-  }
-
-  function checkDictation(){
-    const text = document.getElementById("writeBox").value.toLowerCase();
-    const keywords = [
-      "kobyz","dombyra","dombra","sybyzgy","uran","dangyra",
-      "instrument","music","sound","play"
-    ];
-    let found = 0;
-    for(const w of keywords){
-      if(text.includes(w)) found++;
-    }
-    let starsHere = 0;
-    if(!scored.dict && found >= 3){
-      scored.dict = true;
-      addStar();
-      starsHere++;
-    }
-
-    const box = document.getElementById('dictStars');
-    if(starsHere > 0){
-      box.innerHTML = "⭐ +" + starsHere + " writing star!";
-    } else {
-      box.innerHTML = "Try to write 3–4 sentences and use words like kobyz, dombyra, music, sound, play.";
-    }
-  }
-
-  // ---------- FINISH + NAVIGATION ----------
-  function finishLesson(){
-    document.getElementById("finalStars").innerText = totalStars;
-    let msg = "";
-    if(totalStars >= 20){
-      msg = "🌟🌟🌟 Amazing! Music museum expert!";
-    } else if(totalStars >= 12){
-      msg = "🌟🌟 Great job! You know a lot of instruments!";
-    } else if(totalStars >= 6){
-      msg = "🌟 Good start! Keep practicing!";
-    } else {
-      msg = "Keep going! Every star is progress!";
-    }
-    document.getElementById("finalMessage").innerText = msg;
-
-    const studentName = localStorage.getItem("studentName") || "Unknown Student";
-    const allResults = JSON.parse(localStorage.getItem("teacherJournal") || "{}");
-    allResults[studentName] = allResults[studentName] || {};
-    allResults[studentName]["Lesson 6"] = totalStars;
-    localStorage.setItem("teacherJournal", JSON.stringify(allResults));
-    localStorage.setItem("lesson6Stars", totalStars);
-
-    alert("Lesson 6 saved! " + studentName + " got " + totalStars + "⭐.");
-  }
-
-  function goBack(){ window.location.href = "theme5.html"; }
-  function goMenu(){ window.location.href = "index.html"; }
-  function goNext(){ window.location.href = "theme7.html"; }
-
-  // init
-  updateStarsText();
-</script>
-  <!-- === Animation & Voice System === -->
-<script>
-// ====== ✅ CORRECT / ❌ WRONG ANIMATION ======
-function showResultAnimation(isCorrect, elementId){
-  const el=document.getElementById(elementId);
-  if(isCorrect){
-    el.innerHTML="✅ Correct! ⭐";
-    el.style.background="rgba(144,238,144,0.6)";
-    el.style.border="2px solid green";
-    el.style.transition="0.4s";
-    setTimeout(()=>{ el.style.background=""; el.style.border=""; el.innerHTML=""; },1500);
-  } else {
-    el.innerHTML="❌ Try again!";
-    el.style.background="rgba(255,182,193,0.6)";
-    el.style.border="2px solid red";
-    el.style.transition="0.4s";
-    navigator.vibrate?.(250);
-    setTimeout(()=>{ el.style.background=""; el.style.border=""; el.innerHTML=""; },1500);
-  }
+/* ---------- общие функции (звёзды, TTS, отметки) ---------- */
+let totalStars = 0;
+function addStar(){totalStars++;updateStarsText();}
+function updateStarsText(){
+ document.getElementById('lessonStarsLine').innerText = "You have "+totalStars+" ⭐ in this lesson.";
+ document.getElementById('finalStars').innerText = totalStars;
+ document.getElementById('finalTotalText').textContent = "🌟 You earned a total of "+totalStars+" stars in this lesson!";
 }
-
-// ====== 🗣️ AI Bayan Adaptive Voice ======
-function bayanSpeak(text){
-  const voices=speechSynthesis.getVoices();
-  let voice=voices.find(v=>v.lang.includes("en-GB")||v.name.includes("Google UK English Female"));
-  if(!voice){ voice=voices[0]; }
-  const utter=new SpeechSynthesisUtterance(text);
-  utter.voice=voice;
-  utter.lang="en-GB";
-  utter.rate=0.88;
-  utter.pitch=1.0;
-  speechSynthesis.speak(utter);
+const scored = {v1:false,v2:false,v3:false,v4:false,v5:false,v6:false,g1:false,g2:false,g3:false,g4:false,g5:false,
+ l1:false,l2:false,l3:false,r1:false,r2:false,r3:false,w1:false,w2:false,w3:false,dict:false};
+function markAnswer(el,isCorrect){
+ const p=el.closest('label')||el.parentElement;
+ let m=p.querySelector('.mark-icon');
+ if(!m){m=document.createElement('span');m.className='mark-icon';p.appendChild(m);}
+ m.textContent=isCorrect?' ✅':' ❌';
+ m.className='mark-icon '+(isCorrect?'correctMark':'wrongMark');
 }
+function speakBayanText(t){if(!('speechSynthesis'in window))return;
+ const u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=0.9;u.pitch=1.05;u.volume=1;
+ speechSynthesis.speak(u);}function stopBayan(){speechSynthesis.cancel();}
+function speakVocab(t){speakBayanText(t);}
+
+/* ---------- Vocabulary ---------- */
+function checkVocab(){let c=0;
+ ['v1','v2','v3','v4','v5','v6'].forEach(id=>{
+ const q=document.querySelector('input[name="'+id+'"]:checked');
+ if(q){const ok=q.value==='1';markAnswer(q,ok);if(ok){c++;if(!scored[id]){scored[id]=true;addStar();}}}});
+ document.getElementById('vocabStars').innerHTML=c?('⭐'.repeat(c)+' You got '+c+' correct answers in Vocabulary.'):
+ 'No correct answers yet. Try again!';}
+
+/* ---------- Grammar ---------- */
+function checkGrammar(){let c=0;
+ [['g1','thereis'],['g2','thereare'],['g3','thereis'],['g4','thereare'],['g5','thereis']]
+ .forEach(([id,ans])=>{
+ const q=document.querySelector('input[name="'+id+'"]:checked');
+ if(q){const ok=q.value===ans;markAnswer(q,ok);if(ok){c++;if(!scored[id]){scored[id]=true;addStar();}}}});
+ document.getElementById('grammarStars').innerHTML=c?('⭐'.repeat(c)+' You got '+c+' correct answers in Grammar.'):
+ 'No correct answers yet. Try again!';}
+
+/* ---------- Listening ---------- */
+function bayanListening(){speakBayanText("In the zoo there are lions and elephants. The lions are sleeping under a tree. The birds are flying in the sky. The elephants are walking slowly to the lake.");}
+function checkListening(){let c=0;
+ const answers=[['t1','True'],['t2','False'],['t3','True']];
+ answers.forEach(([id,ans])=>{
+ const s=document.getElementById(id);
+ if(s.value!=='—'){const ok=s.value===ans;
+ const p=s.parentElement;let m=p.querySelector('.mark-icon');
+ if(!m){m=document.createElement('span');m.className='mark-icon';p.appendChild(m);}
+ m.textContent=ok?' ✅':' ❌';m.className='mark-icon '+(ok?'correctMark':'wrongMark');
+ if(ok){c++;if(!scored[id]){scored[id]=true;addStar();}}}});
+ document.getElementById('listenStars').innerHTML=c?('⭐'.repeat(c)+' You got '+c+' correct answers in Listening.'):
+ 'No correct answers yet. Try again!';}
+
+/* ---------- Reading ---------- */
+function bayanReading(){speakBayanText("Hello, I am Tom. I have a dog called Lucky. He likes running and playing in the garden. At the zoo I like seeing lions and elephants. In the forest I can see birds and squirrels.");}
+function checkReading(){let c=0;
+ const a1=document.getElementById('r1'),a2=document.getElementById('r2'),a3=document.getElementById('r3');
+ const v1=a1.value.toLowerCase(),v2=a2.value.toLowerCase(),v3=a3.value.toLowerCase();
+ let ok1=v1.includes('dog')||v1.includes('lucky'),ok2=v2.includes('lion')||v2.includes('elephant'),
+ ok3=v3.includes('bird')||v3.includes('squirrel');
+ [a1,ok1,'r1'],[a2,ok2,'r2'],[a3,ok3,'r3'].forEach(([el,ok,id])=>{markAnswer(el,ok);if(ok){c++;if(!scored[id]){scored[id]=true;addStar();}}});
+ document.getElementById('readStars').innerHTML=c?('⭐'.repeat(c)+' You got '+c+' correct answers in Reading.'):
+ 'No correct answers yet. Try again!';}
+
+/* ---------- Speaking ---------- */
+let recognition;
+function bayanSpeaking(){speakBayanText("Now talk about your favourite animal. Do you have a pet? What animals live in Kazakhstan?");}
+function startSpeak(){
+ if(!('webkitSpeechRecognition'in window)&&!('SpeechRecognition'in window)){alert('Speech recognition not supported.');return;}
+ const SR=window.SpeechRecognition||window.webkitSpeechRecognition;recognition=new SR();recognition.lang='en-US';
+ recognition.onresult=e=>{
+ const s=e.results[0][0].transcript.toLowerCase();let ok=false;
+ if(s.includes('dog')||s.includes('cat')||s.includes('lion')||s.includes('elephant')||s.includes('bird'))ok=true;
+ if(ok)addStar();
+ document.getElementById('speakStars').innerHTML=ok?'⭐ Good speaking! You said: '+s:'You said: '+s+' — try using animal words.';
+ };
+ recognition.start();}
+function stopSpeak(){if(recognition)recognition.stop();}
+
+/* ---------- Writing ---------- */
+function checkWritingSentences(){let c=0;
+ const w1=document.getElementById('w1'),w2=document.getElementById('w2'),w3=document.getElementById('w3');
+ const v1=w1.value.toLowerCase(),v2=w2.value.toLowerCase(),v3=w3.value.toLowerCase();
+ let ok1=v1.includes('favourite animal'),ok2=v2.includes('it is'),ok3=v3.includes('because');
+ [[w1,ok1,'w1'],[w2,ok2,'w2'],[w3,ok3,'w3']].forEach(([el,ok,id])=>{markAnswer(el,ok);if(ok){c++;if(!scored[id]){scored[id]=true;addStar();}}});
+ document.getElementById('writeSentStars').innerHTML=c?('⭐'.repeat(c)+' You got '+c+' correct sentences.'):
+ 'No correct sentences yet. Try again!';}
+function checkDictation(){
+ const box=document.getElementById('writeBox');const t=box.value.toLowerCase();let f=0;
+ ['dog','cat','lion','elephant','bird','nature','forest','because','animal'].forEach(w=>{if(t.includes(w))f++;});
+ let ok=f>=3;if(ok&&!scored.dict){scored.dict=true;addStar();}
+ const p=box.parentElement;let m=p.querySelector('.mark-icon');
+ if(!m){m=document.createElement('span');m.className='mark-icon';p.appendChild(m);}
+ m.textContent=ok?' ✅':' ❌';m.className='mark-icon '+(ok?'correctMark':'wrongMark');
+ document.getElementById('dictStars').innerHTML=ok?'⭐ Nice text about animals!':
+ 'Try to write about 3–5 sentences using animal words.';}
+
+/* ---------- Finish + Nav ---------- */
+function finishLesson(){
+ document.getElementById('finalStars').innerText=totalStars;
+ document.getElementById('finalTotalText').textContent="🌟 You earned a total of "+totalStars+" stars in this lesson!";
+ let msg=totalStars>=20?"🌟🌟🌟 Excellent! You know many animals!":totalStars>=12?"🌟🌟 Very good!":totalStars>=6?"🌟 Good start!":"Keep learning about nature!";
+ document.getElementById('finalMessage').innerText=msg;
+ const studentName=localStorage.getItem('studentName')||"Unknown Student";
+ const allResults=JSON.parse(localStorage.getItem('teacherJournal')||"{}");
+ allResults[studentName]=allResults[studentName]||{};
+ allResults[studentName]["Lesson 5"]=totalStars;
+ localStorage.setItem("teacherJournal",JSON.stringify(allResults));
+ localStorage.setItem("lesson5Stars",totalStars);
+ alert("Lesson 5 saved! "+studentName+" got "+totalStars+"⭐.");}
+function goBack(){location.href="index.html";}
+function goMenu(){location.href="index.html";}
+function goNext(){location.href="theme6.html";}
+updateStarsText();
 </script>
-  <script>
-// === 🎨 Тема 6: Kazakh Harmony (Museum of Kazakh Musical Instruments) ===
-function setCustomColors() {
-  const root = document.documentElement;
-
-  // 🇰🇿 Тёплая этническая палитра
-  root.style.setProperty("--main-bg", "linear-gradient(180deg, #fff8e1 0%, #ffecb3 50%, #ffe082 100%)");
-  root.style.setProperty("--header-bg", "#795548");
-  root.style.setProperty("--header-text", "#fff8e1");
-  root.style.setProperty("--btn-bg", "#a1887f");
-  root.style.setProperty("--btn-hover", "#d7ccc8");
-  root.style.setProperty("--text-color", "#4e342e");
-  root.style.setProperty("--border-color", "#ffca28");
-  root.style.setProperty("--accent", "#ffb300");
-
-  // применяем цвета
-  document.body.style.background = getComputedStyle(root).getPropertyValue("--main-bg");
-  document.body.style.color = getComputedStyle(root).getPropertyValue("--text-color");
-  document.querySelectorAll("header").forEach(h=>{
-    h.style.background = getComputedStyle(root).getPropertyValue("--header-bg");
-    h.style.color = getComputedStyle(root).getPropertyValue("--header-text");
-  });
-  document.querySelectorAll(".btn").forEach(btn=>{
-    btn.style.background = getComputedStyle(root).getPropertyValue("--btn-bg");
-    btn.onmouseenter = ()=>btn.style.background = getComputedStyle(root).getPropertyValue("--btn-hover");
-    btn.onmouseleave = ()=>btn.style.background = getComputedStyle(root).getPropertyValue("--btn-bg");
-  });
-}
-
-window.addEventListener("DOMContentLoaded", setCustomColors);
-</script>
-  <script src="animations.js"></script>
 </body>
 </html>
 
+   
+     
+     
+    
+   
+   
 
+  
+
+  
+      
+      
+
+    
+   
+     
+    
+    
+
+    
+            
+    
+   
+   
+    
+    
+ 
