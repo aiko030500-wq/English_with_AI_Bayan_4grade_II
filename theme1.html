@@ -93,7 +93,7 @@
       margin-left:6px;
     }
 
-    /* Центральная ✔ ✖ (оставили, но можно скрыть) */
+    /* центральная ✔ ✖ (можно оставить как эффект) */
     .result-icon {
       font-size: 3rem;
       opacity: 0;
@@ -119,7 +119,7 @@
       text-shadow:0 0 15px #ff7f7f;
     }
 
-    /* ✅ / ❌ возле ответа — СТАТИЧНЫЕ, без анимации  */
+    /* ✅ / ❌ возле ответа — статично */
     .mark-icon {
       margin-left: 8px;
       font-size: 1.2rem;
@@ -382,6 +382,9 @@
   <section style="text-align:center;margin-top:25px;">
     <h3>🎯 Lesson Complete!</h3>
     <p>You have earned <b><span id="finalStars">0</span> ⭐</b> in this lesson.</p>
+    <p id="finalTotalText" style="margin-top:6px;color:#5a2ea6;font-weight:bold;">
+      🌟 You earned a total of 0 stars in this lesson!
+    </p>
 
     <button class="btn" onclick="finishLesson()">Save & Show Result ✅</button>
 
@@ -399,11 +402,10 @@
   </p>
 </main>
 
-<!-- центральная галочка/крестик -->
 <div id="feedbackIcon" class="result-icon"></div>
 
 <script>
-  // ⭐ TOTAL STARS (no limit)
+  // ⭐ TOTAL STARS
   let totalStars = 0;
   function addStar() {
     totalStars++;
@@ -413,7 +415,9 @@
     document.getElementById('lessonStarsLine').innerText =
       "You have " + totalStars + " ⭐ in this lesson.";
     const fs = document.getElementById('finalStars');
+    const ft = document.getElementById('finalTotalText');
     if(fs) fs.innerText = totalStars;
+    if(ft) ft.textContent = "🌟 You earned a total of " + totalStars + " stars in this lesson!";
   }
 
   // флаги, чтобы не начислять звезду второй раз
@@ -426,7 +430,7 @@
     dict:false
   };
 
-  // центральная ✔ ✖ (можно оставить, это не галочки возле ответов)
+  // центральная ✔ ✖
   function showResult(isCorrect){
     const icon = document.getElementById("feedbackIcon");
     if(!icon) return;
@@ -440,7 +444,7 @@
     setTimeout(()=>icon.classList.remove("show"),900);
   }
 
-  // ✅ / ❌ возле самого ответа — СТАВИМ И НЕ УБИРАЕМ
+  // ✅ / ❌ возле ответа (статично)
   function markAnswer(element, isCorrect){
     if(!element) return;
     const parent = element.closest('label') || element.parentElement || element;
@@ -459,33 +463,9 @@
     }
   }
 
-  // 💬 локальная подсказка под блоком (можно оставить)
-  function showResultAnimation(isCorrect, elementId){
-    const el = document.getElementById(elementId);
-    if(!el) return;
-    if(isCorrect){
-      el.innerHTML = "✅ Correct! ⭐";
-      el.style.background = "rgba(144,238,144,0.6)";
-      el.style.border = "2px solid green";
-    } else {
-      el.innerHTML = "❌ Try again!";
-      el.style.background = "rgba(255,182,193,0.6)";
-      el.style.border = "2px solid red";
-      navigator.vibrate?.(150);
-    }
-    el.style.transition = "0.4s";
-    setTimeout(()=>{
-      el.innerHTML = "";
-      el.style.background = "";
-      el.style.border = "";
-    },1300);
-  }
-
-  // ---------- TTS (AI Bayan voice) ----------
+  // ---------- TTS ----------
   function speakBayanText(text){
-    if(!('speechSynthesis' in window)){
-      return;
-    }
+    if(!('speechSynthesis' in window)) return;
     const utter = new SpeechSynthesisUtterance(text);
     utter.lang = "en-US";
     utter.rate = 0.9;
@@ -496,23 +476,22 @@
     if(femaleEn) utter.voice = femaleEn;
     speechSynthesis.speak(utter);
   }
-
   function stopBayan(){
     window.speechSynthesis.cancel();
   }
 
   // ---------- VOCABULARY ----------
-  function speakVocab(text){
-    speakBayanText(text);
-  }
+  function speakVocab(text){ speakBayanText(text); }
 
   function checkVocab(){
     let starsHere = 0;
+    let correctCount = 0;
 
     const q1 = document.querySelector('input[name="v1"]:checked');
     if(q1){
       const correct = q1.value === "1";
       markAnswer(q1, correct);
+      if(correct) correctCount++;
       if(correct && !scored.v1){ scored.v1=true; addStar(); starsHere++; }
     }
 
@@ -520,6 +499,7 @@
     if(q2){
       const correct = q2.value === "1";
       markAnswer(q2, correct);
+      if(correct) correctCount++;
       if(correct && !scored.v2){ scored.v2=true; addStar(); starsHere++; }
     }
 
@@ -527,6 +507,7 @@
     if(q3){
       const correct = q3.value === "1";
       markAnswer(q3, correct);
+      if(correct) correctCount++;
       if(correct && !scored.v3){ scored.v3=true; addStar(); starsHere++; }
     }
 
@@ -534,6 +515,7 @@
     if(q4){
       const correct = q4.value === "1";
       markAnswer(q4, correct);
+      if(correct) correctCount++;
       if(correct && !scored.v4){ scored.v4=true; addStar(); starsHere++; }
     }
 
@@ -541,6 +523,7 @@
     if(q5){
       const correct = q5.value === "1";
       markAnswer(q5, correct);
+      if(correct) correctCount++;
       if(correct && !scored.v5){ scored.v5=true; addStar(); starsHere++; }
     }
 
@@ -548,29 +531,30 @@
     if(q6){
       const correct = q6.value === "1";
       markAnswer(q6, correct);
+      if(correct) correctCount++;
       if(correct && !scored.v6){ scored.v6=true; addStar(); starsHere++; }
     }
 
     const box = document.getElementById('vocabStars');
-    if(starsHere > 0){
-      box.innerHTML = "⭐ +" + starsHere + " vocabulary stars!";
+    if(correctCount > 0){
+      box.innerHTML = "⭐".repeat(correctCount) + " You got " + correctCount + " correct answers in Vocabulary.";
       showResult(true);
-      showResultAnimation(true,"vocabStars");
     } else {
-      box.innerHTML = "No new stars. Check answers or you already got them.";
+      box.innerHTML = "No correct answers yet. Try again!";
       showResult(false);
-      showResultAnimation(false,"vocabStars");
     }
   }
 
   // ---------- GRAMMAR ----------
   function checkGrammar(){
     let starsHere = 0;
+    let correctCount = 0;
 
     const q1 = document.querySelector('input[name="g1"]:checked');
     if(q1){
       const correct = q1.value === "areplaying";
       markAnswer(q1, correct);
+      if(correct) correctCount++;
       if(correct && !scored.g1){ scored.g1=true; addStar(); starsHere++; }
     }
 
@@ -578,6 +562,7 @@
     if(q2){
       const correct = q2.value === "isflying";
       markAnswer(q2, correct);
+      if(correct) correctCount++;
       if(correct && !scored.g2){ scored.g2=true; addStar(); starsHere++; }
     }
 
@@ -585,6 +570,7 @@
     if(q3){
       const correct = q3.value === "arefishing";
       markAnswer(q3, correct);
+      if(correct) correctCount++;
       if(correct && !scored.g3){ scored.g3=true; addStar(); starsHere++; }
     }
 
@@ -592,6 +578,7 @@
     if(q4){
       const correct = q4.value === "lets";
       markAnswer(q4, correct);
+      if(correct) correctCount++;
       if(correct && !scored.g4){ scored.g4=true; addStar(); starsHere++; }
     }
 
@@ -599,18 +586,17 @@
     if(q5){
       const correct = q5.value === "them";
       markAnswer(q5, correct);
+      if(correct) correctCount++;
       if(correct && !scored.g5){ scored.g5=true; addStar(); starsHere++; }
     }
 
     const box = document.getElementById('grammarStars');
-    if(starsHere > 0){
-      box.innerHTML = "⭐ +" + starsHere + " grammar stars!";
+    if(correctCount > 0){
+      box.innerHTML = "⭐".repeat(correctCount) + " You got " + correctCount + " correct answers in Grammar.";
       showResult(true);
-      showResultAnimation(true,"grammarStars");
     } else {
-      box.innerHTML = "No new stars. Check again or you already got them.";
+      box.innerHTML = "No correct answers yet. Try again!";
       showResult(false);
-      showResultAnimation(false,"grammarStars");
     }
   }
 
@@ -629,11 +615,13 @@
 
   function checkListening(){
     let starsHere = 0;
+    let correctCount = 0;
 
     const t1 = document.getElementById('t1');
     if(t1.value !== '—'){
       const correct = t1.value === 'True';
       markAnswer(t1, correct);
+      if(correct) correctCount++;
       if(correct && !scored.l1){ scored.l1 = true; addStar(); starsHere++; }
     }
 
@@ -641,6 +629,7 @@
     if(t2.value !== '—'){
       const correct = t2.value === 'False';
       markAnswer(t2, correct);
+      if(correct) correctCount++;
       if(correct && !scored.l2){ scored.l2 = true; addStar(); starsHere++; }
     }
 
@@ -648,18 +637,17 @@
     if(t3.value !== '—'){
       const correct = t3.value === 'True';
       markAnswer(t3, correct);
+      if(correct) correctCount++;
       if(correct && !scored.l3){ scored.l3 = true; addStar(); starsHere++; }
     }
 
     const box = document.getElementById('listenStars');
-    if(starsHere > 0){
-      box.innerHTML = "⭐ +" + starsHere + " listening stars!";
+    if(correctCount > 0){
+      box.innerHTML = "⭐".repeat(correctCount) + " You got " + correctCount + " correct answers in Listening.";
       showResult(true);
-      showResultAnimation(true,"listenStars");
     } else {
-      box.innerHTML = "No new stars. Check your answers.";
+      box.innerHTML = "No correct answers yet. Try again!";
       showResult(false);
-      showResultAnimation(false,"listenStars");
     }
   }
 
@@ -676,6 +664,7 @@
 
   function checkReading(){
     let starsHere = 0;
+    let correctCount = 0;
 
     const r1El = document.getElementById('r1');
     const r2El = document.getElementById('r2');
@@ -692,38 +681,36 @@
        a1.includes("bike")
     ){
       correct1 = true;
+      correctCount++;
+      if(!scored.r1){ scored.r1 = true; addStar(); starsHere++; }
     }
-
     let correct2 = false;
     if(
        a2.includes("no") || a2.includes("doesn") ||
        a2.includes("do not") || a2.includes("don't")
     ){
       correct2 = true;
+      correctCount++;
+      if(!scored.r2){ scored.r2 = true; addStar(); starsHere++; }
     }
-
     let correct3 = false;
     if(a3.includes("skip") || a3.includes("rope")){
       correct3 = true;
+      correctCount++;
+      if(!scored.r3){ scored.r3 = true; addStar(); starsHere++; }
     }
 
     markAnswer(r1El, correct1);
     markAnswer(r2El, correct2);
     markAnswer(r3El, correct3);
 
-    if(!scored.r1 && correct1){ scored.r1 = true; addStar(); starsHere++; }
-    if(!scored.r2 && correct2){ scored.r2 = true; addStar(); starsHere++; }
-    if(!scored.r3 && correct3){ scored.r3 = true; addStar(); starsHere++; }
-
     const box = document.getElementById('readStars');
-    if(starsHere > 0){
-      box.innerHTML = "⭐ +" + starsHere + " reading stars!";
+    if(correctCount > 0){
+      box.innerHTML = "⭐".repeat(correctCount) + " You got " + correctCount + " correct answers in Reading.";
       showResult(true);
-      showResultAnimation(true,"readStars");
     } else {
-      box.innerHTML = "No new stars. Check answers or you already got them.";
+      box.innerHTML = "No correct answers yet. Try again!";
       showResult(false);
-      showResultAnimation(false,"readStars");
     }
   }
 
@@ -749,6 +736,7 @@
     recognition.onresult = function(event){
       const speech = event.results[0][0].transcript.toLowerCase();
       let starsHere = 0;
+      let correctCount = 0;
       if(
         speech.includes("hide and seek") || speech.includes("tag") ||
         speech.includes("kite") || speech.includes("bike") ||
@@ -756,19 +744,18 @@
         speech.includes("park") || speech.includes("weekend") ||
         speech.includes("game") || speech.includes("fun")
       ){
+        correctCount = 1;
         addStar();
         starsHere++;
       }
       const box = document.getElementById('speakStars');
-      if(starsHere > 0){
-        box.innerHTML = "⭐ +" + starsHere + " speaking star!<br>You said: " + speech;
+      if(correctCount > 0){
+        box.innerHTML = "⭐ You got 1 speaking star!<br>You said: " + speech;
         showResult(true);
-        showResultAnimation(true,"speakStars");
       } else {
         box.innerHTML = "You said: " + speech +
           "<br>Try to use words like hide-and-seek, tag, kite, bike, park, weekend.";
         showResult(false);
-        showResultAnimation(false,"speakStars");
       }
     };
     recognition.start();
@@ -781,6 +768,8 @@
   // ---------- WRITING: SENTENCES ----------
   function checkWritingSentences(){
     let starsHere = 0;
+    let correctCount = 0;
+
     const w1El = document.getElementById('w1');
     const w2El = document.getElementById('w2');
     const w3El = document.getElementById('w3');
@@ -793,6 +782,7 @@
 
     if(s1.includes("my favourite game is")){
       c1 = true;
+      correctCount++;
       if(!scored.w1){
         scored.w1 = true; addStar(); starsHere++;
       }
@@ -800,6 +790,7 @@
 
     if(s2.includes("are playing") || s2.includes("is playing")){
       c2 = true;
+      correctCount++;
       if(!scored.w2){
         scored.w2 = true; addStar(); starsHere++;
       }
@@ -807,6 +798,7 @@
 
     if(s3.includes("let's")){
       c3 = true;
+      correctCount++;
       if(!scored.w3){
         scored.w3 = true; addStar(); starsHere++;
       }
@@ -817,14 +809,12 @@
     markAnswer(w3El, c3);
 
     const box = document.getElementById('writeSentStars');
-    if(starsHere > 0){
-      box.innerHTML = "⭐ +" + starsHere + " writing stars!";
+    if(correctCount > 0){
+      box.innerHTML = "⭐".repeat(correctCount) + " You got " + correctCount + " correct sentences.";
       showResult(true);
-      showResultAnimation(true,"writeSentStars");
     } else {
-      box.innerHTML = "No new stars. Check your sentences or you already got them.";
+      box.innerHTML = "No correct sentences yet. Try again!";
       showResult(false);
-      showResultAnimation(false,"writeSentStars");
     }
   }
 
@@ -858,8 +848,11 @@
     }
     let starsHere = 0;
     let correct = false;
+    let correctCount = 0;
+
     if(found >= 3){
       correct = true;
+      correctCount = 1;
       if(!scored.dict){
         scored.dict = true;
         addStar();
@@ -870,20 +863,21 @@
     markAnswer(boxEl, correct);
 
     const box = document.getElementById('dictStars');
-    if(starsHere > 0){
-      box.innerHTML = "⭐ +" + starsHere + " writing star!";
+    if(correctCount > 0){
+      box.innerHTML = "⭐ You wrote a good text with key words!";
       showResult(true);
-      showResultAnimation(true,"dictStars");
     } else {
       box.innerHTML = "Try to write 3–5 sentences with: my favourite game, I like, at the weekend, let’s...";
       showResult(false);
-      showResultAnimation(false,"dictStars");
     }
   }
 
   // ---------- FINISH + NAVIGATION ----------
   function finishLesson(){
     document.getElementById("finalStars").innerText = totalStars;
+    document.getElementById("finalTotalText").textContent =
+      "🌟 You earned a total of " + totalStars + " stars in this lesson!";
+
     let msg = "";
     if(totalStars >= 20){
       msg = "🌟🌟🌟 Great job! You had fun and you know many games!";
@@ -916,9 +910,24 @@
 </body>
 </html>
 
-
-
+   
+   
   
+    
+    
+ 
+    
+    
+
+    
+   
+   
+    
+
+ 
+     
+  
+     
       
-    
-    
+      
+   
