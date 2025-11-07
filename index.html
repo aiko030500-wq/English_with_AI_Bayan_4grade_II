@@ -19,111 +19,48 @@
     border-bottom: 5px solid gold;
   }
   main { padding: 1rem; }
-
   .btn {
-    display: inline-block;
-    margin: 6px;
-    padding: 8px 14px;
-    border-radius: 10px;
-    border: none;
-    background: #003366;
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 0.9rem;
+    display:inline-block;margin:6px;padding:8px 14px;border:none;
+    border-radius:10px;background:#003366;color:#fff;font-weight:bold;
+    cursor:pointer;font-size:0.9rem;
   }
-  .btn:hover { background: gold; color: #003366; }
-
+  .btn:hover {background:gold;color:#003366;}
   .overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.55);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
+    position:fixed;inset:0;background:rgba(0,0,0,0.55);
+    display:flex;align-items:center;justify-content:center;z-index:999;
   }
   .overlay-card {
-    background: white;
-    padding: 20px;
-    border-radius: 16px;
-    width: 90%;
-    max-width: 400px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.3);
-    border: 4px solid gold;
+    background:white;padding:20px;border-radius:16px;width:90%;max-width:400px;
+    box-shadow:0 0 15px rgba(0,0,0,0.3);border:4px solid gold;
   }
   .overlay-card input {
-    width: 100%;
-    padding: 8px;
-    margin: 6px 0;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
+    width:100%;padding:8px;margin:6px 0;border-radius:8px;
+    border:1px solid #ccc;font-size:1rem;
   }
-
   .logo-main {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 3px solid gold;
-    margin-bottom: 6px;
+    width:120px;height:120px;object-fit:cover;border-radius:50%;
+    border:3px solid gold;margin-bottom:6px;
   }
-
   .topics-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
-    gap: 10px;
-    max-width: 900px;
-    margin: 0 auto 15px;
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:10px;max-width:900px;margin:0 auto 15px;
   }
   .topic-card {
-    background: #ffffff;
-    border-radius: 16px;
-    padding: 12px;
-    box-shadow: 0 0 8px rgba(0,0,0,0.08);
-    cursor: pointer;
-    border: 2px solid #dde6ff;
-    font-size: 0.95rem;
+    background:#fff;border-radius:16px;padding:12px;
+    box-shadow:0 0 8px rgba(0,0,0,0.08);cursor:pointer;
+    border:2px solid #dde6ff;font-size:0.95rem;
   }
-  .topic-card:hover {
-    border-color: gold;
-    transform: translateY(-1px);
-  }
-
+  .topic-card:hover {border-color:gold;transform:translateY(-1px);}
   #welcomeBox {
-    background: linear-gradient(180deg,#fff9ec 0%,#f8e4ba 100%);
-    border: 3px solid gold;
-    border-radius: 20px;
-    padding: 16px;
-    width: 90%;
-    max-width: 600px;
-    margin: 16px auto 20px;
-    box-shadow: 0 0 15px rgba(255,215,0,0.4);
+    background:linear-gradient(180deg,#fff9ec 0%,#f8e4ba 100%);
+    border:3px solid gold;border-radius:20px;padding:16px;width:90%;
+    max-width:600px;margin:16px auto 20px;
+    box-shadow:0 0 15px rgba(255,215,0,0.4);
   }
-  #welcomeBox h2 { margin: 4px 0; font-size: 1.4rem; }
-  #totalStars { font-weight: bold; color:#d48a00; }
-
-  .section { display: none; margin-top: 16px; }
-
-  table { font-size: 0.85rem; border-collapse: collapse; margin: auto; }
-  th, td { padding: 4px 6px; border: 1px solid #ccc; }
-
-  /* Chat styles */
-  #chatBox {
-    max-height: 320px;
-    overflow-y: auto;
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 10px;
-    background: #fff;
-    text-align: left;
-    font-size: 0.9rem;
-  }
-  .msg { margin: 6px 0; padding: 6px 10px; border-radius: 10px; line-height: 1.3; }
-  .user { background:#e3f2fd; border-left:3px solid #1565c0; }
-  .ai   { background:#fffde7; border-left:3px solid #f9a825; }
-  .sys  { font-style: italic; color:#777; }
+  #welcomeBox h2{margin:4px 0;font-size:1.4rem;}
+  #totalStars{font-weight:bold;color:#d48a00;}
+  table{font-size:0.85rem;border-collapse:collapse;margin:auto;}
+  th,td{padding:4px 6px;border:1px solid #ccc;}
 </style>
 </head>
 <body>
@@ -138,9 +75,7 @@
   </div>
 </div>
 
-<header>
-  <h1>English with AI Bayan 4grade II (ONLINE)</h1>
-</header>
+<header><h1>English with AI Bayan 4grade II (ONLINE)</h1></header>
 
 <main>
   <div id="welcomeBox" style="display:none;">
@@ -165,13 +100,12 @@
       <div class="topic-card" onclick="openLesson(11)">11. 💬 What Do You Do?</div>
       <div class="topic-card" onclick="openLesson(12)">12. ❤️ You Can Help!</div>
       <div class="topic-card" onclick="openLesson(13)">13. 🎯 Final Challenge</div>
-      <div class="topic-card" onclick="openChatSection()">💬 AI Bayan Chat — Ask the Teacher 🤖</div>
     </div>
     <button class="btn" onclick="openTeacherJournal()">🏫 Teacher Journal</button>
   </div>
 
   <!-- 🧾 TEACHER JOURNAL -->
-  <div id="teacherJournal" class="section">
+  <div id="teacherJournal" style="display:none;">
     <h2>🏫 Teacher Journal</h2>
     <table>
       <thead>
@@ -179,34 +113,16 @@
           <th>Student</th>
           <th>L1</th><th>L2</th><th>L3</th><th>L4</th><th>L5</th><th>L6</th>
           <th>L7</th><th>L8</th><th>L9</th><th>L10</th><th>L11</th><th>L12</th><th>L13</th>
-          <th>Chat</th><th>Total ⭐</th>
+          <th>Total ⭐</th>
         </tr>
       </thead>
       <tbody id="journalBody"></tbody>
     </table>
     <button class="btn" onclick="logout()">Logout</button>
   </div>
-
-  <!-- 💬 CHAT SECTION -->
-  <section id="chatSection" class="section" style="max-width:900px;margin:0 auto;">
-    <h2>💬 AI Bayan — Online Teacher Chat</h2>
-    <p>
-      Ask about <b>grammar, vocabulary, translation or homework</b>.<br>
-      You can write in <b>English or Russian</b>, but AI Bayan will answer mostly in <b>simple English</b>.
-    </p>
-
-    <div id="chatBox"></div>
-
-    <textarea id="chatInput" placeholder="Type your question here..." style="width:100%;border-radius:8px;margin-top:8px;min-height:60px;"></textarea><br>
-
-    <button class="btn" onclick="askBayan()">Ask AI Bayan</button>
-    <button class="btn" onclick="clearChat()">Clear</button>
-    <button class="btn" onclick="goMenu()">🏠 Back to Menu</button>
-  </section>
 </main>
 
 <script>
-/* ==== LOGIN / MENU / JOURNAL ==== */
 const allowedNames = [
   "Aylin2","Aitach2","Zhakhangir2","Alvi2","Narmin2","Balman2",
   "Dima2","Ilyas2","Kirill2","Irada2","Shyngys2","Sultan2",
@@ -214,583 +130,63 @@ const allowedNames = [
 ];
 
 function checkLogin(){
-  const name = document.getElementById("nameInput").value.trim();
-  const pin  = document.getElementById("pinInput").value.trim();
-
-  // 👩‍🎓 STUDENT
-  if (allowedNames.includes(name) && pin === "6856") {
-    localStorage.setItem("currentStudent", name);
-    document.getElementById("loginOverlay").style.display = "none";
-    document.getElementById("studentMenu").style.display   = "block";
-    document.getElementById("welcomeBox").style.display    = "block";
-    document.getElementById("welcomeText").innerText = "Hello, " + name + "!";
+  const name=document.getElementById("nameInput").value.trim();
+  const pin=document.getElementById("pinInput").value.trim();
+  if(allowedNames.includes(name)&&pin==="6856"){
+    localStorage.setItem("currentStudent",name);
+    document.getElementById("loginOverlay").style.display="none";
+    document.getElementById("studentMenu").style.display="block";
+    document.getElementById("welcomeBox").style.display="block";
+    document.getElementById("welcomeText").innerText="Hello, "+name+"!";
     updateStars();
-  }
-  // 👩‍🏫 TEACHER
-  else if (name.toLowerCase() === "teacher" && pin === "9995") {
-    document.getElementById("loginOverlay").style.display = "none";
-    document.getElementById("teacherJournal").style.display = "block";
+  } else if(name.toLowerCase()==="teacher"&&pin==="9995"){
+    document.getElementById("loginOverlay").style.display="none";
+    document.getElementById("teacherJournal").style.display="block";
     buildJournal();
-  }
-  else {
+  } else {
     alert("❌ Access denied. Check your name or PIN.");
   }
 }
 
+function openLesson(n){window.location.href="theme"+n+".html";}
+
 function updateStars(){
-  const name = localStorage.getItem("currentStudent");
+  const name=localStorage.getItem("currentStudent");
   if(!name) return;
-  let total = 0;
+  let total=0;
   for(let i=1;i<=13;i++){
-    total += Number(localStorage.getItem(name+"_lesson"+i+"Stars")) || 0;
+    total+=Number(localStorage.getItem(name+"_lesson"+i+"Stars"))||0;
   }
-  total += Number(localStorage.getItem(name+"_chatStars")) || 0;
-  document.getElementById("totalStars").innerText = total;
-  localStorage.setItem(name+"_totalStars", total);
+  document.getElementById("totalStars").innerText=total;
+  localStorage.setItem(name+"_totalStars",total);
 }
-
-function buildJournal(){
-  const body = document.getElementById("journalBody");
-  body.innerHTML = "";
-  allowedNames.forEach(name=>{
-    let row = "<tr><td>"+name+"</td>";
-    let total = 0;
-    for(let i=1;i<=13;i++){
-      const stars = Number(localStorage.getItem(name+"_lesson"+i+"Stars")) || 0;
-      total += stars;
-      row += "<td>"+stars+"</td>";
-    }
-    const chatStars = Number(localStorage.getItem(name+"_chatStars")) || 0;
-    total += chatStars;
-    row += "<td>"+chatStars+"</td><td>"+total+"</td></tr>";
-    body.innerHTML += row;
-  });
-}
-
-function openLesson(n){ window.location.href = "theme"+n+".html"; }
 
 function openTeacherJournal(){
-  document.getElementById("studentMenu").style.display = "none";
-  document.getElementById("teacherJournal").style.display = "block";
+  document.getElementById("studentMenu").style.display="none";
+  document.getElementById("teacherJournal").style.display="block";
   buildJournal();
 }
 
-function openChatSection(){
-  document.getElementById("studentMenu").style.display = "none";
-  document.getElementById("chatSection").style.display = "block";
-}
-
-function goMenu(){
-  document.getElementById("chatSection").style.display = "none";
-  document.getElementById("teacherJournal").style.display = "none";
-  document.getElementById("studentMenu").style.display = "block";
-  document.getElementById("welcomeBox").style.display = "block";
+function buildJournal(){
+  const body=document.getElementById("journalBody");
+  body.innerHTML="";
+  allowedNames.forEach(name=>{
+    let row="<tr><td>"+name+"</td>";
+    let total=0;
+    for(let i=1;i<=13;i++){
+      const stars=Number(localStorage.getItem(name+"_lesson"+i+"Stars"))||0;
+      total+=stars;
+      row+="<td>"+stars+"</td>";
+    }
+    row+="<td>"+total+"</td></tr>";
+    body.innerHTML+=row;
+  });
 }
 
 function logout(){
   localStorage.removeItem("currentStudent");
-  window.location.href = "index.html";
+  window.location.href="index.html";
 }
-
-/* ==== OFFLINE KNOWLEDGE BASE (13 TOPICS, ПОДРОБНО) ==== */
-const knowledgeBase = [
-  {
-    topic: "1. Let’s Have Fun!",
-    keywords: ["let's have fun", "lets have fun", "fun", "game", "games"],
-    answer: `🎨 Topic 1: Let’s Have Fun!
-
-Explanation (English):
-This topic is about free time and fun activities that children do: playing games, going to the park, drawing, watching cartoons and so on.
-
-Пояснение (по-русски):
-Тема про то, как дети проводят свободное время: играют, гуляют в парке, рисуют, смотрят мультики и т.д.
-
-Key words / Слова:
-• to play games — играть в игры  
-• to draw pictures — рисовать картинки  
-• to watch cartoons — смотреть мультики  
-• to ride a bike — кататься на велосипеде  
-• to go to the park — ходить в парк  
-• funny — смешной, весёлый  
-• exciting — захватывающий  
-
-Example sentences:
-• I usually play games with my friends after school.  
-• On Sundays we go to the park and ride our bikes.
-
-Mini-quiz:
-Translate and answer:
-1) Как по-английски «смотреть мультики»?  
-2) Say a sentence: What do you do for fun?`
-  },
-  {
-    topic: "2. Sports and Exercises",
-    keywords: ["sports and exercises", "sport and exercise", "sports", "exercises", "exercise"],
-    answer: `🏃 Topic 2: Sports and Exercises
-
-Explanation (English):
-This topic is about doing sports and keeping healthy. We talk about kinds of sport and simple exercises.
-
-Пояснение (по-русски):
-Тема о спорте и упражнениях для здоровья. Мы называем виды спорта и простые упражнения.
-
-Key words:
-• to run — бегать  
-• to jump — прыгать  
-• to swim — плавать  
-• to play football — играть в футбол  
-• to do exercises — делать упражнения  
-• strong — сильный  
-• healthy — здоровый  
-
-Example sentences:
-• I do morning exercises every day.  
-• My favourite sport is football because I play it with my friends.
-
-Mini-quiz:
-1) How do you say «делать упражнения» in English?  
-2) Answer in English: What sport do you like?`
-  },
-  {
-    topic: "3. Sports Around the World",
-    keywords: ["sports around the world", "world sports", "around the world"],
-    answer: `🌍 Topic 3: Sports Around the World
-
-Explanation (English):
-This topic shows that people in different countries like different sports. Some sports are popular everywhere.
-
-Пояснение (по-русски):
-Тема показывает, что в разных странах любят разные виды спорта. Некоторые виды спорта популярны во всём мире.
-
-Key words:
-• countries — страны  
-• popular — популярный  
-• football — футбол  
-• basketball — баскетбол  
-• tennis — теннис  
-• national sport — национальный вид спорта  
-
-Example sentences:
-• Football is a very popular sport around the world.  
-• In some countries ice hockey is a national sport.
-
-Mini-quiz:
-1) Name two sports that are popular in many countries.  
-2) Скажи по-английски: «Хоккей — популярный вид спорта».`
-  },
-  {
-    topic: "4. Arts and Music",
-    keywords: ["arts and music", "art and music", "music", "art", "arts"],
-    answer: `🎵 Topic 4: Arts and Music
-
-Explanation (English):
-This topic is about different kinds of art: music, painting, dancing, singing and playing musical instruments.
-
-Пояснение (по-русски):
-Тема о разных видах искусства: музыка, рисование, танцы, пение и игра на музыкальных инструментах.
-
-Key words:
-• art — искусство  
-• music — музыка  
-• to sing — петь  
-• to dance — танцевать  
-• to paint — рисовать красками  
-• a song — песня  
-• a musician — музыкант  
-
-Example sentences:
-• I like listening to music when I do my homework.  
-• My sister can sing very well and she wants to be a musician.
-
-Mini-quiz:
-1) Как по-английски «танцевать»?  
-2) Say a sentence: What kind of music do you like?`
-  },
-  {
-    topic: "5. Popular Team Sports",
-    keywords: ["popular team sports", "team sports", "team sport"],
-    answer: `⚽ Topic 5: Popular Team Sports
-
-Explanation (English):
-This topic is about sports where people play in teams: football, basketball, volleyball and others.
-
-Пояснение (по-русски):
-Тема о командных видах спорта, где люди играют вместе в команде: футбол, баскетбол, волейбол и др.
-
-Key words:
-• a team — команда  
-• a team-mate — товарищ по команде  
-• to win — выигрывать  
-• to lose — проигрывать  
-• a match — матч  
-• a player — игрок  
-• to pass the ball — пасовать мяч  
-
-Example sentences:
-• In football there are eleven players in a team.  
-• We play volleyball at school and our team often wins.
-
-Mini-quiz:
-1) Translate: «наша команда победила».  
-2) Answer: Do you prefer team sports or individual sports? Why?`
-  },
-  {
-    topic: "6. Museum of Kazakh Musical Instruments",
-    keywords: ["museum of kazakh musical instruments", "kazakh musical instruments", "kazakh instruments", "dombra", "kobyz"],
-    answer: `🎻 Topic 6: Museum of Kazakh Musical Instruments
-
-Explanation (English):
-This topic is about traditional Kazakh musical instruments and a museum where we can see them.
-
-Пояснение (по-русски):
-Тема о казахских народных музыкальных инструментах и музее, где их можно увидеть.
-
-Key words:
-• a museum — музей  
-• Kazakh — казахский  
-• musical instruments — музыкальные инструменты  
-• dombra — домбра  
-• kobyz — кобыз  
-• to play the dombra — играть на домбре  
-
-Example sentences:
-• In the museum we can see many Kazakh musical instruments.  
-• My grandfather can play the dombra very well.
-
-Mini-quiz:
-1) How do you say «музей» in English?  
-2) Назови по-английски один казахский инструмент.`
-  },
-  {
-    topic: "7. Children’s Rights & Responsibilities",
-    keywords: ["children's rights", "children rights", "rights and responsibilities", "responsibilities", "rights"],
-    answer: `📜 Topic 7: Children’s Rights & Responsibilities
-
-Explanation (English):
-This topic is about what children are allowed to have and do (rights) and what they must do (responsibilities).
-
-Пояснение (по-русски):
-Тема о том, что детям положено и разрешено (права), и о том, что они обязаны делать (обязанности).
-
-Key words:
-• rights — права  
-• responsibilities — обязанности  
-• to go to school — ходить в школу  
-• to have a family — иметь семью  
-• to be safe — быть в безопасности  
-• to help at home — помогать дома  
-
-Example sentences:
-• Children have the right to go to school.  
-• Children have the responsibility to respect their parents and teachers.
-
-Mini-quiz:
-1) Translate: «дети имеют право на образование».  
-2) Name one right and one responsibility of children.`
-  },
-  {
-    topic: "8. Different Jobs",
-    keywords: ["different jobs", "jobs", "job", "work people do"],
-    answer: `🏴‍☠️ Topic 8: Different Jobs
-
-Explanation (English):
-This topic is about many different jobs that people do: doctor, driver, cook, farmer and so on.
-
-Пояснение (по-русски):
-Тема о разных профессиях людей: врач, водитель, повар, фермер и др.
-
-Key words:
-• a doctor — врач  
-• a driver — водитель  
-• a cook — повар  
-• a farmer — фермер  
-• a nurse — медсестра  
-• a firefighter — пожарный  
-
-Example sentences:
-• A doctor helps sick people.  
-• A driver drives a bus or a car.
-
-Mini-quiz:
-1) Скажи по-английски: «Мой отец — водитель».  
-2) Name three jobs in English.`
-  },
-  {
-    topic: "9. Professions",
-    keywords: ["professions", "profession", "jobs and professions"],
-    answer: `👩‍🏫 Topic 9: Professions
-
-Explanation (English):
-This topic is close to “Different Jobs”, but here we often talk about what children want to be in the future.
-
-Пояснение (по-русски):
-Эта тема похожа на «Different Jobs», но здесь мы больше говорим о том, кем дети хотят стать в будущем.
-
-Key words:
-• a teacher — учитель  
-• an engineer — инженер  
-• a singer — певец / певица  
-• an artist — художник  
-• a pilot — пилот  
-• a vet (veterinarian) — ветеринар  
-
-Useful phrases:
-• I want to be a … — Я хочу стать …  
-• It is an interesting profession. — Это интересная профессия.
-
-Example sentences:
-• I want to be a teacher because I like children.  
-• His dream is to be a pilot and travel around the world.
-
-Mini-quiz:
-1) Answer in English: What do you want to be?  
-2) Translate: «Она хочет стать врачом».`
-  },
-  {
-    topic: "10. People at Work",
-    keywords: ["people at work", "at work", "working people"],
-    answer: `🏢 Topic 10: People at Work
-
-Explanation (English):
-This topic is about where people work and what they do at their workplace.
-
-Пояснение (по-русски):
-Тема о том, где люди работают и что они делают на своей работе.
-
-Key words:
-• a workplace — рабочее место  
-• an office — офис  
-• a factory — завод  
-• a hospital — больница  
-• a school — школа  
-• to work hard — усердно работать  
-
-Example sentences:
-• My mum works at a hospital. She is a nurse.  
-• People at the factory work with machines.
-
-Mini-quiz:
-1) Скажи по-английски: «Мой папа работает в офисе».  
-2) Answer: Where does a teacher work?`
-  },
-  {
-    topic: "11. What Do You Do?",
-    keywords: ["what do you do", "what do you do?", "do you do", "introduce job"],
-    answer: `💬 Topic 11: What Do You Do?
-
-Explanation (English):
-This topic teaches how to ask and answer questions about jobs and daily duties.
-
-Пояснение (по-русски):
-Тема учит, как задавать и отвечать на вопросы о профессии и ежедневных обязанностях.
-
-Key patterns:
-• What do you do? — Кем ты работаешь? / Что ты делаешь?  
-• I am a teacher. — Я учитель.  
-• What does he do? — Кем он работает?  
-• He is a driver. — Он водитель.  
-
-Example sentences:
-• — What do your parents do?  
-  — My father is a driver and my mother is a nurse.  
-
-Mini-quiz:
-1) Translate: «Чем занимается твоя мама?»  
-2) Answer in English: What does a doctor do?`
-  },
-  {
-    topic: "12. You Can Help!",
-    keywords: ["you can help", "help", "helping", "help at home"],
-    answer: `❤️ Topic 12: You Can Help!
-
-Explanation (English):
-This topic is about how children can help their family, school and other people.
-
-Пояснение (по-русски):
-Тема о том, как дети могут помогать семье, школе и другим людям.
-
-Key words:
-• to help — помогать  
-• to clean the room — убирать комнату  
-• to wash the dishes — мыть посуду  
-• to take care of pets — заботиться о питомцах  
-• to help younger children — помогать младшим детям  
-
-Example sentences:
-• I can help my parents: I clean my room and wash the dishes.  
-• At school we help our teacher to keep the classroom clean.
-
-Mini-quiz:
-1) Name two ways you can help at home.  
-2) Скажи по-английски: «Я помогаю маме по дому».`
-  },
-  {
-    topic: "13. Final Challenge",
-    keywords: ["final challenge", "challenge", "review", "revision"],
-    answer: `🎯 Topic 13: Final Challenge
-
-Explanation (English):
-This topic is a big review of all the previous topics: sports, music, jobs, rights, helping others and so on.
-
-Пояснение (по-русски):
-Тема — это большое повторение всех предыдущих тем: спорт, музыка, профессии, права детей, помощь другим и т.д.
-
-What you should be able to do:
-• talk about your free time and favourite sports;  
-• name different jobs and say what people do;  
-• speak about children’s rights and responsibilities;  
-• say how you can help at home and at school.
-
-Example task:
-• Write 5–6 sentences about yourself:  
-  your hobbies, favourite sport, your future profession and how you help your family.
-
-Mini-quiz:
-1) Answer in English: What is your favourite topic from this unit and why?  
-2) Make 3 sentences that use different topics (sport + job + help).`
-  }
-];
-
-function getOfflineAnswer(question){
-  const q = question.toLowerCase();
-
-  for(const item of knowledgeBase){
-    if(item.keywords.some(k => q.includes(k))){
-      return `${item.answer}\n\n(Offline AI Bayan ✅ — подробный ответ по теме: ${item.topic})`;
-    }
-  }
-
-  return `AI Bayan (offline):
-
-I am working in offline mode now and I know 13 topics:
-1) Let’s Have Fun!
-2) Sports and Exercises
-3) Sports Around the World
-4) Arts and Music
-5) Popular Team Sports
-6) Museum of Kazakh Musical Instruments
-7) Children’s Rights & Responsibilities
-8) Different Jobs
-9) Professions
-10) People at Work
-11) What Do You Do?
-12) You Can Help!
-13) Final Challenge
-
-Try to write the name or number of a topic, for example:
-"Explain Sports and Exercises"
-"Tell me about Different Jobs"
-"Final Challenge".`;
-}
-
-/* ==== ONLINE CHAT + OFFLINE ФОЛБЭК ==== */
-async function askBayan(){
-  const input = document.getElementById('chatInput');
-  const box   = document.getElementById('chatBox');
-  const question = input.value.trim();
-
-  if(!question){
-    alert("Type your question first.");
-    return;
-  }
-
-  // Показать сообщение ученика
-  box.innerHTML += `<div class="msg user"><b>You:</b> ${escapeHtml(question)}</div>`;
-  box.innerHTML += `<p id="thinking" class="sys">AI Bayan is thinking...</p>`;
-  box.scrollTop = box.scrollHeight;
-  input.value = "";
-
-  // ⚠️ Если нет интернета — сразу офлайн-режим
-  if (typeof navigator !== "undefined" && navigator && navigator.onLine === false) {
-    const thinking = document.getElementById("thinking");
-    if(thinking) thinking.remove();
-    const offlineAnswer = getOfflineAnswer(question);
-    box.innerHTML += `<div class="msg ai"><b>AI Bayan:</b> ${escapeHtml(offlineAnswer)}</div>`;
-    box.scrollTop = box.scrollHeight;
-    addChatStar();
-    return;
-  }
-
-  try {
-    // ONLINE: обращаемся к backend (Render)
-    const response = await fetch("https://ai-bayan-backend.onrender.com/ask", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        prompt: question,
-        system: "You are AI Bayan, a kind English teacher for 4th grade. " +
-                "Answer mostly in simple English. If the student writes in Russian, " +
-                "you may add a short Russian explanation, but keep key phrases in English."
-      })
-    });
-
-    const data = await response.json();
-    const thinking = document.getElementById("thinking");
-    if(thinking) thinking.remove();
-
-    // Если backend вернул ошибку — уходим в офлайн-ответ
-    if(data.error){
-      const offlineAnswer = getOfflineAnswer(question);
-      box.innerHTML += `<div class="msg ai"><b>AI Bayan:</b> ${escapeHtml(offlineAnswer)}</div>`;
-      box.scrollTop = box.scrollHeight;
-      addChatStar();
-    } else {
-      const answer =
-        data.reply ||
-        (data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content) ||
-        "No reply";
-
-      box.innerHTML += `<div class="msg ai"><b>AI Bayan:</b> ${escapeHtml(answer)}</div>`;
-      box.scrollTop = box.scrollHeight;
-      addChatStar();
-    }
-  } catch(err){
-    // Ошибка сети или fetch → офлайн-ответ
-    const thinking = document.getElementById("thinking");
-    if(thinking) thinking.remove();
-    const offlineAnswer = getOfflineAnswer(question);
-    const box   = document.getElementById('chatBox');
-    box.innerHTML += `<div class="msg ai"><b>AI Bayan:</b> ${escapeHtml(offlineAnswer)}</div>`;
-    box.scrollTop = box.scrollHeight;
-    addChatStar();
-    console.error(err);
-  }
-}
-
-function addChatStar(){
-  const name = localStorage.getItem("currentStudent");
-  if(name){
-    let chatStars = Number(localStorage.getItem(name+"_chatStars")) || 0;
-    chatStars++;
-    localStorage.setItem(name+"_chatStars", chatStars);
-    updateStars();
-  }
-}
-
-function clearChat(){
-  document.getElementById('chatBox').innerHTML = "";
-}
-
-function escapeHtml(str){
-  if(!str) return "";
-  return str
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;");
-}
-
-// Приветственное сообщение в чат
-window.addEventListener("load", () => {
-  const box = document.getElementById("chatBox");
-  if(box){
-    box.innerHTML = `<div class="msg ai"><b>AI Bayan:</b> Hi! I am AI Bayan 🤖
-I can help you with grammar, vocabulary and your 13 topics.
-Ask your question in English or Russian.</div>`;
-  }
-});
 </script>
 </body>
 </html>
