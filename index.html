@@ -7,47 +7,52 @@
 <style>
   body {
     font-family: Verdana, sans-serif;
-    background: linear-gradient(180deg,#fff6e5 0%,#f3e0b8 100%);
+    background: linear-gradient(180deg, #fffef9 0%, #fff6e5 100%);
     margin: 0;
     color: #002b5c;
     text-align: center;
   }
 
   header {
-    background:#3b3b3b;
-    color:white;
-    padding:0.8rem;
-    border-bottom:4px solid gold;
+    background: white;
+    color: #002b5c;
+    padding: 0.5rem 0.8rem;
+    border-bottom: 3px solid gold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
   }
 
   .logo-circle {
-    background: radial-gradient(circle at 30% 30%, gold 0%, #f4c542 40%, #003366 85%);
-    color:white;
-    font-weight:bold;
-    font-size:1.8rem;
-    border-radius:50%;
-    width:65px; height:65px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border:3px solid gold;
-    box-shadow:0 0 12px rgba(255,215,0,0.8);
-    margin:0 auto 6px auto;
+    background: radial-gradient(circle at 30% 30%, #003366 0%, #001b33 80%);
+    color: gold;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid gold;
+    box-shadow: 0 0 5px rgba(255,215,0,0.6);
   }
 
   header h1 {
-    font-size:1.4rem;
-    margin:0.4rem 0 0 0;
+    font-size: 1.1rem;
+    margin: 0;
   }
-  header p {
-    font-size:1rem;
-    margin:0;
+
+  p.subtitle {
+    font-size: 0.9rem;
+    margin: 0.2rem 0 0.8rem;
   }
 
   .overlay {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(255,255,255,0.97);
+    background: rgba(255,255,255,0.98);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,6 +60,7 @@
     gap: 10px;
     z-index: 999;
   }
+
   .overlay input {
     padding: 10px;
     font-size: 1rem;
@@ -63,91 +69,145 @@
     width: 220px;
     text-align: center;
   }
+
   .overlay button {
-    background:#003366;
-    color:white;
-    border:none;
-    padding:10px 20px;
-    border-radius:8px;
-    cursor:pointer;
-    font-weight:bold;
+    background: #003366;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
   }
+
   .overlay button:hover {
-    background:gold;
-    color:#003366;
+    background: gold;
+    color: #003366;
+  }
+
+  main {
+    padding: 0.3rem 0.8rem;
   }
 
   .welcome-box {
-    background:#fff5e1;
-    border:2px solid gold;
-    border-radius:10px;
-    display:inline-block;
-    padding:1rem 2rem;
-    margin:1.2rem auto;
+    background: #fffdf5;
+    border: 2px solid gold;
+    border-radius: 10px;
+    padding: 0.5rem;
+    margin: 0.4rem auto;
+  }
+
+  .welcome-box h2 {
+    font-size: 1rem;
+    margin: 0.2rem;
   }
 
   .grid {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:10px;
-    max-width:800px;
-    margin:0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    max-width: 400px;
+    margin: 0 auto;
   }
 
   .card {
-    background:#fdfdfd;
-    border-radius:10px;
-    border:2px solid #e0d8b0;
-    padding:0.8rem;
-    font-weight:bold;
-    box-shadow:0 2px 6px rgba(0,0,0,0.05);
-    transition:0.25s;
+    background: #ffffff;
+    border-radius: 10px;
+    border: 2px solid #e0d8b0;
+    padding: 0.4rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    transition: 0.25s;
   }
 
   .card:hover {
-    background:#fff8e1;
-    border:2px solid gold;
-    transform:scale(1.03);
-    cursor:pointer;
+    background: #fff8e1;
+    border: 2px solid gold;
+    transform: scale(1.02);
+    cursor: pointer;
   }
 
-  button.btn {
-    margin-top:1.2rem;
-    padding:10px 18px;
-    border-radius:10px;
-    border:none;
-    background:#003366;
-    color:white;
-    font-weight:bold;
-    cursor:pointer;
+  .btn {
+    margin-top: 0.8rem;
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: none;
+    background: #003366;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.9rem;
   }
 
-  button.btn:hover {
-    background:gold;
-    color:#003366;
+  .btn:hover {
+    background: gold;
+    color: #003366;
+  }
+
+  footer {
+    margin-top: 0.8rem;
+    font-size: 0.75rem;
+    color: #666;
+  }
+
+  #teacherPanel {
+    display: none;
+    margin-top: 1rem;
+    background: #fffbea;
+    border: 2px solid gold;
+    border-radius: 10px;
+    padding: 0.5rem;
+  }
+
+  #teacherPanel h3 {
+    margin: 0.3rem 0;
+    color: #003366;
+  }
+
+  #teacherPanel ul {
+    text-align: left;
+    font-size: 0.8rem;
+    padding-left: 1.3rem;
+    margin: 0;
+  }
+
+  #logoutBtn {
+    margin-top: 1rem;
+    background: #b30000;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+  #logoutBtn:hover {
+    background: #ff4c4c;
   }
 </style>
 </head>
 <body>
 
-<!-- === ВХОД === -->
+<!-- === LOGIN === -->
 <div class="overlay" id="loginScreen">
   <h2>English with <span style="color:gold;">AI Bayan</span></h2>
   <input type="text" id="userName" placeholder="Enter your name">
-  <input type="password" id="userPin" placeholder="Enter PIN" maxlength="4">
+  <input type="password" id="userPin" maxlength="4" autocomplete="off" style="color:transparent; text-shadow:0 0 0 #000;">
   <button onclick="login()">Enter</button>
 </div>
 
 <header>
-  <div class="logo-circle">B</div>
   <h1>English with AI Bayan</h1>
-  <p>4grade II (ONLINE)</p>
+  <div class="logo-circle">B</div>
 </header>
+<p class="subtitle">4grade II (ONLINE)</p>
 
 <main>
   <div class="welcome-box">
-    <h2 id="welcomeName" style="margin-bottom:0.5rem;">Bayan2!</h2>
-    <p>You have 0 ⭐ total stars!</p>
+    <h2 id="welcomeName">Welcome!</h2>
+    <p style="font-size:0.85rem;">You have 0 ⭐ total stars!</p>
   </div>
 
   <div class="grid">
@@ -157,7 +217,7 @@
     <div class="card">4. 🎵 Arts and Music</div>
     <div class="card">5. ⚽ Popular Team Sports</div>
     <div class="card">6. 🎸 Museum of Kazakh Musical Instruments</div>
-    <div class="card">7. 📜 Children’s Rights & Responsibilities</div>
+    <div class="card">7. 📜 Children’s Rights</div>
     <div class="card">8. 💼 Different Jobs</div>
     <div class="card">9. 👩‍🏫 Professions</div>
     <div class="card">10. 👷 People at Work</div>
@@ -166,45 +226,80 @@
     <div class="card">13. 🏆 Final Challenge</div>
   </div>
 
-  <button class="btn" onclick="location.href='chat.html'">💬 AI Bayan Chat — Ask the Teacher</button>
+  <button class="btn" onclick="location.href='chat.html'">💬 AI Bayan Chat</button>
+
+  <!-- === TEACHER JOURNAL === -->
+  <div id="teacherPanel">
+    <h3>📒 Teacher Journal</h3>
+    <ul id="studentList"></ul>
+  </div>
+
+  <button id="logoutBtn" onclick="logout()" style="display:none;">🚪 Logout</button>
 </main>
 
+<footer>
+  <p id="studentNameFooter"></p>
+</footer>
+
 <script>
+const allowedStudents = [
+  "Aytach2","Aylin2","Alvi2","Zhakhangir2","Narmin2","Balman2",
+  "Damr2","Dima2","Kiril2","Irada2","Shyngys2","Ilyas2","Sultan2",
+  "Kira2","Meyirim2","Aray2","Monya2","Aeka2","Bayan2","Aziza2",
+  "Emir2","Jury1","Jury2"
+];
+
 function login() {
   const name = document.getElementById("userName").value.trim();
   const pin  = document.getElementById("userPin").value.trim();
 
-  // 🔹 Разрешённые имена (только по журналу)
-  const allowedStudents = [
-    "Aytach2","Aylin2","Alvi2","Zhakhangir2","Narmin2","Balman2",
-    "Damr2","Dima2","Kiril2","Irada2","Shyngys2","Ilyas2","Sultan2",
-    "Kira2","Meyirim2","Aray2","Monya2","Aeka2","Bayan2","Aziza2",
-    "Emir2","Jury1","Jury2"
-  ];
-
-  // === вход ученика ===
+  // Student
   if (allowedStudents.includes(name) && pin === "6856") {
     localStorage.setItem("aiBayanStudent", name);
     document.getElementById("loginScreen").style.display = "none";
     document.getElementById("welcomeName").textContent = `${name}!`;
+    document.getElementById("studentNameFooter").textContent = `👩‍🎓 ${name}`;
+    document.getElementById("logoutBtn").style.display = "inline-block";
     return;
   }
 
-  // === вход учителя ===
+  // Teacher
   if (pin === "9997") {
-    window.location.href = "teacher.html";
+    document.getElementById("loginScreen").style.display = "none";
+    document.getElementById("teacherPanel").style.display = "block";
+    document.getElementById("welcomeName").textContent = "Teacher Mode";
+    const list = document.getElementById("studentList");
+    allowedStudents.forEach(st => {
+      const li = document.createElement("li");
+      li.textContent = st;
+      list.appendChild(li);
+    });
+    document.getElementById("studentNameFooter").textContent = "👩‍🏫 Teacher Journal Active";
+    document.getElementById("logoutBtn").style.display = "inline-block";
     return;
   }
 
   alert("❌ Wrong name or PIN. Try again.");
 }
 
-// === при загрузке ===
+function logout() {
+  localStorage.removeItem("aiBayanStudent");
+  document.getElementById("loginScreen").style.display = "flex";
+  document.getElementById("teacherPanel").style.display = "none";
+  document.getElementById("logoutBtn").style.display = "none";
+  document.getElementById("welcomeName").textContent = "Welcome!";
+  document.getElementById("studentNameFooter").textContent = "";
+  document.getElementById("userName").value = "";
+  document.getElementById("userPin").value = "";
+}
+
 window.onload = () => {
   const saved = localStorage.getItem("aiBayanStudent");
   if (saved) {
     document.getElementById("loginScreen").style.display = "none";
     document.getElementById("welcomeName").textContent = `${saved}!`;
+    document.getElementById("studentNameFooter").textContent = `👩‍🎓 ${saved}`;
+    document.getElementById("logoutBtn").style.display = "inline-block";
   }
 };
 </script>
