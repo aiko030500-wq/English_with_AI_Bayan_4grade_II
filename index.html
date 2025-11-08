@@ -116,13 +116,16 @@
     animation:fadeInOut 4s ease forwards;
     z-index:1000;
   }
-
   @keyframes fadeInOut {
     0% {opacity:0; transform:translate(-50%, 20px);}
     15% {opacity:1; transform:translate(-50%, 0);}
     85% {opacity:1; transform:translate(-50%, 0);}
     100% {opacity:0; transform:translate(-50%, 20px);}
   }
+
+  table { border-collapse:collapse; margin:auto; font-size:0.85rem; }
+  th, td { border:1px solid #ccc; padding:5px 8px; }
+  th { background:#003366; color:white; }
 </style>
 </head>
 <body>
@@ -167,7 +170,7 @@
       <div class="card" onclick="openTheme(12)">12. ❤️ You Can Help!</div>
       <div class="card" onclick="openTheme(13)">13. 🎯 Final Challenge</div>
       <div class="card" onclick="openChat()">💬 AI Bayan Chat</div>
-      <div class="card" onclick="openJournal()">🏫 Teacher Journal</div>
+      <div class="card" onclick="openTeacherJournal()">🏫 Teacher Journal</div>
     </div>
   </div>
 
@@ -181,6 +184,23 @@
     <button class="btn" onclick="clearChat()">Clear</button>
     <button class="btn" onclick="backMenu()">🏠 Back to Menu</button>
     <p id="limitCounter" style="font-weight:bold;color:#003366;">⭐ 3 of 3 questions left today</p>
+  </div>
+
+  <!-- 🏫 Teacher Journal -->
+  <div id="teacherJournal" style="display:none;">
+    <h2>🏫 Teacher Journal</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Student</th>
+          <th>L1–L13</th>
+          <th>Chat</th>
+          <th>Total ⭐</th>
+        </tr>
+      </thead>
+      <tbody id="journalBody"></tbody>
+    </table>
+    <button class="btn" onclick="backMenu()">🏠 Back to Menu</button>
   </div>
 </main>
 
@@ -212,6 +232,7 @@ function checkLogin(){
     document.getElementById("teacherBanner").style.display="block";
     document.getElementById("mainMenu").style.display="block";
     showTeacherWelcome();
+    playDing();
   } 
   else alert("❌ Wrong name or PIN");
 }
@@ -222,7 +243,48 @@ function showTeacherWelcome(){
   setTimeout(()=>{ msg.style.display="none"; },4000);
 }
 
+// 🔔 Звук при входе учителя
+function playDing(){
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const o = ctx.createOscillator();
+    const g = ctx.createGain();
+    o.type = "sine";
+    o.frequency.value = 880;
+    g.gain.setValueAtTime(0.1, ctx.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1);
+    o.connect(g);
+    g.connect(ctx.destination);
+    o.start();
+    o.stop(ctx.currentTime + 1);
+  } catch(e){ console.warn("Sound error:", e); }
+}
+
 function openTheme(n){ window.location.href = "theme"+n+".html"; }
+
+function openTeacherJournal(){
+  document.getElementById("mainMenu").style.display="none";
+  document.getElementById("teacherJournal").style.display="block";
+  buildJournal();
+}
+
+function buildJournal(){
+  const body=document.getElementById("journalBody");
+  body.innerHTML="";
+  allowedNames.forEach(name=>{
+    let total=0;
+    for(let i=1;i<=13;i++) total += Number(localStorage.getItem(name+"_lesson"+i+"Stars"))||0;
+    const chat = Number(localStorage.getItem(name+"_chatStars"))||0;
+    total += chat;
+    body.innerHTML += `<tr><td>${name}</td><td>${total - chat}</td><td>${chat}</td><td>${total}</td></tr>`;
+  });
+}
+
+function backMenu(){
+  document.getElementById("teacherJournal").style.display="none";
+  document.getElementById("chatSection").style.display="none";
+  document.getElementById("mainMenu").style.display="block";
+}
 
 let DAILY_LIMIT=3;
 let usedToday=Number(localStorage.getItem("usedToday"))||0;
@@ -234,18 +296,13 @@ if(lastDate!==today){usedToday=0;localStorage.setItem("lastDate",today);localSto
 function updateCounter(){
   const c=document.getElementById("limitCounter");
   if(!c)return;
-  c.innerHTML=isTeacher?"👩‍🏫 Teacher mode: unlimited questions":`⭐ ${DAILY_LIMIT-usedToday} of ${DAILY_LIMIT} questions left today`;
+  c.innerHTML=isTeacher?"👩‍🏫 Teacher mode: unlimited questions":`⭐ ${3-usedToday} of 3 questions left today`;
 }
 
 function openChat(){
   document.getElementById("mainMenu").style.display="none";
   document.getElementById("chatSection").style.display="block";
   updateCounter();
-}
-
-function backMenu(){
-  document.getElementById("chatSection").style.display="none";
-  document.getElementById("mainMenu").style.display="block";
 }
 
 function bayanSpeak(text){
@@ -268,7 +325,7 @@ async function askBayan(){
   const b=document.getElementById('chatBox');
   const q=i.value.trim();
   if(!q){alert("Type your question first!");return;}
-  if(!isTeacher&&usedToday>=DAILY_LIMIT){alert("⚠️ Limit reached.");return;}
+  if(!isTeacher&&usedToday>=3){alert("⚠️ Limit reached.");return;}
   b.innerHTML+=`<p><b>You:</b> ${q}</p>`;
   i.value="";
   b.innerHTML+=`<p><i>AI Bayan is thinking...</i></p>`;
