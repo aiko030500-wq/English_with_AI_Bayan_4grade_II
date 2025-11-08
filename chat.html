@@ -6,76 +6,77 @@
 <title>AI Bayan Chat — English with AI Bayan 4grade II</title>
 <style>
   body {
-    font-family: Verdana, sans-serif;
-    background: linear-gradient(180deg,#fff6e5 0%,#f3e0b8 100%);
-    margin: 0;
-    color: #002b5c;
-    text-align: center;
+  <script>
+const WORKER_URL = "https://shiny-tree-f78c.aiko030500.workers.dev";
+
+const chatBox = document.getElementById("chatBox");
+const userInput = document.getElementById("userInput");
+const sendBtn = document.getElementById("sendBtn");
+
+function showMessage(role, text) {
+  const msg = document.createElement("div");
+  msg.className = "msg " + role;
+  msg.textContent = text;
+  chatBox.appendChild(msg);
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+async function sendMessage() {
+  const message = userInput.value.trim();
+  if (!message) return;
+
+  showMessage("user", "🧒 " + message);
+  userInput.value = "";
+  showMessage("ai", "⏳ AI Bayan is thinking...");
+
+  try {
+    let res = await fetch(WORKER_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        messages: [
+          { role: "system", content: "You are AI Bayan, a kind English tutor for Grade 4 students from Kazakhstan." },
+          { role: "user", content: message }
+        ]
+      })
+    });
+
+    // Если OpenAI вернул 429, ждём 2 секунды и пробуем снова
+    if (res.status === 429) {
+      showMessage("ai", "⚠️ Too many requests. Waiting 2 seconds...");
+      await new Promise(r => setTimeout(r, 2000));
+      res = await fetch(WORKER_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          messages: [
+            { role: "system", content: "You are AI Bayan, a kind English tutor for Grade 4 students from Kazakhstan." },
+            { role: "user", content: message }
+          ]
+        })
+      });
+    }
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      showMessage("ai", "⚠️ Error: " + (data.error || res.status));
+      return;
+    }
+
+    showMessage("ai", "🤖 " + (data.reply || "No response."));
+
+  } catch (err) {
+    showMessage("ai", "❌ Connection failed: " + err.message);
   }
+}
 
-  header {
-    background: #003366;
-    color: white;
-    padding: 1rem;
-    border-bottom: 5px solid gold;
-  }
+sendBtn.addEventListener("click", sendMessage);
+userInput.addEventListener("keydown", e => {
+  if (e.key === "Enter") sendMessage();
+});
+</script>
 
-  main { padding: 1rem; }
-
-  #chatBox {
-    max-width: 650px;
-    margin: 20px auto;
-    background: white;
-    border: 3px solid gold;
-    border-radius: 15px;
-    padding: 10px;
-    height: 420px;
-    overflow-y: auto;
-    text-align: left;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  }
-
-  .msg {
-    margin: 8px 0;
-    padding: 10px 14px;
-    border-radius: 10px;
-    line-height: 1.4;
-    max-width: 80%;
-    animation: fadeIn 0.3s ease;
-  }
-
-  .user { background: #e3f2fd; border-left: 4px solid #1565c0; }
-  .ai { background: #fff8e1; border-left: 4px solid gold; }
-
-  #inputArea { margin-top: 10px; }
-
-  #userInput {
-    width: 65%;
-    padding: 10px;
-    border-radius: 8px;
-    border: 2px solid #003366;
-    font-size: 1rem;
-  }
-
-  .btn {
-    padding: 10px 18px;
-    border-radius: 8px;
-    border: none;
-    background: #003366;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    margin: 4px;
-  }
-
-  .btn:hover { background: gold; color: #003366; }
-
-  @keyframes fadeIn {
-    from {opacity: 0; transform: translateY(10px);}
-    to {opacity: 1; transform: translateY(0);}
-  }
-</style>
-</head>
 <body>
 
 <header>
