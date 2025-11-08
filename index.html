@@ -210,39 +210,38 @@ const allowedNames=[
   "Aziza2","Emir2","Monya2","Aeka2","Bayan2","Arai2","Jury2","Jury1","Meyirim2"
 ];
 
-let isTeacher = false; // 👩‍🏫 переменная сразу объявлена
+let isTeacher=false;
 
-function checkLogin() {
-  const name = document.getElementById("nameInput").value.trim();
-  const pin = document.getElementById("pinInput").value.trim();
-  const lower = name.toLowerCase();
-  const allowedLower = allowedNames.map(n => n.toLowerCase());
+function checkLogin(){
+  const name=document.getElementById("nameInput").value.trim();
+  const pin=document.getElementById("pinInput").value.trim();
+  const lower=name.toLowerCase();
+  const allowedLower=allowedNames.map(n=>n.toLowerCase());
 
-  // 👩‍🎓 Ученик
-  if (allowedLower.includes(lower) && pin === "6856") {
-    localStorage.setItem("currentStudent", name);
+  // 👩‍🎓 Student
+  if(allowedLower.includes(lower)&&pin==="6856"){
+    localStorage.setItem("currentStudent",name);
     localStorage.removeItem("isTeacher");
-    document.getElementById("loginOverlay").style.display = "none";
-    document.getElementById("mainMenu").style.display = "block";
-    document.getElementById("welcomeBox").style.display = "block";
-    document.getElementById("welcomeText").innerText = "Hello, " + name + "!";
+    isTeacher=false;
+    document.getElementById("loginOverlay").style.display="none";
+    document.getElementById("mainMenu").style.display="block";
+    document.getElementById("welcomeBox").style.display="block";
+    document.getElementById("welcomeText").innerText="Hello, "+name+"!";
   }
 
-  // 👩‍🏫 Учитель
-  else if (lower === "teacher" && pin === "1402") {
-    localStorage.setItem("isTeacher", "true");
-    isTeacher = true;
+  // 👩‍🏫 Teacher
+  else if(lower==="teacher"&&pin==="1402"){
+    localStorage.setItem("isTeacher","true");
+    isTeacher=true;
     document.body.classList.add("teacher-mode");
-    document.getElementById("loginOverlay").style.display = "none";
-    document.getElementById("teacherBanner").style.display = "block";
-    document.getElementById("mainMenu").style.display = "block";
+    document.getElementById("loginOverlay").style.display="none";
+    document.getElementById("teacherBanner").style.display="block";
+    document.getElementById("mainMenu").style.display="block";
     showTeacherWelcome();
     playDing();
   }
 
-  else {
-    alert("❌ Wrong name or PIN. Try again!");
-  }
+  else alert("❌ Wrong name or PIN. Try again!");
 }
 
 function showTeacherWelcome(){
@@ -251,7 +250,6 @@ function showTeacherWelcome(){
   setTimeout(()=>{msg.style.display="none";},4000);
 }
 
-// 🔔 звук
 function playDing(){
   try{
     const ctx=new (window.AudioContext||window.webkitAudioContext)();
@@ -267,25 +265,17 @@ function playDing(){
 }
 
 function openTheme(n){window.location.href="theme"+n+".html";}
-
-function openTeacherJournal(){
-  document.getElementById("mainMenu").style.display="none";
-  document.getElementById("teacherJournal").style.display="block";
-  buildJournal();
-}
-
+function openTeacherJournal(){document.getElementById("mainMenu").style.display="none";document.getElementById("teacherJournal").style.display="block";buildJournal();}
 function buildJournal(){
-  const body=document.getElementById("journalBody");
-  body.innerHTML="";
+  const body=document.getElementById("journalBody");body.innerHTML="";
   allowedNames.forEach(name=>{
     let total=0;
-    for(let i=1;i<=13;i++) total += Number(localStorage.getItem(name+"_lesson"+i+"Stars"))||0;
+    for(let i=1;i<=13;i++) total+=Number(localStorage.getItem(name+"_lesson"+i+"Stars"))||0;
     const chat=Number(localStorage.getItem(name+"_chatStars"))||0;
     total+=chat;
     body.innerHTML+=`<tr><td>${name}</td><td>${total-chat}</td><td>${chat}</td><td>${total}</td></tr>`;
   });
 }
-
 function backMenu(){
   document.getElementById("teacherJournal").style.display="none";
   document.getElementById("chatSection").style.display="none";
@@ -296,15 +286,14 @@ let DAILY_LIMIT=3;
 let usedToday=Number(localStorage.getItem("usedToday"))||0;
 let lastDate=localStorage.getItem("lastDate");
 const today=new Date().toDateString();
-isTeacher=localStorage.getItem("isTeacher")==="true";
 if(lastDate!==today){usedToday=0;localStorage.setItem("lastDate",today);localStorage.setItem("usedToday",0);}
+isTeacher=localStorage.getItem("isTeacher")==="true";
 
 function updateCounter(){
   const c=document.getElementById("limitCounter");
   if(!c)return;
   c.innerHTML=isTeacher?"👩‍🏫 Teacher mode: unlimited questions":`⭐ ${3-usedToday} of 3 questions left today`;
 }
-
 function openChat(){
   document.getElementById("mainMenu").style.display="none";
   document.getElementById("chatSection").style.display="block";
@@ -321,9 +310,7 @@ function bayanSpeak(text){
     u.voice=voice;u.lang="en-GB";u.rate=0.9;u.pitch=1.1;u.volume=1;
     speechSynthesis.speak(u);
   };
-  if(speechSynthesis.getVoices().length===0){
-    speechSynthesis.onvoiceschanged=speakNow;
-  } else speakNow();
+  if(speechSynthesis.getVoices().length===0){speechSynthesis.onvoiceschanged=speakNow;}else speakNow();
 }
 
 async function askBayan(){
