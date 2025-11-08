@@ -28,25 +28,27 @@
   }
 
   header {
-   <header>
-  <div class="header-left">
-    <img src="logo.png" alt="AI Bayan" class="logo-circle">
-    <div class="header-title">
-      <h1>English with AI Bayan 4 grade II</h1>
-      <p>Fun English with AI Teacher Bayan</p>
-    </div>
-  </div>
-  <div class="header-right">
-    <img src="girl.png" alt="Kazakh girl" class="girl-circle">
-  </div>
-</header> 
+    background: rgba(0, 51, 102, 0.9);
+    color: white;
+    padding: 0.8rem 1rem;
+    border-bottom: 5px solid gold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  body.teacher-mode header { background: gold; color: #003366; }
 
   .header-left {
     display: flex;
     align-items: center;
     gap: 12px;
   }
-  .logo-circle {
+  .header-right {
+    display: flex;
+    align-items: center;
+  }
+  .logo-circle, .girl-circle {
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -64,9 +66,7 @@
     font-size: 0.85rem;
     color: #ffecb3;
   }
-  body.teacher-mode .header-title p {
-    color: #003366;
-  }
+  body.teacher-mode .header-title p { color: #003366; }
 
   #teacherBanner {
     display: none;
@@ -76,13 +76,9 @@
     font-weight: bold;
     border-bottom: 3px solid #003366;
   }
-  body.teacher-mode #teacherBanner {
-    display: block;
-  }
+  body.teacher-mode #teacherBanner { display: block; }
 
-  main {
-    padding: 1rem;
-  }
+  main { padding: 1rem; }
 
   .btn {
     background:#003366;
@@ -96,18 +92,12 @@
     transition:0.3s;
     font-size:0.9rem;
   }
-  .btn:hover {
-    background:gold;
-    color:#003366;
-  }
+  .btn:hover { background:gold; color:#003366; }
 
   .overlay {
-    position:fixed;
-    inset:0;
+    position:fixed; inset:0;
     background:rgba(0,0,0,0.55);
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    display:flex; align-items:center; justify-content:center;
     z-index:999;
   }
   .overlay-card {
@@ -116,8 +106,7 @@
     padding:20px;
     border-radius:16px;
     box-shadow:0 0 15px rgba(0,0,0,0.3);
-    width:90%;
-    max-width:380px;
+    width:90%; max-width:380px;
     text-align:center;
   }
   .overlay-card input {
@@ -137,21 +126,11 @@
     margin:10px auto 5px;
     border:2px solid gold;
   }
-  #welcomeBox h2 {
-    margin:4px 0;
-    font-size:1.1rem;
-  }
-  #welcomeBox p {
-    margin:4px 0;
-    font-size:0.9rem;
-  }
 
   .grid {
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:10px;
-    max-width:900px;
-    margin:10px auto 20px;
+    gap:10px; max-width:900px; margin:10px auto 20px;
   }
   .card {
     background:white;
@@ -162,10 +141,7 @@
     box-shadow:0 0 10px rgba(0,0,0,0.05);
     font-size:0.9rem;
   }
-  .card:hover {
-    border-color:gold;
-    transform:translateY(-2px);
-  }
+  .card:hover { border-color:gold; transform:translateY(-2px); }
 
   #chatBox {
     background:#fff;
@@ -190,14 +166,8 @@
     margin:auto;
     font-size:0.85rem;
   }
-  th, td {
-    border:1px solid #ccc;
-    padding:5px 8px;
-  }
-  th {
-    background:#003366;
-    color:white;
-  }
+  th, td { border:1px solid #ccc; padding:5px 8px; }
+  th { background:#003366; color:white; }
 </style>
 </head>
 
@@ -218,24 +188,23 @@
 
 <header>
   <div class="header-left">
-    <!-- ⚠️ сюда положи файл logo.png — круглый логотип -->
     <img src="logo.png" alt="AI Bayan" class="logo-circle">
     <div class="header-title">
-      <h1>English with AI Bayan 4grade II</h1>
+      <h1>English with AI Bayan 4 grade II</h1>
       <p>Fun English with AI Teacher Bayan</p>
     </div>
+  </div>
+  <div class="header-right">
+    <img src="girl.png" alt="Kazakh girl" class="girl-circle">
   </div>
 </header>
 
 <main>
-
-  <!-- Приветствие + звёзды -->
   <div id="welcomeBox" style="display:none;">
     <h2 id="welcomeText">Hello!</h2>
     <p>Total stars in all lessons: <b><span id="totalStars">0</span> ⭐</b></p>
   </div>
 
-  <!-- Главное меню -->
   <div id="mainMenu" style="display:none;">
     <div class="grid">
       <div class="card" onclick="openTheme(1)">1. 🎨 Let’s Have Fun!</div>
@@ -256,7 +225,6 @@
     </div>
   </div>
 
-  <!-- 💬 AI Bayan Chat -->
   <div id="chatSection" style="display:none;">
     <h2>💬 AI Bayan — Chat</h2>
     <div id="chatBox"></div>
@@ -267,18 +235,10 @@
     <p id="limitCounter" style="font-weight:bold;color:#003366;">⭐ 3 of 3 questions left today</p>
   </div>
 
-  <!-- 🏫 Teacher Journal -->
   <div id="teacherJournal" style="display:none;">
     <h2>🏫 Teacher Journal</h2>
     <table>
-      <thead>
-        <tr>
-          <th>Student</th>
-          <th>L1–L13</th>
-          <th>Chat</th>
-          <th>Total ⭐</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Student</th><th>L1–L13</th><th>Chat</th><th>Total ⭐</th></tr></thead>
       <tbody id="journalBody"></tbody>
     </table>
     <button class="btn" onclick="backMenu()">🏠 Menu</button>
@@ -286,218 +246,28 @@
 </main>
 
 <script>
-const allowedNames = [
-  "Aytach2","Aylin2","Alvi2","Zhahangir2","Narmin2","Balman2","Ilyas2",
-  "Dmitry2","Irada2","Shyngys2","Kiril2","Sultan2","Kira2","Allahverdy2",
-  "Aziza2","Emir2","Monya2","Aeka2","Bayan2","Arai2","Jury2","Jury1","Meyirim2"
-];
-
+const allowedNames = ["Aytach2","Aylin2","Alvi2","Zhahangir2","Narmin2","Balman2","Ilyas2","Dmitry2","Irada2","Shyngys2","Kiril2","Sultan2","Kira2","Allahverdy2","Aziza2","Emir2","Monya2","Aeka2","Bayan2","Arai2","Jury2","Jury1","Meyirim2"];
 const WORKER_URL = "https://shiny-tree-f78c.aiko030500.workers.dev";
-
-let DAILY_LIMIT = 3;
-let usedToday = Number(localStorage.getItem("usedToday")) || 0;
-let lastDate = localStorage.getItem("lastDate");
-const today = new Date().toDateString();
-let isTeacher = localStorage.getItem("isTeacher") === "true";
-
-if (lastDate !== today) {
-  usedToday = 0;
-  localStorage.setItem("lastDate", today);
-  localStorage.setItem("usedToday", 0);
-}
-
-// обновление счётчика лимита чата
-function updateCounter() {
-  const c = document.getElementById("limitCounter");
-  if (!c) return;
-  c.innerHTML = isTeacher
-    ? "👩‍🏫 Teacher mode: unlimited questions"
-    : `⭐ ${DAILY_LIMIT - usedToday} of ${DAILY_LIMIT} questions left today`;
-}
-
-// пересчёт общих звёзд (по данным из тем)
-function updateTotalStarsBox() {
-  const name = localStorage.getItem("currentStudent");
-  if (!name) return;
-  let total = 0;
-  for (let i = 1; i <= 13; i++) {
-    total += Number(localStorage.getItem(name + "_lesson" + i + "Stars")) || 0;
-  }
-  const chatStars = Number(localStorage.getItem(name + "_chatStars")) || 0;
-  total += chatStars;
-  document.getElementById("totalStars").innerText = total;
-}
-
-// вход
-function checkLogin() {
-  const rawName = document.getElementById("nameInput").value.trim();
-  const name = rawName.toLowerCase();
-  const pin  = document.getElementById("pinInput").value.trim();
-  const allowedLower = allowedNames.map(x => x.toLowerCase());
-
-  // студент
-  if (allowedLower.includes(name) && pin === "6856") {
-    localStorage.setItem("currentStudent", rawName);
-    localStorage.removeItem("isTeacher");
-    isTeacher = false;
-
-    document.getElementById("loginOverlay").style.display = "none";
-    document.getElementById("mainMenu").style.display = "block";
-    document.getElementById("welcomeBox").style.display = "block";
-    document.getElementById("welcomeText").innerText = "Hello, " + rawName + "!";
-    updateTotalStarsBox();
-    updateCounter();
-  }
-  // учитель
-  else if (name === "teacher" && pin === "1402") {
-    localStorage.setItem("isTeacher", "true");
-    isTeacher = true;
-
-    document.body.classList.add("teacher-mode");
-    document.getElementById("teacherBanner").style.display = "block";
-    document.getElementById("loginOverlay").style.display = "none";
-    document.getElementById("mainMenu").style.display = "block";
-    document.getElementById("welcomeBox").style.display = "none";
-
-    updateCounter();
-  }
-  else {
-    alert("❌ Wrong name or PIN");
-  }
-}
-
-function openTheme(n) {
-  window.location.href = "theme" + n + ".html";
-}
-
-function openChat() {
-  document.getElementById("mainMenu").style.display = "none";
-  document.getElementById("teacherJournal").style.display = "none";
-  document.getElementById("chatSection").style.display = "block";
-  updateCounter();
-}
-
-function openTeacherJournal() {
-  document.getElementById("mainMenu").style.display = "none";
-  document.getElementById("chatSection").style.display = "none";
-  document.getElementById("teacherJournal").style.display = "block";
-  buildJournal();
-}
-
-function backMenu() {
-  document.getElementById("teacherJournal").style.display = "none";
-  document.getElementById("chatSection").style.display = "none";
-  document.getElementById("mainMenu").style.display = "block";
-}
-
-// заполняем журнал
-function buildJournal() {
-  const body = document.getElementById("journalBody");
-  body.innerHTML = "";
-  allowedNames.forEach(name => {
-    let total = 0;
-    for (let i = 1; i <= 13; i++) {
-      total += Number(localStorage.getItem(name + "_lesson" + i + "Stars")) || 0;
-    }
-    const chat = Number(localStorage.getItem(name + "_chatStars")) || 0;
-    total += chat;
-    body.innerHTML += `<tr>
-      <td>${name}</td>
-      <td>${total - chat}</td>
-      <td>${chat}</td>
-      <td>${total}</td>
-    </tr>`;
-  });
-}
-
-// голос Баян
-function bayanSpeak(text) {
-  if (!("speechSynthesis" in window)) return;
-  const speakNow = () => {
-    const v = speechSynthesis.getVoices();
-    let voice = v.find(x => x.name.includes("Google UK English Female") || x.lang === "en-GB");
-    if (!voice) voice = v[0];
-    const u = new SpeechSynthesisUtterance(text);
-    u.voice = voice;
-    u.lang = "en-GB";
-    u.rate = 0.9;
-    u.pitch = 1.1;
-    u.volume = 1;
-    speechSynthesis.speak(u);
-  };
-  if (speechSynthesis.getVoices().length === 0) {
-    speechSynthesis.onvoiceschanged = speakNow;
-  } else {
-    speakNow();
-  }
-}
-
-// чат
-async function askBayan() {
-  const i = document.getElementById("chatInput");
-  const b = document.getElementById("chatBox");
-  const q = i.value.trim();
-  if (!q) {
-    alert("Type your question first!");
-    return;
-  }
-
-  if (!isTeacher && usedToday >= DAILY_LIMIT) {
-    alert("⚠️ Daily limit reached.");
-    return;
-  }
-
-  b.innerHTML += `<p><b>You:</b> ${q}</p>`;
-  i.value = "";
-  b.innerHTML += `<p><i>AI Bayan is thinking...</i></p>`;
-  b.scrollTop = b.scrollHeight;
-
-  try {
-    const r = await fetch(WORKER_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ messages: [{ role: "user", content: q }] })
-    });
-    const d = await r.json();
-    const reply = d.reply || "Sorry, I can’t answer now.";
-    b.innerHTML += `<p><b>AI Bayan:</b> ${reply}</p>`;
-    bayanSpeak(reply);
-
-    // +1 к лимиту и +звезда в чат-активность (если захочешь)
-    if (!isTeacher) {
-      usedToday++;
-      localStorage.setItem("usedToday", usedToday);
-      updateCounter();
-
-      const student = localStorage.getItem("currentStudent");
-      if (student) {
-        let chatStars = Number(localStorage.getItem(student + "_chatStars")) || 0;
-        chatStars++;
-        localStorage.setItem(student + "_chatStars", chatStars);
-        updateTotalStarsBox();
-      }
-    }
-  } catch (e) {
-    b.innerHTML += `<p><b>AI Bayan:</b> ❌ Connection error.</p>`;
-  }
-}
-
-function clearChat() {
-  document.getElementById("chatBox").innerHTML = "";
-}
-
+let DAILY_LIMIT = 3, usedToday = Number(localStorage.getItem("usedToday"))||0, lastDate = localStorage.getItem("lastDate"), today = new Date().toDateString(), isTeacher = localStorage.getItem("isTeacher")==="true";
+if(lastDate!==today){usedToday=0;localStorage.setItem("lastDate",today);localStorage.setItem("usedToday",0);}
+function updateCounter(){const c=document.getElementById("limitCounter");if(!c)return;c.innerHTML=isTeacher?"👩‍🏫 Teacher mode: unlimited questions":`⭐ ${3-usedToday} of 3 questions left today`;}
+function checkLogin(){const raw=document.getElementById("nameInput").value.trim();const name=raw.toLowerCase();const pin=document.getElementById("pinInput").value.trim();const a=allowedNames.map(x=>x.toLowerCase());
+if(a.includes(name)&&pin==="6856"){localStorage.setItem("currentStudent",raw);localStorage.removeItem("isTeacher");isTeacher=false;document.getElementById("loginOverlay").style.display="none";document.getElementById("mainMenu").style.display="block";document.getElementById("welcomeBox").style.display="block";document.getElementById("welcomeText").innerText="Hello, "+raw+"!";updateCounter();}
+else if(name==="teacher"&&pin==="1402"){localStorage.setItem("isTeacher","true");isTeacher=true;document.body.classList.add("teacher-mode");document.getElementById("teacherBanner").style.display="block";document.getElementById("loginOverlay").style.display="none";document.getElementById("mainMenu").style.display="block";updateCounter();}
+else alert("❌ Wrong name or PIN");}
+function openTheme(n){window.location.href="theme"+n+".html";}
+function openChat(){document.getElementById("mainMenu").style.display="none";document.getElementById("chatSection").style.display="block";updateCounter();}
+function openTeacherJournal(){document.getElementById("mainMenu").style.display="none";document.getElementById("teacherJournal").style.display="block";buildJournal();}
+function backMenu(){document.getElementById("teacherJournal").style.display="none";document.getElementById("chatSection").style.display="none";document.getElementById("mainMenu").style.display="block";}
+function buildJournal(){const b=document.getElementById("journalBody");b.innerHTML="";allowedNames.forEach(n=>{let t=0;for(let i=1;i<=13;i++)t+=Number(localStorage.getItem(n+"_lesson"+i+"Stars"))||0;const c=Number(localStorage.getItem(n+"_chatStars"))||0;t+=c;b.innerHTML+=`<tr><td>${n}</td><td>${t-c}</td><td>${c}</td><td>${t}</td></tr>`;});}
+function bayanSpeak(text){if(!("speechSynthesis"in window))return;const s=()=>{const v=speechSynthesis.getVoices();let voice=v.find(x=>x.name.includes("Google UK English Female")||x.lang==="en-GB");if(!voice)voice=v[0];const u=new SpeechSynthesisUtterance(text);u.voice=voice;u.lang="en-GB";u.rate=0.9;u.pitch=1.1;u.volume=1;speechSynthesis.speak(u);};if(speechSynthesis.getVoices().length===0){speechSynthesis.onvoiceschanged=s;}else s();}
+async function askBayan(){const i=document.getElementById("chatInput"),b=document.getElementById("chatBox"),q=i.value.trim();if(!q){alert("Type your question first!");return;}if(!isTeacher&&usedToday>=DAILY_LIMIT){alert("⚠️ Daily limit reached.");return;}b.innerHTML+=`<p><b>You:</b> ${q}</p>`;i.value="";b.innerHTML+=`<p><i>AI Bayan is thinking...</i></p>`;b.scrollTop=b.scrollHeight;try{const r=await fetch(WORKER_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({messages:[{role:"user",content:q}]})});const d=await r.json();const reply=d.reply||"Sorry, I can’t answer now.";b.innerHTML+=`<p><b>AI Bayan:</b> ${reply}</p>`;bayanSpeak(reply);if(!isTeacher){usedToday++;localStorage.setItem("usedToday",usedToday);updateCounter();}}catch{b.innerHTML+=`<p><b>AI Bayan:</b> ❌ Connection error.</p>`;}}
+function clearChat(){document.getElementById("chatBox").innerHTML="";}
 updateCounter();
 </script>
 
-<!-- ✅ регистрация service worker для PWA -->
 <script>
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker
-      .register("sw.js")
-      .catch(err => console.log("SW registration failed:", err));
-  });
-}
+if("serviceWorker" in navigator){window.addEventListener("load",()=>{navigator.serviceWorker.register("sw.js").catch(err=>console.log("SW registration failed:",err));});}
 </script>
 
 </body>
