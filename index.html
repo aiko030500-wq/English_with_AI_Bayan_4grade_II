@@ -236,7 +236,20 @@ function checkLogin(){
   } 
   else alert("❌ Wrong name or PIN");
 }
+// === 👩‍🏫 TEACHER MODE ===
+  else if (name.toLowerCase() === "teacher" && pin === "1402") {
+    localStorage.setItem("isTeacher", "true");
+    isTeacher = true;
 
+    document.body.classList.add("teacher-mode");
+    document.getElementById("teacherBanner").style.display = "block";
+    document.getElementById("loginOverlay").style.display = "none";
+    document.getElementById("teacherJournal").style.display = "block";
+
+    alert("👩‍🏫 Welcome, Teacher! Unlimited access activated.");
+    playDing();
+    buildJournal();
+  }
 function showTeacherWelcome(){
   const msg=document.getElementById("teacherWelcome");
   msg.style.display="block";
@@ -343,6 +356,22 @@ async function askBayan(){
   }catch{b.innerHTML+=`<p><b>AI Bayan:</b> ❌ Connection error.</p>`;}
 }
 function clearChat(){document.getElementById("chatBox").innerHTML="";}
+  function playDing() {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = "sine";
+    osc.frequency.value = 880;
+    gain.gain.setValueAtTime(0.1, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 1);
+  } catch(e) {
+    console.warn("Sound error:", e);
+  }
 </script>
 </body>
 </html>
