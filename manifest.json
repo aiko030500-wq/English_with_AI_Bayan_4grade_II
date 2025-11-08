@@ -3,10 +3,10 @@
   "short_name": "AI Bayan",
   "start_url": "index.html",
   "display": "standalone",
-  "background_color": "#fff6e5",
-  "theme_color": "#003366",
   "orientation": "landscape",
-  "description": "Interactive English learning with AI Bayan for 4th grade.",
+  "background_color": "#eaf7ff",
+  "theme_color": "#003366",
+  "description": "Interactive English learning app with AI Bayan for 4th grade students in Kazakhstan.",
   "icons": [
     {
       "src": "logo.png",
