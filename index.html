@@ -98,11 +98,37 @@
     overflow-y:auto;
     text-align:left;
   }
+
+  /* Всплывающее приветствие */
+  #teacherWelcome {
+    display:none;
+    position:fixed;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    background:gold;
+    color:#003366;
+    border:3px solid #003366;
+    padding:10px 20px;
+    border-radius:12px;
+    font-weight:bold;
+    box-shadow:0 0 15px rgba(0,0,0,0.3);
+    animation:fadeInOut 4s ease forwards;
+    z-index:1000;
+  }
+
+  @keyframes fadeInOut {
+    0% {opacity:0; transform:translate(-50%, 20px);}
+    15% {opacity:1; transform:translate(-50%, 0);}
+    85% {opacity:1; transform:translate(-50%, 0);}
+    100% {opacity:0; transform:translate(-50%, 20px);}
+  }
 </style>
 </head>
 <body>
 
 <div id="teacherBanner">👩‍🏫 TEACHER MODE ACTIVE</div>
+<div id="teacherWelcome">Welcome, Teacher! 🏫 Unlimited access activated.</div>
 
 <!-- 🔐 Login -->
 <div class="overlay" id="loginOverlay">
@@ -185,8 +211,33 @@ function checkLogin(){
     document.getElementById("loginOverlay").style.display="none";
     document.getElementById("teacherBanner").style.display="block";
     document.getElementById("mainMenu").style.display="block";
+    showTeacherWelcome();
+    playDing();
   } 
   else alert("❌ Wrong name or PIN");
+}
+
+function showTeacherWelcome(){
+  const msg=document.getElementById("teacherWelcome");
+  msg.style.display="block";
+  setTimeout(()=>{ msg.style.display="none"; },4000);
+}
+
+// 🔔 Звук при входе учителя
+function playDing(){
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const o = ctx.createOscillator();
+    const g = ctx.createGain();
+    o.type = "sine";
+    o.frequency.value = 880; // тон
+    g.gain.setValueAtTime(0.1, ctx.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1);
+    o.connect(g);
+    g.connect(ctx.destination);
+    o.start();
+    o.stop(ctx.currentTime + 1);
+  } catch(e){ console.warn("Sound error:", e); }
 }
 
 function openTheme(n){ window.location.href = "theme"+n+".html"; }
