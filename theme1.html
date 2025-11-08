@@ -92,6 +92,25 @@
       font-weight:bold;
       margin-left:6px;
     }
+    .mark {
+      font-size: 1.3rem;
+      margin-left: 6px;
+      font-weight: bold;
+    }
+    .feedback {
+      font-size: 0.9rem;
+      margin-top: 4px;
+    }
+    .correctBox {
+      background: rgba(144,238,144,0.4);
+      border-radius: 8px;
+      padding: 4px 6px;
+    }
+    .wrongBox {
+      background: rgba(255,182,193,0.4);
+      border-radius: 8px;
+      padding: 4px 6px;
+    }
   </style>
 </head>
 <body>
@@ -110,7 +129,7 @@
   <p style="font-style:italic;color:#4b2e91;">Children at the park — games and free time</p>
   <p id="lessonStarsLine"><b>You have 0 ⭐ in this lesson.</b></p>
 
-  <!-- ========== VOCABULARY (из парка, как в WB) ========== -->
+  <!-- ========== VOCABULARY ========== -->
   <section>
     <h3>🧠 Vocabulary — Games in the park <span class="round-label">Vocabulary</span></h3>
 
@@ -119,8 +138,9 @@
     <!-- Q1 -->
     <p>1) Word: <b>play hide-and-seek</b>  
       AI Bayan:
-      <button class="btn" onclick="speakVocab('To play hide and seek means that one child counts and the others hide.')">▶ Play</button>
+      <button class="btn" onclick="speakBayanText('To play hide and seek means that one child counts and the others hide.')">▶ Play</button>
       <button class="btn" onclick="stopBayan()">⏹ Stop</button>
+      <span id="v1Mark" class="mark"></span>
     </p>
     <label><input type="radio" name="v1" value="1"> играть в прятки</label><br>
     <label><input type="radio" name="v1" value="0"> играть в догонялки</label><br>
@@ -129,8 +149,9 @@
     <!-- Q2 -->
     <p>2) Word: <b>play tag</b>  
       AI Bayan:
-      <button class="btn" onclick="speakVocab('To play tag means to run and touch other children in a chasing game.')">▶ Play</button>
+      <button class="btn" onclick="speakBayanText('To play tag means to run and touch other children in a chasing game.')">▶ Play</button>
       <button class="btn" onclick="stopBayan()">⏹ Stop</button>
+      <span id="v2Mark" class="mark"></span>
     </p>
     <label><input type="radio" name="v2" value="1"> играть в догонялки</label><br>
     <label><input type="radio" name="v2" value="0"> играть в прятки</label><br>
@@ -139,8 +160,9 @@
     <!-- Q3 -->
     <p>3) Word: <b>fly a kite</b>  
       AI Bayan:
-      <button class="btn" onclick="speakVocab('To fly a kite means to play with a kite in the sky on a windy day.')">▶ Play</button>
+      <button class="btn" onclick="speakBayanText('To fly a kite means to play with a kite in the sky on a windy day.')">▶ Play</button>
       <button class="btn" onclick="stopBayan()">⏹ Stop</button>
+      <span id="v3Mark" class="mark"></span>
     </p>
     <label><input type="radio" name="v3" value="1"> запускать воздушного змея</label><br>
     <label><input type="radio" name="v3" value="0"> летать на самолёте</label><br>
@@ -149,8 +171,9 @@
     <!-- Q4 -->
     <p>4) Word: <b>go fishing</b>  
       AI Bayan:
-      <button class="btn" onclick="speakVocab('To go fishing means to catch fish in a river or a lake.')">▶ Play</button>
+      <button class="btn" onclick="speakBayanText('To go fishing means to catch fish in a river or a lake.')">▶ Play</button>
       <button class="btn" onclick="stopBayan()">⏹ Stop</button>
+      <span id="v4Mark" class="mark"></span>
     </p>
     <label><input type="radio" name="v4" value="1"> ходить на рыбалку</label><br>
     <label><input type="radio" name="v4" value="0"> купаться в бассейне</label><br>
@@ -159,8 +182,9 @@
     <!-- Q5 -->
     <p>5) Word: <b>ride a bike</b>  
       AI Bayan:
-      <button class="btn" onclick="speakVocab('To ride a bike means to go somewhere on a bicycle.')">▶ Play</button>
+      <button class="btn" onclick="speakBayanText('To ride a bike means to go somewhere on a bicycle.')">▶ Play</button>
       <button class="btn" onclick="stopBayan()">⏹ Stop</button>
+      <span id="v5Mark" class="mark"></span>
     </p>
     <label><input type="radio" name="v5" value="1"> ездить на велосипеде</label><br>
     <label><input type="radio" name="v5" value="0"> ездить на автобусе</label><br>
@@ -169,18 +193,19 @@
     <!-- Q6 -->
     <p>6) Word: <b>skip</b>  
       AI Bayan:
-      <button class="btn" onclick="speakVocab('To skip means to jump over a rope again and again.')">▶ Play</button>
+      <button class="btn" onclick="speakBayanText('To skip means to jump over a rope again and again.')">▶ Play</button>
       <button class="btn" onclick="stopBayan()">⏹ Stop</button>
+      <span id="v6Mark" class="mark"></span>
     </p>
     <label><input type="radio" name="v6" value="1"> прыгать через скакалку</label><br>
     <label><input type="radio" name="v6" value="0"> спрыгивать с дерева</label><br>
     <label><input type="radio" name="v6" value="0"> плавать под водой</label><br>
 
     <button class="btn" onclick="checkVocab()">Check vocabulary ✅</button>
-    <div id="vocabStars" style="font-size:1.1rem;margin-top:8px;"></div>
+    <div id="vocabStars" class="feedback"></div>
   </section>
 
-  <!-- ========== GRAMMAR (Present Continuous + Let's) ========== -->
+  <!-- ========== GRAMMAR ========== -->
   <section>
     <h3>📘 Grammar — What are they doing? <span class="round-label">Grammar</span></h3>
 
@@ -192,15 +217,21 @@
 
     <p><b>Choose the correct answer:</b></p>
 
-    <p>1) Look! They ___ football in the park.</p>
+    <p>1) Look! They ___ football in the park.
+      <span id="g1Mark" class="mark"></span>
+    </p>
     <label><input type="radio" name="g1" value="areplaying"> are playing</label><br>
     <label><input type="radio" name="g1" value="play"> play</label><br>
 
-    <p>2) She ___ a kite now.</p>
+    <p>2) She ___ a kite now.
+      <span id="g2Mark" class="mark"></span>
+    </p>
     <label><input type="radio" name="g2" value="isflying"> is flying</label><br>
     <label><input type="radio" name="g2" value="flies"> flies</label><br>
 
-    <p>3) We ___ in the lake at the moment.</p>
+    <p>3) We ___ in the lake at the moment.
+      <span id="g3Mark" class="mark"></span>
+    </p>
     <label><input type="radio" name="g3" value="arefishing"> are fishing</label><br>
     <label><input type="radio" name="g3" value="fish"> fish</label><br>
 
@@ -208,25 +239,29 @@
 
     <p><b>Let’s + verb:</b> Let’s play tag! Let’s fly a kite!</p>
 
-    <p>4) ___ play hide-and-seek behind the tree!</p>
+    <p>4) ___ play hide-and-seek behind the tree!
+      <span id="g4Mark" class="mark"></span>
+    </p>
     <label><input type="radio" name="g4" value="lets"> Let’s</label><br>
     <label><input type="radio" name="g4" value="let"> Let</label><br>
 
     <p><b>Pronouns:</b> they / them, he / him, she / her</p>
 
-    <p>5) Look at Tom and Sue. I can see ___ in the park.</p>
+    <p>5) Look at Tom and Sue. I can see ___ in the park.
+      <span id="g5Mark" class="mark"></span>
+    </p>
     <label><input type="radio" name="g5" value="them"> them</label><br>
     <label><input type="radio" name="g5" value="they"> they</label><br>
 
     <button class="btn" onclick="checkGrammar()">Check grammar ✅</button>
-    <div id="grammarStars" style="font-size:1.1rem;margin-top:8px;"></div>
+    <div id="grammarStars" class="feedback"></div>
 
     <p><b>Write your own Present Continuous sentence:</b></p>
     <p>Example: We are playing tag in the yard.</p>
     <input id="writeGrammar" type="text" placeholder="Type your sentence here...">
   </section>
 
-  <!-- ========== LISTENING (парковая сцена из WB) ========== -->
+  <!-- ========== LISTENING ========== -->
   <section>
     <h3>🎧 Listening — Children at the park <span class="round-label">Listening</span></h3>
 
@@ -238,28 +273,32 @@
       Listen about the children in the park. Then choose True or False.
     </p>
 
-    <p><b>2. True or False?</b></p>
-
-    <p>1) Two boys are playing hide-and-seek behind a big tree.</p>
+    <p>1) Two boys are playing hide-and-seek behind a big tree.
+      <span id="t1Mark" class="mark"></span>
+    </p>
     <select id="t1">
       <option>—</option><option>True</option><option>False</option>
     </select>
 
-    <p>2) Anna and her sister are riding their bikes around the park.</p>
+    <p>2) Anna and her sister are riding their bikes around the park.
+      <span id="t2Mark" class="mark"></span>
+    </p>
     <select id="t2">
       <option>—</option><option>True</option><option>False</option>
     </select>
 
-    <p>3) Two children are flying a colourful kite in the sky.</p>
+    <p>3) Two children are flying a colourful kite in the sky.
+      <span id="t3Mark" class="mark"></span>
+    </p>
     <select id="t3">
       <option>—</option><option>True</option><option>False</option>
     </select>
 
     <button class="btn" onclick="checkListening()">Check listening ✅</button>
-    <div id="listenStars" style="font-size:1.1rem;margin-top:8px;"></div>
+    <div id="listenStars" class="feedback"></div>
   </section>
 
-  <!-- ========== READING (короткий текст про Бена) ========== -->
+  <!-- ========== READING ========== -->
   <section>
     <h3>📖 Reading — Ben at the park <span class="round-label">Reading</span></h3>
 
@@ -280,18 +319,24 @@
     <p><b>2. Answer the questions:</b></p>
     <ol>
       <li>What games does Ben play at the park?<br>
-        <input id="r1" type="text" placeholder="Your answer..."></li><br>
+        <input id="r1" type="text" placeholder="Your answer...">
+        <span id="r1Mark" class="mark"></span>
+      </li><br>
       <li>Does Ben like fishing?<br>
-        <input id="r2" type="text" placeholder="Your answer..."></li><br>
+        <input id="r2" type="text" placeholder="Your answer...">
+        <span id="r2Mark" class="mark"></span>
+      </li><br>
       <li>What does he like doing with a rope?<br>
-        <input id="r3" type="text" placeholder="Your answer..."></li>
+        <input id="r3" type="text" placeholder="Your answer...">
+        <span id="r3Mark" class="mark"></span>
+      </li>
     </ol>
 
     <button class="btn" onclick="checkReading()">Check reading ✅</button>
-    <div id="readStars" style="font-size:1.1rem;margin-top:8px;"></div>
+    <div id="readStars" class="feedback"></div>
   </section>
 
-  <!-- ========== SPEAKING (про свои игры) ========== -->
+  <!-- ========== SPEAKING ========== -->
   <section>
     <h3>🗣 Speaking — My fun games <span class="round-label">Speaking</span></h3>
 
@@ -306,30 +351,35 @@
       <li>What do you do at the weekend for fun?</li>
     </ul>
 
-    <p><b>2. Answer into the microphone:</b></p>
-    <button class="btn" onclick="startSpeak()">🎙 Start recording</button>
-    <button class="btn" onclick="stopSpeak()">⏹ Stop</button>
-
-    <div id="speakStars" style="font-size:1.1rem;margin-top:10px;"></div>
+    <p><b>2. Say your answers out loud (in class or at home).</b></p>
+    <button class="btn" onclick="markSpeaking()">🎙 I said my answers</button>
+    <span id="speakMark" class="mark"></span>
+    <div id="speakStars" class="feedback"></div>
   </section>
 
-  <!-- ========== WRITING (как в WB: My favourite game) ========== -->
+  <!-- ========== WRITING ========== -->
   <section>
     <h3>✍ Writing — My favourite game <span class="round-label">Writing</span></h3>
 
     <p><b>A. Short sentences</b></p>
 
-    <p>1) Write a sentence: “My favourite game is …”</p>
+    <p>1) Write a sentence: “My favourite game is …”  
+      <span id="w1Mark" class="mark"></span>
+    </p>
     <input id="w1" type="text" placeholder="Example: My favourite game is hide-and-seek.">
 
-    <p>2) Write one sentence in Present Continuous about children in the park.</p>
+    <p>2) Write one sentence in Present Continuous about children in the park.  
+      <span id="w2Mark" class="mark"></span>
+    </p>
     <input id="w2" type="text" placeholder="Example: They are playing tag in the park.">
 
-    <p>3) Write one sentence with <b>Let’s …</b></p>
+    <p>3) Write one sentence with <b>Let’s …</b>  
+      <span id="w3Mark" class="mark"></span>
+    </p>
     <input id="w3" type="text" placeholder="Example: Let’s fly a kite!">
 
     <button class="btn" onclick="checkWritingSentences()">Check sentences ✅</button>
-    <div id="writeSentStars" style="font-size:1.1rem;margin-top:6px;"></div>
+    <div id="writeSentStars" class="feedback"></div>
 
     <hr>
 
@@ -340,7 +390,8 @@
 
     <textarea id="writeBox" rows="5" placeholder="Write about your games here..."></textarea><br>
     <button class="btn" onclick="checkDictation()">Check my text ✅</button>
-    <div id="dictStars" style="font-size:1.1rem;margin-top:6px;"></div>
+    <span id="dictMark" class="mark"></span>
+    <div id="dictStars" class="feedback"></div>
   </section>
 
   <!-- ========== LESSON RESULT ========== -->
@@ -359,117 +410,112 @@
     </div>
   </section>
 
-  <p style="font-size:0.8rem;color:#eee;margin-top:10px;text-align:center;">
+  <p style="font-size:0.8rem;color:#aaa;margin-top:10px;text-align:center;">
     Created by Bayan team
   </p>
 </main>
 
 <script>
-  // ⭐ TOTAL STARS (no limit)
-  let totalStars = 0;
-  function addStar() {
-    totalStars++;
-    updateStarsText();
-  }
-  function updateStarsText(){
-    document.getElementById('lessonStarsLine').innerText =
-      "You have " + totalStars + " ⭐ in this lesson.";
-    const fs = document.getElementById('finalStars');
-    if(fs) fs.innerText = totalStars;
+  // ====== SCORES PER SECTION ======
+  let vocabScore = 0;      // 0–6
+  let grammarScore = 0;    // 0–5
+  let listeningScore = 0;  // 0–3
+  let readingScore = 0;    // 0–3
+  let speakingScore = 0;   // 0–1
+  let writingSentScore = 0;// 0–3
+  let writingTextScore = 0;// 0–1
+
+  function updateTotalStars(){
+    const total = vocabScore + grammarScore + listeningScore +
+                  readingScore + speakingScore + writingSentScore + writingTextScore;
+    document.getElementById("lessonStarsLine").innerText =
+      "You have " + total + " ⭐ in this lesson.";
+    document.getElementById("finalStars").innerText = total;
+    return total;
   }
 
-  // флаги, чтобы не начислять звезду второй раз
-  const scored = {
-    v1:false, v2:false, v3:false, v4:false, v5:false, v6:false,
-    g1:false, g2:false, g3:false, g4:false, g5:false,
-    l1:false, l2:false, l3:false,
-    r1:false, r2:false, r3:false,
-    w1:false, w2:false, w3:false,
-    dict:false
-  };
-
-  // ---------- TTS (AI Bayan voice) ----------
+  // ====== TTS AI BAYAN ======
   function speakBayanText(text){
     if(!('speechSynthesis' in window)){
       alert("Your browser does not support speech synthesis 😔");
       return;
     }
     const utter = new SpeechSynthesisUtterance(text);
-    utter.lang = "en-US";
+    utter.lang = "en-GB";
     utter.rate = 0.9;
-    utter.pitch = 1.05;
+    utter.pitch = 1.0;
     utter.volume = 1;
     const voices = speechSynthesis.getVoices();
-    const femaleEn = voices.find(v => v.lang.includes("en") && v.name.toLowerCase().includes("female"));
-    if(femaleEn) utter.voice = femaleEn;
+    const v = voices.find(v => v.lang === "en-GB" || v.name.includes("Google UK English Female"));
+    if(v) utter.voice = v;
     speechSynthesis.speak(utter);
   }
-
   function stopBayan(){
     window.speechSynthesis.cancel();
   }
 
-  // ---------- VOCABULARY ----------
-  function speakVocab(text){
-    speakBayanText(text);
-  }
-
+  // ====== VOCABULARY CHECK ======
   function checkVocab(){
-    let starsHere = 0;
-    const q1 = document.querySelector('input[name="v1"]:checked');
-    if(q1 && q1.value === "1" && !scored.v1){ scored.v1=true; addStar(); starsHere++; }
+    let score = 0;
 
-    const q2 = document.querySelector('input[name="v2"]:checked');
-    if(q2 && q2.value === "1" && !scored.v2){ scored.v2=true; addStar(); starsHere++; }
-
-    const q3 = document.querySelector('input[name="v3"]:checked');
-    if(q3 && q3.value === "1" && !scored.v3){ scored.v3=true; addStar(); starsHere++; }
-
-    const q4 = document.querySelector('input[name="v4"]:checked');
-    if(q4 && q4.value === "1" && !scored.v4){ scored.v4=true; addStar(); starsHere++; }
-
-    const q5 = document.querySelector('input[name="v5"]:checked');
-    if(q5 && q5.value === "1" && !scored.v5){ scored.v5=true; addStar(); starsHere++; }
-
-    const q6 = document.querySelector('input[name="v6"]:checked');
-    if(q6 && q6.value === "1" && !scored.v6){ scored.v6=true; addStar(); starsHere++; }
-
-    const box = document.getElementById('vocabStars');
-    if(starsHere > 0){
-      box.innerHTML = "⭐ +" + starsHere + " vocabulary stars!";
-    } else {
-      box.innerHTML = "No new stars. Check answers or you already got them.";
+    const correct = { v1:"1", v2:"1", v3:"1", v4:"1", v5:"1", v6:"1" };
+    for(let i=1;i<=6;i++){
+      const chosen = document.querySelector('input[name="v'+i+'"]:checked');
+      const mark = document.getElementById("v"+i+"Mark");
+      if(!chosen){
+        mark.textContent = "❌";
+        mark.style.color = "red";
+        continue;
+      }
+      if(chosen.value === correct["v"+i]){
+        mark.textContent = "✅";
+        mark.style.color = "green";
+        score++;
+      } else {
+        mark.textContent = "❌";
+        mark.style.color = "red";
+      }
     }
+    vocabScore = score; // перезаписываем, чтобы не было двойного начисления
+    document.getElementById("vocabStars").innerHTML =
+      "You got " + score + "/6 correct in vocabulary.";
+    updateTotalStars();
   }
 
-  // ---------- GRAMMAR ----------
+  // ====== GRAMMAR CHECK ======
   function checkGrammar(){
-    let starsHere = 0;
-
-    const q1 = document.querySelector('input[name="g1"]:checked');
-    if(q1 && q1.value === "areplaying" && !scored.g1){ scored.g1=true; addStar(); starsHere++; }
-
-    const q2 = document.querySelector('input[name="g2"]:checked');
-    if(q2 && q2.value === "isflying" && !scored.g2){ scored.g2=true; addStar(); starsHere++; }
-
-    const q3 = document.querySelector('input[name="g3"]:checked');
-    if(q3 && q3.value === "arefishing" && !scored.g3){ scored.g3=true; addStar(); starsHere++; }
-
-    const q4 = document.querySelector('input[name="g4"]:checked');
-    if(q4 && q4.value === "lets" && !scored.g4){ scored.g4=true; addStar(); starsHere++; }
-
-    const q5 = document.querySelector('input[name="g5"]:checked');
-    if(q5 && q5.value === "them" && !scored.g5){ scored.g5=true; addStar(); starsHere++; }
-
-    const box = document.getElementById('grammarStars');
-    if(starsHere > 0){
-      box.innerHTML = "⭐ +" + starsHere + " grammar stars!";
-    } else {
-      box.innerHTML = "No new stars. Check again or you already got them.";
+    let score = 0;
+    const correct = {
+      g1:"areplaying",
+      g2:"isflying",
+      g3:"arefishing",
+      g4:"lets",
+      g5:"them"
+    };
+    for(let i=1;i<=5;i++){
+      const chosen = document.querySelector('input[name="g'+i+'"]:checked');
+      const mark = document.getElementById("g"+i+"Mark");
+      if(!chosen){
+        mark.textContent = "❌";
+        mark.style.color = "red";
+        continue;
+      }
+      if(chosen.value === correct["g"+i]){
+        mark.textContent = "✅";
+        mark.style.color = "green";
+        score++;
+      } else {
+        mark.textContent = "❌";
+        mark.style.color = "red";
+      }
     }
+    grammarScore = score;
+    document.getElementById("grammarStars").innerHTML =
+      "You got " + score + "/5 correct in grammar.";
+    updateTotalStars();
   }
 
-  // ---------- LISTENING ----------
+  // ====== LISTENING ======
   function bayanListening(){
     const t =
       "Look at the children in the park. " +
@@ -483,27 +529,32 @@
   }
 
   function checkListening(){
-    let starsHere = 0;
+    let score = 0;
 
-    if(document.getElementById('t1').value === 'True' && !scored.l1){
-      scored.l1 = true; addStar(); starsHere++;
-    }
-    if(document.getElementById('t2').value === 'False' && !scored.l2){
-      scored.l2 = true; addStar(); starsHere++;
-    }
-    if(document.getElementById('t3').value === 'True' && !scored.l3){
-      scored.l3 = true; addStar(); starsHere++;
-    }
+    const t1 = document.getElementById("t1").value;
+    const t2 = document.getElementById("t2").value;
+    const t3 = document.getElementById("t3").value;
 
-    const box = document.getElementById('listenStars');
-    if(starsHere > 0){
-      box.innerHTML = "⭐ +" + starsHere + " listening stars!";
-    } else {
-      box.innerHTML = "No new stars. Check your answers.";
-    }
+    const m1 = document.getElementById("t1Mark");
+    const m2 = document.getElementById("t2Mark");
+    const m3 = document.getElementById("t3Mark");
+
+    if(t1 === "True"){ score++; m1.textContent="✅"; m1.style.color="green"; }
+    else { m1.textContent="❌"; m1.style.color="red"; }
+
+    if(t2 === "False"){ score++; m2.textContent="✅"; m2.style.color="green"; }
+    else { m2.textContent="❌"; m2.style.color="red"; }
+
+    if(t3 === "True"){ score++; m3.textContent="✅"; m3.style.color="green"; }
+    else { m3.textContent="❌"; m3.style.color="red"; }
+
+    listeningScore = score;
+    document.getElementById("listenStars").innerHTML =
+      "You got " + score + "/3 correct in listening.";
+    updateTotalStars();
   }
 
-  // ---------- READING ----------
+  // ====== READING ======
   function bayanReading(){
     const t =
       "Hi, I am Ben. I am at the park with my friends today. " +
@@ -515,39 +566,50 @@
   }
 
   function checkReading(){
-    let starsHere = 0;
-    const a1 = document.getElementById('r1').value.toLowerCase();
-    const a2 = document.getElementById('r2').value.toLowerCase();
-    const a3 = document.getElementById('r3').value.toLowerCase();
+    let score = 0;
+    const r1 = document.getElementById("r1").value.toLowerCase();
+    const r2 = document.getElementById("r2").value.toLowerCase();
+    const r3 = document.getElementById("r3").value.toLowerCase();
 
-    // games: hide-and-seek, kite, tag, bike
-    if(!scored.r1 &&
-       (a1.includes("hide") || a1.includes("seek") ||
-        a1.includes("kite") || a1.includes("tag") ||
-        a1.includes("bike"))){
-      scored.r1 = true; addStar(); starsHere++;
-    }
-    // he doesn't like fishing
-    if(!scored.r2 &&
-       (a2.includes("no") || a2.includes("doesn") || a2.includes("do not") || a2.includes("don't"))){
-      scored.r2 = true; addStar(); starsHere++;
-    }
-    // he likes skipping with a rope
-    if(!scored.r3 &&
-       (a3.includes("skip") || a3.includes("rope"))){
-      scored.r3 = true; addStar(); starsHere++;
-    }
+    const m1 = document.getElementById("r1Mark");
+    const m2 = document.getElementById("r2Mark");
+    const m3 = document.getElementById("r3Mark");
 
-    const box = document.getElementById('readStars');
-    if(starsHere > 0){
-      box.innerHTML = "⭐ +" + starsHere + " reading stars!";
+    // Q1: games he plays
+    if(
+      r1.includes("hide") || r1.includes("seek") ||
+      r1.includes("kite") || r1.includes("tag") ||
+      r1.includes("bike")
+    ){
+      score++; m1.textContent="✅"; m1.style.color="green";
     } else {
-      box.innerHTML = "No new stars. Check answers or you already got them.";
+      m1.textContent="❌"; m1.style.color="red";
     }
+
+    // Q2: does he like fishing? (no)
+    if(
+      r2.includes("no") || r2.includes("doesn") ||
+      r2.includes("don") || r2.includes("not")
+    ){
+      score++; m2.textContent="✅"; m2.style.color="green";
+    } else {
+      m2.textContent="❌"; m2.style.color="red";
+    }
+
+    // Q3: skipping with a rope
+    if(r3.includes("skip") || r3.includes("rope")){
+      score++; m3.textContent="✅"; m3.style.color="green";
+    } else {
+      m3.textContent="❌"; m3.style.color="red";
+    }
+
+    readingScore = score;
+    document.getElementById("readStars").innerHTML =
+      "You answered " + score + "/3 reading questions correctly.";
+    updateTotalStars();
   }
 
-  // ---------- SPEAKING ----------
-  let recognition;
+  // ====== SPEAKING ======
   function bayanSpeaking(){
     const t =
       "Now let us talk about your games. " +
@@ -557,73 +619,47 @@
     speakBayanText(t);
   }
 
-  function startSpeak(){
-    if(!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)){
-      alert("Speech recognition is not supported in this browser.");
-      return;
-    }
-    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-    recognition = new SR();
-    recognition.lang = "en-US";
-    recognition.onresult = function(event){
-      const speech = event.results[0][0].transcript.toLowerCase();
-      let starsHere = 0;
-      if(
-        speech.includes("hide and seek") || speech.includes("tag") ||
-        speech.includes("kite") || speech.includes("bike") ||
-        speech.includes("fishing") || speech.includes("skip") ||
-        speech.includes("park") || speech.includes("weekend") ||
-        speech.includes("game") || speech.includes("fun")
-      ){
-        addStar();
-        starsHere++;
-      }
-      const box = document.getElementById('speakStars');
-      if(starsHere > 0){
-        box.innerHTML = "⭐ +" + starsHere + " speaking star!<br>You said: " + speech;
-      } else {
-        box.innerHTML = "You said: " + speech +
-          "<br>Try to use words like hide-and-seek, tag, kite, bike, park, weekend.";
-      }
-    };
-    recognition.start();
+  function markSpeaking(){
+    speakingScore = 1;
+    const m = document.getElementById("speakMark");
+    m.textContent = "✅";
+    m.style.color = "green";
+    document.getElementById("speakStars").innerHTML =
+      "Great! You said your answers. ⭐";
+    updateTotalStars();
   }
 
-  function stopSpeak(){
-    if(recognition) recognition.stop();
-  }
-
-  // ---------- WRITING: SENTENCES ----------
+  // ====== WRITING SENTENCES ======
   function checkWritingSentences(){
-    let starsHere = 0;
-    const s1 = document.getElementById('w1').value.toLowerCase();
-    const s2 = document.getElementById('w2').value.toLowerCase();
-    const s3 = document.getElementById('w3').value.toLowerCase();
+    let score = 0;
 
-    if(!scored.w1 &&
-       s1.includes("my favourite game is")){
-      scored.w1 = true; addStar(); starsHere++;
-    }
+    const s1 = document.getElementById("w1").value.toLowerCase();
+    const s2 = document.getElementById("w2").value.toLowerCase();
+    const s3 = document.getElementById("w3").value.toLowerCase();
 
-    if(!scored.w2 &&
-       (s2.includes("are playing") || s2.includes("is playing"))){
-      scored.w2 = true; addStar(); starsHere++;
-    }
+    const m1 = document.getElementById("w1Mark");
+    const m2 = document.getElementById("w2Mark");
+    const m3 = document.getElementById("w3Mark");
 
-    if(!scored.w3 &&
-       s3.includes("let's")){
-      scored.w3 = true; addStar(); starsHere++;
-    }
+    if(s1.includes("my favourite game is")){
+      score++; m1.textContent="✅"; m1.style.color="green";
+    } else { m1.textContent="❌"; m1.style.color="red"; }
 
-    const box = document.getElementById('writeSentStars');
-    if(starsHere > 0){
-      box.innerHTML = "⭐ +" + starsHere + " writing stars!";
-    } else {
-      box.innerHTML = "No new stars. Check your sentences or you already got them.";
-    }
+    if(s2.includes("are playing") || s2.includes("is playing")){
+      score++; m2.textContent="✅"; m2.style.color="green";
+    } else { m2.textContent="❌"; m2.style.color="red"; }
+
+    if(s3.includes("let's") || s3.includes("lets ")){
+      score++; m3.textContent="✅"; m3.style.color="green";
+    } else { m3.textContent="❌"; m3.style.color="red"; }
+
+    writingSentScore = score;
+    document.getElementById("writeSentStars").innerHTML =
+      "You got " + score + "/3 correct in writing sentences.";
+    updateTotalStars();
   }
 
-  // ---------- WRITING: TEXT ----------
+  // ====== WRITING TEXT ======
   function bayanDictation(){
     const t =
       "Here is an example. " +
@@ -636,198 +672,54 @@
 
   function checkDictation(){
     const text = document.getElementById("writeBox").value.toLowerCase();
-    const keywords = [
-      "my favourite game",
-      "hide and seek",
-      "tag",
-      "kite",
-      "bike",
-      "park",
-      "let's",
-      "have fun"
-    ];
-    let found = 0;
-    for(const w of keywords){
-      if(text.includes(w)) found++;
-    }
-    let starsHere = 0;
-    if(!scored.dict && found >= 3){
-      scored.dict = true;
-      addStar();
-      starsHere++;
-    }
+    const m = document.getElementById("dictMark");
+    const box = document.getElementById("dictStars");
 
-    const box = document.getElementById('dictStars');
-    if(starsHere > 0){
-      box.innerHTML = "⭐ +" + starsHere + " writing star!";
+    const needed = ["my favourite game", "i like", "let's", "let us", "park"];
+    let hits = 0;
+    needed.forEach(w => { if(text.includes(w)) hits++; });
+
+    if(text.split(" ").length >= 15 && hits >= 2){
+      writingTextScore = 1;
+      m.textContent = "✅";
+      m.style.color = "green";
+      box.innerHTML = "Nice text! ⭐";
     } else {
-      box.innerHTML = "Try to write 3–5 sentences with: my favourite game, I like, at the weekend, let’s...";
+      writingTextScore = 0;
+      m.textContent = "❌";
+      m.style.color = "red";
+      box.innerHTML = "Try to write 3–5 sentences and use phrases like: my favourite game, I like, let’s, park.";
     }
+    updateTotalStars();
   }
 
-  // ---------- FINISH + NAVIGATION ----------
+  // ====== FINISH LESSON ======
   function finishLesson(){
-    document.getElementById("finalStars").innerText = totalStars;
+    const total = updateTotalStars();
     let msg = "";
-    if(totalStars >= 20){
+    if(total >= 18){
       msg = "🌟🌟🌟 Great job! You had fun and you know many games!";
-    } else if(totalStars >= 12){
+    } else if(total >= 12){
       msg = "🌟🌟 Very good! You understand this topic well!";
-    } else if(totalStars >= 6){
+    } else if(total >= 6){
       msg = "🌟 Good start! Keep practising and playing with English!";
     } else {
       msg = "You finished the lesson! Every star is progress!";
     }
     document.getElementById("finalMessage").innerText = msg;
 
-    const studentName = localStorage.getItem("studentName") || "Unknown Student";
-    const allResults = JSON.parse(localStorage.getItem("teacherJournal") || "{}");
-    allResults[studentName] = allResults[studentName] || {};
-    allResults[studentName]["Lesson 1"] = totalStars;
-    localStorage.setItem("teacherJournal", JSON.stringify(allResults));
-    localStorage.setItem("lesson1Stars", totalStars);
-
-    alert("Lesson 1 saved! " + studentName + " got " + totalStars + "⭐.");
+    const name = localStorage.getItem("currentStudent") || "Unknown";
+    localStorage.setItem(name + "_lesson1Stars", total);
+    alert("Lesson 1 saved! " + name + " got " + total + " ⭐.");
   }
 
+  // ====== NAVIGATION ======
   function goBack(){ window.location.href = "index.html"; }
   function goMenu(){ window.location.href = "index.html"; }
   function goNext(){ window.location.href = "theme2.html"; }
 
-  // init
-  updateStarsText();
-</script>
- <!-- === Animation & Voice System === -->
-<script>
-// ====== ✅ CORRECT / ❌ WRONG ANIMATION ======
-function showResultAnimation(isCorrect, elementId){
-  const el=document.getElementById(elementId);
-  if(isCorrect){
-    el.innerHTML="✅ Correct! ⭐";
-    el.style.background="rgba(144,238,144,0.6)";
-    el.style.border="2px solid green";
-    el.style.transition="0.4s";
-    setTimeout(()=>{ el.style.background=""; el.style.border=""; el.innerHTML=""; },1500);
-  } else {
-    el.innerHTML="❌ Try again!";
-    el.style.background="rgba(255,182,193,0.6)";
-    el.style.border="2px solid red";
-    el.style.transition="0.4s";
-    navigator.vibrate?.(250);
-    setTimeout(()=>{ el.style.background=""; el.style.border=""; el.innerHTML=""; },1500);
-  }
-}
-
-// ====== 🗣️ AI Bayan Adaptive Voice ======
-function bayanSpeak(text){
-  const voices=speechSynthesis.getVoices();
-  let voice=voices.find(v=>v.lang.includes("en-GB")||v.name.includes("Google UK English Female"));
-  if(!voice){ voice=voices[0]; }
-  const utter=new SpeechSynthesisUtterance(text);
-  utter.voice=voice;
-  utter.lang="en-GB";
-  utter.rate=0.88;
-  utter.pitch=1.0;
-  speechSynthesis.speak(utter);
-}
-</script>
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Theme 1 — Let’s Have Fun!</title>
-<style>
-  body {
-    font-family: Verdana, sans-serif;
-    background: radial-gradient(circle at top,#fff7ff 0%,#ffe9ff 35%,#d7ecff 100%);
-    color:#25215a;
-    text-align:center;
-    margin:0;
-  }
-  header {
-    background:linear-gradient(90deg,#5a2ea6,#f06292);
-    color:white;
-    padding:0.8rem;
-    border-bottom:4px solid #ffd54f;
-  }
-  .question {
-    background:white;
-    border-radius:12px;
-    padding:10px;
-    margin:12px auto;
-    width:85%;
-    box-shadow:0 0 8px rgba(0,0,0,0.1);
-  }
-  input[type="text"] {
-    padding:5px;
-    border-radius:6px;
-    border:1px solid #ccc;
-  }
-  .btn {
-    background:#5a2ea6;
-    color:white;
-    padding:8px 14px;
-    border:none;
-    border-radius:10px;
-    cursor:pointer;
-    font-weight:bold;
-    margin-top:10px;
-  }
-  .btn:hover { background:#ffd54f; color:#5a2ea6; }
-  .mark { font-size:1.4rem; margin-left:8px; }
-</style>
-</head>
-<body>
-
-<header>
-  <h1>🎨 Theme 1 — Let’s Have Fun!</h1>
-</header>
-
-<main>
-  <div class="question">
-    <p>1. What do children play in the park?</p>
-    <input type="text" id="q1">
-    <span id="m1" class="mark"></span>
-  </div>
-
-  <div class="question">
-    <p>2. What do you do in your free time?</p>
-    <input type="text" id="q2">
-    <span id="m2" class="mark"></span>
-  </div>
-
-  <button class="btn" onclick="checkAnswers()">Check</button>
-  <button class="btn" onclick="goBack()">🏠 Back to Menu</button>
-  <p id="score"></p>
-</main>
-
-<script>
-function checkAnswers(){
-  const answers = {
-    q1: ["games","football","hide and seek","tag"],
-    q2: ["read","play","draw","listen to music"]
-  };
-  let score = 0;
-  for (let i=1; i<=2; i++){
-    const input = document.getElementById("q"+i).value.toLowerCase().trim();
-    const mark = document.getElementById("m"+i);
-    if (answers["q"+i].some(ans => input.includes(ans))){
-      mark.textContent = "✅";
-      mark.style.color = "green";
-      score++;
-    } else {
-      mark.textContent = "❌";
-      mark.style.color = "red";
-    }
-  }
-  document.getElementById("score").innerText = `You got ${score}/2 correct! ⭐`;
-  localStorage.setItem(localStorage.getItem("currentStudent")+"_lesson1Stars", score);
-}
-function goBack(){ window.location.href = "index.html"; }
+  // init text
+  updateTotalStars();
 </script>
 </body>
 </html>
-</body>
-</html>
- 
