@@ -66,7 +66,6 @@
 
   .section { display:none;margin-top:16px; }
 
-  /* плавное появление чата */
   @keyframes chatPop {
     from { transform: translateY(40px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
@@ -115,7 +114,7 @@
                 text-align:left; font-size:0.9rem;"></div>
 
     <textarea id="chatInput"
-              placeholder="Type or say your question..."
+              placeholder="Type your question here..."
               style="width:100%; border-radius:8px; margin-top:8px; min-height:60px;"></textarea><br>
 
     <button class="btn" onclick="askBayan()">Ask AI Bayan</button>
@@ -136,21 +135,30 @@ const allowedNames = [
 ];
 
 function checkLogin(){
-  const name=document.getElementById("nameInput").value.trim();
-  const pin=document.getElementById("pinInput").value.trim();
-  if(allowedNames.includes(name)&&pin==="6856"){
-    localStorage.setItem("currentStudent",name);
-    document.getElementById("loginOverlay").style.display="none";
-    document.getElementById("studentMenu").style.display="block";
-    document.getElementById("welcomeBox").style.display="block";
-    document.getElementById("welcomeText").innerText="Hello, "+name+"!";
-  } else if(name.toLowerCase()==="teacher"&&pin==="1402"){
+  const name = document.getElementById("nameInput").value.trim();
+  const pin  = document.getElementById("pinInput").value.trim();
+
+  const lowerName = name.toLowerCase();
+  const allowedLower = allowedNames.map(n => n.toLowerCase());
+
+  if (allowedLower.includes(lowerName) && pin === "6856") {
+    // Ученик
+    localStorage.setItem("currentStudent", name);
+    localStorage.removeItem("isTeacher");
+    document.getElementById("loginOverlay").style.display = "none";
+    document.getElementById("studentMenu").style.display = "block";
+    document.getElementById("welcomeBox").style.display = "block";
+    document.getElementById("welcomeText").innerText = "Hello, " + name + "!";
+  } 
+  else if (lowerName === "teacher" && pin === "1402") {
+    // Учитель
+    localStorage.setItem("isTeacher", "true");
     document.body.classList.add("teacher-mode");
-    document.getElementById("loginOverlay").style.display="none";
-    document.getElementById("teacherBanner").style.display="block";
-    localStorage.setItem("isTeacher","true");
-    document.getElementById("studentMenu").style.display="block";
-  } else {
+    document.getElementById("loginOverlay").style.display = "none";
+    document.getElementById("teacherBanner").style.display = "block";
+    document.getElementById("studentMenu").style.display = "block";
+  } 
+  else {
     alert("❌ Access denied. Check your name or PIN.");
   }
 }
@@ -183,7 +191,7 @@ function backToMenu(){
   document.getElementById("studentMenu").style.display="block";
 }
 
-// 🎙️ Озвучка AI
+// 🎙️ Озвучка AI Bayan
 function bayanSpeak(text){
   if(!('speechSynthesis'in window))return;
   const speakNow=()=>{
@@ -199,7 +207,7 @@ function bayanSpeak(text){
   } else speakNow();
 }
 
-// 🤖 Запрос к AI Bayan
+// 🤖 AI Chat
 async function askBayan(){
   const i=document.getElementById('chatInput');
   const b=document.getElementById('chatBox');
@@ -236,7 +244,7 @@ async function askBayan(){
 }
 
 function clearChat(){
-  document.getElementById("chatBox").innerHTML = "";
+  document.getElementById("chatBox").innerHTML="";
 }
 </script>
 </body>
