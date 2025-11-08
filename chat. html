@@ -139,20 +139,34 @@ async function askAIbayan(messageText) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json"
       },
       body: JSON.stringify({
         model: "gpt-4o-mini",
         userName: localStorage.getItem("aiBayanStudent") || "Guest",
         messages: [
-          {
-            role: "system",
-            content: "You are AI Bayan, a friendly and clear English tutor for Grade 4 students. Answer briefly and helpfully in English."
-          },
+          { role: "system", content: "You are AI Bayan, a friendly English tutor for 4th grade students. Answer shortly and clearly in English." },
           { role: "user", content: messageText }
-        ]
-      })
+        ],
+      }),
     });
+
+    if (!response.ok) throw new Error("Server error " + response.status);
+    const data = await response.json();
+
+    // OpenAI ответ может быть в data.choices[0].message.content
+    if (data.choices && data.choices.length > 0) {
+      return data.choices[0].message.content;
+    } else if (data.reply) {
+      return data.reply;
+    } else {
+      return "⚠️ AI Bayan didn't send a reply.";
+    }
+
+  } catch (err) {
+    console.error(err);
+    return "❌ Connection error. Please try again later.";
+  }
+}
 
     if (!response.ok) throw new Error("Server error " + response.status);
     const data = await response.json();
