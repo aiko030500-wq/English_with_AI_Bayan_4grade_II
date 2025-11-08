@@ -7,7 +7,7 @@
 <style>
   body {
     font-family: Verdana, sans-serif;
-    background: linear-gradient(180deg,#fff6e5 0%,#f3e0b8 100%);
+    background: linear-gradient(180deg, #fff6e5 0%, #f3e0b8 100%);
     margin: 0;
     color: #002b5c;
     text-align: center;
@@ -110,7 +110,6 @@
   }
 </style>
 </head>
-
 <body>
   <header>
     <div class="logo-circle">B</div>
@@ -126,7 +125,7 @@
 
     <div id="inputArea">
       <input id="userInput" type="text" placeholder="Type your message..." />
-      <button id="sendBtn" onclick="sendMessage()">Ask AI Bayan</button>
+      <button id="sendBtn" onclick="sendMessage()">Send</button>
     </div>
   </main>
 
@@ -139,6 +138,7 @@ async function askAIbayan(messageText) {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
+        model: "gpt-4o-mini",
         messages: [
           { role: "system", content: "You are AI Bayan, a friendly English tutor for 4th grade students. Answer shortly and clearly in English." },
           { role: "user", content: messageText }
@@ -146,11 +146,16 @@ async function askAIbayan(messageText) {
       })
     });
 
-    if (!response.ok) throw new Error("Server error " + response.status);
+    if (!response.ok) {
+      console.log("⚠️ Worker response error:", response.status);
+      return `❌ Connection error (${response.status}).`;
+    }
+
     const data = await response.json();
-    return data.reply || "⚠️ No reply received from AI Bayan.";
+    console.log("✅ Worker response data:", data);
+    return data.reply || data.choices?.[0]?.message?.content || "⚠️ No reply received from AI Bayan.";
   } catch (err) {
-    console.error(err);
+    console.error("❌ Fetch error:", err);
     return "❌ Connection error or invalid response.";
   }
 }
