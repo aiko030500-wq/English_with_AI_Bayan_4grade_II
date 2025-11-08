@@ -4,15 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Bayan Chat — English with AI Bayan 4grade II</title>
-
 <style>
-/* ————— Стили оформления ————— */
+/* ===== Стили оформления ===== */
 body {
   font-family: Verdana, sans-serif;
   background: linear-gradient(180deg,#fff6e5 0%,#f3e0b8 100%);
   margin: 0;
   color: #002b5c;
   text-align: center;
+  transition: background 1s;
+}
+body.teacher-mode {
+  background: linear-gradient(180deg,#fff0b3 0%,#ffe680 100%);
 }
 header {
   background: #003366;
@@ -47,10 +50,25 @@ header {
   font-weight:bold;
 }
 .btn:hover { background:gold; color:#003366; }
+
+/* Надпись Teacher Mode Active */
+#teacherBanner {
+  display: none;
+  background: gold;
+  color: #003366;
+  font-weight: bold;
+  padding: 8px;
+  border-bottom: 3px solid #003366;
+}
+body.teacher-mode #teacherBanner {
+  display: block;
+}
 </style>
 </head>
 
 <body>
+<div id="teacherBanner">👩‍🏫 TEACHER MODE ACTIVE</div>
+
 <header>
   <h1>🤖 AI Bayan — Chat</h1>
   <p>English with <b style="color:gold;">AI Bayan</b> — 4grade II</p>
@@ -66,16 +84,60 @@ header {
     <button class="btn" id="sendBtn">Ask AI Bayan</button>
     <button class="btn" onclick="clearChat()">Clear</button>
     <button class="btn" onclick="goMenu()">🏠 Back to Menu</button>
+
+    <p id="limitCounter" style="font-weight:bold;color:#003366;margin-top:10px;">
+      ⭐ 3 of 3 questions left today
+    </p>
+    <button class="btn" onclick="teacherLogin()">👩‍🏫 Teacher Mode</button>
   </section>
 </main>
 
-<!-- ————— Скрипт, вставляем ПЕРЕД </body> ————— -->
 <script>
 const WORKER_URL = "https://shiny-tree-f78c.aiko030500.workers.dev";
 
 const chatBox = document.getElementById("chatBox");
 const userInput = document.getElementById("userInput");
 const sendBtn = document.getElementById("sendBtn");
+
+let DAILY_LIMIT = 3;
+let usedToday = Number(localStorage.getItem("usedToday")) || 0;
+let lastDate = localStorage.getItem("lastDate");
+const today = new Date().toDateString();
+let isTeacher = localStorage.getItem("isTeacher") === "true";
+
+if (lastDate !== today) {
+  usedToday = 0;
+  localStorage.setItem("lastDate", today);
+  localStorage.setItem("usedToday", 0);
+}
+
+function updateCounter() {
+  const counter = document.getElementById("limitCounter");
+  const body = document.body;
+  const banner = document.getElementById("teacherBanner");
+  if (isTeacher) {
+    counter.innerHTML = "👩‍🏫 Teacher mode: unlimited questions";
+    body.classList.add("teacher-mode");
+    banner.style.display = "block";
+  } else {
+    const left = DAILY_LIMIT - usedToday;
+    counter.innerHTML = `⭐ ${left} of ${DAILY_LIMIT} questions left today`;
+    body.classList.remove("teacher-mode");
+    banner.style.display = "none";
+  }
+}
+
+function teacherLogin() {
+  const pin = prompt("Enter teacher PIN:");
+  if (pin === "9997") {
+    isTeacher = true;
+    localStorage.setItem("isTeacher", "true");
+    alert("👩‍🏫 Teacher mode activated — unlimited questions.");
+  } else {
+    alert("❌ Wrong PIN.");
+  }
+  updateCounter();
+}
 
 function showMessage(role, text) {
   const msg = document.createElement("div");
@@ -88,6 +150,11 @@ function showMessage(role, text) {
 async function sendMessage() {
   const message = userInput.value.trim();
   if (!message) return;
+
+  if (!isTeacher && usedToday >= DAILY_LIMIT) {
+    showMessage("ai", "⚠️ You've used all your questions for today. Come back tomorrow!");
+    return;
+  }
 
   showMessage("user", "🧒 " + message);
   userInput.value = "";
@@ -105,30 +172,19 @@ async function sendMessage() {
       })
     });
 
-    // Если OpenAI вернул 429 — подождать и повторить
-    if (res.status === 429) {
-      showMessage("ai", "⚠️ Too many requests. Waiting 2 seconds...");
-      await new Promise(r => setTimeout(r, 2000));
-      res = await fetch(WORKER_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          messages: [
-            { role: "system", content: "You are AI Bayan, a kind English tutor for Grade 4 students from Kazakhstan." },
-            { role: "user", content: message }
-          ]
-        })
-      });
-    }
-
     const data = await res.json();
-
     if (!res.ok) {
       showMessage("ai", "⚠️ Error: " + (data.error || res.status));
       return;
     }
 
     showMessage("ai", "🤖 " + (data.reply || "No response."));
+
+    if (!isTeacher) {
+      usedToday++;
+      localStorage.setItem("usedToday", usedToday);
+      updateCounter();
+    }
   } catch (err) {
     showMessage("ai", "❌ Connection failed: " + err.message);
   }
@@ -145,42 +201,8 @@ function clearChat() {
 function goMenu() {
   window.location.href = "index.html";
 }
-<script>
-let DAILY_LIMIT = 3;
-let usedToday = Number(localStorage.getItem("usedToday")) || 0;
-let lastDate = localStorage.getItem("lastDate");
-const today = new Date().toDateString();
-let isTeacher = localStorage.getItem("isTeacher") === "true";
 
-if (lastDate !== today) {
-  usedToday = 0;
-  localStorage.setItem("lastDate", today);
-  localStorage.setItem("usedToday", 0);
-}
-
-function updateCounter() {
-  const counter = document.getElementById("limitCounter");
-  if (!counter) return;
-  if (isTeacher) {
-    counter.innerHTML = "👩‍🏫 Teacher mode: unlimited questions";
-  } else {
-    const left = DAILY_LIMIT - usedToday;
-    counter.innerHTML = `⭐ ${left} of ${DAILY_LIMIT} questions left today`;
-  }
-}
-
-function teacherLogin() {
-  const pin = prompt("Enter teacher PIN:");
-  if (pin === "9997") {
-    isTeacher = true;
-    localStorage.setItem("isTeacher", "true");
-    alert("👩‍🏫 Teacher mode activated — unlimited questions.");
-  } else {
-    alert("❌ Wrong PIN.");
-  }
-  updateCounter();
-}
-
+updateCounter();
 </script>
 </body>
 </html>
