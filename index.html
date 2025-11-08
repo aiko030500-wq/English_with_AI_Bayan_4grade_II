@@ -4,85 +4,140 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>English with AI Bayan 4grade II (Online)</title>
+
 <style>
-body {
-  font-family: Verdana, sans-serif;
-  background: linear-gradient(180deg,#fff6e5 0%,#f3e0b8 100%);
-  margin: 0;
-  color: #002b5c;
-  text-align: center;
-  transition: background 0.6s;
-}
-body.teacher-mode {
-  background: linear-gradient(180deg,#fff3b0 0%,#ffea80 100%);
-}
-header {
-  background: #003366;
-  color: white;
-  padding: 1rem;
-  border-bottom: 5px solid gold;
-  transition: background 0.6s;
-}
-body.teacher-mode header {
-  background: gold;
-  color: #003366;
-}
-#teacherBanner {
-  display: none;
-  background: gold;
-  color: #003366;
-  font-weight: bold;
-  padding: 10px;
-  border-bottom: 3px solid #003366;
-}
-body.teacher-mode #teacherBanner { display:block; }
+  body {
+    font-family: Verdana, sans-serif;
+    background: linear-gradient(180deg,#fff6e5 0%,#f3e0b8 100%);
+    margin: 0;
+    color: #002b5c;
+    text-align: center;
+    overflow-x: hidden;
+    transition: background 0.6s;
+  }
+  body.teacher-mode {
+    background: linear-gradient(180deg,#fff3b0 0%,#ffea80 100%);
+  }
+  header {
+    background: #003366;
+    color: white;
+    padding: 1rem;
+    border-bottom: 5px solid gold;
+    transition: background 0.6s;
+  }
+  body.teacher-mode header {
+    background: gold;
+    color: #003366;
+  }
+  #teacherBanner {
+    display: none;
+    background: gold;
+    color: #003366;
+    font-weight: bold;
+    padding: 10px;
+    border-bottom: 3px solid #003366;
+  }
+  body.teacher-mode #teacherBanner { display:block; }
 
-.btn {
-  display:inline-block;margin:6px;padding:8px 14px;
-  border-radius:10px;border:none;
-  background:#003366;color:#fff;font-weight:bold;
-  cursor:pointer;font-size:0.9rem;transition:0.3s;
-}
-.btn:hover { background:gold;color:#003366; }
+  main { padding: 1rem; }
 
-.overlay {
-  position:fixed;inset:0;
-  background:rgba(0,0,0,0.55);
-  display:flex;align-items:center;justify-content:center;
-  z-index:999;
-}
-.overlay-card {
-  background:white;padding:20px;border-radius:16px;
-  width:90%;max-width:400px;
-  box-shadow:0 0 15px rgba(0,0,0,0.3);
-  border:4px solid gold;text-align:center;
-}
-.overlay-card input {
-  width:100%;padding:8px;margin:6px 0;
-  border-radius:8px;border:1px solid #ccc;
-  font-size:1rem;
-}
+  .btn {
+    display:inline-block;margin:6px;padding:8px 14px;
+    border-radius:10px;border:none;
+    background:#003366;color:#fff;font-weight:bold;
+    cursor:pointer;font-size:0.9rem;transition:0.3s;
+  }
+  .btn:hover { background:gold;color:#003366; }
 
-.logo-main {
-  width:120px;height:120px;object-fit:cover;
-  border-radius:50%;border:3px solid gold;margin-bottom:6px;
-}
+  .overlay {
+    position:fixed;inset:0;
+    background:rgba(0,0,0,0.55);
+    display:flex;align-items:center;justify-content:center;
+    z-index:999;
+  }
+  .overlay-card {
+    background:white;padding:20px;border-radius:16px;
+    width:90%;max-width:400px;
+    box-shadow:0 0 15px rgba(0,0,0,0.3);
+    border:4px solid gold;text-align:center;
+  }
+  .overlay-card input {
+    width:100%;padding:8px;margin:6px 0;
+    border-radius:8px;border:1px solid #ccc;
+    font-size:1rem;
+  }
 
-.section { display:none;margin-top:16px; }
+  .logo-main {
+    width:120px;height:120px;object-fit:cover;
+    border-radius:50%;border:3px solid gold;margin-bottom:6px;
+  }
 
-.star-float {
-  position: absolute;
-  font-size: 1.4rem;
-  color: gold;
-  animation: floatUpStar 1.5s ease-out forwards;
-  pointer-events: none;
-  opacity: 0;
-}
-@keyframes floatUpStar {
-  0% { transform: translateY(0) scale(0.8); opacity: 1; }
-  80% { transform: translateY(-40px) scale(1.2); opacity: 1; }
-  100% { transform: translateY(-60px) scale(1.4); opacity: 0; }
-}
+  .topics-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:10px;max-width:900px;margin:0 auto 15px;
+  }
+  .topic-card {
+    background:#ffffff;border-radius:16px;padding:12px;
+    box-shadow:0 0 8px rgba(0,0,0,0.08);
+    cursor:pointer;border:2px solid #dde6ff;font-size:0.95rem;
+  }
+  .topic-card:hover { border-color:gold;transform:translateY(-1px); }
+
+  #welcomeBox {
+    background:linear-gradient(180deg,#fff9ec 0%,#f8e4ba 100%);
+    border:3px solid gold;border-radius:20px;
+    padding:16px;width:90%;max-width:600px;margin:16px auto 20px;
+    box-shadow:0 0 15px rgba(255,215,0,0.4);
+  }
+  #welcomeBox h2 { margin:4px 0;font-size:1.4rem; }
+  #totalStars { font-weight:bold;color:#d48a00; }
+
+  .section { display:none;margin-top:16px; }
+
+  table { font-size:0.85rem;border-collapse:collapse;margin:auto; }
+  th,td { padding:4px 6px; }
+
+  /* 🌟 Анимация чата */
+  @keyframes chatPop {
+    from { transform: translateY(40px); opacity: 0; box-shadow: 0 0 0 gold; }
+    to { transform: translateY(0); opacity: 1; box-shadow: 0 0 25px gold; }
+  }
+
+  #chatSection {
+    animation: chatPop 0.6s ease forwards;
+    position: relative;
+  }
+
+  /* ✨ Звёзды */
+  .star {
+    position: absolute;
+    font-size: 1.2rem;
+    color: gold;
+    opacity: 0;
+    animation: floatUp 3s ease-in-out infinite;
+  }
+
+  @keyframes floatUp {
+    0% { transform: translateY(0) scale(0.8); opacity: 0; }
+    30% { opacity: 1; }
+    100% { transform: translateY(-80px) scale(1.3); opacity: 0; }
+  }
+
+  /* 💫 Эффект звезды при повторе голоса */
+  .star-float {
+    position: absolute;
+    font-size: 1.4rem;
+    color: gold;
+    animation: floatUpStar 1.5s ease-out forwards;
+    pointer-events: none;
+    opacity: 0;
+  }
+  @keyframes floatUpStar {
+    0% { transform: translateY(0) scale(0.8); opacity: 1; }
+    80% { transform: translateY(-40px) scale(1.2); opacity: 1; }
+    100% { transform: translateY(-60px) scale(1.4); opacity: 0; }
+  }
 </style>
 </head>
 <body>
@@ -110,17 +165,50 @@ body.teacher-mode #teacherBanner { display:block; }
   </div>
 
   <div id="studentMenu" style="display:none;">
-    <button class="btn" onclick="openChatSection()">💬 AI Bayan Chat — Ask the Teacher 🤖</button>
+    <div class="topics-grid">
+      <div class="topic-card" onclick="openLesson(1)">1. 🎨 Let’s Have Fun!</div>
+      <div class="topic-card" onclick="openLesson(2)">2. 🏃 Sports and Exercises</div>
+      <div class="topic-card" onclick="openLesson(3)">3. 🌍 Sports Around the World</div>
+      <div class="topic-card" onclick="openLesson(4)">4. 🎵 Arts and Music</div>
+      <div class="topic-card" onclick="openLesson(5)">5. ⚽ Popular Team Sports</div>
+      <div class="topic-card" onclick="openLesson(6)">6. 🎻 Museum of Kazakh Musical Instruments</div>
+      <div class="topic-card" onclick="openLesson(7)">7. 📜 Children’s Rights & Responsibilities</div>
+      <div class="topic-card" onclick="openLesson(8)">8. 🧰 Different Jobs</div>
+      <div class="topic-card" onclick="openLesson(9)">9. 👩‍⚕️ Professions</div>
+      <div class="topic-card" onclick="openLesson(10)">10. 🏢 People at Work</div>
+      <div class="topic-card" onclick="openLesson(11)">11. 💬 What Do You Do?</div>
+      <div class="topic-card" onclick="openLesson(12)">12. ❤️ You Can Help!</div>
+      <div class="topic-card" onclick="openLesson(13)">13. 🎯 Final Challenge</div>
+      <div class="topic-card" onclick="openChatSection()">💬 AI Bayan Chat — Ask the Teacher 🤖</div>
+    </div>
+    <button class="btn" onclick="openTeacherJournal()">🏫 Teacher Journal</button>
   </div>
 
-  <section id="chatSection" class="section" style="display:none;max-width:900px;margin:0 auto;">
+  <div id="teacherJournal" class="section">
+    <h2>🏫 Teacher Journal</h2>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Student</th>
+          <th>L1</th><th>L2</th><th>L3</th><th>L4</th><th>L5</th><th>L6</th>
+          <th>L7</th><th>L8</th><th>L9</th><th>L10</th><th>L11</th><th>L12</th><th>L13</th>
+          <th>Chat</th><th>Total ⭐</th>
+        </tr>
+      </thead>
+      <tbody id="journalBody"></tbody>
+    </table>
+    <button class="btn" onclick="logout()">Logout</button>
+  </div>
+
+  <!-- 💬 AI Bayan Chat -->
+  <section id="chatSection" class="section" style="display:none; max-width:900px; margin:0 auto;">
     <h2>💬 AI Bayan — Online Chat</h2>
-    <p>Ask or <b>speak</b> about grammar, vocabulary, or homework 🎤</p>
+    <p>Ask or <b>speak</b> about grammar, vocabulary, or homework.<br>You can talk in English or Russian 🎤</p>
 
     <div id="chatBox"
-         style="max-height:320px;overflow-y:auto;border:1px solid #ccc;
-                padding:10px;border-radius:10px;background:#fff;
-                text-align:left;font-size:0.9rem;"></div>
+         style="max-height:320px; overflow-y:auto; border:1px solid #ccc;
+                padding:10px; border-radius:10px; background:#fff;
+                text-align:left; font-size:0.9rem;"></div>
 
     <div style="display:flex;align-items:center;gap:6px;margin-top:8px;">
       <textarea id="chatInput" placeholder="Type or say your question..."
@@ -132,7 +220,7 @@ body.teacher-mode #teacherBanner { display:block; }
     <button class="btn" onclick="clearChat()">Clear</button>
     <button class="btn" onclick="backToMenu()">🏠 Back to Menu</button>
 
-    <p id="limitCounter" style="font-weight:bold;color:#003366;">
+    <p id="limitCounter" style="font-weight:bold; color:#003366;">
       ⭐ 3 of 3 questions left today
     </p>
   </section>
@@ -144,25 +232,45 @@ const allowedNames=["Aytach2","Aylin2","Alvi2","Zhahangir2","Narmin2","Balman2",
 function checkLogin(){
   const name=document.getElementById("nameInput").value.trim();
   const pin=document.getElementById("pinInput").value.trim();
-  if(allowedNames.includes(name)&&pin==="6856"){
-    localStorage.setItem("currentStudent",name);
+  if(allowedNames.includes(name)&&pin==="6856"){localStorage.setItem("currentStudent",name);
     document.getElementById("loginOverlay").style.display="none";
     document.getElementById("studentMenu").style.display="block";
     document.getElementById("welcomeBox").style.display="block";
     document.getElementById("welcomeText").innerText="Hello, "+name+"!";
-  }else if(name.toLowerCase()==="teacher"&&pin==="1402"){
-    document.body.classList.add("teacher-mode");
+    updateStars();
+  }else if(name.toLowerCase()==="teacher"&&pin==="1402"){document.body.classList.add("teacher-mode");
     document.getElementById("loginOverlay").style.display="none";
+    document.getElementById("teacherJournal").style.display="block";
     document.getElementById("teacherBanner").style.display="block";
     localStorage.setItem("isTeacher","true");
-    document.getElementById("studentMenu").style.display="block";
+    buildJournal();
   }else alert("❌ Access denied. Check your name or PIN.");
 }
 
-let DAILY_LIMIT=3;
-let usedToday=Number(localStorage.getItem("usedToday"))||0;
-let lastDate=localStorage.getItem("lastDate");
-const today=new Date().toDateString();
+function updateStars(){
+  const name=localStorage.getItem("currentStudent");if(!name)return;
+  let total=0;for(let i=1;i<=13;i++){total+=Number(localStorage.getItem(name+"_lesson"+i+"Stars"))||0;}
+  total+=Number(localStorage.getItem(name+"_chatStars"))||0;
+  document.getElementById("totalStars").innerText=total;
+  localStorage.setItem(name+"_totalStars",total);
+}
+
+function buildJournal(){
+  const body=document.getElementById("journalBody");body.innerHTML="";
+  allowedNames.forEach(name=>{
+    let row="<tr><td>"+name+"</td>";let total=0;
+    for(let i=1;i<=13;i++){const stars=Number(localStorage.getItem(name+"_lesson"+i+"Stars"))||0;total+=stars;row+="<td>"+stars+"</td>";}
+    const chatStars=Number(localStorage.getItem(name+"_chatStars"))||0;total+=chatStars;
+    row+="<td>"+chatStars+"</td><td>"+total+"</td></tr>";body.innerHTML+=row;
+  });
+}
+
+function openLesson(n){window.location.href="theme"+n+".html";}
+function openTeacherJournal(){document.getElementById("studentMenu").style.display="none";document.getElementById("teacherJournal").style.display="block";buildJournal();}
+function logout(){localStorage.clear();window.location.href="index.html";}
+
+let DAILY_LIMIT=3;let usedToday=Number(localStorage.getItem("usedToday"))||0;
+let lastDate=localStorage.getItem("lastDate");const today=new Date().toDateString();
 let isTeacher=localStorage.getItem("isTeacher")==="true";
 if(lastDate!==today){usedToday=0;localStorage.setItem("lastDate",today);localStorage.setItem("usedToday",0);}
 
@@ -172,93 +280,50 @@ function updateCounter(){
   c.innerHTML=isTeacher?"👩‍🏫 Teacher mode: unlimited questions":`⭐ ${DAILY_LIMIT-usedToday} of ${DAILY_LIMIT} questions left today`;
 }
 
-function openChatSection(){
-  document.getElementById("studentMenu").style.display="none";
-  document.getElementById("chatSection").style.display="block";
-  updateCounter();
+function openChatSection(){document.getElementById("studentMenu").style.display="none";
+  const chat=document.getElementById("chatSection");chat.style.display="block";
+  chat.style.animation="chatPop 0.6s ease";updateCounter();generateStars(chat);}
+function generateStars(c){for(let i=0;i<15;i++){const s=document.createElement("div");
+  s.classList.add("star");s.textContent="✦";s.style.left=Math.random()*90+"%";
+  s.style.top=60+Math.random()*30+"%";s.style.animationDelay=Math.random()*2+"s";
+  c.appendChild(s);setTimeout(()=>s.remove(),3000);}}
+function backToMenu(){document.getElementById("chatSection").style.display="none";document.getElementById("studentMenu").style.display="block";}
+
+// 🎤 ГОЛОС
+function bayanSpeak(text,element){
+  if(element){const star=document.createElement("div");star.textContent="✨";star.className="star-float";
+    element.appendChild(star);setTimeout(()=>star.remove(),1500);}
+  if(!('speechSynthesis'in window))return;
+  const speakNow=()=>{const v=speechSynthesis.getVoices();
+    let voice=v.find(x=>x.name.includes("Google UK English Female")||x.name.includes("Microsoft Zira")||x.lang==="en-GB"||x.lang==="en-US");
+    if(!voice)voice=v[0];
+    const u=new SpeechSynthesisUtterance(text.replace(/([.!?]) /g,"$1 ... "));
+    u.voice=voice;u.lang="en-GB";u.rate=0.82;u.pitch=1.12;u.volume=1;
+    setTimeout(()=>speechSynthesis.speak(u),200);}
+  if(speechSynthesis.getVoices().length===0){speechSynthesis.onvoiceschanged=speakNow;}else speakNow();
 }
 
-function backToMenu(){
-  document.getElementById("chatSection").style.display="none";
-  document.getElementById("studentMenu").style.display="block";
-}
-
-// 🎙️ Voice to text
+// 🎙️ Голосовой ввод
 function startVoice(){
   if(!('webkitSpeechRecognition'in window)){alert("🎙️ Voice not supported.");return;}
   const r=new webkitSpeechRecognition();r.lang='en-US';r.interimResults=false;r.maxAlternatives=1;
-  r.start();
-  r.onstart=()=>{document.getElementById("chatInput").placeholder="🎤 Listening...";}
-  r.onresult=(e)=>{document.getElementById("chatInput").value=e.results[0][0].transcript;}
+  r.start();r.onstart=()=>{document.getElementById("chatInput").placeholder="🎙️ Listening...";}
+  r.onresult=(e)=>{const t=e.results[0][0].transcript;document.getElementById("chatInput").value=t;}
+  r.onerror=()=>{document.getElementById("chatInput").placeholder="Try again 🎤";}
   r.onend=()=>{document.getElementById("chatInput").placeholder="Type or say your question...";}
 }
 
-// 🔊 Voice AI Bayan
-function bayanSpeak(text,element){
-  if(element){
-    const star=document.createElement("div");
-    star.textContent="✨";
-    star.className="star-float";
-    element.appendChild(star);
-    setTimeout(()=>star.remove(),1500);
-  }
-  if(!('speechSynthesis'in window))return;
-  const speakNow=()=>{
-    const v=speechSynthesis.getVoices();
-    let voice=v.find(x=>x.name.includes("Google UK English Female")||x.lang==="en-GB"||x.lang==="en-US");
-    if(!voice)voice=v[0];
-    const u=new SpeechSynthesisUtterance(text.replace(/([.!?]) /g,"$1 ... "));
-    u.voice=voice;u.lang="en-GB";u.rate=0.85;u.pitch=1.1;u.volume=1;
-    setTimeout(()=>speechSynthesis.speak(u),200);
-  };
-  if(speechSynthesis.getVoices().length===0){
-    speechSynthesis.onvoiceschanged=speakNow;
-  } else speakNow();
-}
-
-// 🤖 AI Chat
+// 🤖 ЧАТ
 async function askBayan(){
-  const i=document.getElementById('chatInput');
-  const b=document.getElementById('chatBox');
-  const q=i.value.trim();
-  if(!q){alert("Type your question first!");return;}
-  if(!isTeacher&&usedToday>=DAILY_LIMIT){
-    alert("⚠️ You reached today’s limit of 3 questions.");return;
-  }
-
-  b.innerHTML+=`<p><b>You:</b> ${q}</p>`;
-  i.value="";
-  b.innerHTML+=`<p><i>AI Bayan is thinking...</i></p>`;
-  b.scrollTop=b.scrollHeight;
-
+  const i=document.getElementById('chatInput');const b=document.getElementById('chatBox');
+  const q=i.value.trim();if(!q){alert("Please type or say your question!");return;}
+  if(!isTeacher&&usedToday>=DAILY_LIMIT){alert("⚠️ You reached today’s limit of 3 questions.");return;}
+  b.innerHTML+=`<p><b>You:</b> ${q}</p>`;i.value="";
+  b.innerHTML+=`<p><i>AI Bayan is thinking...</i></p>`;b.scrollTop=b.scrollHeight;
   try{
-    const r=await fetch("https://shiny-tree-f78c.aiko030500.workers.dev",{
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({messages:[{role:"user",content:q}]})
-    });
-    const d=await r.json();
-    const reply=d.reply||"Sorry, I can’t answer now.";
-    b.innerHTML+=`<p><b>AI Bayan:</b> ${reply}
-      <button class="btn" style="background:gold;color:#003366;margin-left:10px;font-size:0.8rem;"
-      onclick="bayanSpeak(\`${reply.replace(/`/g,"\\`")}\`,this.parentElement)">🎧 Repeat Voice</button></p>`;
-    b.scrollTop=b.scrollHeight;
-
-    bayanSpeak(reply,b);
-
-    if(!isTeacher){
-      usedToday++;
-      localStorage.setItem("usedToday",usedToday);
-      updateCounter();
-    }
-  }catch(err){
-    b.innerHTML+=`<p><b>AI Bayan:</b> ❌ Connection error.</p>`;
-  }
-}
-
-function clearChat(){
-  document.getElementById("chatBox").innerHTML="";
-}
-</script>
-</body>
-</html>
+    const r=await fetch("https://shiny-tree-f78c.aiko030500.workers.dev",{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({messages:[{role:"user",content:q}]})});
+    const d=await r.json();const reply=d.reply||"Sorry, I can’t answer now.";
+    const id="reply_"+Date.now();
+    b.innerHTML+=`<div id="${id}"><p><b>AI Bayan:</b> ${reply}</p>
+    <button class="btn" style="background:gold
