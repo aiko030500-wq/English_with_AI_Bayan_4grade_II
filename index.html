@@ -3,192 +3,214 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>English with AI Bayan 4grade II (Online + Offline Auto)</title>
+<title>AI Bayan Chat — English with AI Bayan 4grade II</title>
 <style>
   body {
     font-family: Verdana, sans-serif;
     background: linear-gradient(180deg,#fff6e5 0%,#f3e0b8 100%);
-    margin: 0;
-    color: #002b5c;
-    text-align: center;
+    margin: 0; color: #002b5c; text-align: center;
   }
   header {
-    background: #003366;
-    color: white;
-    padding: 1rem;
+    background: #003366; color: white; padding: 1rem;
     border-bottom: 5px solid gold;
   }
   main { padding: 1rem; }
+  #chatBox {
+    max-width: 700px; margin: 0 auto; background: white;
+    border: 2px solid gold; border-radius: 12px;
+    padding: 10px; height: 360px; overflow-y: auto; text-align: left;
+    font-size: 0.95rem;
+  }
+  .msg { margin:6px 0; padding:6px 10px; border-radius:10px; line-height:1.4; }
+  .user { background:#e3f2fd; border-left:3px solid #1565c0; }
+  .ai { background:#fff8e1; border-left:3px solid gold; }
+  textarea {
+    width:95%; max-width:700px; margin-top:10px;
+    min-height:60px; border-radius:10px; border:1px solid #ccc;
+    font-family:inherit; font-size:1rem; padding:6px;
+  }
   .btn {
     display:inline-block;margin:6px;padding:8px 14px;border-radius:10px;
-    border:none;background:#003366;color:white;font-weight:bold;cursor:pointer;font-size:0.9rem;
+    border:none;background:#003366;color:white;font-weight:bold;cursor:pointer;
   }
   .btn:hover{background:gold;color:#003366;}
-  .overlay{position:fixed;inset:0;background:rgba(0,0,0,0.55);display:flex;align-items:center;justify-content:center;z-index:999;}
-  .overlay-card{background:white;padding:20px;border-radius:16px;width:90%;max-width:400px;box-shadow:0 0 15px rgba(0,0,0,0.3);border:4px solid gold;}
-  .overlay-card input{width:100%;padding:8px;margin:6px 0;border-radius:8px;border:1px solid #ccc;font-size:1rem;}
-  .logo-main{width:120px;height:120px;border-radius:50%;border:3px solid gold;margin-bottom:6px;object-fit:cover;}
-  .topics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;max-width:900px;margin:0 auto 15px;}
-  .topic-card{background:white;border-radius:16px;padding:12px;box-shadow:0 0 8px rgba(0,0,0,0.08);cursor:pointer;border:2px solid #dde6ff;font-size:0.95rem;}
-  .topic-card:hover{border-color:gold;transform:translateY(-1px);}
-  #welcomeBox{background:linear-gradient(180deg,#fff9ec 0%,#f8e4ba 100%);border:3px solid gold;border-radius:20px;padding:16px;width:90%;max-width:600px;margin:16px auto 20px;box-shadow:0 0 15px rgba(255,215,0,0.4);}
-  #welcomeBox h2{margin:4px 0;font-size:1.4rem;}
-  #totalStars{font-weight:bold;color:#d48a00;}
-  .section{display:none;margin-top:16px;}
-  table{font-size:0.85rem;border-collapse:collapse;margin:auto;}
-  th,td{padding:4px 6px;border:1px solid #ccc;}
-  .pulse{display:inline-block;width:12px;height:12px;margin-right:6px;border-radius:50%;background:red;animation:pulse 1s infinite;vertical-align:middle;}
-  @keyframes pulse{0%{opacity:1;transform:scale(1);}50%{opacity:0.3;transform:scale(1.3);}100%{opacity:1;transform:scale(1);}}
+  .pulse{display:inline-block;width:12px;height:12px;margin-right:6px;border-radius:50%;
+    background:red;animation:pulse 1s infinite;vertical-align:middle;}
+  @keyframes pulse{0%{opacity:1;transform:scale(1);}50%{opacity:0.3;transform:scale(1.3);}
+    100%{opacity:1;transform:scale(1);}}
 </style>
 </head>
 <body>
 
-<!-- 🔐 LOGIN -->
-<div class="overlay" id="loginOverlay">
-  <div class="overlay-card">
-    <h1>English with AI Bayan</h1>
-    <input type="text" id="nameInput" placeholder="Enter your name">
-    <input type="password" id="pinInput" placeholder="Enter PIN" maxlength="4">
-    <button class="btn" onclick="checkLogin()">Enter</button>
-  </div>
-</div>
-
-<header><h1>English with AI Bayan 4grade II (ONLINE + OFFLINE AUTO)</h1></header>
+<header>
+  <h1>💬 AI Bayan — Online + Offline Auto</h1>
+  <p style="font-size:0.9rem;margin:0;">English with AI Bayan 4grade II</p>
+</header>
 
 <main>
-  <div id="welcomeBox" style="display:none;">
-    <img src="logo.png" alt="AI Bayan Logo" class="logo-main">
-    <h2 id="welcomeText"></h2>
-    <p>You have <span id="totalStars">0</span> ⭐ total stars!</p>
-  </div>
-
-  <div id="studentMenu" style="display:none;">
-    <div class="topics-grid">
-      <div class="topic-card" onclick="openLesson(1)">1. 🎨 Let’s Have Fun!</div>
-      <div class="topic-card" onclick="openLesson(2)">2. 🏃 Sports and Exercises</div>
-      <div class="topic-card" onclick="openLesson(3)">3. 🌍 Sports Around the World</div>
-      <div class="topic-card" onclick="openLesson(4)">4. 🎵 Arts and Music</div>
-      <div class="topic-card" onclick="openLesson(5)">5. ⚽ Popular Team Sports</div>
-      <div class="topic-card" onclick="openLesson(6)">6. 🎻 Museum of Kazakh Musical Instruments</div>
-      <div class="topic-card" onclick="openLesson(7)">7. 📜 Children’s Rights & Responsibilities</div>
-      <div class="topic-card" onclick="openLesson(8)">8. 🧰 Different Jobs</div>
-      <div class="topic-card" onclick="openLesson(9)">9. 👩‍⚕️ Professions</div>
-      <div class="topic-card" onclick="openLesson(10)">10. 🏢 People at Work</div>
-      <div class="topic-card" onclick="openLesson(11)">11. 💬 What Do You Do?</div>
-      <div class="topic-card" onclick="openLesson(12)">12. ❤️ You Can Help!</div>
-      <div class="topic-card" onclick="openLesson(13)">13. 🎯 Final Challenge</div>
-      <div class="topic-card" onclick="openChatSection()">💬 AI Bayan Chat — Ask the Teacher 🤖</div>
-    </div>
-    <button class="btn" onclick="openTeacherJournal()">🏫 Teacher Journal</button>
-  </div>
-
-  <div id="teacherJournal" class="section">
-    <h2>🏫 Teacher Journal</h2>
-    <table>
-      <thead><tr><th>Student</th>
-      <th>L1</th><th>L2</th><th>L3</th><th>L4</th><th>L5</th><th>L6</th>
-      <th>L7</th><th>L8</th><th>L9</th><th>L10</th><th>L11</th><th>L12</th><th>L13</th><th>Total ⭐</th></tr></thead>
-      <tbody id="journalBody"></tbody>
-    </table>
-    <button class="btn" onclick="logout()">Logout</button>
-  </div>
-</main>
-
-<section id="chatSection" class="section" style="max-width:900px;margin:0 auto;">
-  <h2>💬 AI Bayan — Teacher Chat</h2>
-  <div id="chatBox" style="max-height:320px;overflow-y:auto;border:1px solid #ccc;
-  padding:10px;border-radius:10px;background:#fff;text-align:left;font-size:0.9rem;"></div>
-  <textarea id="chatInput" placeholder="Type your question here..."
-  style="width:100%;border-radius:8px;margin-top:8px;min-height:60px;"></textarea><br>
+  <div id="chatBox"></div>
+  <textarea id="chatInput" placeholder="Type your question here..."></textarea><br>
   <button class="btn" onclick="askBayan()">Ask AI Bayan</button>
   <button class="btn" onclick="clearChat()">Clear</button>
-  <button class="btn" onclick="goMenu()">🏠 Back to Menu</button>
-  <button class="btn" onclick="startSpeech()">🎙️ Speak to AI Bayan</button>
-  <p id="micStatus" style="font-size:0.85rem;color:#555;margin-top:6px;"></p>
-</section>
+  <button class="btn" onclick="startSpeech()">🎙️ Speak</button>
+  <p id="micStatus" style="font-size:0.85rem;color:#555;"></p>
+</main>
 
 <script>
-const allowedNames=["Aylin2","Aitach2","Zhakhangir2","Alvi2","Narmin2","Balman2","Dima2","Ilyas2","Kirill2","Irada2","Shyngys2","Sultan2","Kira2","Damir2","Arai2","Bayan2","Jury2","Jury3"];
-
-function checkLogin(){
-  const n=document.getElementById("nameInput").value.trim();
-  const p=document.getElementById("pinInput").value.trim();
-  if(allowedNames.includes(n)&&p==="6856"){
-    localStorage.setItem("currentStudent",n);
-    document.getElementById("loginOverlay").style.display="none";
-    document.getElementById("studentMenu").style.display="block";
-    document.getElementById("welcomeBox").style.display="block";
-    document.getElementById("welcomeText").innerText="Hello, "+n+"!";
-    updateStars();
-  } else if(n.toLowerCase()==="teacher"&&p==="9995"){
-    document.getElementById("loginOverlay").style.display="none";
-    document.getElementById("teacherJournal").style.display="block";
-    buildJournal();
-  } else alert("❌ Access denied.");
-}
-
-function openLesson(n){window.location.href="theme"+n+".html";}
-function openChatSection(){document.getElementById("studentMenu").style.display="none";document.getElementById("chatSection").style.display="block";}
-function goMenu(){document.getElementById("chatSection").style.display="none";document.getElementById("studentMenu").style.display="block";}
-function updateStars(){
-  const name=localStorage.getItem("currentStudent");if(!name)return;
-  let total=0;for(let i=1;i<=13;i++)total+=Number(localStorage.getItem(name+"_lesson"+i+"Stars"))||0;
-  document.getElementById("totalStars").innerText=total;localStorage.setItem(name+"_totalStars",total);
-}
-function openTeacherJournal(){
-  document.getElementById("studentMenu").style.display="none";
-  document.getElementById("teacherJournal").style.display="block";buildJournal();
-}
-function buildJournal(){
-  const b=document.getElementById("journalBody");b.innerHTML="";
-  allowedNames.forEach(n=>{let row="<tr><td>"+n+"</td>";let t=0;for(let i=1;i<=13;i++){const s=Number(localStorage.getItem(n+"_lesson"+i+"Stars"))||0;t+=s;row+="<td>"+s+"</td>";}row+="<td>"+t+"</td></tr>";b.innerHTML+=row;});
-}
-function logout(){localStorage.removeItem("currentStudent");location.reload();}
-
 /* === ONLINE + AUTO-OFFLINE === */
 async function askBayan(){
-  const input=document.getElementById('chatInput');const box=document.getElementById('chatBox');
-  const question=input.value.trim();if(!question){alert("Type your question first.");return;}
-  box.innerHTML+=`<p><b>You:</b> ${question}</p>`;box.innerHTML+=`<p id="thinking"><i>AI Bayan is thinking...</i></p>`;
-  box.scrollTop=box.scrollHeight;input.value="";
+  const input=document.getElementById('chatInput');
+  const box=document.getElementById('chatBox');
+  const question=input.value.trim();
+  if(!question){alert("Type your question first.");return;}
+  addMsg("user",question);
+  addMsg("ai","<i>AI Bayan is thinking...</i>",true);
+
   try{
     const controller=new AbortController();
     const timeoutId=setTimeout(()=>controller.abort(),5000);
     const response=await fetch("https://shiny-tree-f78c.aiko030500.workers.dev",{
       method:"POST",headers:{"Content-Type":"application/json"},signal:controller.signal,
-      body:JSON.stringify({model:"gpt-4o-mini",messages:[
-        {role:"system",content:"You are AI Bayan, a kind English teacher for 4th grade kids in Kazakhstan."},
-        {role:"user",content:question}]})
+      body:JSON.stringify({
+        model:"gpt-4o-mini",
+        messages:[
+          {role:"system",content:"You are AI Bayan, a kind English teacher for 4th grade kids in Kazakhstan."},
+          {role:"user",content:question}
+        ]
+      })
     });
     clearTimeout(timeoutId);
-    if(!response.ok)throw new Error("Server error");
+    if(!response.ok) throw new Error("Server error");
     const data=await response.json();
     const answer=data.choices?.[0]?.message?.content||"";
-    document.getElementById("thinking").remove();
-    if(answer){box.innerHTML+=`<p><b>AI Bayan:</b> ${answer}</p>`;bayanSpeak(answer);}
+    removeThinking();
+    if(answer){addMsg("ai",answer);bayanSpeak(answer);}
     else throw new Error("Empty");
-  }catch(err){
-    const t=document.getElementById("thinking");if(t)t.remove();
+  }catch{
+    removeThinking();
     const offlineAnswer=getOfflineAnswer(question);
-    box.innerHTML+=`<p><b>AI Bayan (Offline):</b> ${offlineAnswer}</p>`;
-    box.scrollTop=box.scrollHeight;bayanSpeak(offlineAnswer);
+    addMsg("ai","<b>(Offline)</b> "+offlineAnswer);
+    bayanSpeak(offlineAnswer);
   }
 }
 
+function addMsg(role,text,noVoice=false){
+  const box=document.getElementById('chatBox');
+  box.innerHTML+=`<p class="msg ${role}"><b>${role==="user"?"You":"AI Bayan"}:</b> ${text}</p>`;
+  box.scrollTop=box.scrollHeight;
+}
+function removeThinking(){
+  const box=document.getElementById('chatBox');
+  box.innerHTML=box.innerHTML.replace(/<p class="msg ai"><b>AI Bayan:<\/b> <i>AI Bayan is thinking\.\.\.<\/i><\/p>/,"");
+}
 function clearChat(){document.getElementById('chatBox').innerHTML="";}
-function bayanSpeak(text){const s=()=>{const v=speechSynthesis.getVoices();let voice=v.find(x=>x.name.includes("Google UK English Female")||x.lang==="en-GB");if(!voice)voice=v[0];const u=new SpeechSynthesisUtterance(text);u.voice=voice;u.lang="en-GB";u.rate=0.9;u.pitch=1;u.volume=1;speechSynthesis.speak(u);};if(speechSynthesis.getVoices().length===0){speechSynthesis.onvoiceschanged=s;}else{s();}}
 
-/* === OFFLINE AI with MEMORY === */
-function getOfflineAnswer(q){q=q.toLowerCase().trim();const name=localStorage.getItem("currentStudent")||"student";const say=t=>`${t} ${name}!`;if(q.includes("hello")||q.includes("hi"))return say("Hello, nice to see you again,");if(q.includes("how are you"))return say("I'm great, thank you! How are you,");if(q.includes("noun"))return "A noun is a name of a person, place or thing. (Существительное — это название предмета, человека или места.)";if(q.includes("thank"))return say("You're welcome,");if(q.includes("bye"))return say("Goodbye, see you next time,");if(q.startsWith("translate")){const w=q.replace("translate","").trim();const d={apple:"яблоко",book:"книга",dog:"собака",cat:"кошка",school:"школа",friend:"друг"};if(d[w])return `'${w}' = ${d[w]}`;return say("I don’t know that word yet, try another one,");}if(q.includes("past of")){if(q.includes("go"))return "Past of 'go' is 'went'.";if(q.includes("eat"))return "Past of 'eat' is 'ate'.";if(q.includes("see"))return "Past of 'see' is 'saw'.";if(q.includes("do"))return "Past of 'do' is 'did'.";return "Example: play → played.";}if(q.includes("fun"))return say("Let's have fun and smile together,");if(q.includes("sport"))return say("Sports are great! Run, jump, swim,");if(q.includes("music"))return "Music makes us happy! Instruments: guitar, dombra, piano 🎶";return say("I'm your Offline AI Bayan 🤖 Ask me anything about English,");}
+/* === SPEECH SYNTHESIS === */
+function bayanSpeak(text){
+  const speakNow=()=>{
+    const v=speechSynthesis.getVoices();
+    let voice=v.find(x=>x.name.includes("Google UK English Female")||x.lang==="en-GB");
+    if(!voice)voice=v[0];
+    const u=new SpeechSynthesisUtterance(text);
+    u.voice=voice;u.lang="en-GB";u.rate=0.9;u.pitch=1;u.volume=1;
+    speechSynthesis.speak(u);
+  };
+  if(speechSynthesis.getVoices().length===0){
+    speechSynthesis.onvoiceschanged=speakNow;
+  }else{speakNow();}
+}
+
+/* === OFFLINE AI with 13 Themes + Grammar + Translation === */
+function getOfflineAnswer(q){
+  q=q.toLowerCase().trim();
+  const say=t=>`${t}`;
+  // Greetings
+  if(q.includes("hello")||q.includes("hi"))return say("Hello, nice to see you again!");
+  if(q.includes("how are you"))return say("I'm great, thank you! How are you?");
+  if(q.includes("thank"))return say("You're welcome!");
+  if(q.includes("bye"))return say("Goodbye, see you next time!");
+
+  // Grammar
+  if(q.includes("noun"))return "A noun names a person, place or thing. Example: cat, teacher, school.";
+  if(q.includes("verb"))return "A verb shows action or state. Example: run, is, sleep.";
+  if(q.includes("adjective"))return "An adjective describes a noun. Example: big, kind, happy.";
+  if(q.includes("adverb"))return "An adverb describes a verb. Example: quickly, well.";
+  if(q.includes("pronoun"))return "A pronoun replaces a noun: he, she, it.";
+  if(q.includes("preposition"))return "A preposition shows relation between words: in, on, under.";
+  if(q.includes("present simple"))return "Present Simple: I play, you play, he plays – for routines.";
+  if(q.includes("past simple"))return "Past Simple: I played, she went – for finished past actions.";
+  if(q.includes("future simple"))return "Future Simple: I will go – for future plans.";
+
+  // 13 Themes
+  if(q.includes("fun")||q.includes("game"))return "Let's have fun and play English games together!";
+  if(q.includes("sport")||q.includes("exercise"))return "Sports keep us healthy – run, jump and smile!";
+  if(q.includes("world")&&q.includes("sport"))return "People everywhere love football, tennis and basketball.";
+  if(q.includes("art")||q.includes("music"))return "Art is creative, music makes us happy 🎵.";
+  if(q.includes("museum")||q.includes("dombra"))return "The Dombra is a Kazakh instrument with two strings.";
+  if(q.includes("right")||q.includes("responsibility"))return "Children have the right to study, play and be safe.";
+  if(q.includes("job")||q.includes("profession"))return "Jobs are important: teacher, doctor, driver help people.";
+  if(q.includes("work")||q.includes("worker"))return "People work in schools, offices and hospitals.";
+  if(q.includes("help")||q.includes("volunteer"))return "You can help friends and our planet 🌍.";
+  if(q.includes("kazakhstan")||q.includes("country"))return "Kazakhstan is my country. Its capital is Astana 🇰🇿.";
+  if(q.includes("travel")||q.includes("transport"))return "We travel by car, train, plane or bus.";
+  if(q.includes("season")||q.includes("weather"))return "Four seasons: spring, summer, autumn and winter.";
+  if(q.includes("dream")||q.includes("future"))return "Dream big! You can be a scientist or artist one day.";
+
+  // Translation RU→EN
+  const tmap={
+    "привет":"Hello","как дела":"How are you?","спасибо":"Thank you",
+    "до свидания":"Goodbye","доброе утро":"Good morning","добрый вечер":"Good evening",
+    "спокойной ночи":"Good night","учитель":"Teacher","друзья":"Friends","моя семья":"My family"
+  };
+  for(const k in tmap){if(q.includes(k))return `‘${k}’ means ‘${tmap[k]}’.`; }
+
+  // Mini dictionary command
+  if(q.startsWith("translate")){
+    const w=q.replace("translate","").trim();
+    const dict={
+      apple:"яблоко",book:"книга",dog:"собака",cat:"кошка",school:"школа",
+      friend:"друг",teacher:"учитель",family:"семья",sun:"солнце",love:"любовь",
+      music:"музыка",sport:"спорт",game:"игра",dream:"мечта",work:"работа"
+    };
+    if(dict[w])return `'${w}' = ${dict[w]}`;
+    return say("I don’t know that word yet, try another one.");
+  }
+
+  // Default
+  return say("I'm your Offline AI Bayan 🤖 Ask me about English, grammar or our themes!");
+}
 
 /* === MICROPHONE === */
 let recognizing=false;let recognition;
-function startSpeech(){const status=document.getElementById("micStatus");const chat=document.getElementById("chatBox");if(!('webkitSpeechRecognition'in window||'SpeechRecognition'in window)){alert("Speech recognition not supported.");return;}
-const beep=(t="start")=>{const ctx=new AudioContext(),osc=ctx.createOscillator(),g=ctx.createGain();osc.connect(g);g.connect(ctx.destination);osc.frequency.value=t==="start"?700:400;g.gain.setValueAtTime(0.15,ctx.currentTime);osc.start();osc.stop(ctx.currentTime+0.15);};
-const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-if(!recognition){recognition=new SR();recognition.lang="en-US";recognition.interimResults=false;recognition.maxAlternatives=1;recognition.onstart=()=>{recognizing=true;status.innerHTML='<span class="pulse"></span> 🎙️ Listening...';beep("start");};recognition.onend=()=>{recognizing=false;status.innerText="✅ Done listening.";beep("end");setTimeout(()=>status.innerText="",1500);};recognition.onerror=()=>{status.innerText="⚠️ Mic error.";};recognition.onresult=e=>{const spoken=e.results[0][0].transcript;chat.innerHTML+=`<p><b>You (voice):</b> ${spoken}</p>`;const a=getOfflineAnswer(spoken);chat.innerHTML+=`<p><b>AI Bayan (Offline):</b> ${a}</p>`;chat.scrollTop=chat.scrollHeight;bayanSpeak(a);};}
-if(!recognizing)recognition.start();}
+function startSpeech(){
+  const status=document.getElementById("micStatus");
+  if(!('webkitSpeechRecognition'in window||'SpeechRecognition'in window)){
+    alert("Speech recognition not supported.");return;
+  }
+  const beep=t=>{
+    const ctx=new AudioContext(),osc=ctx.createOscillator(),g=ctx.createGain();
+    osc.connect(g);g.connect(ctx.destination);
+    osc.frequency.value=t==="start"?700:400;
+    g.gain.setValueAtTime(0.15,ctx.currentTime);
+    osc.start();osc.stop(ctx.currentTime+0.15);
+  };
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!recognition){
+    recognition=new SR();recognition.lang="en-US";
+    recognition.interimResults=false;recognition.maxAlternatives=1;
+    recognition.onstart=()=>{recognizing=true;status.innerHTML='<span class="pulse"></span> 🎙️ Listening...';beep("start");};
+    recognition.onend=()=>{recognizing=false;status.innerText="✅ Done listening.";beep("end");setTimeout(()=>status.innerText="",1500);};
+    recognition.onerror=()=>{status.innerText="⚠️ Mic error.";};
+    recognition.onresult=e=>{
+      const spoken=e.results[0][0].transcript;
+      addMsg("user",spoken);
+      const a=getOfflineAnswer(spoken);
+      addMsg("ai","<b>(Offline)</b> "+a);
+      bayanSpeak(a);
+    };
+  }
+  if(!recognizing)recognition.start();
+}
 </script>
-
 </body>
 </html>
