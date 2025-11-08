@@ -731,6 +731,103 @@ function bayanSpeak(text){
   speechSynthesis.speak(utter);
 }
 </script>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Theme 1 — Let’s Have Fun!</title>
+<style>
+  body {
+    font-family: Verdana, sans-serif;
+    background: radial-gradient(circle at top,#fff7ff 0%,#ffe9ff 35%,#d7ecff 100%);
+    color:#25215a;
+    text-align:center;
+    margin:0;
+  }
+  header {
+    background:linear-gradient(90deg,#5a2ea6,#f06292);
+    color:white;
+    padding:0.8rem;
+    border-bottom:4px solid #ffd54f;
+  }
+  .question {
+    background:white;
+    border-radius:12px;
+    padding:10px;
+    margin:12px auto;
+    width:85%;
+    box-shadow:0 0 8px rgba(0,0,0,0.1);
+  }
+  input[type="text"] {
+    padding:5px;
+    border-radius:6px;
+    border:1px solid #ccc;
+  }
+  .btn {
+    background:#5a2ea6;
+    color:white;
+    padding:8px 14px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+    margin-top:10px;
+  }
+  .btn:hover { background:#ffd54f; color:#5a2ea6; }
+  .mark { font-size:1.4rem; margin-left:8px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🎨 Theme 1 — Let’s Have Fun!</h1>
+</header>
+
+<main>
+  <div class="question">
+    <p>1. What do children play in the park?</p>
+    <input type="text" id="q1">
+    <span id="m1" class="mark"></span>
+  </div>
+
+  <div class="question">
+    <p>2. What do you do in your free time?</p>
+    <input type="text" id="q2">
+    <span id="m2" class="mark"></span>
+  </div>
+
+  <button class="btn" onclick="checkAnswers()">Check</button>
+  <button class="btn" onclick="goBack()">🏠 Back to Menu</button>
+  <p id="score"></p>
+</main>
+
+<script>
+function checkAnswers(){
+  const answers = {
+    q1: ["games","football","hide and seek","tag"],
+    q2: ["read","play","draw","listen to music"]
+  };
+  let score = 0;
+  for (let i=1; i<=2; i++){
+    const input = document.getElementById("q"+i).value.toLowerCase().trim();
+    const mark = document.getElementById("m"+i);
+    if (answers["q"+i].some(ans => input.includes(ans))){
+      mark.textContent = "✅";
+      mark.style.color = "green";
+      score++;
+    } else {
+      mark.textContent = "❌";
+      mark.style.color = "red";
+    }
+  }
+  document.getElementById("score").innerText = `You got ${score}/2 correct! ⭐`;
+  localStorage.setItem(localStorage.getItem("currentStudent")+"_lesson1Stars", score);
+}
+function goBack(){ window.location.href = "index.html"; }
+</script>
+</body>
+</html>
 </body>
 </html>
  
