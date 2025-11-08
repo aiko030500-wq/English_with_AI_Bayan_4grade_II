@@ -146,12 +146,11 @@ function goMenu() {
   window.location.href = "index.html";
 }
 <script>
-<script>
 let DAILY_LIMIT = 3;
 let usedToday = Number(localStorage.getItem("usedToday")) || 0;
 let lastDate = localStorage.getItem("lastDate");
 const today = new Date().toDateString();
-let isTeacher = localStorage.getItem("isTeacher") === "true"; // сохраняем роль учителя
+let isTeacher = localStorage.getItem("isTeacher") === "true";
 
 if (lastDate !== today) {
   usedToday = 0;
@@ -159,7 +158,6 @@ if (lastDate !== today) {
   localStorage.setItem("usedToday", 0);
 }
 
-// === Обновляем счётчик ===
 function updateCounter() {
   const counter = document.getElementById("limitCounter");
   if (!counter) return;
@@ -171,7 +169,6 @@ function updateCounter() {
   }
 }
 
-// === Вход учителя ===
 function teacherLogin() {
   const pin = prompt("Enter teacher PIN:");
   if (pin === "9997") {
@@ -184,53 +181,6 @@ function teacherLogin() {
   updateCounter();
 }
 
-// === Отправка сообщений ===
-async function askBayan() {
-  if (!isTeacher && usedToday >= DAILY_LIMIT) {
-    const chatBox = document.getElementById("chatBox");
-    chatBox.innerHTML += `<div class="msg ai"><b>AI Bayan:</b> ⚠️ You’ve used your ${DAILY_LIMIT} questions for today. Please come back tomorrow!</div>`;
-    chatBox.scrollTop = chatBox.scrollHeight;
-    return;
-  }
-
-  const input = document.getElementById("userInput");
-  const message = input.value.trim();
-  if (!message) return;
-
-  const chatBox = document.getElementById("chatBox");
-  chatBox.innerHTML += `<div class="msg user">${message}</div>`;
-  input.value = "";
-  chatBox.innerHTML += `<div class="msg ai">⏳ AI Bayan is thinking...</div>`;
-  chatBox.scrollTop = chatBox.scrollHeight;
-
-  try {
-    const response = await fetch("https://shiny-tree-f78c.aiko030500.workers.dev", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        messages: [
-          { role: "system", content: "You are AI Bayan, a friendly English tutor for 4th-grade students." },
-          { role: "user", content: message }
-        ]
-      })
-    });
-
-    const data = await response.json();
-    const reply = data.reply || "⚠️ No reply received from AI Bayan.";
-    chatBox.lastElementChild.innerHTML = `<b>AI Bayan:</b> ${reply}`;
-
-    if (!isTeacher) {
-      usedToday++;
-      localStorage.setItem("usedToday", usedToday);
-      updateCounter();
-    }
-
-  } catch (err) {
-    chatBox.lastElementChild.innerHTML = `<b>AI Bayan:</b> ❌ Network error.`;
-  }
-}
-
-updateCounter();
 </script>
 </body>
 </html>
