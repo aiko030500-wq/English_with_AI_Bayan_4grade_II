@@ -13,28 +13,28 @@ body {
   text-align: center;
 }
 
-/* 🔹 HEADER */
+/* HEADER */
 header {
   background: linear-gradient(90deg,#5a2ea6,#f06292);
   color: white;
   padding: 0.6rem 1rem;
   border-bottom: 5px solid #ffd54f;
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
 }
 
-/* 🔹 ЛОГОТИП (увеличенный круг + воздух сверху) */
+/* Логотип квадрат 140px */
 .logo {
-  width: 180px;   /* увеличенный круг */
-  height: 180px;
-  border-radius: 50%;
-  border: 5px solid #ffd54f;
-  object-fit: cover;
+  width: 140px;
+  height: 140px;
+  border-radius: 20%;
+  border: 4px solid #ffd54f;
   background: white;
-  object-position: 50% 60%; /* опущена вниз, есть воздух над волосами */
-  transform: scale(1.0);
-  box-shadow: 0 0 12px rgba(255,213,79,0.9);
+  object-fit: cover;
+  object-position: 50% 42%;
+  box-shadow: 0 0 10px rgba(255,213,79,0.9);
+  margin-left: 12px;
 }
 
 h2 {color:#5a2ea6;}
@@ -69,6 +69,28 @@ h3 {
   font-size:0.9rem;
 }
 .btn:hover {background:#ffd54f; color:#45215a;}
+textarea {
+  width:100%;
+  border-radius:10px;
+  border:1px solid #ccc;
+  padding:6px;
+  font-family:inherit;
+  font-size:0.9rem;
+}
+input[type="text"] {
+  width:100%;
+  max-width:380px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  padding:4px 6px;
+  font-family:inherit;
+  font-size:0.9rem;
+}
+select {
+  border-radius:8px;
+  padding:2px 4px;
+  font-size:0.9rem;
+}
 .round-label {
   display:inline-block;
   background:#ffd54f;
@@ -79,24 +101,37 @@ h3 {
   font-weight:bold;
   margin-left:6px;
 }
+
+/* Feedback icons */
 .result-icon {
   font-size: 3rem;
   opacity: 0;
-  transform: translate(-50%,-50%) scale(0.5);
-  transition: 0.4s;
+  transform: scale(0.5);
+  transition: opacity 0.4s ease, transform 0.4s ease;
   position: fixed;
   top: 45%;
   left: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
   z-index: 9999;
   pointer-events: none;
 }
 .result-icon.show {
-  opacity: 1;
-  transform: translate(-50%,-50%) scale(1);
+  opacity:1;
+  transform: translate(-50%, -50%) scale(1);
 }
-.correct { color:#00c853; text-shadow:0 0 15px #7fff8c; }
-.wrong { color:#ff1744; text-shadow:0 0 15px #ff7f7f; }
-.mark-icon { margin-left:8px; font-size:1.2rem; font-weight:bold; }
+.correct {
+  color:#00c853;
+  text-shadow:0 0 15px #7fff8c;
+}
+.wrong {
+  color:#ff1744;
+  text-shadow:0 0 15px #ff7f7f;
+}
+.mark-icon {
+  margin-left: 8px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
 .correctMark { color:#00c853; }
 .wrongMark { color:#ff1744; }
 </style>
@@ -104,11 +139,13 @@ h3 {
 
 <body>
 <header>
-  <div>
-    <h1 style="margin:0;font-size:1rem;">Theme 1 — Let’s Have Fun!</h1>
-    <p style="margin:0;color:#ffe9c4;">English with AI Bayan — Games and Fun</p>
+  <div style="display:flex;align-items:center;justify-content:center;gap:12px;">
+    <h1 style="margin:0;font-size:1.2rem;text-align:center;line-height:1.3;">
+      Theme 1 — Let’s Have Fun!<br>
+      <span style="font-size:0.95rem;color:#ffe9c4;">English with AI Bayan — Games and Fun</span>
+    </h1>
+    <img src="logo.png" class="logo" alt="AI Bayan logo">
   </div>
-  <img src="logo.png" class="logo" alt="AI Bayan logo">
 </header>
 
 <main>
@@ -199,43 +236,13 @@ function updateStarsText(){
  document.getElementById('lessonStarsLine').innerText="You have "+totalStars+" ⭐ in this lesson.";
  document.getElementById('finalStars').innerText=totalStars;
 }
-function speakBayanText(t){
- if(!('speechSynthesis'in window))return;
- const u=new SpeechSynthesisUtterance(t);
- u.lang="en-US";u.rate=0.9;u.pitch=1.05;
- speechSynthesis.speak(u);
-}
+function speakBayanText(t){if(!('speechSynthesis'in window))return;const u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=0.9;u.pitch=1.05;speechSynthesis.speak(u);}
 function stopBayan(){speechSynthesis.cancel();}
 function speakVocab(t){speakBayanText(t);}
-function markAnswer(el,ok){
- let m=el.parentElement.querySelector('.mark-icon');
- if(!m){m=document.createElement('span');el.parentElement.appendChild(m);}
- m.textContent=ok?'✅':'❌';
- m.className='mark-icon '+(ok?'correctMark':'wrongMark');
-}
-function showResult(ok){
- const i=document.getElementById('feedbackIcon');
- if(!i)return;
- i.textContent=ok?'✔':'✖';
- i.className='result-icon '+(ok?'correct show':'wrong show');
- setTimeout(()=>i.classList.remove('show'),900);
-}
-function checkVocab(){
- let c=0;
- ['v1','v2','v3','v4','v5'].forEach(id=>{
-  const q=document.querySelector('input[name="'+id+'"]:checked');
-  if(q){const ok=q.value==='1';markAnswer(q,ok);if(ok)c++;}});
- if(c>0){addStar();vocabStars.innerText='⭐ '+c+' correct!';showResult(true);}
- else showResult(false);
-}
-function checkGrammar(){
- let c=0;
- [['g1','areplaying'],['g2','isflying'],['g3','arefishing']].forEach(([id,a])=>{
-  const q=document.querySelector('input[name="'+id+'"]:checked');
-  if(q){const ok=q.value===a;markAnswer(q,ok);if(ok)c++;}});
- if(c>0){addStar();grammarStars.innerText='⭐ '+c+' correct!';showResult(true);}
- else showResult(false);
-}
+function markAnswer(el,ok){let m=el.parentElement.querySelector('.mark-icon');if(!m){m=document.createElement('span');el.parentElement.appendChild(m);}m.textContent=ok?'✅':'❌';m.className='mark-icon '+(ok?'correctMark':'wrongMark');}
+function showResult(ok){const i=document.getElementById('feedbackIcon');if(!i)return;i.textContent=ok?'✔':'✖';i.className='result-icon '+(ok?'correct show':'wrong show');setTimeout(()=>i.classList.remove('show'),900);}
+function checkVocab(){let c=0;['v1','v2','v3','v4','v5'].forEach(id=>{const q=document.querySelector('input[name="'+id+'"]:checked');if(q){const ok=q.value==='1';markAnswer(q,ok);if(ok)c++;}});if(c>0){addStar();vocabStars.innerText='⭐ '+c+' correct!';showResult(true);}else showResult(false);}
+function checkGrammar(){let c=0;[['g1','areplaying'],['g2','isflying'],['g3','arefishing']].forEach(([id,a])=>{const q=document.querySelector('input[name="'+id+'"]:checked');if(q){const ok=q.value===a;markAnswer(q,ok);if(ok)c++;}});if(c>0){addStar();grammarStars.innerText='⭐ '+c+' correct!';showResult(true);}else showResult(false);}
 function finishLesson(){alert('Lesson 1 saved! '+totalStars+'⭐');}
 function goBack(){location.href='index.html';}
 function goMenu(){location.href='index.html';}
