@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>English with AI Bayan 4grade II</title>
 
-<!-- 🌟 PWA + установка как приложение -->
+<!-- 🌟 PWA -->
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#003366">
 <meta name="mobile-web-app-capable" content="yes">
@@ -20,7 +20,7 @@
     margin: 0;
     text-align: center;
     color: #002b5c;
-    background: #e3f2fd url("ornament-bg.png") center/cover fixed no-repeat;
+    background: #e3f2fd url("main-bg.png") center/cover fixed no-repeat;
     transition: background 0.6s;
   }
   body.teacher-mode {
@@ -42,24 +42,28 @@
     align-items: center;
     gap: 12px;
   }
-  .logo-circle {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 4px solid gold;
-    object-fit: cover;
-    background: #fff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.25);
-  }
+
+  /* 💠 Девочка справа */
   .girl-circle {
     width: 85px;
     height: 85px;
     border-radius: 50%;
     border: 4px solid gold;
     object-fit: cover;
-    background: #fff;
+    background: url("girl-logo.png") center/cover no-repeat;
     box-shadow: 0 0 10px rgba(0,0,0,0.25);
   }
+
+  .logo-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 4px solid gold;
+    object-fit: cover;
+    background: url("logo.png") center/cover no-repeat;
+    box-shadow: 0 0 10px rgba(0,0,0,0.25);
+  }
+
   .header-title h1 {
     margin: 0;
     font-size: 1.2rem;
@@ -90,6 +94,22 @@
     transition:0.3s; font-size:0.9rem;
   }
   .btn:hover { background:gold; color:#003366; }
+
+  .download-btn {
+    background: gold;
+    color: #003366;
+    border-radius: 25px;
+    padding: 10px 18px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+  }
+  .download-btn:hover {
+    background: white;
+    color: #003366;
+  }
 
   .overlay {
     position:fixed; inset:0;
@@ -162,14 +182,14 @@
 
 <header>
   <div class="header-left">
-    <img src="logo.png" alt="AI Bayan" class="logo-circle">
+    <div class="logo-circle"></div>
     <div class="header-title">
       <h1>English with AI Bayan 4 grade II</h1>
       <p>Fun English with AI Teacher Bayan</p>
     </div>
   </div>
   <div class="header-right">
-    <img src="girl.png" alt="Kazakh girl" class="girl-circle">
+    <div class="girl-circle"></div>
   </div>
 </header>
 
@@ -177,6 +197,7 @@
   <div id="welcomeBox" style="display:none;">
     <h2 id="welcomeText">Hello!</h2>
     <p>Total stars in all lessons: <b><span id="totalStars">0</span> ⭐</b></p>
+    <a href="English_with_AI_Bayan_4grade_II.zip" class="download-btn" download>⬇️ Скачать приложение</a>
   </div>
 
   <div id="mainMenu" style="display:none;">
@@ -198,29 +219,9 @@
       <div class="card" onclick="openTeacherJournal()">🏫 Teacher Journal</div>
     </div>
   </div>
-
-  <div id="chatSection" style="display:none;">
-    <h2>💬 AI Bayan — Chat</h2>
-    <div id="chatBox"></div>
-    <textarea id="chatInput" placeholder="Type your message..."></textarea><br>
-    <button class="btn" onclick="askBayan()">Ask AI Bayan</button>
-    <button class="btn" onclick="clearChat()">Clear</button>
-    <button class="btn" onclick="backMenu()">🏠 Menu</button>
-    <p id="limitCounter" style="font-weight:bold;color:#003366;">⭐ 3 of 3 questions left today</p>
-  </div>
-
-  <div id="teacherJournal" style="display:none;">
-    <h2>🏫 Teacher Journal</h2>
-    <table>
-      <thead>
-        <tr><th>Student</th><th>L1–L13</th><th>Chat</th><th>Total ⭐</th></tr>
-      </thead>
-      <tbody id="journalBody"></tbody>
-    </table>
-    <button class="btn" onclick="backMenu()">🏠 Menu</button>
-  </div>
 </main>
 
+<!-- 🔧 SCRIPT -->
 <script>
 const allowedNames=["Aytach2","Aylin2","Alvi2","Zhahangir2","Narmin2","Balman2","Ilyas2","Dmitry2","Irada2","Shyngys2","Kiril2","Sultan2","Kira2","Allahverdy2","Aziza2","Emir2","Monya2","Aeka2","Bayan2","Arai2","Jury2","Jury1","Meyirim2"];
 const WORKER_URL="https://shiny-tree-f78c.aiko030500.workers.dev";
@@ -233,9 +234,6 @@ function openChat(){document.getElementById("mainMenu").style.display="none";doc
 function openTeacherJournal(){document.getElementById("mainMenu").style.display="none";document.getElementById("teacherJournal").style.display="block";buildJournal();}
 function backMenu(){document.getElementById("teacherJournal").style.display="none";document.getElementById("chatSection").style.display="none";document.getElementById("mainMenu").style.display="block";}
 function buildJournal(){const b=document.getElementById("journalBody");b.innerHTML="";allowedNames.forEach(n=>{let t=0;for(let i=1;i<=13;i++)t+=Number(localStorage.getItem(n+"_lesson"+i+"Stars"))||0;const c=Number(localStorage.getItem(n+"_chatStars"))||0;t+=c;b.innerHTML+=`<tr><td>${n}</td><td>${t-c}</td><td>${c}</td><td>${t}</td></tr>`;});}
-function bayanSpeak(t){if(!("speechSynthesis"in window))return;const s=()=>{const v=speechSynthesis.getVoices();let voice=v.find(x=>x.name.includes("Google UK English Female")||x.lang==="en-GB");if(!voice)voice=v[0];const u=new SpeechSynthesisUtterance(t);u.voice=voice;u.lang="en-GB";u.rate=0.9;u.pitch=1.1;u.volume=1;speechSynthesis.speak(u);};if(speechSynthesis.getVoices().length===0){speechSynthesis.onvoiceschanged=s;}else s();}
-async function askBayan(){const i=document.getElementById("chatInput"),b=document.getElementById("chatBox"),q=i.value.trim();if(!q){alert("Type your question first!");return;}if(!isTeacher&&usedToday>=3){alert("⚠️ Limit reached.");return;}b.innerHTML+=`<p><b>You:</b> ${q}</p>`;i.value="";b.innerHTML+=`<p><i>AI Bayan is thinking...</i></p>`;b.scrollTop=b.scrollHeight;try{const r=await fetch(WORKER_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({messages:[{role:"user",content:q}]})});const d=await r.json();const reply=d.reply||"Sorry, I can’t answer now.";b.innerHTML+=`<p><b>AI Bayan:</b> ${reply}</p>`;bayanSpeak(reply);if(!isTeacher){usedToday++;localStorage.setItem("usedToday",usedToday);updateCounter();}}catch{b.innerHTML+=`<p><b>AI Bayan:</b> ❌ Connection error.</p>`;}}
-function clearChat(){document.getElementById("chatBox").innerHTML="";}
 updateCounter();
 </script>
 
