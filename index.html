@@ -121,24 +121,29 @@ main{padding:12px 8px 90px;}
 }
 .extra-btn:hover{background:#002D72;color:#fff;}
 
-/* 🔹 Кнопка установки */
+/* 🌟 Красивая кнопка установки */
 .install-btn{
   position:fixed;
-  bottom:14px;left:50%;
+  bottom:20px;left:50%;
   transform:translateX(-50%);
-  background:#FFD54F;
-  color:#002D72;
+  background:linear-gradient(90deg,#FFD54F,#FFF176);
+  color:#003366;
   border:none;
   border-radius:999px;
-  padding:10px 22px;
+  padding:14px 28px;
   font-weight:bold;
-  font-size:0.9rem;
-  box-shadow:0 3px 10px rgba(0,0,0,0.35);
+  font-size:1rem;
+  box-shadow:0 4px 12px rgba(0,0,0,0.25);
   cursor:pointer;
-  z-index:800;
+  z-index:999;
   display:none;
+  animation:pop 0.6s ease;
 }
-.install-btn:hover{background:#FFE47A;}
+.install-btn:hover{background:#FFE67A;}
+@keyframes pop{
+  0%{transform:translateX(-50%) scale(0.8);}
+  100%{transform:translateX(-50%) scale(1);}
+}
 </style>
 </head>
 
@@ -191,8 +196,8 @@ main{padding:12px 8px 90px;}
   </div>
 </main>
 
-<!-- 📲 Кнопка установки -->
-<button id="installBtn" class="install-btn">📲 Установить приложение</button>
+<!-- 🌟 Кнопка установки -->
+<button id="installBtn" class="install-btn">📲 Install AI Bayan App</button>
 
 <script>
 // 🌟 Регистрация service worker (если есть файл service-worker.js)
@@ -248,25 +253,6 @@ installBtn.addEventListener("click", async ()=>{
   deferredPrompt=null;
 });
 </script>
-<!-- 📲 Кнопка "Скачать на телефон" -->
-<a href="English_with_AI_Bayan_4grade_II.apk" download
-style="
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #FFD54F;
-  color: #003366;
-  border: none;
-  border-radius: 999px;
-  padding: 12px 28px;
-  font-weight: bold;
-  font-size: 1rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-  text-decoration: none;
-  z-index: 999;
-">
-📲 Скачать на телефон
-</a>
+
 </body>
 </html>
