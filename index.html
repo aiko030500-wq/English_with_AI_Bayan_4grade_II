@@ -56,20 +56,6 @@ header h2{
   margin-bottom:6px;
 }
 
-/* 🌟 Логотип в главном меню */
-#menuLogo{
-  width:150px;
-  height:150px;
-  border-radius:50%;
-  border:4px solid #FFD54F;
-  background:white;
-  object-fit:cover;
-  object-position:center;
-  box-shadow:0 0 8px rgba(255,213,79,0.9);
-  margin:10px auto;
-  display:block;
-}
-
 .overlay{
   position:fixed;inset:0;
   background:rgba(0,0,0,0.55);
@@ -199,9 +185,9 @@ main{padding:12px 8px 90px;}
   <h2>4 GRADE II</h2>
 </header>
 
+<!-- MAIN -->
 <main>
   <div id="mainMenu">
-    <img src="logo.png" id="menuLogo" alt="AI Bayan Logo">
     <div id="welcomeBox">
       <div id="welcomeText">Hello, Student!</div>
       <div>Total stars in all lessons: <b><span id="totalStars">0</span> ⭐</b></div>
@@ -235,12 +221,12 @@ main{padding:12px 8px 90px;}
 <script>
 // 🌟 Регистрация service worker
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('service-worker.js')
-    .then(() => console.log('✅ Service Worker активен'))
+  navigator.serviceWorker.register('service-worker.js?v=2')
+    .then(() => console.log('✅ Service Worker активен (v2)'))
     .catch(err => console.log('❌ Ошибка SW:', err));
 }
 
-const allowedNames = [
+const allowedNames=[
   "Aytach2","Aylin2","Alvi2","Zhahangir2","Narmin2","Balman2",
   "Ilyas2","Dmitry2","Irada2","Shyngys2","Kiril2","Sultan2",
   "Kira2","Allahverdy2","Aziza2","Emir2","Monya2","Aeka2",
@@ -268,8 +254,8 @@ function openChat(){ window.location.href = "chat.html"; }
 function openTeacherJournal(){ window.location.href = "teacher.html"; }
 
 // 🌟 Установка PWA
-let deferredPrompt = null;
-const installBtn = document.getElementById("installBtn");
+let deferredPrompt=null;
+const installBtn=document.getElementById("installBtn");
 window.addEventListener("beforeinstallprompt",(e)=>{
   e.preventDefault();
   deferredPrompt=e;
