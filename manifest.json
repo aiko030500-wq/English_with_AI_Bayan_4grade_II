@@ -1,8 +1,11 @@
 {
   "name": "English with AI Bayan 4grade II",
   "short_name": "AI Bayan",
+  "description": "Interactive English Olympiad app with AI Bayan assistant",
   "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#007D99",
   "theme_color": "#005B73",
   "icons": [
