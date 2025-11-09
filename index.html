@@ -264,9 +264,10 @@ function checkLogin(){
   }else alert("❌ Wrong name or PIN");
 }
 
-function openTheme(n){window.location.href="theme"+n+".html";}
-function openChat(){alert("Chat soon...");}
-function openTeacherJournal(){alert("Journal soon...");}
+// 🌟 Переходы по страницам
+function openTheme(n){ window.location.href = "theme" + n + ".html"; }
+function openChat(){ window.location.href = "chat.html"; }
+function openTeacherJournal(){ window.location.href = "teacher.html"; }
 
 /* 🌟 Кнопка установки приложения */
 let deferredPrompt = null;
