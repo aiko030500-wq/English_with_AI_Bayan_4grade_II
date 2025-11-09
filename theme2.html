@@ -5,78 +5,82 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Theme 2 — Sports and Exercises</title>
 <style>
-body{
-  font-family:Verdana,sans-serif;
-  background:radial-gradient(circle at top,#fff7ff 0%,#ffe9ff 35%,#d7ecff 100%);
-  margin:0;color:#25215a;text-align:center;
+body {
+  font-family: Verdana, sans-serif;
+  background: radial-gradient(circle at top, #fffdf5 0%, #ffe4b2 40%, #ffc107 100%);
+  margin: 0;
+  color: #4e342e;
+  text-align: center;
 }
-
-/* 🔹 HEADER — как в Theme 1 */
-header{
-  background:linear-gradient(90deg,#5a2ea6,#f06292);
-  color:white;
-  padding:0.6rem 1rem;
-  border-bottom:5px solid #ffd54f;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
+header {
+  background: linear-gradient(90deg,#ff9800,#f57c00);
+  color: white;
+  padding: 0.6rem 1rem;
+  border-bottom: 5px solid #ffd54f;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-
-/* 🔹 Enlarged logo */
-.logo{
-  width:140px;
-  height:140px;
-  border-radius:20%;
-  border:4px solid #ffd54f;
-  object-fit:cover;
-  background:white;
-  object-position:50% 45%;
-  box-shadow:0 0 8px rgba(255,213,79,0.9);
+.logo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 4px solid #ffd54f;
+  background: white;
+  object-fit: cover;
+  object-position: 50% 45%;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
 }
-
-h2{color:#5a2ea6;}
-section{
-  background:rgba(255,255,255,0.98);
-  border-radius:18px;
-  box-shadow:0 0 12px rgba(0,0,0,0.12);
-  padding:15px;
-  max-width:860px;
-  margin:15px auto;
-  text-align:left;
-  line-height:1.5;
-  font-size:0.95rem;
+h2 {color:#ef6c00;}
+section {
+  background: rgba(255,255,255,0.98);
+  border-radius: 18px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.12);
+  padding: 15px;
+  max-width: 860px;
+  margin: 15px auto;
+  text-align: left;
+  line-height: 1.5;
+  font-size: 0.95rem;
 }
-h3{
-  background:linear-gradient(90deg,#5a2ea6,#f06292);
-  color:white;
-  padding:6px 10px;
-  border-radius:10px;
-  font-size:1rem;
+h3 {
+  background: linear-gradient(90deg,#f57c00,#ffb74d);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-size: 1rem;
 }
-.btn{
+.btn {
   display:inline-block;
   margin:6px;
   padding:8px 14px;
   border:none;
   border-radius:10px;
-  background:#5a2ea6;
+  background:#ef6c00;
   color:white;
   font-weight:bold;
   cursor:pointer;
   font-size:0.9rem;
 }
-.btn:hover{background:#ffd54f;color:#45215a;}
-input[type="text"],textarea,select{
-  border-radius:8px;border:1px solid #ccc;padding:6px;
-  font-family:inherit;font-size:0.9rem;
+.btn:hover {background:#ffd54f; color:#4e342e;}
+input[type="text"], textarea, select {
+  border-radius:8px;
+  border:1px solid #ccc;
+  padding:6px;
+  font-family:inherit;
+  font-size:0.9rem;
 }
 input[type="text"]{width:100%;max-width:380px;}
 textarea{width:100%;}
-.round-label{
-  display:inline-block;background:#ffd54f;color:#5a2ea6;
-  padding:2px 8px;border-radius:999px;font-size:0.75rem;
-  font-weight:bold;margin-left:6px;
+.round-label {
+  display:inline-block;
+  background:#ffd54f;
+  color:#4e342e;
+  padding:2px 8px;
+  border-radius:999px;
+  font-size:0.75rem;
+  font-weight:bold;
+  margin-left:6px;
 }
 .mark-icon{margin-left:8px;font-size:1.2rem;font-weight:bold;}
 .correctMark{color:#00c853;}
@@ -84,114 +88,142 @@ textarea{width:100%;}
 </style>
 </head>
 <body>
-
 <header>
-  <h1 style="margin:0;font-size:1rem;">Theme 2 — Sports and Exercises</h1>
+  <div>
+    <h1 style="margin:0;font-size:1rem;">Theme 2 — Sports and Exercises</h1>
+    <p style="margin:0;color:#fff8e1;">English with AI Bayan — Healthy Life</p>
+  </div>
   <img src="logo.png" class="logo" alt="AI Bayan logo">
 </header>
 
 <main>
 <h2>🏃‍♀️ Sports and Exercises</h2>
-<p style="font-style:italic;color:#4b2e91;">Let's talk about movement, energy and fun!</p>
+<p style="font-style:italic;color:#6d4c41;">Let’s learn about sports, exercises and healthy habits!</p>
 <p id="lessonStarsLine"><b>You have 0 ⭐ in this lesson.</b></p>
 
+<!-- ===== Vocabulary ===== -->
 <section>
-<h3>🧠 Vocabulary — Sports <span class="round-label">Vocabulary</span></h3>
-<p>Choose the correct translation (на русский).</p>
+<h3>🧠 Vocabulary — Sports Words <span class="round-label">Vocabulary</span></h3>
+<p><b>Choose the correct translation (на русский).</b></p>
 
-<p>1) run <button class="btn" onclick="speak('To run means to move fast on your feet.')">▶ Play</button></p>
+<p>1) to run  
+<button class="btn" onclick="speakVocab('I like to run every morning.')">▶ Play</button>
+<button class="btn" onclick="stopBayan()">⏹ Stop</button></p>
 <label><input type="radio" name="v1" value="1"> бегать</label><br>
-<label><input type="radio" name="v1" value="0"> прыгать</label><br>
+<label><input type="radio" name="v1" value="0"> плавать</label><br>
 
-<p>2) swim <button class="btn" onclick="speak('To swim means to move in the water.')">▶ Play</button></p>
+<p>2) to swim  
+<button class="btn" onclick="speakVocab('We swim in the pool on weekends.')">▶ Play</button>
+<button class="btn" onclick="stopBayan()">⏹ Stop</button></p>
 <label><input type="radio" name="v2" value="1"> плавать</label><br>
-<label><input type="radio" name="v2" value="0"> кататься на велосипеде</label><br>
+<label><input type="radio" name="v2" value="0"> прыгать</label><br>
 
-<p>3) play football <button class="btn" onclick="speak('To play football means to kick a ball with friends.')">▶ Play</button></p>
+<p>3) to play football  
+<button class="btn" onclick="speakVocab('Boys and girls play football together.')">▶ Play</button>
+<button class="btn" onclick="stopBayan()">⏹ Stop</button></p>
 <label><input type="radio" name="v3" value="1"> играть в футбол</label><br>
-<label><input type="radio" name="v3" value="0"> играть в шахматы</label><br>
+<label><input type="radio" name="v3" value="0"> кататься на коньках</label><br>
+
+<p>4) to do exercises  
+<button class="btn" onclick="speakVocab('We do morning exercises every day.')">▶ Play</button>
+<button class="btn" onclick="stopBayan()">⏹ Stop</button></p>
+<label><input type="radio" name="v4" value="1"> делать упражнения</label><br>
+<label><input type="radio" name="v4" value="0"> спать</label><br>
+
+<p>5) healthy food  
+<button class="btn" onclick="speakVocab('Healthy food helps you stay strong.')">▶ Play</button>
+<button class="btn" onclick="stopBayan()">⏹ Stop</button></p>
+<label><input type="radio" name="v5" value="1"> полезная еда</label><br>
+<label><input type="radio" name="v5" value="0"> фастфуд</label><br>
 
 <button class="btn" onclick="checkVocab()">Check vocabulary ✅</button>
 <div id="vocabStars" style="font-size:1.1rem;margin-top:8px;"></div>
 </section>
 
+<!-- ===== Grammar ===== -->
 <section>
-<h3>📘 Grammar — Can / Can’t <span class="round-label">Grammar</span></h3>
-<p>Use <b>can</b> to say you are able to do something.</p>
+<h3>📘 Grammar — Present Simple <span class="round-label">Grammar</span></h3>
+<p><b>We use the Present Simple to talk about habits and facts.</b></p>
 
-<p>1) I ___ run fast.</p>
-<label><input type="radio" name="g1" value="can"> can</label><br>
-<label><input type="radio" name="g1" value="can't"> can't</label><br>
+<p>1) He ___ football every Sunday.</p>
+<label><input type="radio" name="g1" value="plays"> plays</label><br>
+<label><input type="radio" name="g1" value="play"> play</label><br>
 
-<p>2) She ___ swim well.</p>
-<label><input type="radio" name="g2" value="can"> can</label><br>
-<label><input type="radio" name="g2" value="can't"> can't</label><br>
+<p>2) I ___ to school by bike.</p>
+<label><input type="radio" name="g2" value="go"> go</label><br>
+<label><input type="radio" name="g2" value="goes"> goes</label><br>
 
-<p>3) We ___ fly like birds.</p>
-<label><input type="radio" name="g3" value="can't"> can't</label><br>
-<label><input type="radio" name="g3" value="can"> can</label><br>
+<p>3) They ___ in the pool every summer.</p>
+<label><input type="radio" name="g3" value="swim"> swim</label><br>
+<label><input type="radio" name="g3" value="swims"> swims</label><br>
 
 <button class="btn" onclick="checkGrammar()">Check grammar ✅</button>
 <div id="grammarStars" style="font-size:1.1rem;margin-top:8px;"></div>
 </section>
 
+<!-- ===== Listening ===== -->
 <section>
-<h3>🎧 Listening — Active Kids <span class="round-label">Listening</span></h3>
+<h3>🎧 Listening — A Healthy Morning <span class="round-label">Listening</span></h3>
 <p><b>Listen and choose True or False.</b></p>
 <button class="btn" onclick="bayanListening()">▶ Play</button>
 <button class="btn" onclick="stopBayan()">⏹ Stop</button>
 
-<p>1) The boys are running in the park.</p>
+<p>1) Ali runs every morning.</p>
 <select id="t1"><option>—</option><option>True</option><option>False</option></select>
-<p>2) The girls are swimming in the pool.</p>
+<p>2) He eats a lot of fast food.</p>
 <select id="t2"><option>—</option><option>True</option><option>False</option></select>
-<p>3) They are flying in the sky.</p>
+<p>3) He likes to play football with friends.</p>
 <select id="t3"><option>—</option><option>True</option><option>False</option></select>
 
 <button class="btn" onclick="checkListening()">Check listening ✅</button>
 <div id="listenStars" style="font-size:1.1rem;margin-top:8px;"></div>
 </section>
 
+<!-- ===== Reading ===== -->
 <section>
-<h3>📖 Reading — Sports Day <span class="round-label">Reading</span></h3>
+<h3>📖 Reading — Healthy Life <span class="round-label">Reading</span></h3>
 <p><b>Read or listen:</b></p>
 <button class="btn" onclick="bayanReading()">▶ Play</button>
 <button class="btn" onclick="stopBayan()">⏹ Stop</button>
-<div style="margin-top:10px;background:#f5ebff;border-radius:10px;padding:10px;">
-<p>
-It is Sports Day at school.  
-The students are running and jumping.  
-Some children are playing football.  
-Others are swimming in the pool.  
-Everyone is happy and active!
-</p>
+
+<div style="margin-top:10px;background:#fff8e1;border-radius:10px;padding:10px;">
+  <p>
+    I get up early and do exercises every morning.  
+    Then I eat healthy food for breakfast.  
+    I like fruits and milk.  
+    After school, I play football with my friends.  
+    I am strong and happy!
+  </p>
 </div>
+
 <ol>
-<li>What day is it?<br><input id="r1" type="text"></li><br>
-<li>What are the students doing?<br><input id="r2" type="text"></li><br>
-<li>Are they happy?<br><input id="r3" type="text"></li>
+  <li>What does he do in the morning?<br><input id="r1" type="text"></li><br>
+  <li>What does he eat for breakfast?<br><input id="r2" type="text"></li><br>
+  <li>When does he play football?<br><input id="r3" type="text"></li>
 </ol>
+
 <button class="btn" onclick="checkReading()">Check reading ✅</button>
 <div id="readStars" style="font-size:1.1rem;margin-top:8px;"></div>
 </section>
 
+<!-- ===== Writing ===== -->
 <section>
-<h3>✍ Writing — My Favourite Sport <span class="round-label">Writing</span></h3>
-<p>Write 3 sentences about your favourite sport.</p>
-<input id="w1" type="text" placeholder="Example: My favourite sport is football."><br>
-<input id="w2" type="text" placeholder="Example: I can run fast."><br>
-<input id="w3" type="text" placeholder="Example: I play football with my friends."><br>
+<h3>✍ Writing — About Me <span class="round-label">Writing</span></h3>
+<p>Write 3 sentences about your sports and exercises.</p>
+<input id="w1" type="text" placeholder="Example: I run in the park."><br>
+<input id="w2" type="text" placeholder="Example: I do exercises every day."><br>
+<input id="w3" type="text" placeholder="Example: I like swimming."><br>
 <button class="btn" onclick="checkWriting()">Check writing ✅</button>
 <div id="writeStars" style="font-size:1.1rem;margin-top:8px;"></div>
 </section>
 
+<!-- ===== Lesson Complete ===== -->
 <section style="text-align:center;margin-top:25px;">
 <h3>🎯 Lesson Complete!</h3>
 <p>You have earned <b><span id="finalStars">0</span> ⭐</b> in this lesson.</p>
 <button class="btn" onclick="finishLesson()">Save & Show Result ✅</button>
-<div id="finalMessage" style="margin-top:10px;font-size:1.1rem;color:#5a2ea6;"></div>
-
-<div style="margin-top:18px;text-align:center;">
+<div id="finalMessage" style="margin-top:10px;font-size:1.1rem;color:#4e342e;"></div>
+<div style="margin-top:18px;">
   <button class="btn" onclick="goBack()">⬅ Back</button>
   <button class="btn" onclick="goMenu()">🏠 Main Menu</button>
   <button class="btn" onclick="goNext()">Next ➡️</button>
@@ -202,20 +234,19 @@ Everyone is happy and active!
 <script>
 let totalStars=0;
 function addStar(){totalStars++;lessonStarsLine.innerText="You have "+totalStars+" ⭐ in this lesson.";finalStars.innerText=totalStars;}
-function speak(t){const u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=0.9;u.pitch=1.05;speechSynthesis.speak(u);}
+function speakBayanText(t){if(!('speechSynthesis'in window))return;const u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=0.9;u.pitch=1.05;speechSynthesis.speak(u);}
 function stopBayan(){speechSynthesis.cancel();}
-function mark(el,ok){let m=el.parentElement.querySelector('.mark-icon');if(!m){m=document.createElement('span');el.parentElement.appendChild(m);}m.textContent=ok?'✅':'❌';m.className='mark-icon '+(ok?'correctMark':'wrongMark');}
-function checkVocab(){let c=0;['v1','v2','v3'].forEach(id=>{const q=document.querySelector('input[name="'+id+'"]:checked');if(q){const ok=q.value==='1';mark(q,ok);if(ok)c++;}});if(c>0){addStar();vocabStars.innerText='⭐ '+c+' correct!';}}
-function checkGrammar(){let c=0;[['g1','can'],['g2','can'],['g3',"can't"]].forEach(([id,a])=>{const q=document.querySelector('input[name="'+id+'"]:checked');if(q){const ok=q.value===a;mark(q,ok);if(ok)c++;}});if(c>0){addStar();grammarStars.innerText='⭐ '+c+' correct!';}}
-function bayanListening(){speak('The boys are running in the park. The girls are swimming in the pool. They are happy and healthy.');}
-function checkListening(){let c=0;if(t1.value==='True')c++;if(t2.value==='True')c++;if(t3.value==='False')c++;if(c>0){addStar();listenStars.innerText='⭐ '+c+' correct!';}}
-function bayanReading(){speak('It is Sports Day at school. The students are running and jumping. Some are playing football. Others are swimming in the pool. Everyone is happy.');}
-function checkReading(){let c=0;if(r1.value.toLowerCase().includes('sports'))c++;if(r2.value.toLowerCase().includes('run')||r2.value.toLowerCase().includes('jump'))c++;if(r3.value.toLowerCase().includes('yes'))c++;if(c>0){addStar();readStars.innerText='⭐ '+c+' correct!';}}
-function checkWriting(){let c=0;[w1,w2,w3].forEach(x=>{if(x.value.trim()!=='')c++;});if(c>0){addStar();writeStars.innerText='⭐ '+c+' sentences!';}}
-function finishLesson(){finalStars.innerText=totalStars;const msg=totalStars>=10?'🌟 Excellent! You love sports!':'Good effort! Keep training!';finalMessage.innerText=msg;const name=localStorage.getItem('studentName')||'Unknown Student';const all=JSON.parse(localStorage.getItem('teacherJournal')||'{}');all[name]=all[name]||{};all[name]['Lesson 2']=totalStars;localStorage.setItem('teacherJournal',JSON.stringify(all));localStorage.setItem('lesson2Stars',totalStars);alert('Lesson 2 saved! '+name+' got '+totalStars+'⭐.');}
-function goBack(){location.href='theme1.html';}
-function goMenu(){location.href='index.html';}
-function goNext(){location.href='theme3.html';}
+function speakVocab(t){speakBayanText(t);}
+function markAnswer(el,ok){let m=el.parentElement.querySelector('.mark-icon');if(!m){m=document.createElement('span');el.parentElement.appendChild(m);}m.textContent=ok?'✅':'❌';m.className='mark-icon '+(ok?'correctMark':'wrongMark');}
+function checkVocab(){let c=0;['v1','v2','v3','v4','v5'].forEach(id=>{const q=document.querySelector('input[name="'+id+'"]:checked');if(q){const ok=q.value==='1';markAnswer(q,ok);if(ok)c++;}});if(c>0){addStar();vocabStars.innerText='⭐ '+c+' correct!';}}
+function checkGrammar(){let c=0;[['g1','plays'],['g2','go'],['g3','swim']].forEach(([id,a])=>{const q=document.querySelector('input[name="'+id+'"]:checked');if(q){const ok=q.value===a;markAnswer(q,ok);if(ok)c++;}});if(c>0){addStar();grammarStars.innerText='⭐ '+c+' correct!';}}
+function bayanListening(){speakBayanText('Ali runs every morning. He eats healthy food and drinks milk. He likes to play football with his friends.');}
+function checkListening(){let c=0;if(t1.value==='True')c++;if(t2.value==='False')c++;if(t3.value==='True')c++;if(c>0){addStar();listenStars.innerText='⭐ '+c+' correct!';}}
+function bayanReading(){speakBayanText('I get up early and do exercises every morning. Then I eat healthy food for breakfast. I like fruits and milk. After school, I play football with my friends. I am strong and happy.');}
+function checkReading(){let c=0;if(r1.value.toLowerCase().includes('exercise'))c++;if(r2.value.toLowerCase().includes('fruit')||r2.value.toLowerCase().includes('milk'))c++;if(r3.value.toLowerCase().includes('after'))c++;if(c>0){addStar();readStars.innerText='⭐ '+c+' correct!';}}
+function checkWriting(){let c=0;[w1,w2,w3].forEach(x=>{if(x.value.trim()!=='')c++;});if(c>0){addStar();writeStars.innerText='⭐ '+c+' good sentences!';}}
+function finishLesson(){finalStars.innerText=totalStars;let msg=totalStars>=10?'🌟 You are a real sports star!':'Keep training and learning!';finalMessage.innerText=msg;localStorage.setItem('lesson2Stars',totalStars);alert('Lesson 2 saved! '+totalStars+'⭐');}
+function goBack(){location.href='index.html';}function goMenu(){location.href='index.html';}function goNext(){location.href='theme3.html';}
 </script>
 </body>
 </html>
