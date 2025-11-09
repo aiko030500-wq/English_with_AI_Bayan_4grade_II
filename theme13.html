@@ -5,93 +5,488 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Theme 13 — Final Challenge</title>
 <style>
-body {
-  font-family: Verdana, sans-serif;
-  background: radial-gradient(circle at top,#f3e5f5 0%,#e1bee7 40%,#ce93d8 100%);
-  margin:0;
-  color:#4a148c;
-  text-align:center;
-}
-header {
-  background:linear-gradient(90deg,#7b1fa2,#ba68c8);
-  color:white;
-  padding:0.6rem 1rem;
-  border-bottom:5px solid #f3e5f5;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:20px;
-}
-.logo {
-  width:150px;
-  height:150px;
-  border-radius:50%;
-  border:4px solid #f3e5f5;
-  background:white;
-  object-fit:cover;
-}
-h2{color:#6a1b9a;}
-section {
-  background:rgba(255,255,255,0.98);
-  border-radius:18px;
-  box-shadow:0 0 12px rgba(0,0,0,0.12);
-  padding:15px;
-  max-width:860px;
-  margin:15px auto;
-  text-align:left;
-  line-height:1.5;
-  font-size:0.95rem;
-}
-h3 {
-  background:linear-gradient(90deg,#9c27b0,#ce93d8);
-  color:white;
-  padding:6px 10px;
-  border-radius:10px;
-  font-size:1rem;
-}
-.btn {
-  display:inline-block;
-  margin:6px;
-  padding:8px 14px;
-  border:none;
-  border-radius:10px;
-  background:#9c27b0;
-  color:white;
-  font-weight:bold;
-  cursor:pointer;
-  font-size:0.9rem;
-}
-.btn:hover{background:#d1c4e9;color:#4a148c;}
-input[type="text"],textarea,select{
-  border-radius:8px;
-  border:1px solid #ccc;
-  padding:6px;
-  font-family:inherit;
-  font-size:0.9rem;
-}
-input[type="text"]{width:100%;max-width:380px;}
-textarea{width:100%;}
-.round-label{
-  display:inline-block;
-  background:#ede7f6;
-  color:#6a1b9a;
-  padding:2px 8px;
-  border-radius:999px;
-  font-size:0.75rem;
-  font-weight:bold;
-  margin-left:6px;
-}
-.mark-icon{margin-left:8px;font-size:1.2rem;font-weight:bold;}
-.correctMark{color:#00c853;}
-.wrongMark{color:#ff1744;}
+  :root{
+    --violet:#5a2ea6;
+    --pink:#f06292;
+    --gold:#ffd54f;
+    --card-bg:#ffffff;
+    --text:#25215a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:Verdana,sans-serif;
+    background:radial-gradient(circle at top,#fff7ff 0%,#ffe9ff 35%,#d7ecff 100%);
+    color:var(--text);
+    text-align:center;
+    padding-bottom:40px;
+  }
+
+  header{
+    background:linear-gradient(90deg,var(--violet),var(--pink));
+    color:#fff;
+    padding:0.6rem 1rem;
+    border-bottom:5px solid var(--gold);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .title-block{
+    text-align:left;
+  }
+  header h1{
+    font-size:1.15rem;
+    margin:0;
+  }
+  header p{
+    font-size:0.82rem;
+    margin:2px 0 0;
+  }
+  .logo-circle{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    border:3px solid var(--gold);
+    overflow:hidden;
+    flex-shrink:0;
+  }
+  .logo-circle img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+
+  main{
+    max-width:900px;
+    margin:0 auto;
+    padding:10px 8px 30px;
+  }
+
+  .stars-bar{
+    margin:10px auto 12px;
+    background:#fff7e0;
+    border:2px solid var(--gold);
+    border-radius:14px;
+    padding:6px 10px;
+    font-size:0.9rem;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+  }
+  .stars-bar span{
+    font-weight:bold;
+    color:#d08100;
+  }
+
+  .task-card{
+    background:var(--card-bg);
+    border-radius:16px;
+    padding:12px 14px;
+    margin:10px 0;
+    box-shadow:0 3px 10px rgba(0,0,0,0.08);
+    text-align:left;
+  }
+  .task-title{
+    font-weight:bold;
+    font-size:1rem;
+    margin-bottom:4px;
+    color:var(--violet);
+  }
+  .task-sub{
+    font-size:0.9rem;
+    margin-bottom:8px;
+  }
+
+  .question{
+    margin:6px 0;
+    font-size:0.9rem;
+  }
+  .question strong{
+    font-size:0.95rem;
+  }
+
+  .options{
+    margin:3px 0 0 10px;
+  }
+  .options label{
+    display:block;
+    font-size:0.88rem;
+    cursor:pointer;
+  }
+
+  .result-icon{
+    font-weight:bold;
+    margin-left:6px;
+  }
+  .correct{
+    color:#2e7d32;
+  }
+  .wrong{
+    color:#c62828;
+  }
+
+  .input-short{
+    width:100%;
+    max-width:260px;
+    padding:4px 6px;
+    margin-top:3px;
+    border-radius:8px;
+    border:1px solid #b0bec5;
+    font-size:0.9rem;
+  }
+  .select-small{
+    padding:3px 4px;
+    font-size:0.9rem;
+    border-radius:8px;
+    border:1px solid #b0bec5;
+    margin-top:3px;
+  }
+  .reading-text{
+    background:#f7f5ff;
+    border-left:4px solid var(--violet);
+    padding:8px 10px;
+    border-radius:10px;
+    font-size:0.9rem;
+    margin-bottom:8px;
+  }
+  .writing-area{
+    width:100%;
+    min-height:70px;
+    padding:6px 8px;
+    border-radius:10px;
+    border:1px solid #b0bec5;
+    font-size:0.9rem;
+    resize:vertical;
+  }
+
+  .btn-row{
+    text-align:center;
+    margin-top:14px;
+  }
+  .btn{
+    display:inline-block;
+    padding:8px 18px;
+    border-radius:999px;
+    border:none;
+    cursor:pointer;
+    font-size:0.95rem;
+    font-weight:bold;
+    margin:4px;
+  }
+  .btn-check{
+    background:linear-gradient(90deg,var(--violet),var(--pink));
+    color:#fff;
+    box-shadow:0 3px 8px rgba(0,0,0,0.2);
+  }
+  .btn-check:active{
+    transform:translateY(1px);
+    box-shadow:0 2px 4px rgba(0,0,0,0.15);
+  }
+  .btn-reset{
+    background:#eceff1;
+    color:#455a64;
+  }
+
+  @media (max-width:600px){
+    header{
+      padding:0.5rem 0.6rem;
+    }
+    .logo-circle{
+      width:52px;
+      height:52px;
+    }
+  }
 </style>
 </head>
 <body>
+
 <header>
-  <h1 style="margin:0;font-size:1.2rem;">Theme 13 — Final Challenge</h1>
-  <img src="logo.png" class="logo" alt="AI Bayan logo">
+  <div class="title-block">
+    <h1>Theme 13 — Final Challenge</h1>
+    <p>English with AI Bayan — Let’s see how much you’ve learned!</p>
+  </div>
+  <!-- сюда подставь свою картинку логотипа -->
+  <div class="logo-circle">
+    <img src="logo.png" alt="AI Bayan Logo">
+  </div>
 </header>
 
-<!-- всё остальное содержимое оставь без изменений из твоего текущего файла -->
+<main>
+  <div class="stars-bar">
+    You have <span id="starCount">0</span> ⭐ in this lesson.
+  </div>
+
+  <!-- Task 1 -->
+  <section class="task-card" id="task1">
+    <div class="task-title">Task 1 — Grammar Challenge</div>
+    <div class="task-sub">Choose the correct option.</div>
+
+    <div class="question">
+      1. She ___ to school every day.<br>
+      <div class="options">
+        <label><input type="radio" name="q1" value="a"> a) go</label>
+        <label><input type="radio" name="q1" value="b"> b) goes</label>
+        <label><input type="radio" name="q1" value="c"> c) going</label>
+      </div>
+      <span id="r1" class="result-icon"></span>
+    </div>
+
+    <div class="question">
+      2. They ___ playing football now.<br>
+      <div class="options">
+        <label><input type="radio" name="q2" value="a"> a) is</label>
+        <label><input type="radio" name="q2" value="b"> b) are</label>
+        <label><input type="radio" name="q2" value="c"> c) am</label>
+      </div>
+      <span id="r2" class="result-icon"></span>
+    </div>
+
+    <div class="question">
+      3. I ___ my homework yesterday.<br>
+      <div class="options">
+        <label><input type="radio" name="q3" value="a"> a) do</label>
+        <label><input type="radio" name="q3" value="b"> b) did</label>
+        <label><input type="radio" name="q3" value="c"> c) does</label>
+      </div>
+      <span id="r3" class="result-icon"></span>
+    </div>
+
+    <div class="question">
+      4. We ___ to Astana last summer.<br>
+      <div class="options">
+        <label><input type="radio" name="q4" value="a"> a) went</label>
+        <label><input type="radio" name="q4" value="b"> b) go</label>
+        <label><input type="radio" name="q4" value="c"> c) going</label>
+      </div>
+      <span id="r4" class="result-icon"></span>
+    </div>
+  </section>
+
+  <!-- Task 2 -->
+  <section class="task-card" id="task2">
+    <div class="task-title">Task 2 — Vocabulary &amp; Use of English</div>
+    <div class="task-sub">Match the words with their meanings. Choose a, b, c or d.</div>
+
+    <div class="question">
+      1. Helpful — 
+      <select id="v1" class="select-small">
+        <option value="">-</option>
+        <option value="a">a) someone who helps others</option>
+        <option value="b">b) not afraid</option>
+        <option value="c">c) friendly and good to people</option>
+        <option value="d">d) smart, intelligent</option>
+      </select>
+      <span id="rv1" class="result-icon"></span>
+    </div>
+
+    <div class="question">
+      2. Brave — 
+      <select id="v2" class="select-small">
+        <option value="">-</option>
+        <option value="a">a) someone who helps others</option>
+        <option value="b">b) not afraid</option>
+        <option value="c">c) friendly and good to people</option>
+        <option value="d">d) smart, intelligent</option>
+      </select>
+      <span id="rv2" class="result-icon"></span>
+    </div>
+
+    <div class="question">
+      3. Kind — 
+      <select id="v3" class="select-small">
+        <option value="">-</option>
+        <option value="a">a) someone who helps others</option>
+        <option value="b">b) not afraid</option>
+        <option value="c">c) friendly and good to people</option>
+        <option value="d">d) smart, intelligent</option>
+      </select>
+      <span id="rv3" class="result-icon"></span>
+    </div>
+
+    <div class="question">
+      4. Clever — 
+      <select id="v4" class="select-small">
+        <option value="">-</option>
+        <option value="a">a) someone who helps others</option>
+        <option value="b">b) not afraid</option>
+        <option value="c">c) friendly and good to people</option>
+        <option value="d">d) smart, intelligent</option>
+      </select>
+      <span id="rv4" class="result-icon"></span>
+    </div>
+  </section>
+
+  <!-- Task 3 -->
+  <section class="task-card" id="task3">
+    <div class="task-title">Task 3 — Reading</div>
+    <div class="task-sub">Read the text and answer the questions.</div>
+
+    <div class="reading-text">
+      Last month our class cleaned the park. We planted trees and painted benches.
+      Everyone worked hard. At the end, the park looked clean and beautiful.
+      We were very happy!
+    </div>
+
+    <div class="question">
+      1. What did the class do?<br>
+      <input type="text" id="read1" class="input-short" placeholder="Your answer">
+      <span id="rr1" class="result-icon"></span>
+    </div>
+
+    <div class="question">
+      2. What did they plant?<br>
+      <input type="text" id="read2" class="input-short" placeholder="Your answer">
+      <span id="rr2" class="result-icon"></span>
+    </div>
+
+    <div class="question">
+      3. How did the park look at the end?<br>
+      <input type="text" id="read3" class="input-short" placeholder="Your answer">
+      <span id="rr3" class="result-icon"></span>
+    </div>
+  </section>
+
+  <!-- Task 4 -->
+  <section class="task-card" id="task4">
+    <div class="task-title">Task 4 — Listening / Understanding</div>
+    <div class="task-sub">Imagine you hear:</div>
+    <div class="reading-text">
+      “My name is Arai. I help my mom at home. I wash the dishes and water the plants.”
+    </div>
+    <div class="question">
+      Question: <strong>What does Arai do at home?</strong><br>
+      <input type="text" id="listen1" class="input-short" placeholder="Your answer">
+      <span id="rl1" class="result-icon"></span>
+    </div>
+  </section>
+
+  <!-- Task 5 -->
+  <section class="task-card" id="task5">
+    <div class="task-title">Task 5 — Writing</div>
+    <div class="task-sub">Write 4–5 sentences about how you help your family or friends.</div>
+    <textarea id="write1" class="writing-area" placeholder="I help my family..."></textarea>
+    <div class="question" style="font-size:0.8rem;margin-top:4px;color:#607d8b;">
+      (Teacher checks this task. You can still get ⭐ for trying!)
+    </div>
+  </section>
+
+  <div class="btn-row">
+    <button class="btn btn-check" onclick="checkAll()">Check answers</button>
+    <button class="btn btn-reset" onclick="resetAll()">Reset</button>
+  </div>
+</main>
+
+<script>
+function setIcon(el, ok){
+  el.textContent = ok ? "✔" : "✘";
+  el.classList.remove("correct","wrong");
+  el.classList.add(ok ? "correct" : "wrong");
+}
+
+function checkAll(){
+  let stars = 0;
+
+  // Task 1 Grammar
+  const correctGrammar = { q1:"b", q2:"b", q3:"b", q4:"a" };
+  for(const q in correctGrammar){
+    const sel = document.querySelector('input[name="'+q+'"]:checked');
+    const num = q.replace("q","");
+    const icon = document.getElementById("r"+num);
+    if(!sel){ icon.textContent=""; icon.classList.remove("correct","wrong"); continue; }
+    const ok = sel.value === correctGrammar[q];
+    setIcon(icon, ok);
+    if(ok) stars++;
+  }
+
+  // Task 2 Vocab
+  const vAns = { v1:"a", v2:"b", v3:"c", v4:"d" };
+  for(const id in vAns){
+    const sel = document.getElementById(id);
+    const icon = document.getElementById("r"+id);
+    if(!sel.value){
+      icon.textContent="";
+      icon.classList.remove("correct","wrong");
+      continue;
+    }
+    const ok = sel.value === vAns[id];
+    setIcon(icon, ok);
+    if(ok) stars++;
+  }
+
+  // Task 3 Reading (очень мягкая проверка по ключевым словам)
+  const r1 = document.getElementById("read1").value.toLowerCase();
+  const r2 = document.getElementById("read2").value.toLowerCase();
+  const r3 = document.getElementById("read3").value.toLowerCase();
+
+  let ok1 = (r1.includes("cleaned") || r1.includes("park"));
+  let ok2 = r2.includes("tree");
+  let ok3 = (r3.includes("clean") && r3.includes("beautiful"));
+
+  if(r1.trim()){ setIcon(document.getElementById("rr1"), ok1); if(ok1) stars++; }
+  else { document.getElementById("rr1").textContent=""; document.getElementById("rr1").classList.remove("correct","wrong"); }
+
+  if(r2.trim()){ setIcon(document.getElementById("rr2"), ok2); if(ok2) stars++; }
+  else { document.getElementById("rr2").textContent=""; document.getElementById("rr2").classList.remove("correct","wrong"); }
+
+  if(r3.trim()){ setIcon(document.getElementById("rr3"), ok3); if(ok3) stars++; }
+  else { document.getElementById("rr3").textContent=""; document.getElementById("rr3").classList.remove("correct","wrong"); }
+
+  // Task 4 Listening
+  const l1 = document.getElementById("listen1").value.toLowerCase();
+  let okL = (l1.includes("wash") || l1.includes("dishes") || (l1.includes("water") && l1.includes("plants")));
+  if(l1.trim()){
+    setIcon(document.getElementById("rl1"), okL);
+    if(okL) stars++;
+  } else {
+    document.getElementById("rl1").textContent="";
+    document.getElementById("rl1").classList.remove("correct","wrong");
+  }
+
+  // Task 5 Writing — ⭐ за попытку, если есть хотя бы 20 символов
+  const w1 = document.getElementById("write1").value.trim();
+  if(w1.length >= 20){
+    stars++;
+  }
+
+  document.getElementById("starCount").textContent = stars;
+}
+
+function resetAll(){
+  // radios
+  ["q1","q2","q3","q4"].forEach(q=>{
+    const checked = document.querySelector('input[name="'+q+'"]:checked');
+    if(checked) checked.checked = false;
+    const num = q.replace("q","");
+    const icon = document.getElementById("r"+num);
+    icon.textContent="";
+    icon.classList.remove("correct","wrong");
+  });
+
+  // selects
+  ["v1","v2","v3","v4"].forEach(id=>{
+    const s = document.getElementById(id);
+    s.value="";
+    const icon = document.getElementById("r"+id);
+    icon.textContent="";
+    icon.classList.remove("correct","wrong");
+  });
+
+  // reading & listening
+  ["read1","read2","read3","listen1"].forEach(id=>{
+    document.getElementById(id).value="";
+  });
+  ["rr1","rr2","rr3","rl1"].forEach(id=>{
+    const el = document.getElementById(id);
+    el.textContent="";
+    el.classList.remove("correct","wrong");
+  });
+
+  // writing
+  document.getElementById("write1").value="";
+
+  // stars
+  document.getElementById("starCount").textContent = "0";
+}
+</script>
+
 </body>
 </html>
