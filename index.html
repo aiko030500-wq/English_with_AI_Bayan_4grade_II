@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>English with AI Bayan 4grade II</title>
 
+<!-- 🌟 Для PWA -->
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#005B73">
 <meta name="mobile-web-app-capable" content="yes">
@@ -19,8 +20,6 @@ body{
   color:#002D72;
   background:#007D99;
 }
-
-/* HEADER */
 header{
   background:#005B73;
   border-bottom:4px solid #FFD54F;
@@ -39,8 +38,6 @@ header h2{
   font-size:1rem;
   margin-bottom:6px;
 }
-
-/* LOGIN */
 .overlay{
   position:fixed;inset:0;
   background:rgba(0,0,0,0.55);
@@ -66,12 +63,8 @@ header h2{
   cursor:pointer;margin:6px;font-size:0.9rem;
 }
 .btn:hover{background:#FFD54F;color:#002D72;}
-
-/* MAIN */
 main{padding:12px 8px 90px;}
 #mainMenu{display:none;}
-
-/* GRID */
 .topics-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
@@ -79,8 +72,6 @@ main{padding:12px 8px 90px;}
   max-width:780px;
   margin:20px auto 15px;
 }
-
-/* Темы — белые карточки */
 .topic-btn{
   background:white;
   border:2px solid #004AAD;
@@ -104,34 +95,8 @@ main{padding:12px 8px 90px;}
   transform:translateY(-3px);
   box-shadow:0 4px 12px rgba(0,0,0,0.3);
 }
-.topic-btn .num{
-  font-weight:bold;
-}
-.topic-btn .icon{
-  font-size:1.3rem;
-}
-
-/* Доп. кнопки */
-#extraBtns{
-  margin-top:10px;
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  flex-wrap:wrap;
-}
-.extra-btn{
-  background:white;
-  border:2px solid #004AAD;
-  border-radius:10px;
-  padding:8px 16px;
-  font-weight:bold;
-  color:#002D72;
-  cursor:pointer;
-  box-shadow:0 3px 6px rgba(0,0,0,0.18);
-}
-.extra-btn:hover{background:#002D72;color:#fff;}
-
-/* Welcome Box */
+.topic-btn .num{font-weight:bold;}
+.topic-btn .icon{font-size:1.3rem;}
 #welcomeBox{
   margin:16px auto 0;
   background:white;
@@ -143,12 +108,22 @@ main{padding:12px 8px 90px;}
   font-weight:bold;
   box-shadow:0 3px 6px rgba(0,0,0,0.1);
 }
-
-/* 🔽 КНОПКА УСТАНОВКИ ПРИЛОЖЕНИЯ НА ТЕЛЕФОН */
+#extraBtns{margin-top:10px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;}
+.extra-btn{
+  background:white;
+  border:2px solid #004AAD;
+  border-radius:10px;
+  padding:8px 16px;
+  font-weight:bold;
+  color:#002D72;
+  cursor:pointer;
+  box-shadow:0 3px 6px rgba(0,0,0,0.18);
+}
+.extra-btn:hover{background:#002D72;color:#fff;}
+/* 🔹 Кнопка установки */
 .install-btn{
   position:fixed;
-  bottom:12px;
-  left:50%;
+  bottom:14px;left:50%;
   transform:translateX(-50%);
   background:#FFD54F;
   color:#002D72;
@@ -160,11 +135,9 @@ main{padding:12px 8px 90px;}
   box-shadow:0 3px 10px rgba(0,0,0,0.35);
   cursor:pointer;
   z-index:800;
-  display:none; /* появится, когда браузер разрешит установку */
+  display:none;
 }
-.install-btn:hover{
-  background:#FFE47A;
-}
+.install-btn:hover{background:#FFE47A;}
 </style>
 </head>
 
@@ -217,7 +190,7 @@ main{padding:12px 8px 90px;}
   </div>
 </main>
 
-<!-- 🔽 КНОПКА УСТАНОВКИ ПРИЛОЖЕНИЯ -->
+<!-- 📲 Кнопка установки -->
 <button id="installBtn" class="install-btn">📲 Установить приложение</button>
 
 <script>
@@ -227,7 +200,6 @@ const allowedNames=[
   "Kira2","Allahverdy2","Aziza2","Emir2","Monya2","Aeka2",
   "Bayan2","Arai2","Jury2","Jury1","Meyirim2"
 ];
-
 function checkLogin(){
   const n=document.getElementById("nameInput").value.trim().toLowerCase();
   const p=document.getElementById("pinInput").value.trim();
@@ -242,37 +214,26 @@ function checkLogin(){
     document.getElementById("welcomeText").innerText="Hello, Teacher!";
   }else alert("❌ Wrong name or PIN");
 }
+function openTheme(n){window.location.href="theme"+n+".html";}
+function openChat(){alert("Chat soon...");}
+function openTeacherJournal(){alert("Journal soon...");}
 
-function openTheme(n){
-  window.location.href="theme"+n+".html";
-}
-function openChat(){
-  alert("Chat soon...");
-}
-function openTeacherJournal(){
-  alert("Journal soon...");
-}
-
-/* 🔽 ЛОГИКА УСТАНОВКИ ПРИЛОЖЕНИЯ НА ТЕЛЕФОН */
+/* 🌟 ONLINE INSTALLATION BUTTON */
 let deferredPrompt=null;
 const installBtn=document.getElementById("installBtn");
-
-// Браузер говорит: можно предложить установить PWA
 window.addEventListener("beforeinstallprompt",(e)=>{
   e.preventDefault();
   deferredPrompt=e;
   installBtn.style.display="inline-flex";
 });
-
-// Нажатие на кнопку «Установить приложение»
 installBtn.addEventListener("click", async ()=>{
   if(!deferredPrompt){
-    alert("Если окно не появляется, откройте меню браузера и выберите «Добавить на главный экран».");
+    alert("Открой меню браузера → «Добавить на главный экран».");
     return;
   }
   deferredPrompt.prompt();
   const { outcome } = await deferredPrompt.userChoice;
-  console.log("User response to the install prompt:", outcome);
+  console.log("User response:", outcome);
   deferredPrompt=null;
 });
 </script>
