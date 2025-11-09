@@ -3,50 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Theme 9 — People at Work</title>
+<title>Theme 9 — You Can Help!</title>
 <style>
 body {
   font-family: Verdana, sans-serif;
-  background: radial-gradient(circle at top,#fff9c4 0%,#fff59d 40%,#ffe082 100%);
-  margin:0;
-  color:#5d4037;
-  text-align:center;
+  background: radial-gradient(circle at top, #e0fff8 0%, #b2ebf2 35%, #a5d6a7 100%);
+  margin: 0;
+  color: #004d40;
+  text-align: center;
 }
 header {
-  background:linear-gradient(90deg,#f9a825,#fbc02d);
-  color:white;
-  padding:0.6rem 1rem;
-  border-bottom:5px solid #ffd54f;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+  background: linear-gradient(90deg,#00796b,#26a69a);
+  color: white;
+  padding: 0.6rem 1rem;
+  border-bottom: 5px solid #c8e6c9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .logo {
   width:150px;
   height:150px;
   border-radius:50%;
-  border:4px solid #ffd54f;
+  border:4px solid #c8e6c9;
   background:white;
   object-fit:cover;
 }
-h2{color:#6d4c41;}
+h2 {color:#00695c;}
 section {
-  background:rgba(255,255,255,0.98);
-  border-radius:18px;
-  box-shadow:0 0 12px rgba(0,0,0,0.12);
-  padding:15px;
-  max-width:860px;
-  margin:15px auto;
-  text-align:left;
-  line-height:1.5;
-  font-size:0.95rem;
+  background: rgba(255,255,255,0.98);
+  border-radius: 18px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.12);
+  padding: 15px;
+  max-width: 860px;
+  margin: 15px auto;
+  text-align: left;
+  line-height: 1.5;
+  font-size: 0.95rem;
 }
 h3 {
-  background:linear-gradient(90deg,#fbc02d,#fdd835);
-  color:#4e342e;
-  padding:6px 10px;
-  border-radius:10px;
-  font-size:1rem;
+  background: linear-gradient(90deg,#009688,#4db6ac);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-size: 1rem;
 }
 .btn {
   display:inline-block;
@@ -54,14 +54,14 @@ h3 {
   padding:8px 14px;
   border:none;
   border-radius:10px;
-  background:#f9a825;
+  background:#009688;
   color:white;
   font-weight:bold;
   cursor:pointer;
   font-size:0.9rem;
 }
-.btn:hover{background:#fff59d;color:#5d4037;}
-input[type="text"],textarea,select{
+.btn:hover {background:#c8e6c9; color:#004d40;}
+input[type="text"], textarea, select {
   border-radius:8px;
   border:1px solid #ccc;
   padding:6px;
@@ -70,10 +70,10 @@ input[type="text"],textarea,select{
 }
 input[type="text"]{width:100%;max-width:380px;}
 textarea{width:100%;}
-.round-label{
+.round-label {
   display:inline-block;
-  background:#fff176;
-  color:#6d4c41;
+  background:#c8e6c9;
+  color:#00695c;
   padding:2px 8px;
   border-radius:999px;
   font-size:0.75rem;
@@ -87,54 +87,52 @@ textarea{width:100%;}
 </head>
 <body>
 <header>
-  <div style="display:flex;align-items:center;gap:10px;">
-    <div>
-      <h1 style="margin:0;font-size:1rem;">Theme 9 — People at Work</h1>
-      <p style="margin:0;color:#fffde7;">English with AI Bayan — Jobs in Action</p>
-    </div>
+  <div>
+    <h1 style="margin:0;font-size:1rem;">Theme 9 — You Can Help!</h1>
+    <p style="margin:0;color:#e0f2f1;">English with AI Bayan — Helping People and Nature</p>
   </div>
   <img src="logo.png" class="logo" alt="AI Bayan logo">
 </header>
 
 <main>
-<h2>👩‍🏫 People at Work 👨‍🌾</h2>
-<p style="font-style:italic;color:#6d4c41;">Talking about what people do at their jobs</p>
+<h2>🌍 You Can Help! 🤝</h2>
+<p style="font-style:italic;color:#00695c;">Learning how we can help people, animals and our planet</p>
 <p id="lessonStarsLine"><b>You have 0 ⭐ in this lesson.</b></p>
 
 <!-- ===== Vocabulary ===== -->
 <section>
-<h3>🧠 Vocabulary — People and Jobs <span class="round-label">Vocabulary</span></h3>
+<h3>🧠 Vocabulary — Helping words <span class="round-label">Vocabulary</span></h3>
 <p><b>Choose the correct translation (на русский).</b></p>
 
-<p>1) farmer  
-<button class="btn" onclick="speakVocab('A farmer works on a farm and grows food.')">▶ Play</button>
+<p>1) help people  
+<button class="btn" onclick="speakVocab('We can help people who need it.')">▶ Play</button>
 <button class="btn" onclick="stopBayan()">⏹ Stop</button></p>
-<label><input type="radio" name="v1" value="1"> фермер</label><br>
-<label><input type="radio" name="v1" value="0"> врач</label><br>
+<label><input type="radio" name="v1" value="1"> помогать людям</label><br>
+<label><input type="radio" name="v1" value="0"> мешать людям</label><br>
 
-<p>2) policeman  
-<button class="btn" onclick="speakVocab('A policeman keeps people safe and helps them.')">▶ Play</button>
+<p>2) clean the park  
+<button class="btn" onclick="speakVocab('We can clean the park on Saturday.')">▶ Play</button>
 <button class="btn" onclick="stopBayan()">⏹ Stop</button></p>
-<label><input type="radio" name="v2" value="1"> полицейский</label><br>
-<label><input type="radio" name="v2" value="0"> водитель</label><br>
+<label><input type="radio" name="v2" value="1"> убирать парк</label><br>
+<label><input type="radio" name="v2" value="0"> загрязнять парк</label><br>
 
-<p>3) cook  
-<button class="btn" onclick="speakVocab('A cook prepares food in a restaurant.')">▶ Play</button>
+<p>3) feed animals  
+<button class="btn" onclick="speakVocab('Children can feed animals in the shelter.')">▶ Play</button>
 <button class="btn" onclick="stopBayan()">⏹ Stop</button></p>
-<label><input type="radio" name="v3" value="1"> повар</label><br>
-<label><input type="radio" name="v3" value="0"> строитель</label><br>
+<label><input type="radio" name="v3" value="1"> кормить животных</label><br>
+<label><input type="radio" name="v3" value="0"> пугать животных</label><br>
 
-<p>4) postman  
-<button class="btn" onclick="speakVocab('A postman brings letters and parcels.')">▶ Play</button>
+<p>4) plant trees  
+<button class="btn" onclick="speakVocab('We can plant trees to help nature.')">▶ Play</button>
 <button class="btn" onclick="stopBayan()">⏹ Stop</button></p>
-<label><input type="radio" name="v4" value="1"> почтальон</label><br>
-<label><input type="radio" name="v4" value="0"> врач</label><br>
+<label><input type="radio" name="v4" value="1"> сажать деревья</label><br>
+<label><input type="radio" name="v4" value="0"> ломать деревья</label><br>
 
-<p>5) shop assistant  
-<button class="btn" onclick="speakVocab('A shop assistant helps people buy things in a shop.')">▶ Play</button>
+<p>5) save water  
+<button class="btn" onclick="speakVocab('We should save water and not waste it.')">▶ Play</button>
 <button class="btn" onclick="stopBayan()">⏹ Stop</button></p>
-<label><input type="radio" name="v5" value="1"> продавец</label><br>
-<label><input type="radio" name="v5" value="0"> ученик</label><br>
+<label><input type="radio" name="v5" value="1"> беречь воду</label><br>
+<label><input type="radio" name="v5" value="0"> тратить воду</label><br>
 
 <button class="btn" onclick="checkVocab()">Check vocabulary ✅</button>
 <div id="vocabStars" style="font-size:1.1rem;margin-top:8px;"></div>
@@ -142,20 +140,20 @@ textarea{width:100%;}
 
 <!-- ===== Grammar ===== -->
 <section>
-<h3>📘 Grammar — Present Simple <span class="round-label">Grammar</span></h3>
-<p><b>We use Present Simple to talk about jobs people usually do.</b></p>
+<h3>📘 Grammar — Can / Should <span class="round-label">Grammar</span></h3>
+<p><b>We use “can” for ability and “should” for advice.</b></p>
 
-<p>1) A cook ___ food in a restaurant.</p>
-<label><input type="radio" name="g1" value="makes"> makes</label><br>
-<label><input type="radio" name="g1" value="make"> make</label><br>
+<p>1) We ___ help poor people.</p>
+<label><input type="radio" name="g1" value="should"> should</label><br>
+<label><input type="radio" name="g1" value="can"> can</label><br>
 
-<p>2) A farmer ___ vegetables and fruit.</p>
-<label><input type="radio" name="g2" value="grows"> grows</label><br>
-<label><input type="radio" name="g2" value="grow"> grow</label><br>
+<p>2) You ___ recycle paper and bottles.</p>
+<label><input type="radio" name="g2" value="should"> should</label><br>
+<label><input type="radio" name="g2" value="can"> can</label><br>
 
-<p>3) A postman ___ letters every day.</p>
-<label><input type="radio" name="g3" value="brings"> brings</label><br>
-<label><input type="radio" name="g3" value="bring"> bring</label><br>
+<p>3) Children ___ play safely and help at home.</p>
+<label><input type="radio" name="g3" value="can"> can</label><br>
+<label><input type="radio" name="g3" value="should"> should</label><br>
 
 <button class="btn" onclick="checkGrammar()">Check grammar ✅</button>
 <div id="grammarStars" style="font-size:1.1rem;margin-top:8px;"></div>
@@ -163,16 +161,16 @@ textarea{width:100%;}
 
 <!-- ===== Listening ===== -->
 <section>
-<h3>🎧 Listening — Busy Day at Work <span class="round-label">Listening</span></h3>
+<h3>🎧 Listening — Helping Together <span class="round-label">Listening</span></h3>
 <p><b>Listen and choose True or False.</b></p>
 <button class="btn" onclick="bayanListening()">▶ Play</button>
 <button class="btn" onclick="stopBayan()">⏹ Stop</button>
 
-<p>1) The cook makes breakfast in the restaurant.</p>
+<p>1) The children are cleaning the park.</p>
 <select id="t1"><option>—</option><option>True</option><option>False</option></select>
-<p>2) The postman brings letters to the farm.</p>
+<p>2) They are throwing rubbish on the ground.</p>
 <select id="t2"><option>—</option><option>True</option><option>False</option></select>
-<p>3) The policeman works at the shop.</p>
+<p>3) They are planting trees and flowers.</p>
 <select id="t3"><option>—</option><option>True</option><option>False</option></select>
 
 <button class="btn" onclick="checkListening()">Check listening ✅</button>
@@ -181,24 +179,24 @@ textarea{width:100%;}
 
 <!-- ===== Reading ===== -->
 <section>
-<h3>📖 Reading — The Farmer’s Day <span class="round-label">Reading</span></h3>
+<h3>📖 Reading — Helping in My Town <span class="round-label">Reading</span></h3>
 <p><b>Read or listen:</b></p>
 <button class="btn" onclick="bayanReading()">▶ Play</button>
 <button class="btn" onclick="stopBayan()">⏹ Stop</button>
 
-<div style="margin-top:10px;background:#fff9c4;border-radius:10px;padding:10px;">
+<div style="margin-top:10px;background:#e0f2f1;border-radius:10px;padding:10px;">
   <p>
-    My name is Ali. I am a farmer.  
-    I get up early every day and go to the fields.  
-    I grow wheat, vegetables and fruit.  
-    I like my job because I work outside and help people get food.
+    On Saturday, children from our school help in the town.  
+    We clean the park and plant trees.  
+    Some children feed animals in the shelter.  
+    We all feel happy because we help our planet.
   </p>
 </div>
 
 <ol>
-  <li>What is Ali’s job?<br><input id="r1" type="text"></li><br>
-  <li>What does he grow?<br><input id="r2" type="text"></li><br>
-  <li>Why does he like his job?<br><input id="r3" type="text"></li>
+  <li>What do children do on Saturday?<br><input id="r1" type="text"></li><br>
+  <li>Where do some children help animals?<br><input id="r2" type="text"></li><br>
+  <li>Why are they happy?<br><input id="r3" type="text"></li>
 </ol>
 
 <button class="btn" onclick="checkReading()">Check reading ✅</button>
@@ -207,11 +205,11 @@ textarea{width:100%;}
 
 <!-- ===== Writing ===== -->
 <section>
-<h3>✍ Writing — My Future Job <span class="round-label">Writing</span></h3>
-<p>Write 3 sentences about the job you want to have in the future.</p>
-<input id="w1" type="text" placeholder="Example: I want to be a cook."><br>
-<input id="w2" type="text" placeholder="Example: I will work in a restaurant."><br>
-<input id="w3" type="text" placeholder="Example: I will make delicious food."><br>
+<h3>✍ Writing — How Can You Help? <span class="round-label">Writing</span></h3>
+<p>Write 3 sentences about how you can help.</p>
+<input id="w1" type="text" placeholder="Example: I can clean the park."><br>
+<input id="w2" type="text" placeholder="Example: I can help my family."><br>
+<input id="w3" type="text" placeholder="Example: I should save water."><br>
 <button class="btn" onclick="checkWriting()">Check writing ✅</button>
 <div id="writeStars" style="font-size:1.1rem;margin-top:8px;"></div>
 </section>
@@ -221,7 +219,7 @@ textarea{width:100%;}
 <h3>🎯 Lesson Complete!</h3>
 <p>You have earned <b><span id="finalStars">0</span> ⭐</b> in this lesson.</p>
 <button class="btn" onclick="finishLesson()">Save & Show Result ✅</button>
-<div id="finalMessage" style="margin-top:10px;font-size:1.1rem;color:#5d4037;"></div>
+<div id="finalMessage" style="margin-top:10px;font-size:1.1rem;color:#00695c;"></div>
 <div style="margin-top:18px;">
   <button class="btn" onclick="goBack()">⬅ Back</button>
   <button class="btn" onclick="goMenu()">🏠 Main Menu</button>
@@ -238,16 +236,14 @@ function stopBayan(){speechSynthesis.cancel();}
 function speakVocab(t){speakBayanText(t);}
 function markAnswer(el,ok){let m=el.parentElement.querySelector('.mark-icon');if(!m){m=document.createElement('span');el.parentElement.appendChild(m);}m.textContent=ok?'✅':'❌';m.className='mark-icon '+(ok?'correctMark':'wrongMark');}
 function checkVocab(){let c=0;['v1','v2','v3','v4','v5'].forEach(id=>{const q=document.querySelector('input[name="'+id+'"]:checked');if(q){const ok=q.value==='1';markAnswer(q,ok);if(ok)c++;}});if(c>0){addStar();vocabStars.innerText='⭐ '+c+' correct!';}}
-function checkGrammar(){let c=0;[['g1','makes'],['g2','grows'],['g3','brings']].forEach(([id,a])=>{const q=document.querySelector('input[name="'+id+'"]:checked');if(q){const ok=q.value===a;markAnswer(q,ok);if(ok)c++;}});if(c>0){addStar();grammarStars.innerText='⭐ '+c+' correct!';}}
-function bayanListening(){speakBayanText('The cook makes breakfast. The postman brings letters. The policeman helps people on the road. The farmer works on the farm.');}
-function checkListening(){let c=0;if(t1.value==='True')c++;if(t2.value==='True')c++;if(t3.value==='False')c++;if(c>0){addStar();listenStars.innerText='⭐ '+c+' correct!';}}
-function bayanReading(){speakBayanText('My name is Ali. I am a farmer. I get up early and go to the fields. I grow wheat, vegetables and fruit. I like my job because I work outside and help people get food.');}
-function checkReading(){let c=0;if(r1.value.toLowerCase().includes('farmer'))c++;if(r2.value.toLowerCase().includes('vegetable')||r2.value.toLowerCase().includes('fruit'))c++;if(r3.value.toLowerCase().includes('help'))c++;if(c>0){addStar();readStars.innerText='⭐ '+c+' correct!';}}
+function checkGrammar(){let c=0;[['g1','should'],['g2','should'],['g3','can']].forEach(([id,a])=>{const q=document.querySelector('input[name="'+id+'"]:checked');if(q){const ok=q.value===a;markAnswer(q,ok);if(ok)c++;}});if(c>0){addStar();grammarStars.innerText='⭐ '+c+' correct!';}}
+function bayanListening(){speakBayanText('The children are cleaning the park. They are not throwing rubbish. They are planting trees and flowers.');}
+function checkListening(){let c=0;if(t1.value==='True')c++;if(t2.value==='False')c++;if(t3.value==='True')c++;if(c>0){addStar();listenStars.innerText='⭐ '+c+' correct!';}}
+function bayanReading(){speakBayanText('On Saturday children from our school help in the town. We clean the park and plant trees. Some feed animals in the shelter. We all feel happy because we help our planet.');}
+function checkReading(){let c=0;if(r1.value.toLowerCase().includes('clean'))c++;if(r2.value.toLowerCase().includes('shelter'))c++;if(r3.value.toLowerCase().includes('happy'))c++;if(c>0){addStar();readStars.innerText='⭐ '+c+' correct!';}}
 function checkWriting(){let c=0;[w1,w2,w3].forEach(x=>{if(x.value.trim()!=='')c++;});if(c>0){addStar();writeStars.innerText='⭐ '+c+' good sentences!';}}
-function finishLesson(){finalStars.innerText=totalStars;let msg=totalStars>=10?'🌟 Great job! You know how people work!':'Keep learning about jobs and workers!';finalMessage.innerText=msg;localStorage.setItem('lesson9Stars',totalStars);alert('Lesson 9 saved! '+totalStars+'⭐');}
-function goBack(){location.href='index.html';}
-function goMenu(){location.href='index.html';}
-function goNext(){location.href='theme10.html';}
+function finishLesson(){finalStars.innerText=totalStars;let msg=totalStars>=10?'🌟 Excellent helper!':'Keep helping others!';finalMessage.innerText=msg;localStorage.setItem('lesson9Stars',totalStars);alert('Lesson 9 saved! '+totalStars+'⭐');}
+function goBack(){location.href='theme8.html';}function goMenu(){location.href='index.html';}function goNext(){location.href='theme10.html';}
 </script>
 </body>
 </html>
