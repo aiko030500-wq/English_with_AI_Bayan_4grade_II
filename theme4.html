@@ -7,37 +7,31 @@
 <style>
 body {
   font-family: Verdana, sans-serif;
-  background: radial-gradient(circle at top,#fff7ff 0%,#ffe9ff 35%,#d7ecff 100%);
+  background: radial-gradient(circle at top, #fbe9e7 0%, #ffccbc 35%, #ffab91 100%);
   margin: 0;
-  color: #25215a;
+  color: #4e342e;
   text-align: center;
 }
-
-/* 🔹 HEADER — общий стиль */
 header {
-  background: linear-gradient(90deg,#5a2ea6,#f06292);
+  background: linear-gradient(90deg,#d84315,#ff7043);
   color: white;
   padding: 0.6rem 1rem;
-  border-bottom: 5px solid #ffd54f;
+  border-bottom: 5px solid #ffe0b2;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
+  justify-content: space-between;
 }
-
-/* 🔹 Логотип 140×140 */
 .logo {
   width: 140px;
   height: 140px;
-  border-radius: 20%;
-  border: 4px solid #ffd54f;
-  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #ffe0b2;
   background: white;
+  object-fit: cover;
   object-position: 50% 45%;
-  box-shadow: 0 0 8px rgba(255,213,79,0.9);
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
 }
-
-h2 {color:#5a2ea6;}
+h2 {color:#bf360c;}
 section {
   background: rgba(255,255,255,0.98);
   border-radius: 18px;
@@ -50,7 +44,7 @@ section {
   font-size: 0.95rem;
 }
 h3 {
-  background: linear-gradient(90deg,#5a2ea6,#f06292);
+  background: linear-gradient(90deg,#e64a19,#ff8a65);
   color: white;
   padding: 6px 10px;
   border-radius: 10px;
@@ -62,13 +56,13 @@ h3 {
   padding:8px 14px;
   border:none;
   border-radius:10px;
-  background:#5a2ea6;
+  background:#e64a19;
   color:white;
   font-weight:bold;
   cursor:pointer;
   font-size:0.9rem;
 }
-.btn:hover {background:#ffd54f; color:#45215a;}
+.btn:hover {background:#ffe0b2; color:#4e342e;}
 input[type="text"], textarea, select {
   border-radius:8px;
   border:1px solid #ccc;
@@ -80,8 +74,8 @@ input[type="text"]{width:100%;max-width:380px;}
 textarea{width:100%;}
 .round-label {
   display:inline-block;
-  background:#ffd54f;
-  color:#5a2ea6;
+  background:#ffe0b2;
+  color:#4e342e;
   padding:2px 8px;
   border-radius:999px;
   font-size:0.75rem;
@@ -94,31 +88,147 @@ textarea{width:100%;}
 </style>
 </head>
 <body>
-
 <header>
-  <h1 style="margin:0;font-size:1rem;">Theme 4 — Arts and Music</h1>
+  <div>
+    <h1 style="margin:0;font-size:1rem;">Theme 4 — Arts and Music</h1>
+    <p style="margin:0;color:#fff3e0;">English with AI Bayan — Creative World</p>
+  </div>
   <img src="logo.png" class="logo" alt="AI Bayan logo">
 </header>
 
 <main>
 <h2>🎨 Arts and Music 🎵</h2>
-<p style="font-style:italic;color:#4b2e91;">Exploring creativity, instruments, and sounds</p>
+<p style="font-style:italic;color:#6d4c41;">Let’s learn about artists, instruments, and creative hobbies!</p>
 <p id="lessonStarsLine"><b>You have 0 ⭐ in this lesson.</b></p>
 
-<!-- 🔹 Остальной контент (Vocabulary, Grammar, Listening, Reading, Writing, Complete) без изменений -->
-<!-- начало блока Vocabulary -->
+<!-- ===== Vocabulary ===== -->
 <section>
-<h3>🧠 Vocabulary — Musical Instruments <span class="round-label">Vocabulary</span></h3>
+<h3>🧠 Vocabulary — Art and Music Words <span class="round-label">Vocabulary</span></h3>
 <p><b>Choose the correct translation (на русский).</b></p>
 
-<p>1) play the guitar  
-<button class="btn" onclick="speakVocab('A guitar is a musical instrument with strings.')">▶ Play</button>
+<p>1) painter  
+<button class="btn" onclick="speakVocab('A painter creates pictures with colors.')">▶ Play</button>
 <button class="btn" onclick="stopBayan()">⏹ Stop</button></p>
-<label><input type="radio" name="v1" value="1"> играть на гитаре</label><br>
-<label><input type="radio" name="v1" value="0"> играть в футбол</label><br>
+<label><input type="radio" name="v1" value="1"> художник</label><br>
+<label><input type="radio" name="v1" value="0"> певец</label><br>
 
-<!-- остальные упражнения оставлены как в оригинале -->
+<p>2) singer  
+<button class="btn" onclick="speakVocab('A singer sings songs on stage.')">▶ Play</button>
+<button class="btn" onclick="stopBayan()">⏹ Stop</button></p>
+<label><input type="radio" name="v2" value="1"> певец</label><br>
+<label><input type="radio" name="v2" value="0"> танцор</label><br>
+
+<p>3) musician  
+<button class="btn" onclick="speakVocab('A musician plays musical instruments.')">▶ Play</button>
+<button class="btn" onclick="stopBayan()">⏹ Stop</button></p>
+<label><input type="radio" name="v3" value="1"> музыкант</label><br>
+<label><input type="radio" name="v3" value="0"> спортсмен</label><br>
+
+<p>4) to play the piano  
+<button class="btn" onclick="speakVocab('She can play the piano very well.')">▶ Play</button>
+<button class="btn" onclick="stopBayan()">⏹ Stop</button></p>
+<label><input type="radio" name="v4" value="1"> играть на пианино</label><br>
+<label><input type="radio" name="v4" value="0"> рисовать картины</label><br>
+
+<p>5) to draw pictures  
+<button class="btn" onclick="speakVocab('Children love to draw pictures of animals.')">▶ Play</button>
+<button class="btn" onclick="stopBayan()">⏹ Stop</button></p>
+<label><input type="radio" name="v5" value="1"> рисовать картины</label><br>
+<label><input type="radio" name="v5" value="0"> играть в футбол</label><br>
+
+<button class="btn" onclick="checkVocab()">Check vocabulary ✅</button>
+<div id="vocabStars" style="font-size:1.1rem;margin-top:8px;"></div>
 </section>
+
+<!-- ===== Grammar ===== -->
+<section>
+<h3>📘 Grammar — “Can / Can’t” for Abilities <span class="round-label">Grammar</span></h3>
+<p><b>We use “can” and “can’t” to talk about what people are able to do.</b></p>
+
+<p>1) I ___ play the guitar.</p>
+<label><input type="radio" name="g1" value="can"> can</label><br>
+<label><input type="radio" name="g1" value="cant"> can’t</label><br>
+
+<p>2) She ___ draw pictures.</p>
+<label><input type="radio" name="g2" value="can"> can</label><br>
+<label><input type="radio" name="g2" value="cant"> can’t</label><br>
+
+<p>3) He ___ sing very well.</p>
+<label><input type="radio" name="g3" value="can"> can</label><br>
+<label><input type="radio" name="g3" value="cant"> can’t</label><br>
+
+<button class="btn" onclick="checkGrammar()">Check grammar ✅</button>
+<div id="grammarStars" style="font-size:1.1rem;margin-top:8px;"></div>
+</section>
+
+<!-- ===== Listening ===== -->
+<section>
+<h3>🎧 Listening — At the Concert <span class="round-label">Listening</span></h3>
+<p><b>Listen and choose True or False.</b></p>
+<button class="btn" onclick="bayanListening()">▶ Play</button>
+<button class="btn" onclick="stopBayan()">⏹ Stop</button>
+
+<p>1) The girl can play the piano.</p>
+<select id="t1"><option>—</option><option>True</option><option>False</option></select>
+<p>2) The boy can sing very well.</p>
+<select id="t2"><option>—</option><option>True</option><option>False</option></select>
+<p>3) The teacher can dance on the stage.</p>
+<select id="t3"><option>—</option><option>True</option><option>False</option></select>
+
+<button class="btn" onclick="checkListening()">Check listening ✅</button>
+<div id="listenStars" style="font-size:1.1rem;margin-top:8px;"></div>
+</section>
+
+<!-- ===== Reading ===== -->
+<section>
+<h3>📖 Reading — My Favourite Hobby <span class="round-label">Reading</span></h3>
+<p><b>Read or listen:</b></p>
+<button class="btn" onclick="bayanReading()">▶ Play</button>
+<button class="btn" onclick="stopBayan()">⏹ Stop</button>
+
+<div style="margin-top:10px;background:#ffe0b2;border-radius:10px;padding:10px;">
+  <p>
+    My name is Alina. I love music and art.  
+    I can play the piano and draw beautiful pictures.  
+    I also sing songs at school concerts.  
+    My dream is to become a famous artist one day!
+  </p>
+</div>
+
+<ol>
+  <li>What can Alina play?<br><input id="r1" type="text"></li><br>
+  <li>Where does she sing songs?<br><input id="r2" type="text"></li><br>
+  <li>What is her dream?<br><input id="r3" type="text"></li>
+</ol>
+
+<button class="btn" onclick="checkReading()">Check reading ✅</button>
+<div id="readStars" style="font-size:1.1rem;margin-top:8px;"></div>
+</section>
+
+<!-- ===== Writing ===== -->
+<section>
+<h3>✍ Writing — My Art and Music <span class="round-label">Writing</span></h3>
+<p>Write 3 sentences about what you can do in art or music.</p>
+<input id="w1" type="text" placeholder="Example: I can play the guitar."><br>
+<input id="w2" type="text" placeholder="Example: I can draw animals."><br>
+<input id="w3" type="text" placeholder="Example: I can sing songs."><br>
+<button class="btn" onclick="checkWriting()">Check writing ✅</button>
+<div id="writeStars" style="font-size:1.1rem;margin-top:8px;"></div>
+</section>
+
+<!-- ===== Lesson Complete ===== -->
+<section style="text-align:center;margin-top:25px;">
+<h3>🎯 Lesson Complete!</h3>
+<p>You have earned <b><span id="finalStars">0</span> ⭐</b> in this lesson.</p>
+<button class="btn" onclick="finishLesson()">Save & Show Result ✅</button>
+<div id="finalMessage" style="margin-top:10px;font-size:1.1rem;color:#4e342e;"></div>
+<div style="margin-top:18px;">
+  <button class="btn" onclick="goBack()">⬅ Back</button>
+  <button class="btn" onclick="goMenu()">🏠 Main Menu</button>
+  <button class="btn" onclick="goNext()">Next ➡️</button>
+</div>
+</section>
+</main>
 
 <script>
 let totalStars=0;
@@ -127,6 +237,15 @@ function speakBayanText(t){if(!('speechSynthesis'in window))return;const u=new S
 function stopBayan(){speechSynthesis.cancel();}
 function speakVocab(t){speakBayanText(t);}
 function markAnswer(el,ok){let m=el.parentElement.querySelector('.mark-icon');if(!m){m=document.createElement('span');el.parentElement.appendChild(m);}m.textContent=ok?'✅':'❌';m.className='mark-icon '+(ok?'correctMark':'wrongMark');}
+function checkVocab(){let c=0;['v1','v2','v3','v4','v5'].forEach(id=>{const q=document.querySelector('input[name="'+id+'"]:checked');if(q){const ok=q.value==='1';markAnswer(q,ok);if(ok)c++;}});if(c>0){addStar();vocabStars.innerText='⭐ '+c+' correct!';}}
+function checkGrammar(){let c=0;[['g1','can'],['g2','can'],['g3','can']].forEach(([id,a])=>{const q=document.querySelector('input[name="'+id+'"]:checked');if(q){const ok=q.value===a;markAnswer(q,ok);if(ok)c++;}});if(c>0){addStar();grammarStars.innerText='⭐ '+c+' correct!';}}
+function bayanListening(){speakBayanText('The girl can play the piano. The boy can sing very well. The teacher cannot dance on the stage.');}
+function checkListening(){let c=0;if(t1.value==='True')c++;if(t2.value==='True')c++;if(t3.value==='False')c++;if(c>0){addStar();listenStars.innerText='⭐ '+c+' correct!';}}
+function bayanReading(){speakBayanText('My name is Alina. I love music and art. I can play the piano and draw pictures. I also sing songs at school concerts. My dream is to become a famous artist.');}
+function checkReading(){let c=0;if(r1.value.toLowerCase().includes('piano'))c++;if(r2.value.toLowerCase().includes('school'))c++;if(r3.value.toLowerCase().includes('artist'))c++;if(c>0){addStar();readStars.innerText='⭐ '+c+' correct!';}}
+function checkWriting(){let c=0;[w1,w2,w3].forEach(x=>{if(x.value.trim()!=='')c++;});if(c>0){addStar();writeStars.innerText='⭐ '+c+' good sentences!';}}
+function finishLesson(){finalStars.innerText=totalStars;let msg=totalStars>=10?'🌟 You are a real artist!':'Keep practicing art and music!';finalMessage.innerText=msg;localStorage.setItem('lesson4Stars',totalStars);alert('Lesson 4 saved! '+totalStars+'⭐');}
+function goBack(){location.href='index.html';}function goMenu(){location.href='index.html';}function goNext(){location.href='theme5.html';}
 </script>
 </body>
 </html>
