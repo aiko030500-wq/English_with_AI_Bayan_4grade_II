@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>English with AI Bayan 4grade II</title>
 
-<!-- 🌟 PWA -->
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#002D72">
 <meta name="mobile-web-app-capable" content="yes">
@@ -14,176 +13,58 @@
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-body{
-  font-family:Verdana,sans-serif;
-  background:#FFF9F2;
-  text-align:center;
-  color:#000;
-}
-
-/* 🌊 HEADER */
+body{font-family:Verdana,sans-serif;background:#FFF9F2;text-align:center;color:#000;}
 header{
   background:linear-gradient(180deg,#002D72 0%,#004AAD 100%);
-  border-bottom:5px solid #FFD54F;
-  box-shadow:0 4px 10px rgba(0,0,0,0.3);
+  border-bottom:5px solid #FFD54F;box-shadow:0 4px 10px rgba(0,0,0,0.3);
   padding:12px 6px 0;
-  position:relative;
 }
-header h1{
-  font-size:1.9rem;
-  font-weight:bold;
-  color:#FFD54F;
-  letter-spacing:1px;
-  text-shadow:0 0 12px rgba(255,255,180,0.8);
-}
-header h2{
-  font-size:1.1rem;
-  color:#FFF8C0;
-  margin-bottom:4px;
-  font-weight:bold;
-}
-.ornament{
-  width:100%;
-  height:36px;
-  margin-top:4px;
-}
-.ornament svg path{
-  fill:none;
-  stroke:url(#goldGrad);
-  stroke-width:3;
-  stroke-linecap:round;
-  filter:drop-shadow(0 0 5px rgba(255,255,180,0.9));
-}
+header h1{font-size:1.9rem;font-weight:bold;color:#FFD54F;letter-spacing:1px;text-shadow:0 0 12px rgba(255,255,180,0.8);}
+header h2{font-size:1.1rem;color:#FFF8C0;margin-bottom:4px;font-weight:bold;}
+.ornament{width:100%;height:36px;margin-top:4px;}
+.ornament svg path{fill:none;stroke:url(#goldGrad);stroke-width:3;stroke-linecap:round;filter:drop-shadow(0 0 5px rgba(255,255,180,0.9));}
 
-/* LOGIN */
-.overlay{
-  position:fixed;inset:0;
-  background:rgba(0,0,0,0.55);
-  display:flex;align-items:center;justify-content:center;
-  z-index:999;
-}
-.overlay-card{
-  background:#fff;
-  border:4px solid #CBAE7C;
-  padding:20px;
-  border-radius:16px;
-  box-shadow:0 0 15px rgba(0,0,0,0.35);
-  width:90%;max-width:380px;
-  color:#5B4A33;
-}
-.overlay-card input{
-  width:100%;padding:8px;
-  border-radius:8px;border:1px solid #ccc;
-  margin:6px 0;font-size:1rem;
-}
-.btn{
-  background:#002D72;
-  color:#fff;
-  border:none;
-  border-radius:10px;
-  padding:8px 14px;
-  font-weight:bold;
-  cursor:pointer;
-  margin:6px;
-  font-size:0.9rem;
-}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,0.55);display:flex;align-items:center;justify-content:center;z-index:999;}
+.overlay-card{background:#fff;border:4px solid #CBAE7C;padding:20px;border-radius:16px;box-shadow:0 0 15px rgba(0,0,0,0.35);width:90%;max-width:380px;color:#5B4A33;}
+.overlay-card input{width:100%;padding:8px;border-radius:8px;border:1px solid #ccc;margin:6px 0;font-size:1rem;}
+.btn{background:#002D72;color:#fff;border:none;border-radius:10px;padding:8px 14px;font-weight:bold;cursor:pointer;margin:6px;font-size:0.9rem;}
 .btn:hover{background:#FFD54F;color:#002D72;}
 
-/* MAIN */
 main{padding:12px 8px 90px;}
 #mainMenu{display:none;}
-.topics-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:12px;
-  max-width:800px;
-  margin:18px auto;
-}
-.topic-btn{
-  border:none;border-radius:10px;
-  padding:12px 6px;
-  font-size:1rem;
-  font-weight:bold;
-  color:#fff;
-  cursor:pointer;
-  box-shadow:0 2px 6px rgba(0,0,0,0.25);
-  transition:0.2s;
-}
+.topics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;max-width:800px;margin:18px auto;}
+.topic-btn{border:none;border-radius:10px;padding:12px 6px;font-size:1rem;font-weight:bold;color:#fff;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.25);transition:0.2s;}
 .topic-btn:hover{transform:translateY(-2px);filter:brightness(1.08);}
 
-/* Цвета тем */
-.t1{background:#5A47B2;}
-.t2{background:#B86A33;}
-.t3{background:#1A9A5E;}
-.t4{background:#E67829;}
-.t5{background:#187BB0;}
-.t6{background:#7A5334;}
-.t7{background:#2F63C9;}
-.t8{background:#F08A1F;}
-.t9{background:#B73655;}
-.t10{background:#D95C8D;}
-.t11{background:#D63232;}
-.t12{background:#2F9A4C;}
-.t13{background:#6B3ACF;}
+.t1{background:#5A47B2;} .t2{background:#B86A33;} .t3{background:#1A9A5E;}
+.t4{background:#E67829;} .t5{background:#187BB0;} .t6{background:#7A5334;}
+.t7{background:#2F63C9;} .t8{background:#F08A1F;} .t9{background:#B73655;}
+.t10{background:#D95C8D;} .t11{background:#D63232;} .t12{background:#2F9A4C;} .t13{background:#6B3ACF;}
 
-/* Кнопки чата и журнала */
 #extraBtns{margin-top:10px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;}
-.extra-btn{
-  background:#DCC7A1;border:none;border-radius:10px;
-  padding:8px 16px;font-weight:bold;
-  color:#3C2F1E;cursor:pointer;
-  box-shadow:0 3px 6px rgba(0,0,0,0.18);
-}
+.extra-btn{background:#DCC7A1;border:none;border-radius:10px;padding:8px 16px;font-weight:bold;color:#3C2F1E;cursor:pointer;box-shadow:0 3px 6px rgba(0,0,0,0.18);}
 .extra-btn:hover{background:#EBDAB5;}
 
-#welcomeBox{
-  margin:16px auto 0;background:#F2E4CC;
-  border:2px solid #C5AF84;border-radius:10px;
-  max-width:700px;padding:10px;color:#3C2F1E;font-weight:bold;
-}
+#welcomeBox{margin:16px auto 0;background:#F2E4CC;border:2px solid #C5AF84;border-radius:10px;max-width:700px;padding:10px;color:#3C2F1E;font-weight:bold;}
 #welcomeText{margin-bottom:4px;text-transform:capitalize;}
 
-#chatSection,#teacherJournal{
-  display:none;max-width:900px;margin:12px auto;
-  background:#F3E9CF;border:2px solid #CBAE7C;
-  border-radius:12px;padding:10px;
-}
-#chatBox{
-  background:#fff;border-radius:8px;padding:8px;
-  max-height:260px;overflow-y:auto;
-  text-align:left;color:#000;border:1px solid #ddd;
-}
-textarea{
-  width:95%;border-radius:8px;border:1px solid #ccc;
-  padding:6px;font-family:inherit;min-height:60px;margin-top:6px;
-}
+#chatSection,#teacherJournal{display:none;max-width:900px;margin:12px auto;background:#F3E9CF;border:2px solid #CBAE7C;border-radius:12px;padding:10px;}
+#chatBox{background:#fff;border-radius:8px;padding:8px;max-height:260px;overflow-y:auto;text-align:left;color:#000;border:1px solid #ddd;}
+textarea{width:95%;border-radius:8px;border:1px solid #ccc;padding:6px;font-family:inherit;min-height:60px;margin-top:6px;}
 #limitCounter{margin-top:4px;font-size:0.9rem;color:#5B4A33;font-weight:bold;}
 
 table{width:100%;border-collapse:collapse;font-size:0.85rem;}
 th,td{border:1px solid #CBAE7C;padding:4px 6px;}
 th{background:#002D72;color:#fff;}
 
-.install-btn{
-  position:fixed;bottom:10px;left:50%;
-  transform:translateX(-50%);
-  background:#C5AF84;color:#fff;border:none;
-  border-radius:50%;width:50px;height:50px;
-  font-size:0.8rem;
-  box-shadow:0 3px 8px rgba(0,0,0,0.35);
-  cursor:pointer;z-index:50;
-}
+.install-btn{position:fixed;bottom:10px;left:50%;transform:translateX(-50%);background:#C5AF84;color:#fff;border:none;border-radius:50%;width:50px;height:50px;font-size:0.8rem;box-shadow:0 3px 8px rgba(0,0,0,0.35);cursor:pointer;z-index:50;}
 .install-btn:hover{background:#E8D2A4;}
 
-@media(max-width:700px){
-  .topics-grid{max-width:95%;}
-  header h1{font-size:1.5rem;}
-}
+@media(max-width:700px){.topics-grid{max-width:95%;}header h1{font-size:1.5rem;}}
 </style>
 </head>
 
 <body>
-
-<!-- LOGIN -->
 <div class="overlay" id="loginOverlay">
   <div class="overlay-card">
     <h2>English with AI Bayan</h2>
@@ -194,7 +75,6 @@ th{background:#002D72;color:#fff;}
   </div>
 </div>
 
-<!-- HEADER -->
 <header>
   <h1>ENGLISH WITH AI BAYAN</h1>
   <h2>4 GRADE II</h2>
@@ -282,7 +162,6 @@ if(lastDate!==today){
   localStorage.setItem("lastDate",today);
   localStorage.setItem("usedToday",0);
 }
-
 function updateCounter(){
   const c=document.getElementById("limitCounter");
   if(!c)return;
@@ -389,13 +268,6 @@ document.getElementById("installButton").addEventListener("click",async()=>{
 });
 
 updateCounter();
-  else {
-    alert('To install the app, open the browser menu and choose "Add to Home screen".');
-  }
-});
-
-updateCounter();
 </script>
-
 </body>
 </html>
