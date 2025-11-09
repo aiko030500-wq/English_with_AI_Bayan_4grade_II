@@ -237,5 +237,43 @@ installBtn.addEventListener("click", async ()=>{
   deferredPrompt=null;
 });
 </script>
+  <!-- 🌟 Установка приложения -->
+<button id="installBtn" style="
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg,#FFD54F,#FFF176);
+  color: #003366;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 22px;
+  font-weight: bold;
+  font-size: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+  cursor: pointer;
+  display: none;
+  z-index: 999;
+">
+⬇️ Установить English with AI Bayan
+</button>
+
+<script>
+let deferredPrompt;
+const installBtn = document.getElementById('installBtn');
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  installBtn.style.display = 'block';
+});
+
+installBtn.addEventListener('click', async () => {
+  installBtn.style.display = 'none';
+  deferredPrompt.prompt();
+  const { outcome } = await deferredPrompt.userChoice;
+  deferredPrompt = null;
+});
+</script>
 </body>
 </html>
