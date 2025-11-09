@@ -201,7 +201,6 @@ main{padding:12px 8px 90px;}
 
 <main>
   <div id="mainMenu">
-    <!-- 🔹 Логотип в главном меню -->
     <img src="logo.png" id="menuLogo" alt="AI Bayan Logo">
     <div id="welcomeBox">
       <div id="welcomeText">Hello, Student!</div>
@@ -231,7 +230,6 @@ main{padding:12px 8px 90px;}
   </div>
 </main>
 
-<!-- 🌟 Кнопка установки -->
 <button id="installBtn" class="install-btn">📲 Install AI Bayan App</button>
 
 <script>
@@ -264,31 +262,29 @@ function checkLogin(){
   }else alert("❌ Wrong name or PIN");
 }
 
-// 🌟 Переходы по страницам
+// 🌟 Переходы
 function openTheme(n){ window.location.href = "theme" + n + ".html"; }
 function openChat(){ window.location.href = "chat.html"; }
 function openTeacherJournal(){ window.location.href = "teacher.html"; }
 
-/* 🌟 Кнопка установки приложения */
-let deferredPrompt = null;
-const installBtn = document.getElementById("installBtn");
-
-window.addEventListener("beforeinstallprompt", (e) => {
+// 🌟 Установка PWA
+let deferredPrompt=null;
+const installBtn=document.getElementById("installBtn");
+window.addEventListener("beforeinstallprompt",(e)=>{
   e.preventDefault();
-  deferredPrompt = e;
-  installBtn.style.display = "inline-flex";
+  deferredPrompt=e;
+  installBtn.style.display="inline-flex";
 });
-
-installBtn.addEventListener("click", async () => {
-  if (!deferredPrompt) {
+installBtn.addEventListener("click",async()=>{
+  if(!deferredPrompt){
     alert("Открой меню браузера → «Добавить на главный экран».");
     return;
   }
   deferredPrompt.prompt();
   const { outcome } = await deferredPrompt.userChoice;
   console.log("Реакция пользователя:", outcome);
-  deferredPrompt = null;
-  installBtn.style.display = "none";
+  deferredPrompt=null;
+  installBtn.style.display="none";
 });
 </script>
 </body>
