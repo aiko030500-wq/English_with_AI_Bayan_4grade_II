@@ -13,72 +13,160 @@
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:Verdana,sans-serif;background:#FFF9F2;text-align:center;color:#000;}
+body{
+  font-family:Verdana,sans-serif;
+  text-align:center;
+  color:#002D72;
+  background:linear-gradient(180deg,#E8F1FF 0%,#ffffff 100%);
+}
 
 /* HEADER */
 header{
   background:linear-gradient(180deg,#002D72 0%,#004AAD 100%);
   border-bottom:4px solid #FFD54F;
   box-shadow:0 4px 10px rgba(0,0,0,0.25);
-  padding:12px 6px 0;
+  padding:14px 6px 0;
 }
-header h1{color:#FFD54F;text-shadow:0 0 12px rgba(255,255,180,0.8);font-size:1.7rem;margin:4px 0 0;}
-header h2{color:#FFF8C0;font-weight:bold;font-size:1rem;margin-bottom:6px;}
-.ornament{width:100%;height:36px;margin-top:4px;}
-.ornament svg path{fill:none;stroke:url(#goldGrad);stroke-width:3;stroke-linecap:round;filter:drop-shadow(0 0 5px rgba(255,255,180,0.9));}
+header h1{
+  color:#FFD54F;
+  font-size:1.8rem;
+  margin:4px 0 0;
+  text-shadow:0 0 12px rgba(255,255,180,0.8);
+}
+header h2{
+  color:#FFF8C0;
+  font-weight:bold;
+  font-size:1rem;
+  margin-bottom:6px;
+}
+.ornament{
+  width:100%;
+  height:36px;
+  margin-top:4px;
+}
+.ornament svg path{
+  fill:none;
+  stroke:url(#goldGrad);
+  stroke-width:3;
+  stroke-linecap:round;
+  filter:drop-shadow(0 0 5px rgba(255,255,180,0.9));
+}
 
 /* LOGIN */
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,0.55);display:flex;align-items:center;justify-content:center;z-index:999;}
-.overlay-card{background:#fff;border:4px solid #CBAE7C;padding:20px;border-radius:16px;box-shadow:0 0 15px rgba(0,0,0,0.35);width:90%;max-width:380px;color:#5B4A33;}
-.overlay-card input{width:100%;padding:8px;border-radius:8px;border:1px solid #ccc;margin:6px 0;font-size:1rem;}
-.btn{background:#002D72;color:#fff;border:none;border-radius:10px;padding:8px 14px;font-weight:bold;cursor:pointer;margin:6px;font-size:0.9rem;}
+.overlay{
+  position:fixed;inset:0;
+  background:rgba(0,0,0,0.55);
+  display:flex;align-items:center;justify-content:center;
+  z-index:999;
+}
+.overlay-card{
+  background:#fff;
+  border:3px solid #FFD54F;
+  padding:20px;
+  border-radius:16px;
+  box-shadow:0 0 15px rgba(0,0,0,0.35);
+  width:90%;max-width:360px;
+  color:#002D72;
+}
+.overlay-card input{
+  width:100%;padding:8px;border-radius:8px;
+  border:1px solid #ccc;margin:6px 0;font-size:1rem;
+}
+.btn{
+  background:#002D72;color:#fff;border:none;
+  border-radius:10px;padding:8px 14px;font-weight:bold;
+  cursor:pointer;margin:6px;font-size:0.9rem;
+}
 .btn:hover{background:#FFD54F;color:#002D72;}
 
 /* MAIN */
 main{padding:12px 8px 90px;}
 #mainMenu{display:none;}
 
-/* 3-рядное меню */
+/* GRID */
 .topics-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-  gap:12px;
+  gap:14px;
   max-width:780px;
   margin:20px auto 15px;
 }
+
+/* Кнопки тем */
 .topic-btn{
-  border:none;border-radius:14px;
-  padding:14px 10px;
-  font-size:0.95rem;font-weight:bold;
-  color:#333;
+  background:white;
+  border:2px solid #004AAD;
+  border-radius:16px;
+  padding:16px 8px;
+  font-size:0.9rem;
+  font-weight:bold;
+  color:#002D72;
   cursor:pointer;
-  box-shadow:0 2px 6px rgba(0,0,0,0.15);
-  background:#fff;
   transition:0.25s all;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  box-shadow:0 3px 6px rgba(0,0,0,0.15);
   height:120px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
 }
-.topic-btn:hover{transform:translateY(-3px);box-shadow:0 4px 12px rgba(0,0,0,0.25);}
-.topic-btn span.icon{font-size:1.5rem;margin-bottom:4px;}
+.topic-btn span.icon{
+  font-size:1.7rem;
+  margin-bottom:6px;
+}
+.topic-btn:hover{
+  background:#002D72;
+  color:#fff;
+  transform:translateY(-3px);
+  box-shadow:0 4px 12px rgba(0,0,0,0.3);
+}
 
-/* Пастельные цвета */
-.t1{background:#E6E0FA;} .t2{background:#FBE4D6;} .t3{background:#D6F5E3;}
-.t4{background:#FBE9D9;} .t5{background:#D8F0FA;} .t6{background:#EFE2D2;}
-.t7{background:#E2E8FB;} .t8{background:#FCEED6;} .t9{background:#FAD6E1;}
-.t10{background:#F9D8E9;} .t11{background:#FAD9D9;} .t12{background:#DCF5DA;} .t13{background:#E6DAFA;}
-
+/* Доп. кнопки */
 #extraBtns{margin-top:10px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;}
-.extra-btn{background:#DCC7A1;border:none;border-radius:10px;padding:8px 16px;font-weight:bold;color:#3C2F1E;cursor:pointer;box-shadow:0 3px 6px rgba(0,0,0,0.18);}
-.extra-btn:hover{background:#EBDAB5;}
+.extra-btn{
+  background:#FFD54F;border:none;border-radius:10px;
+  padding:8px 16px;font-weight:bold;color:#002D72;
+  cursor:pointer;box-shadow:0 3px 6px rgba(0,0,0,0.18);
+}
+.extra-btn:hover{background:#fff;color:#002D72;border:2px solid #FFD54F;}
 
-#welcomeBox{margin:16px auto 0;background:#F2E4CC;border:2px solid #C5AF84;border-radius:10px;max-width:680px;padding:10px;color:#3C2F1E;font-weight:bold;}
+/* Welcome Box */
+#welcomeBox{
+  margin:16px auto 0;background:white;
+  border:2px solid #FFD54F;
+  border-radius:10px;max-width:680px;
+  padding:10px;color:#002D72;font-weight:bold;
+  box-shadow:0 3px 6px rgba(0,0,0,0.1);
+}
 
-/* CHAT & JOURNAL */
-#chatSection,#teacherJournal{display:none;max-width:900px;margin:12px auto;background:#F3E9CF;border:2px solid #CBAE7C;border-radius:12px;padding:10px;}
-#chatBox{background:#fff;border-radius:8px;padding:8px;max-height:260px;overflow-y:auto;text-align:left;color:#000;border:1px solid #ddd;}
-textarea{width:95%;border-radius:8px;border:1px solid #ccc;padding:6px;font-family:inherit;min-height:60px;margin-top:6px;}
-
-.install-btn{position:fixed;bottom:10px;left:50%;transform:translateX(-50%);background:#C5AF84;color:#fff;border:none;border-radius:50%;width:50px;height:50px;font-size:0.8rem;box-shadow:0 3px 8px rgba(0,0,0,0.35);cursor:pointer;z-index:50;}
+/* Chat & Journal */
+#chatSection,#teacherJournal{
+  display:none;
+  max-width:900px;margin:12px auto;
+  background:#fff;border:2px solid #FFD54F;
+  border-radius:12px;padding:10px;
+  box-shadow:0 3px 6px rgba(0,0,0,0.15);
+}
+#chatBox{
+  background:#E8F1FF;
+  border-radius:8px;padding:8px;
+  max-height:260px;overflow-y:auto;
+  text-align:left;color:#002D72;border:1px solid #ccc;
+}
+textarea{
+  width:95%;border-radius:8px;border:1px solid #ccc;
+  padding:6px;font-family:inherit;min-height:60px;margin-top:6px;
+}
+.install-btn{
+  position:fixed;bottom:10px;left:50%;
+  transform:translateX(-50%);
+  background:#FFD54F;color:#002D72;border:none;
+  border-radius:50%;width:50px;height:50px;
+  font-size:0.8rem;
+  box-shadow:0 3px 8px rgba(0,0,0,0.35);
+  cursor:pointer;z-index:50;
+}
+.install-btn:hover{background:#002D72;color:#fff;}
 </style>
 </head>
 
@@ -116,19 +204,19 @@ textarea{width:95%;border-radius:8px;border:1px solid #ccc;padding:6px;font-fami
 <main>
   <div id="mainMenu">
     <div class="topics-grid">
-      <button class="topic-btn t1" onclick="openTheme(1)"><span class="icon">🎨</span>1. Let’s Have Fun!</button>
-      <button class="topic-btn t2" onclick="openTheme(2)"><span class="icon">🏃</span>2. Sports & Exercises</button>
-      <button class="topic-btn t3" onclick="openTheme(3)"><span class="icon">🌍</span>3. Sports Around World</button>
-      <button class="topic-btn t4" onclick="openTheme(4)"><span class="icon">🎵</span>4. Arts & Music</button>
-      <button class="topic-btn t5" onclick="openTheme(5)"><span class="icon">⚽</span>5. Team Sports</button>
-      <button class="topic-btn t6" onclick="openTheme(6)"><span class="icon">🎻</span>6. Kazakh Instruments</button>
-      <button class="topic-btn t7" onclick="openTheme(7)"><span class="icon">📜</span>7. Children’s Rights</button>
-      <button class="topic-btn t8" onclick="openTheme(8)"><span class="icon">🧰</span>8. Different Jobs</button>
-      <button class="topic-btn t9" onclick="openTheme(9)"><span class="icon">👩‍⚕️</span>9. Professions</button>
-      <button class="topic-btn t10" onclick="openTheme(10)"><span class="icon">🏢</span>10. People at Work</button>
-      <button class="topic-btn t11" onclick="openTheme(11)"><span class="icon">💬</span>11. What Do You Do?</button>
-      <button class="topic-btn t12" onclick="openTheme(12)"><span class="icon">❤️</span>12. You Can Help!</button>
-      <button class="topic-btn t13" onclick="openTheme(13)"><span class="icon">🎯</span>13. Final Challenge</button>
+      <button class="topic-btn" onclick="openTheme(1)"><span class="icon">🎨</span>1. Let’s Have Fun!</button>
+      <button class="topic-btn" onclick="openTheme(2)"><span class="icon">🏃‍♂️</span>2. Sports & Exercises</button>
+      <button class="topic-btn" onclick="openTheme(3)"><span class="icon">🌍</span>3. Sports Around World</button>
+      <button class="topic-btn" onclick="openTheme(4)"><span class="icon">🎵</span>4. Arts & Music</button>
+      <button class="topic-btn" onclick="openTheme(5)"><span class="icon">⚽</span>5. Team Sports</button>
+      <button class="topic-btn" onclick="openTheme(6)"><span class="icon">🎻</span>6. Kazakh Instruments</button>
+      <button class="topic-btn" onclick="openTheme(7)"><span class="icon">📜</span>7. Children’s Rights</button>
+      <button class="topic-btn" onclick="openTheme(8)"><span class="icon">🧰</span>8. Different Jobs</button>
+      <button class="topic-btn" onclick="openTheme(9)"><span class="icon">👩‍⚕️</span>9. Professions</button>
+      <button class="topic-btn" onclick="openTheme(10)"><span class="icon">🏢</span>10. People at Work</button>
+      <button class="topic-btn" onclick="openTheme(11)"><span class="icon">💬</span>11. What Do You Do?</button>
+      <button class="topic-btn" onclick="openTheme(12)"><span class="icon">❤️</span>12. You Can Help!</button>
+      <button class="topic-btn" onclick="openTheme(13)"><span class="icon">🎯</span>13. Final Challenge</button>
     </div>
 
     <div id="extraBtns">
@@ -150,15 +238,6 @@ textarea{width:95%;border-radius:8px;border:1px solid #ccc;padding:6px;font-fami
     <button class="btn" onclick="clearChat()">Clear</button>
     <button class="btn" onclick="backMenu()">🏠 Menu</button>
     <p id="limitCounter">⭐ 3 of 3 questions left today</p>
-  </div>
-
-  <div id="teacherJournal">
-    <h2>🏫 Teacher Journal</h2>
-    <table>
-      <thead><tr><th>Student</th><th>L1–L13</th><th>Chat</th><th>Total ⭐</th></tr></thead>
-      <tbody id="journalBody"></tbody>
-    </table>
-    <button class="btn" onclick="backMenu()">🏠 Menu</button>
   </div>
 </main>
 
