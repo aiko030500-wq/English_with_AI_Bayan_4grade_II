@@ -92,7 +92,7 @@ main{padding:12px 8px 90px;}
   margin:20px auto 15px;
 }
 
-/* Кнопки тем */
+/* Кнопки тем — все одинаковые */
 .topic-btn{
   background:white;
   border:2px solid #004AAD;
@@ -124,11 +124,16 @@ main{padding:12px 8px 90px;}
 /* Доп. кнопки */
 #extraBtns{margin-top:10px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;}
 .extra-btn{
-  background:#FFD54F;border:none;border-radius:10px;
-  padding:8px 16px;font-weight:bold;color:#002D72;
-  cursor:pointer;box-shadow:0 3px 6px rgba(0,0,0,0.18);
+  background:white;
+  border:2px solid #004AAD;
+  border-radius:10px;
+  padding:8px 16px;
+  font-weight:bold;
+  color:#002D72;
+  cursor:pointer;
+  box-shadow:0 3px 6px rgba(0,0,0,0.18);
 }
-.extra-btn:hover{background:#fff;color:#002D72;border:2px solid #FFD54F;}
+.extra-btn:hover{background:#002D72;color:#fff;}
 
 /* Welcome Box */
 #welcomeBox{
@@ -229,16 +234,6 @@ textarea{
       <div>Total stars: <b><span id="totalStars">0</span> ⭐</b></div>
     </div>
   </div>
-
-  <div id="chatSection">
-    <h2>💬 AI Bayan — Chat</h2>
-    <div id="chatBox"></div>
-    <textarea id="chatInput" placeholder="Type your question..."></textarea><br>
-    <button class="btn" onclick="askBayan()">Ask</button>
-    <button class="btn" onclick="clearChat()">Clear</button>
-    <button class="btn" onclick="backMenu()">🏠 Menu</button>
-    <p id="limitCounter">⭐ 3 of 3 questions left today</p>
-  </div>
 </main>
 
 <button class="install-btn" id="installButton">⬇️</button>
@@ -276,65 +271,15 @@ function checkLogin(){
     document.getElementById("mainMenu").style.display="block";
     const nice=n.charAt(0).toUpperCase()+n.slice(1);
     document.getElementById("welcomeText").innerText="Hello, "+nice+"!";
-    calcTotalStars(n);updateCounter();
+    updateCounter();
   }else if(n==="teacher"&&p==="1402"){
     isTeacher=true;localStorage.setItem("isTeacher","true");
     document.getElementById("loginOverlay").style.display="none";
     document.getElementById("mainMenu").style.display="block";
     document.getElementById("welcomeText").innerText="Hello, Teacher!";
-    calcTotalStarsForAll();updateCounter();
+    updateCounter();
   }else alert("❌ Wrong name or PIN");
 }
-
-/* STARS */
-function calcTotalStars(studentKey){
-  let total=0;
-  for(let i=1;i<=13;i++)total+=+localStorage.getItem(studentKey+"_lesson"+i+"Stars")||0;
-  total+=+localStorage.getItem(studentKey+"_chatStars")||0;
-  document.getElementById("totalStars").innerText=total;
-}
-function calcTotalStarsForAll(){
-  let total=0;
-  allowedNames.forEach(n=>{
-    for(let i=1;i<=13;i++)total+=+localStorage.getItem(n+"_lesson"+i+"Stars")||0;
-    total+=+localStorage.getItem(n+"_chatStars")||0;
-  });
-  document.getElementById("totalStars").innerText=total;
-}
-
-/* NAVIGATION */
-function openTheme(n){window.location.href="theme"+n+".html";}
-function openChat(){document.getElementById("mainMenu").style.display="none";document.getElementById("chatSection").style.display="block";updateCounter();}
-function openTeacherJournal(){document.getElementById("mainMenu").style.display="none";document.getElementById("teacherJournal").style.display="block";buildJournal();}
-function backMenu(){document.getElementById("chatSection").style.display="none";document.getElementById("teacherJournal").style.display="none";document.getElementById("mainMenu").style.display="block";}
-
-/* JOURNAL */
-function buildJournal(){
-  const b=document.getElementById("journalBody");b.innerHTML="";
-  allowedNames.forEach(n=>{
-    let ls=0;for(let i=1;i<=13;i++)ls+=+localStorage.getItem(n+"_lesson"+i+"Stars")||0;
-    const cs=+localStorage.getItem(n+"_chatStars")||0;const t=ls+cs;
-    b.innerHTML+=`<tr><td>${n}</td><td>${ls}</td><td>${cs}</td><td>${t}</td></tr>`;
-  });
-}
-
-/* CHAT */
-async function askBayan(){
-  const input=document.getElementById("chatInput");
-  const box=document.getElementById("chatBox");
-  const q=input.value.trim();if(!q){alert("Type your question!");return;}
-  if(!isTeacher&&usedToday>=DAILY_LIMIT){alert("⚠️ Daily limit reached.");return;}
-  box.innerHTML+=`<p><b>You:</b> ${q}</p><p><i>AI Bayan is thinking...</i></p>`;
-  box.scrollTop=box.scrollHeight;input.value="";
-  try{
-    const r=await fetch(WORKER_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({messages:[{role:"user",content:q}]})});
-    const d=await r.json();const reply=d.reply||"Sorry, I can’t answer now.";
-    box.innerHTML+=`<p><b>AI Bayan:</b> ${reply}</p>`;box.scrollTop=box.scrollHeight;
-    if(!isTeacher){usedToday++;localStorage.setItem("usedToday",usedToday);updateCounter();}
-  }catch(e){box.innerHTML+=`<p><b>AI Bayan:</b> ❌ Connection error.</p>`;}
-}
-function clearChat(){document.getElementById("chatBox").innerHTML="";}
-updateCounter();
 </script>
 </body>
 </html>
