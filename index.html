@@ -21,36 +21,38 @@ body{
   color:#000;
 }
 
-/* 🌊 HEADER — глубокий синий с золотым орнаментом */
+/* 🌊 HEADER */
 header{
   background:linear-gradient(180deg,#002D72 0%,#004AAD 100%);
-  border-bottom:4px solid #FFD54F;
-  box-shadow:0 4px 10px rgba(0,0,0,0.25);
-  padding:10px 6px 0;
+  border-bottom:5px solid #FFD54F;
+  box-shadow:0 4px 10px rgba(0,0,0,0.3);
+  padding:12px 6px 0;
+  position:relative;
 }
 header h1{
-  margin:4px 0 0;
-  font-size:1.6rem;
+  font-size:1.9rem;
   font-weight:bold;
   color:#FFD54F;
-  text-shadow:0 0 10px rgba(255,255,180,0.6);
   letter-spacing:1px;
+  text-shadow:0 0 12px rgba(255,255,180,0.8);
 }
 header h2{
-  margin:0 0 4px;
-  font-size:1rem;
+  font-size:1.1rem;
   color:#FFF8C0;
+  margin-bottom:4px;
+  font-weight:bold;
 }
 .ornament{
   width:100%;
-  height:30px;
+  height:36px;
+  margin-top:4px;
 }
 .ornament svg path{
   fill:none;
   stroke:url(#goldGrad);
-  stroke-width:2.5;
+  stroke-width:3;
   stroke-linecap:round;
-  filter:drop-shadow(0 0 4px rgba(255,255,180,0.7));
+  filter:drop-shadow(0 0 5px rgba(255,255,180,0.9));
 }
 
 /* LOGIN */
@@ -92,25 +94,29 @@ main{padding:12px 8px 90px;}
 #mainMenu{display:none;}
 .topics-grid{
   display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:8px;max-width:680px;
-  margin:14px auto 10px;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:12px;
+  max-width:800px;
+  margin:18px auto;
 }
 .topic-btn{
   border:none;border-radius:10px;
-  padding:9px 6px;font-size:0.9rem;font-weight:bold;
-  color:#fff;cursor:pointer;
-  box-shadow:0 2px 6px rgba(0,0,0,0.22);
+  padding:12px 6px;
+  font-size:1rem;
+  font-weight:bold;
+  color:#fff;
+  cursor:pointer;
+  box-shadow:0 2px 6px rgba(0,0,0,0.25);
   transition:0.2s;
 }
-.topic-btn:hover{transform:translateY(-2px);filter:brightness(1.05);}
+.topic-btn:hover{transform:translateY(-2px);filter:brightness(1.08);}
 
 /* Цвета тем */
-.t1{background:#8C5BDE;}
+.t1{background:#5A47B2;}
 .t2{background:#B86A33;}
 .t3{background:#1A9A5E;}
 .t4{background:#E67829;}
-.t5{background:#1889B6;}
+.t5{background:#187BB0;}
 .t6{background:#7A5334;}
 .t7{background:#2F63C9;}
 .t8{background:#F08A1F;}
@@ -121,7 +127,7 @@ main{padding:12px 8px 90px;}
 .t13{background:#6B3ACF;}
 
 /* Кнопки чата и журнала */
-#extraBtns{margin-top:10px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;}
+#extraBtns{margin-top:10px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;}
 .extra-btn{
   background:#DCC7A1;border:none;border-radius:10px;
   padding:8px 16px;font-weight:bold;
@@ -133,7 +139,7 @@ main{padding:12px 8px 90px;}
 #welcomeBox{
   margin:16px auto 0;background:#F2E4CC;
   border:2px solid #C5AF84;border-radius:10px;
-  max-width:680px;padding:8px;color:#3C2F1E;font-weight:bold;
+  max-width:700px;padding:10px;color:#3C2F1E;font-weight:bold;
 }
 #welcomeText{margin-bottom:4px;text-transform:capitalize;}
 
@@ -170,7 +176,7 @@ th{background:#002D72;color:#fff;}
 
 @media(max-width:700px){
   .topics-grid{max-width:95%;}
-  header h1{font-size:1.4rem;}
+  header h1{font-size:1.5rem;}
 }
 </style>
 </head>
@@ -201,7 +207,7 @@ th{background:#002D72;color:#fff;}
           <stop offset="100%" stop-color="#FFD700"/>
         </linearGradient>
       </defs>
-      <path d="M0 20 q20 -18 40 0 t40 0 q20 -18 40 0 t40 0 q20 -18 40 0 t40 0 q20 -18 40 0 t40 0 q20 -18 40 0 t40 0"/>
+      <path d="M0 20 q30 -20 60 0 t60 0 q30 -20 60 0 t60 0 q30 -20 60 0 t60 0 q30 -20 60 0 t60 0 q30 -20 60 0 t60 0"/>
     </svg>
   </div>
 </header>
@@ -368,10 +374,14 @@ let deferredPrompt=null;
 window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredPrompt=e;});
 document.getElementById("installButton").addEventListener("click",async()=>{
   if(deferredPrompt){deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;}
-  else alert('To install the app, open the browser menu and choose "Add to Home screen".');
+  else alert('To install the app, open the browser menu and choose "Add
+             else {
+    alert('To install the app, open the browser menu and choose "Add to Home screen".');
+  }
 });
 
 updateCounter();
 </script>
+
 </body>
 </html>
