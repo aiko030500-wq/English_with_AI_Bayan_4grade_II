@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>English with AI Bayan 4grade II</title>
 
-<!-- 🌟 PWA -->
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#002D72">
 <meta name="mobile-web-app-capable" content="yes">
@@ -14,164 +13,72 @@
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-body{
-  font-family:Verdana,sans-serif;
-  background:#FFF9F2;
-  text-align:center;
-  color:#000;
-}
+body{font-family:Verdana,sans-serif;background:#FFF9F2;text-align:center;color:#000;}
 
-/* 🌊 HEADER — глубокий синий с золотым орнаментом */
+/* HEADER */
 header{
   background:linear-gradient(180deg,#002D72 0%,#004AAD 100%);
   border-bottom:4px solid #FFD54F;
   box-shadow:0 4px 10px rgba(0,0,0,0.25);
-  padding:10px 6px 0;
+  padding:12px 6px 0;
 }
-header h1{
-  margin:4px 0 0;
-  font-size:1.6rem;
-  font-weight:bold;
-  color:#FFD54F;
-  text-shadow:0 0 10px rgba(255,255,180,0.6);
-  letter-spacing:1px;
-}
-header h2{
-  margin:0 0 4px;
-  font-size:1rem;
-  color:#FFF8C0;
-}
-.ornament{
-  width:100%;
-  height:30px;
-}
-.ornament svg path{
-  fill:none;
-  stroke:url(#goldGrad);
-  stroke-width:2.5;
-  stroke-linecap:round;
-  filter:drop-shadow(0 0 4px rgba(255,255,180,0.7));
-}
+header h1{color:#FFD54F;text-shadow:0 0 12px rgba(255,255,180,0.8);font-size:1.7rem;margin:4px 0 0;}
+header h2{color:#FFF8C0;font-weight:bold;font-size:1rem;margin-bottom:6px;}
+.ornament{width:100%;height:36px;margin-top:4px;}
+.ornament svg path{fill:none;stroke:url(#goldGrad);stroke-width:3;stroke-linecap:round;filter:drop-shadow(0 0 5px rgba(255,255,180,0.9));}
 
 /* LOGIN */
-.overlay{
-  position:fixed;inset:0;
-  background:rgba(0,0,0,0.55);
-  display:flex;align-items:center;justify-content:center;
-  z-index:999;
-}
-.overlay-card{
-  background:#fff;
-  border:4px solid #CBAE7C;
-  padding:20px;
-  border-radius:16px;
-  box-shadow:0 0 15px rgba(0,0,0,0.35);
-  width:90%;max-width:380px;
-  color:#5B4A33;
-}
-.overlay-card input{
-  width:100%;padding:8px;
-  border-radius:8px;border:1px solid #ccc;
-  margin:6px 0;font-size:1rem;
-}
-.btn{
-  background:#002D72;
-  color:#fff;
-  border:none;
-  border-radius:10px;
-  padding:8px 14px;
-  font-weight:bold;
-  cursor:pointer;
-  margin:6px;
-  font-size:0.9rem;
-}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,0.55);display:flex;align-items:center;justify-content:center;z-index:999;}
+.overlay-card{background:#fff;border:4px solid #CBAE7C;padding:20px;border-radius:16px;box-shadow:0 0 15px rgba(0,0,0,0.35);width:90%;max-width:380px;color:#5B4A33;}
+.overlay-card input{width:100%;padding:8px;border-radius:8px;border:1px solid #ccc;margin:6px 0;font-size:1rem;}
+.btn{background:#002D72;color:#fff;border:none;border-radius:10px;padding:8px 14px;font-weight:bold;cursor:pointer;margin:6px;font-size:0.9rem;}
 .btn:hover{background:#FFD54F;color:#002D72;}
 
 /* MAIN */
 main{padding:12px 8px 90px;}
 #mainMenu{display:none;}
+
+/* 3-рядное меню */
 .topics-grid{
   display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:8px;max-width:680px;
-  margin:14px auto 10px;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:12px;
+  max-width:780px;
+  margin:20px auto 15px;
 }
 .topic-btn{
-  border:none;border-radius:10px;
-  padding:9px 6px;font-size:0.9rem;font-weight:bold;
-  color:#fff;cursor:pointer;
-  box-shadow:0 2px 6px rgba(0,0,0,0.22);
-  transition:0.2s;
+  border:none;border-radius:14px;
+  padding:14px 10px;
+  font-size:0.95rem;font-weight:bold;
+  color:#333;
+  cursor:pointer;
+  box-shadow:0 2px 6px rgba(0,0,0,0.15);
+  background:#fff;
+  transition:0.25s all;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  height:120px;
 }
-.topic-btn:hover{transform:translateY(-2px);filter:brightness(1.05);}
+.topic-btn:hover{transform:translateY(-3px);box-shadow:0 4px 12px rgba(0,0,0,0.25);}
+.topic-btn span.icon{font-size:1.5rem;margin-bottom:4px;}
 
-/* Цвета тем */
-.t1{background:#8C5BDE;}
-.t2{background:#B86A33;}
-.t3{background:#1A9A5E;}
-.t4{background:#E67829;}
-.t5{background:#1889B6;}
-.t6{background:#7A5334;}
-.t7{background:#2F63C9;}
-.t8{background:#F08A1F;}
-.t9{background:#B73655;}
-.t10{background:#D95C8D;}
-.t11{background:#D63232;}
-.t12{background:#2F9A4C;}
-.t13{background:#6B3ACF;}
+/* Пастельные цвета */
+.t1{background:#E6E0FA;} .t2{background:#FBE4D6;} .t3{background:#D6F5E3;}
+.t4{background:#FBE9D9;} .t5{background:#D8F0FA;} .t6{background:#EFE2D2;}
+.t7{background:#E2E8FB;} .t8{background:#FCEED6;} .t9{background:#FAD6E1;}
+.t10{background:#F9D8E9;} .t11{background:#FAD9D9;} .t12{background:#DCF5DA;} .t13{background:#E6DAFA;}
 
-/* Кнопки чата и журнала */
-#extraBtns{margin-top:10px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;}
-.extra-btn{
-  background:#DCC7A1;border:none;border-radius:10px;
-  padding:8px 16px;font-weight:bold;
-  color:#3C2F1E;cursor:pointer;
-  box-shadow:0 3px 6px rgba(0,0,0,0.18);
-}
+#extraBtns{margin-top:10px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;}
+.extra-btn{background:#DCC7A1;border:none;border-radius:10px;padding:8px 16px;font-weight:bold;color:#3C2F1E;cursor:pointer;box-shadow:0 3px 6px rgba(0,0,0,0.18);}
 .extra-btn:hover{background:#EBDAB5;}
 
-#welcomeBox{
-  margin:16px auto 0;background:#F2E4CC;
-  border:2px solid #C5AF84;border-radius:10px;
-  max-width:680px;padding:8px;color:#3C2F1E;font-weight:bold;
-}
-#welcomeText{margin-bottom:4px;text-transform:capitalize;}
+#welcomeBox{margin:16px auto 0;background:#F2E4CC;border:2px solid #C5AF84;border-radius:10px;max-width:680px;padding:10px;color:#3C2F1E;font-weight:bold;}
 
-#chatSection,#teacherJournal{
-  display:none;max-width:900px;margin:12px auto;
-  background:#F3E9CF;border:2px solid #CBAE7C;
-  border-radius:12px;padding:10px;
-}
-#chatBox{
-  background:#fff;border-radius:8px;padding:8px;
-  max-height:260px;overflow-y:auto;
-  text-align:left;color:#000;border:1px solid #ddd;
-}
-textarea{
-  width:95%;border-radius:8px;border:1px solid #ccc;
-  padding:6px;font-family:inherit;min-height:60px;margin-top:6px;
-}
-#limitCounter{margin-top:4px;font-size:0.9rem;color:#5B4A33;font-weight:bold;}
+/* CHAT & JOURNAL */
+#chatSection,#teacherJournal{display:none;max-width:900px;margin:12px auto;background:#F3E9CF;border:2px solid #CBAE7C;border-radius:12px;padding:10px;}
+#chatBox{background:#fff;border-radius:8px;padding:8px;max-height:260px;overflow-y:auto;text-align:left;color:#000;border:1px solid #ddd;}
+textarea{width:95%;border-radius:8px;border:1px solid #ccc;padding:6px;font-family:inherit;min-height:60px;margin-top:6px;}
 
-table{width:100%;border-collapse:collapse;font-size:0.85rem;}
-th,td{border:1px solid #CBAE7C;padding:4px 6px;}
-th{background:#002D72;color:#fff;}
-
-.install-btn{
-  position:fixed;bottom:10px;left:50%;
-  transform:translateX(-50%);
-  background:#C5AF84;color:#fff;border:none;
-  border-radius:50%;width:50px;height:50px;
-  font-size:0.8rem;
-  box-shadow:0 3px 8px rgba(0,0,0,0.35);
-  cursor:pointer;z-index:50;
-}
-.install-btn:hover{background:#E8D2A4;}
-
-@media(max-width:700px){
-  .topics-grid{max-width:95%;}
-  header h1{font-size:1.4rem;}
-}
+.install-btn{position:fixed;bottom:10px;left:50%;transform:translateX(-50%);background:#C5AF84;color:#fff;border:none;border-radius:50%;width:50px;height:50px;font-size:0.8rem;box-shadow:0 3px 8px rgba(0,0,0,0.35);cursor:pointer;z-index:50;}
 </style>
 </head>
 
@@ -201,7 +108,7 @@ th{background:#002D72;color:#fff;}
           <stop offset="100%" stop-color="#FFD700"/>
         </linearGradient>
       </defs>
-      <path d="M0 20 q20 -18 40 0 t40 0 q20 -18 40 0 t40 0 q20 -18 40 0 t40 0 q20 -18 40 0 t40 0 q20 -18 40 0 t40 0"/>
+      <path d="M0 20 q30 -20 60 0 t60 0 q30 -20 60 0 t60 0 q30 -20 60 0 t60 0 q30 -20 60 0 t60 0"/>
     </svg>
   </div>
 </header>
@@ -209,19 +116,19 @@ th{background:#002D72;color:#fff;}
 <main>
   <div id="mainMenu">
     <div class="topics-grid">
-      <button class="topic-btn t1" onclick="openTheme(1)">1. 🎨 Let’s Have Fun!</button>
-      <button class="topic-btn t2" onclick="openTheme(2)">2. 🏃 Sports and Exercises</button>
-      <button class="topic-btn t3" onclick="openTheme(3)">3. 🌍 Sports Around the World</button>
-      <button class="topic-btn t4" onclick="openTheme(4)">4. 🎵 Arts and Music</button>
-      <button class="topic-btn t5" onclick="openTheme(5)">5. ⚽ Popular Team Sports</button>
-      <button class="topic-btn t6" onclick="openTheme(6)">6. 🎻 Museum of Kazakh Musical Instruments</button>
-      <button class="topic-btn t7" onclick="openTheme(7)">7. 📜 Children’s Rights & Responsibilities</button>
-      <button class="topic-btn t8" onclick="openTheme(8)">8. 🧰 Different Jobs</button>
-      <button class="topic-btn t9" onclick="openTheme(9)">9. 👩‍⚕️ Professions</button>
-      <button class="topic-btn t10" onclick="openTheme(10)">10. 🏢 People at Work</button>
-      <button class="topic-btn t11" onclick="openTheme(11)">11. 💬 What Do You Do?</button>
-      <button class="topic-btn t12" onclick="openTheme(12)">12. ❤️ You Can Help!</button>
-      <button class="topic-btn t13" onclick="openTheme(13)">13. 🎯 Final Challenge</button>
+      <button class="topic-btn t1" onclick="openTheme(1)"><span class="icon">🎨</span>1. Let’s Have Fun!</button>
+      <button class="topic-btn t2" onclick="openTheme(2)"><span class="icon">🏃</span>2. Sports & Exercises</button>
+      <button class="topic-btn t3" onclick="openTheme(3)"><span class="icon">🌍</span>3. Sports Around World</button>
+      <button class="topic-btn t4" onclick="openTheme(4)"><span class="icon">🎵</span>4. Arts & Music</button>
+      <button class="topic-btn t5" onclick="openTheme(5)"><span class="icon">⚽</span>5. Team Sports</button>
+      <button class="topic-btn t6" onclick="openTheme(6)"><span class="icon">🎻</span>6. Kazakh Instruments</button>
+      <button class="topic-btn t7" onclick="openTheme(7)"><span class="icon">📜</span>7. Children’s Rights</button>
+      <button class="topic-btn t8" onclick="openTheme(8)"><span class="icon">🧰</span>8. Different Jobs</button>
+      <button class="topic-btn t9" onclick="openTheme(9)"><span class="icon">👩‍⚕️</span>9. Professions</button>
+      <button class="topic-btn t10" onclick="openTheme(10)"><span class="icon">🏢</span>10. People at Work</button>
+      <button class="topic-btn t11" onclick="openTheme(11)"><span class="icon">💬</span>11. What Do You Do?</button>
+      <button class="topic-btn t12" onclick="openTheme(12)"><span class="icon">❤️</span>12. You Can Help!</button>
+      <button class="topic-btn t13" onclick="openTheme(13)"><span class="icon">🎯</span>13. Final Challenge</button>
     </div>
 
     <div id="extraBtns">
@@ -231,7 +138,7 @@ th{background:#002D72;color:#fff;}
 
     <div id="welcomeBox">
       <div id="welcomeText">Hello, Student!</div>
-      <div>Total stars in all lessons: <b><span id="totalStars">0</span> ⭐</b></div>
+      <div>Total stars: <b><span id="totalStars">0</span> ⭐</b></div>
     </div>
   </div>
 
@@ -318,23 +225,9 @@ function calcTotalStarsForAll(){
 
 /* NAVIGATION */
 function openTheme(n){window.location.href="theme"+n+".html";}
-function openChat(){
-  document.getElementById("mainMenu").style.display="none";
-  document.getElementById("chatSection").style.display="block";
-  document.getElementById("teacherJournal").style.display="none";
-  updateCounter();
-}
-function openTeacherJournal(){
-  document.getElementById("mainMenu").style.display="none";
-  document.getElementById("chatSection").style.display="none";
-  document.getElementById("teacherJournal").style.display="block";
-  buildJournal();
-}
-function backMenu(){
-  document.getElementById("chatSection").style.display="none";
-  document.getElementById("teacherJournal").style.display="none";
-  document.getElementById("mainMenu").style.display="block";
-}
+function openChat(){document.getElementById("mainMenu").style.display="none";document.getElementById("chatSection").style.display="block";updateCounter();}
+function openTeacherJournal(){document.getElementById("mainMenu").style.display="none";document.getElementById("teacherJournal").style.display="block";buildJournal();}
+function backMenu(){document.getElementById("chatSection").style.display="none";document.getElementById("teacherJournal").style.display="none";document.getElementById("mainMenu").style.display="block";}
 
 /* JOURNAL */
 function buildJournal(){
@@ -362,15 +255,6 @@ async function askBayan(){
   }catch(e){box.innerHTML+=`<p><b>AI Bayan:</b> ❌ Connection error.</p>`;}
 }
 function clearChat(){document.getElementById("chatBox").innerHTML="";}
-
-/* INSTALL */
-let deferredPrompt=null;
-window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredPrompt=e;});
-document.getElementById("installButton").addEventListener("click",async()=>{
-  if(deferredPrompt){deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;}
-  else alert('To install the app, open the browser menu and choose "Add to Home screen".');
-});
-
 updateCounter();
 </script>
 </body>
