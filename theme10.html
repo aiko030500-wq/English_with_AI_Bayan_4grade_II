@@ -22,9 +22,9 @@ header {
   justify-content:space-between;
 }
 .logo {
-  width:55px;height:55px;
+  width:150px; height:150px;
   border-radius:50%;
-  border:3px solid #ffcdd2;
+  border:4px solid #ffcdd2;
   background:white;
   object-fit:cover;
 }
@@ -86,12 +86,9 @@ textarea{width:100%;}
 </head>
 <body>
 <header>
-  <div style="display:flex;align-items:center;gap:10px;">
+  <div style="display:flex;align-items:center;gap:10px;justify-content:center;width:100%;">
+    <h1 style="margin:0;font-size:1.2rem;">Theme 10 — People at Work</h1>
     <img src="logo.png" class="logo" alt="AI Bayan logo">
-    <div>
-      <h1 style="margin:0;font-size:1rem;">Theme 10 — People at Work</h1>
-      <p style="margin:0;color:#fce4ec;">English with AI Bayan — Working together</p>
-    </div>
   </div>
 </header>
 
@@ -244,12 +241,9 @@ function bayanReading(){speakBayanText('My neighbour is a postman. He brings let
 function checkReading(){let c=0;if(r1.value.toLowerCase().includes('postman'))c++;if(r2.value.toLowerCase().includes('letter')||r2.value.toLowerCase().includes('parcel'))c++;if(r3.value.toLowerCase().includes('people'))c++;if(c>0){addStar();readStars.innerText='⭐ '+c+' correct!';}}
 function checkWriting(){let c=0;[w1,w2,w3].forEach(x=>{if(x.value.trim()!=='')c++;});if(c>0){addStar();writeStars.innerText='⭐ '+c+' good sentences!';}}
 function finishLesson(){finalStars.innerText=totalStars;let msg=totalStars>=10?'🌟 Excellent! You learned about people at work!':'Good job! Keep practising more!';finalMessage.innerText=msg;localStorage.setItem('lesson10Stars',totalStars);alert('Lesson 10 saved! '+totalStars+'⭐');}
-function goBack(){location.href='index.html';}function goMenu(){location.href='index.html';}function goNext(){location.href='theme11.html';}
+function goBack(){location.href='index.html';}
+function goMenu(){location.href='index.html';}
+function goNext(){location.href='theme11.html';}
 </script>
 </body>
 </html>
-
-    
-   
-    
- 
