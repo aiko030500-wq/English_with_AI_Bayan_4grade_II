@@ -3,49 +3,52 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Theme 8 — Different Jobs</title>
+<title>Theme 6 — Museum of Kazakh Musical Instruments</title>
 <style>
 body {
   font-family: Verdana, sans-serif;
-  background: radial-gradient(circle at top,#fff3e0 0%,#ffe0b2 40%,#ffcc80 100%);
-  margin:0;
-  color:#e65100;
-  text-align:center;
+  background: radial-gradient(circle at top, #fffde7 0%, #fff9c4 30%, #fff59d 100%);
+  margin: 0;
+  color: #4e342e;
+  text-align: center;
 }
 header {
-  background:linear-gradient(90deg,#ef6c00,#ff9800);
-  color:white;
-  padding:0.6rem 1rem;
-  border-bottom:5px solid #fff8e1;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+  background: linear-gradient(90deg,#00796b,#ffd54f);
+  color: white;
+  padding: 0.6rem 1rem;
+  border-bottom: 5px solid #ffe082;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .logo {
-  width:55px;height:55px;
-  border-radius:50%;
-  border:3px solid #fff8e1;
-  background:white;
-  object-fit:cover;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 4px solid #ffe082;
+  background: white;
+  object-fit: cover;
+  object-position: 50% 45%;
+  box-shadow: 0 0 8px rgba(0,0,0,0.25);
 }
-h2{color:#ef6c00;}
+h2 {color:#00695c;}
 section {
-  background:rgba(255,255,255,0.98);
-  border-radius:18px;
-  box-shadow:0 0 12px rgba(0,0,0,0.12);
-  padding:15px;
-  max-width:860px;
-  margin:15px auto;
-  text-align:left;
-  line-height:1.5;
-  font-size:0.95rem;
+  background: rgba(255,255,255,0.98);
+  border-radius: 18px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.12);
+  padding: 15px;
+  max-width: 860px;
+  margin: 15px auto;
+  text-align: left;
+  line-height: 1.5;
+  font-size: 0.95rem;
 }
 h3 {
-  background:linear-gradient(90deg,#f57c00,#ffb74d);
-  color:white;
-  padding:6px 10px;
-  border-radius:10px;
-  font-size:1rem;
+  background: linear-gradient(90deg,#00796b,#80cbc4);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-size: 1rem;
 }
 .btn {
   display:inline-block;
@@ -53,14 +56,14 @@ h3 {
   padding:8px 14px;
   border:none;
   border-radius:10px;
-  background:#ef6c00;
+  background:#00796b;
   color:white;
   font-weight:bold;
   cursor:pointer;
   font-size:0.9rem;
 }
-.btn:hover{background:#ffd54f;color:#e65100;}
-input[type="text"],textarea,select{
+.btn:hover {background:#fff59d; color:#004d40;}
+input[type="text"], textarea, select {
   border-radius:8px;
   border:1px solid #ccc;
   padding:6px;
@@ -69,10 +72,10 @@ input[type="text"],textarea,select{
 }
 input[type="text"]{width:100%;max-width:380px;}
 textarea{width:100%;}
-.round-label{
+.round-label {
   display:inline-block;
-  background:#ffd54f;
-  color:#e65100;
+  background:#ffe082;
+  color:#00695c;
   padding:2px 8px;
   border-radius:999px;
   font-size:0.75rem;
@@ -86,142 +89,139 @@ textarea{width:100%;}
 </head>
 <body>
 <header>
-  <div style="display:flex;align-items:center;gap:10px;">
-    <img src="logo.png" class="logo" alt="AI Bayan logo">
-    <div>
-      <h1 style="margin:0;font-size:1rem;">Theme 8 — Different Jobs</h1>
-      <p style="margin:0;color:#fff8e1;">English with AI Bayan — Professions and Work</p>
-    </div>
+  <div>
+    <h1 style="margin:0;font-size:1rem;">Theme 6 — Museum of Kazakh Musical Instruments</h1>
+    <p style="margin:0;color:#fffde7;">English with AI Bayan — Kazakh Culture</p>
   </div>
+  <img src="logo.png" class="logo" alt="AI Bayan logo">
 </header>
 
 <main>
-<h2>👩‍🚒👨‍⚕️ Different Jobs</h2>
-<p style="font-style:italic;color:#e65100;">Learning about professions and what people do</p>
+<h2>🎵 Museum of Kazakh Musical Instruments 🇰🇿</h2>
+<p style="font-style:italic;color:#4e342e;">Learn about traditional Kazakh music and its wonderful instruments!</p>
 <p id="lessonStarsLine"><b>You have 0 ⭐ in this lesson.</b></p>
 
-<!-- ===== VOCABULARY ===== -->
+<!-- ===== Vocabulary ===== -->
 <section>
-<h3>🧠 Vocabulary — Jobs <span class="round-label">Vocabulary</span></h3>
+<h3>🧠 Vocabulary — Kazakh Instruments <span class="round-label">Vocabulary</span></h3>
 <p><b>Choose the correct translation (на русский).</b></p>
 
-<p>1) doctor  
-<button class="btn" onclick="speakVocab('A doctor helps sick people.')">▶ Play</button>
+<p>1) dombra  
+<button class="btn" onclick="speakVocab('The dombra is a famous Kazakh string instrument.')">▶ Play</button>
 <button class="btn" onclick="stopBayan()">⏹ Stop</button></p>
-<label><input type="radio" name="v1" value="1"> врач</label><br>
-<label><input type="radio" name="v1" value="0"> учитель</label><br>
+<label><input type="radio" name="v1" value="1"> домбра</label><br>
+<label><input type="radio" name="v1" value="0"> гитара</label><br>
 
-<p>2) teacher  
-<button class="btn" onclick="speakVocab('A teacher works at school and teaches students.')">▶ Play</button>
+<p>2) kobyz  
+<button class="btn" onclick="speakVocab('The kobyz has two strings and a deep sound.')">▶ Play</button>
 <button class="btn" onclick="stopBayan()">⏹ Stop</button></p>
-<label><input type="radio" name="v2" value="1"> учитель</label><br>
-<label><input type="radio" name="v2" value="0"> водитель</label><br>
+<label><input type="radio" name="v2" value="1"> кобыз</label><br>
+<label><input type="radio" name="v2" value="0"> барабан</label><br>
 
-<p>3) firefighter  
-<button class="btn" onclick="speakVocab('A firefighter stops fires and saves people.')">▶ Play</button>
+<p>3) sybyzgy  
+<button class="btn" onclick="speakVocab('The sybyzgy is a Kazakh wind instrument.')">▶ Play</button>
 <button class="btn" onclick="stopBayan()">⏹ Stop</button></p>
-<label><input type="radio" name="v3" value="1"> пожарный</label><br>
-<label><input type="radio" name="v3" value="0"> врач</label><br>
+<label><input type="radio" name="v3" value="1"> сыбызгы</label><br>
+<label><input type="radio" name="v3" value="0"> скрипка</label><br>
 
-<p>4) driver  
-<button class="btn" onclick="speakVocab('A driver drives a bus or a car.')">▶ Play</button>
+<p>4) shankobyz  
+<button class="btn" onclick="speakVocab('The shankobyz is small and made of metal.')">▶ Play</button>
 <button class="btn" onclick="stopBayan()">⏹ Stop</button></p>
-<label><input type="radio" name="v4" value="1"> водитель</label><br>
-<label><input type="radio" name="v4" value="0"> певец</label><br>
+<label><input type="radio" name="v4" value="1"> шанкыбыз</label><br>
+<label><input type="radio" name="v4" value="0"> флейта</label><br>
 
-<p>5) cook  
-<button class="btn" onclick="speakVocab('A cook makes food in a restaurant.')">▶ Play</button>
+<p>5) orchestra  
+<button class="btn" onclick="speakVocab('The orchestra plays many instruments together.')">▶ Play</button>
 <button class="btn" onclick="stopBayan()">⏹ Stop</button></p>
-<label><input type="radio" name="v5" value="1"> повар</label><br>
-<label><input type="radio" name="v5" value="0"> продавец</label><br>
+<label><input type="radio" name="v5" value="1"> оркестр</label><br>
+<label><input type="radio" name="v5" value="0"> хор</label><br>
 
 <button class="btn" onclick="checkVocab()">Check vocabulary ✅</button>
 <div id="vocabStars" style="font-size:1.1rem;margin-top:8px;"></div>
 </section>
 
-<!-- ===== GRAMMAR ===== -->
+<!-- ===== Grammar ===== -->
 <section>
-<h3>📘 Grammar — What do they do? <span class="round-label">Grammar</span></h3>
-<p><b>We use “What do you do?” to ask about jobs.</b></p>
-<p>Example: He is a doctor. He helps sick people.</p>
+<h3>📘 Grammar — Present Simple with “has / have” <span class="round-label">Grammar</span></h3>
+<p><b>Use “has” or “have” to describe instruments.</b></p>
 
-<p>1) She is a teacher. She ___ children at school.</p>
-<label><input type="radio" name="g1" value="teaches"> teaches</label><br>
-<label><input type="radio" name="g1" value="drives"> drives</label><br>
+<p>1) The dombra ___ two strings.</p>
+<label><input type="radio" name="g1" value="has"> has</label><br>
+<label><input type="radio" name="g1" value="have"> have</label><br>
 
-<p>2) He is a cook. He ___ food in a restaurant.</p>
-<label><input type="radio" name="g2" value="makes"> makes</label><br>
-<label><input type="radio" name="g2" value="teaches"> teaches</label><br>
+<p>2) The kobyz ___ a deep sound.</p>
+<label><input type="radio" name="g2" value="has"> has</label><br>
+<label><input type="radio" name="g2" value="have"> have</label><br>
 
-<p>3) They are firefighters. They ___ people from fires.</p>
-<label><input type="radio" name="g3" value="save"> save</label><br>
-<label><input type="radio" name="g3" value="cook"> cook</label><br>
+<p>3) The orchestra ___ many instruments.</p>
+<label><input type="radio" name="g3" value="have"> have</label><br>
+<label><input type="radio" name="g3" value="has"> has</label><br>
 
 <button class="btn" onclick="checkGrammar()">Check grammar ✅</button>
 <div id="grammarStars" style="font-size:1.1rem;margin-top:8px;"></div>
 </section>
 
-<!-- ===== LISTENING ===== -->
+<!-- ===== Listening ===== -->
 <section>
-<h3>🎧 Listening — People at work <span class="round-label">Listening</span></h3>
+<h3>🎧 Listening — At the Museum <span class="round-label">Listening</span></h3>
 <p><b>Listen and choose True or False.</b></p>
 <button class="btn" onclick="bayanListening()">▶ Play</button>
 <button class="btn" onclick="stopBayan()">⏹ Stop</button>
 
-<p>1) The doctor works in a hospital.</p>
+<p>1) The dombra has two strings.</p>
 <select id="t1"><option>—</option><option>True</option><option>False</option></select>
-<p>2) The driver teaches children.</p>
+<p>2) The kobyz is a wind instrument.</p>
 <select id="t2"><option>—</option><option>True</option><option>False</option></select>
-<p>3) The cook works in a restaurant.</p>
+<p>3) The sybyzgy is made of wood.</p>
 <select id="t3"><option>—</option><option>True</option><option>False</option></select>
 
 <button class="btn" onclick="checkListening()">Check listening ✅</button>
 <div id="listenStars" style="font-size:1.1rem;margin-top:8px;"></div>
 </section>
 
-<!-- ===== READING ===== -->
+<!-- ===== Reading ===== -->
 <section>
-<h3>📖 Reading — My Father’s Job <span class="round-label">Reading</span></h3>
+<h3>📖 Reading — The Kazakh Museum <span class="round-label">Reading</span></h3>
 <p><b>Read or listen:</b></p>
 <button class="btn" onclick="bayanReading()">▶ Play</button>
 <button class="btn" onclick="stopBayan()">⏹ Stop</button>
 
-<div style="margin-top:10px;background:#fff8e1;border-radius:10px;padding:10px;">
+<div style="margin-top:10px;background:#fff9c4;border-radius:10px;padding:10px;">
   <p>
-    My father is a driver. He works for a school.  
-    Every morning he drives the children to school safely.  
-    He likes his job because he helps children.  
-    I am proud of my father.
+    The Museum of Kazakh Musical Instruments is in Almaty.  
+    It shows traditional instruments such as the dombra, kobyz, and sybyzgy.  
+    Visitors can listen to Kazakh music and learn about history.  
+    Many children like to visit this museum.
   </p>
 </div>
 
 <ol>
-  <li>What is the father’s job?<br><input id="r1" type="text"></li><br>
-  <li>Where does he work?<br><input id="r2" type="text"></li><br>
-  <li>Why does he like his job?<br><input id="r3" type="text"></li>
+  <li>Where is the museum?<br><input id="r1" type="text"></li><br>
+  <li>What instruments can people see?<br><input id="r2" type="text"></li><br>
+  <li>What can visitors do there?<br><input id="r3" type="text"></li>
 </ol>
 
 <button class="btn" onclick="checkReading()">Check reading ✅</button>
 <div id="readStars" style="font-size:1.1rem;margin-top:8px;"></div>
 </section>
 
-<!-- ===== WRITING ===== -->
+<!-- ===== Writing ===== -->
 <section>
-<h3>✍ Writing — About Jobs <span class="round-label">Writing</span></h3>
-<p>Write 3 sentences about a job you like.</p>
-<input id="w1" type="text" placeholder="Example: I want to be a doctor."><br>
-<input id="w2" type="text" placeholder="Example: A doctor helps sick people."><br>
-<input id="w3" type="text" placeholder="Example: It is an important job."><br>
+<h3>✍ Writing — My Favourite Instrument <span class="round-label">Writing</span></h3>
+<p>Write 3 sentences about your favourite Kazakh instrument.</p>
+<input id="w1" type="text" placeholder="Example: My favourite instrument is the dombra."><br>
+<input id="w2" type="text" placeholder="Example: It has two strings."><br>
+<input id="w3" type="text" placeholder="Example: I like its beautiful sound."><br>
 <button class="btn" onclick="checkWriting()">Check writing ✅</button>
 <div id="writeStars" style="font-size:1.1rem;margin-top:8px;"></div>
 </section>
 
-<!-- ===== LESSON COMPLETE ===== -->
+<!-- ===== Lesson Complete ===== -->
 <section style="text-align:center;margin-top:25px;">
 <h3>🎯 Lesson Complete!</h3>
 <p>You have earned <b><span id="finalStars">0</span> ⭐</b> in this lesson.</p>
 <button class="btn" onclick="finishLesson()">Save & Show Result ✅</button>
-<div id="finalMessage" style="margin-top:10px;font-size:1.1rem;color:#e65100;"></div>
+<div id="finalMessage" style="margin-top:10px;font-size:1.1rem;color:#00695c;"></div>
 <div style="margin-top:18px;">
   <button class="btn" onclick="goBack()">⬅ Back</button>
   <button class="btn" onclick="goMenu()">🏠 Main Menu</button>
@@ -238,23 +238,14 @@ function stopBayan(){speechSynthesis.cancel();}
 function speakVocab(t){speakBayanText(t);}
 function markAnswer(el,ok){let m=el.parentElement.querySelector('.mark-icon');if(!m){m=document.createElement('span');el.parentElement.appendChild(m);}m.textContent=ok?'✅':'❌';m.className='mark-icon '+(ok?'correctMark':'wrongMark');}
 function checkVocab(){let c=0;['v1','v2','v3','v4','v5'].forEach(id=>{const q=document.querySelector('input[name="'+id+'"]:checked');if(q){const ok=q.value==='1';markAnswer(q,ok);if(ok)c++;}});if(c>0){addStar();vocabStars.innerText='⭐ '+c+' correct!';}}
-function checkGrammar(){let c=0;[['g1','teaches'],['g2','makes'],['g3','save']].forEach(([id,a])=>{const q=document.querySelector('input[name="'+id+'"]:checked');if(q){const ok=q.value===a;markAnswer(q,ok);if(ok)c++;}});if(c>0){addStar();grammarStars.innerText='⭐ '+c+' correct!';}}
-function bayanListening(){speakBayanText('The doctor works in a hospital. The driver drives a bus. The cook works in a restaurant.');}
+function checkGrammar(){let c=0;[['g1','has'],['g2','has'],['g3','have']].forEach(([id,a])=>{const q=document.querySelector('input[name="'+id+'"]:checked');if(q){const ok=q.value===a;markAnswer(q,ok);if(ok)c++;}});if(c>0){addStar();grammarStars.innerText='⭐ '+c+' correct!';}}
+function bayanListening(){speakBayanText('The dombra has two strings. The kobyz is not a wind instrument. The sybyzgy is made of wood.');}
 function checkListening(){let c=0;if(t1.value==='True')c++;if(t2.value==='False')c++;if(t3.value==='True')c++;if(c>0){addStar();listenStars.innerText='⭐ '+c+' correct!';}}
-function bayanReading(){speakBayanText('My father is a driver. He works for a school. He drives children safely every morning. He likes his job because he helps them.');}
-function checkReading(){let c=0;if(r1.value.toLowerCase().includes('driver'))c++;if(r2.value.toLowerCase().includes('school'))c++;if(r3.value.toLowerCase().includes('help'))c++;if(c>0){addStar();readStars.innerText='⭐ '+c+' correct!';}}
+function bayanReading(){speakBayanText('The Museum of Kazakh Musical Instruments is in Almaty. It shows the dombra, kobyz and sybyzgy. Visitors can listen to Kazakh music and learn about history.');}
+function checkReading(){let c=0;if(r1.value.toLowerCase().includes('almaty'))c++;if(r2.value.toLowerCase().includes('dombra')||r2.value.toLowerCase().includes('kobyz'))c++;if(r3.value.toLowerCase().includes('listen')||r3.value.toLowerCase().includes('music'))c++;if(c>0){addStar();readStars.innerText='⭐ '+c+' correct!';}}
 function checkWriting(){let c=0;[w1,w2,w3].forEach(x=>{if(x.value.trim()!=='')c++;});if(c>0){addStar();writeStars.innerText='⭐ '+c+' good sentences!';}}
-function finishLesson(){finalStars.innerText=totalStars;let msg=totalStars>=10?'🌟 Great job! You know many jobs!':'Keep learning about jobs and professions!';finalMessage.innerText=msg;localStorage.setItem('lesson8Stars',totalStars);alert('Lesson 8 saved! '+totalStars+'⭐');}
-function goBack(){location.href='index.html';}function goMenu(){location.href='index.html';}function goNext(){location.href='theme9.html';}
+function finishLesson(){finalStars.innerText=totalStars;let msg=totalStars>=10?'🌟 Great musician!':'Keep learning about Kazakh music!';finalMessage.innerText=msg;localStorage.setItem('lesson6Stars',totalStars);alert('Lesson 6 saved! '+totalStars+'⭐');}
+function goBack(){location.href='index.html';}function goMenu(){location.href='index.html';}function goNext(){location.href='theme7.html';}
 </script>
 </body>
 </html>
-
-   
-
-
- 
- 
-   
-
-  
