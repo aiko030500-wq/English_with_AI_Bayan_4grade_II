@@ -1,417 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Theme 7 — Children’s Rights and Responsibilities</title>
-  <style>
-    body {
-      font-family: Verdana, sans-serif;
-      background: radial-gradient(circle at top, #e3f2fd 0%, #e1f5fe 40%, #bbdefb 100%);
-      margin: 0;
-      color: #0d47a1;
-      text-align: center;
-    }
-    header {
-      background: linear-gradient(90deg,#1565c0,#42a5f5);
-      color: white;
-      padding: 0.6rem 1rem;
-      border-bottom: 5px solid #bbdefb;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .logo {
-      width: 55px; height: 55px;
-      border-radius: 50%;
-      border: 3px solid #bbdefb;
-      background: white;
-      object-fit: cover;
-    }
-    h2 {color:#1565c0;}
-    section {
-      background: rgba(255,255,255,0.98);
-      border-radius: 18px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.12);
-      padding: 15px;
-      max-width: 860px;
-      margin: 15px auto;
-      text-align: left;
-      line-height: 1.5;
-      font-size: 0.95rem;
-    }
-    h3 {
-      background: linear-gradient(90deg,#1e88e5,#64b5f6);
-      color: white;
-      padding: 6px 10px;
-      border-radius: 10px;
-      font-size: 1rem;
-    }
-    .btn {
-      display:inline-block;
-      margin:6px;
-      padding:8px 14px;
-      border:none;
-      border-radius:10px;
-      background:#1e88e5;
-      color:white;
-      font-weight:bold;
-      cursor:pointer;
-      font-size:0.9rem;
-    }
-    .btn:hover {background:#bbdefb; color:#0d47a1;}
-    input[type="text"], textarea, select {
-      border-radius:8px;
-      border:1px solid #ccc;
-      padding:6px;
-      font-family:inherit;
-      font-size:0.9rem;
-    }
-    input[type="text"]{width:100%;max-width:380px;}
-    textarea{width:100%;}
-    .round-label {
-      display:inline-block;
-      background:#bbdefb;
-      color:#0d47a1;
-      padding:2px 8px;
-      border-radius:999px;
-      font-size:0.75rem;
-      font-weight:bold;
-      margin-left:6px;
-    }
-    .mark-icon{margin-left:8px;font-size:1.2rem;font-weight:bold;}
-    .correctMark{color:#00c853;}
-    .wrongMark{color:#ff1744;}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Theme 7 — Children’s Rights and Responsibilities</title>
+<style>
+body {
+  font-family: Verdana, sans-serif;
+  background: radial-gradient(circle at top, #e3f2fd 0%, #e1f5fe 40%, #bbdefb 100%);
+  margin: 0;
+  color: #0d47a1;
+  text-align: center;
+}
+header {
+  background: linear-gradient(90deg,#1565c0,#42a5f5);
+  color: white;
+  padding: 0.6rem 1rem;
+  border-bottom: 5px solid #bbdefb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid #ffeb3b;
+  background: white;
+  object-fit: cover;
+}
+h2 {color:#1565c0;}
+section {
+  background: rgba(255,255,255,0.98);
+  border-radius: 18px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.12);
+  padding: 15px;
+  max-width: 860px;
+  margin: 15px auto;
+  text-align: left;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+h3 {
+  background: linear-gradient(90deg,#1e88e5,#64b5f6);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+.btn {
+  display:inline-block;
+  margin:6px;
+  padding:8px 14px;
+  border:none;
+  border-radius:10px;
+  background:#1e88e5;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  font-size:0.9rem;
+}
+.btn:hover {background:#bbdefb; color:#0d47a1;}
+input[type="text"], textarea, select {
+  border-radius:8px;
+  border:1px solid #ccc;
+  padding:6px;
+  font-family:inherit;
+  font-size:0.9rem;
+}
+input[type="text"]{width:100%;max-width:380px;}
+textarea{width:100%;}
+.round-label {
+  display:inline-block;
+  background:#bbdefb;
+  color:#0d47a1;
+  padding:2px 8px;
+  border-radius:999px;
+  font-size:0.75rem;
+  font-weight:bold;
+  margin-left:6px;
+}
+.mark-icon{margin-left:8px;font-size:1.2rem;font-weight:bold;}
+.correctMark{color:#00c853;}
+.wrongMark{color:#ff1744;}
+</style>
 </head>
 <body>
 <header>
-  <div style="display:flex;align-items:center;gap:10px;">
-    <img src="logo.png" class="logo" alt="AI Bayan logo">
-    <div>
-      <h1 style="margin:0;font-size:1rem;">Theme 7 — Children’s Rights and Responsibilities</h1>
-      <p style="margin:0;color:#e3f2fd;">English with AI Bayan — Rights and Responsibilities</p>
-    </div>
+  <div>
+    <h1 style="margin:0;font-size:1rem;">Theme 7 — Children’s Rights and Responsibilities</h1>
+    <p style="margin:0;color:#e3f2fd;">English with AI Bayan — Rights and Responsibilities</p>
   </div>
+  <img src="logo.png" class="logo" alt="AI Bayan logo">
 </header>
 
 <main>
-  <h2>💙 Children’s Rights and Responsibilities</h2>
-  <p style="font-style:italic;color:#1565c0;">Talking about what children can have and what they must do</p>
-  <p id="lessonStarsLine"><b>You have 0 ⭐ in this lesson.</b></p>
+<h2>💙 Children’s Rights and Responsibilities</h2>
+<p style="font-style:italic;color:#1565c0;">Talking about what children can have and what they must do</p>
+<p id="lessonStarsLine"><b>You have 0 ⭐ in this lesson.</b></p>
 
-  <!-- ===== VOCABULARY ===== -->
-  <section>
-    <h3>🧠 Vocabulary — Rights and Responsibilities <span class="round-label">Vocabulary</span></h3>
-    <p><b>Choose the correct translation (на русский).</b></p>
+<!-- ===== Vocabulary ===== -->
+<section>
+<h3>🧠 Vocabulary — Rights and Responsibilities <span class="round-label">Vocabulary</span></h3>
+<p><b>Choose the correct translation (на русский).</b></p>
+<p>1) right to go to school <button class="btn" onclick="speakVocab('Children have the right to go to school and learn.')">▶ Play</button></p>
+<label><input type="radio" name="v1" value="1"> право ходить в школу</label><br>
+<label><input type="radio" name="v1" value="0"> обязанность убирать комнату</label><br>
+<p>2) right to play <button class="btn" onclick="speakVocab('Children have the right to play and have free time.')">▶ Play</button></p>
+<label><input type="radio" name="v2" value="1"> право играть</label><br>
+<label><input type="radio" name="v2" value="0"> обязанность готовить еду</label><br>
+<p>3) right to be safe <button class="btn" onclick="speakVocab('Children have the right to be safe at home and at school.')">▶ Play</button></p>
+<label><input type="radio" name="v3" value="1"> право на безопасность</label><br>
+<label><input type="radio" name="v3" value="0"> право не делать домашнее задание</label><br>
+<p>4) responsibility to be kind <button class="btn" onclick="speakVocab('Children have the responsibility to be kind to other people.')">▶ Play</button></p>
+<label><input type="radio" name="v4" value="1"> обязанность быть добрым</label><br>
+<label><input type="radio" name="v4" value="0"> право кричать на других</label><br>
+<p>5) responsibility to help at home <button class="btn" onclick="speakVocab('Children can help at home. This is a responsibility.')">▶ Play</button></p>
+<label><input type="radio" name="v5" value="1"> обязанность помогать дома</label><br>
+<label><input type="radio" name="v5" value="0"> право не слушаться родителей</label><br>
+<button class="btn" onclick="checkVocab()">Check vocabulary ✅</button>
+<div id="vocabStars" style="font-size:1.1rem;margin-top:8px;"></div>
+</section>
 
-    <p>1) right to go to school  
-      <button class="btn" onclick="speakVocab('Children have the right to go to school and learn.')">▶ Play</button>
-      <button class="btn" onclick="stopBayan()">⏹ Stop</button>
-    </p>
-    <label><input type="radio" name="v1" value="1"> право ходить в школу</label><br>
-    <label><input type="radio" name="v1" value="0"> обязанность убирать комнату</label><br>
+<!-- GRAMMAR -->
+<section>
+<h3>📘 Grammar — Must / Mustn’t <span class="round-label">Grammar</span></h3>
+<p><b>We use “must” for things that are important to do, and “mustn’t” for things we are not allowed to do.</b></p>
+<p>1) You ___ be kind to your classmates.</p>
+<label><input type="radio" name="g1" value="must"> must</label><br>
+<label><input type="radio" name="g1" value="mustnt"> mustn’t</label><br>
+<p>2) You ___ hit other children.</p>
+<label><input type="radio" name="g2" value="mustnt"> mustn’t</label><br>
+<label><input type="radio" name="g2" value="must"> must</label><br>
+<p>3) Children ___ do their homework.</p>
+<label><input type="radio" name="g3" value="must"> must</label><br>
+<label><input type="radio" name="g3" value="mustnt"> mustn’t</label><br>
+<button class="btn" onclick="checkGrammar()">Check grammar ✅</button>
+<div id="grammarStars" style="font-size:1.1rem;margin-top:8px;"></div>
+</section>
 
-    <p>2) right to play  
-      <button class="btn" onclick="speakVocab('Children have the right to play and have free time.')">▶ Play</button>
-      <button class="btn" onclick="stopBayan()">⏹ Stop</button>
-    </p>
-    <label><input type="radio" name="v2" value="1"> право играть</label><br>
-    <label><input type="radio" name="v2" value="0"> обязанность готовить еду</label><br>
+<!-- LISTENING -->
+<section>
+<h3>🎧 Listening — In the Classroom <span class="round-label">Listening</span></h3>
+<p><b>Listen and choose True or False.</b></p>
+<button class="btn" onclick="bayanListening()">▶ Play</button>
+<button class="btn" onclick="stopBayan()">⏹ Stop</button>
+<p>1) Children in the story have the right to learn at school.</p>
+<select id="t1"><option>—</option><option>True</option><option>False</option></select>
+<p>2) They must be kind and help each other.</p>
+<select id="t2"><option>—</option><option>True</option><option>False</option></select>
+<p>3) They must shout at the teacher.</p>
+<select id="t3"><option>—</option><option>True</option><option>False</option></select>
+<button class="btn" onclick="checkListening()">Check listening ✅</button>
+<div id="listenStars" style="font-size:1.1rem;margin-top:8px;"></div>
+</section>
 
-    <p>3) right to be safe  
-      <button class="btn" onclick="speakVocab('Children have the right to be safe at home and at school.')">▶ Play</button>
-      <button class="btn" onclick="stopBayan()">⏹ Stop</button>
-    </p>
-    <label><input type="radio" name="v3" value="1"> право на безопасность</label><br>
-    <label><input type="radio" name="v3" value="0"> право не делать домашнее задание</label><br>
+<!-- READING -->
+<section>
+<h3>📖 Reading — My Rights and My Duties <span class="round-label">Reading</span></h3>
+<p><b>Read or listen:</b></p>
+<button class="btn" onclick="bayanReading()">▶ Play</button>
+<button class="btn" onclick="stopBayan()">⏹ Stop</button>
+<div style="margin-top:10px;background:#e1f5fe;border-radius:10px;padding:10px;">
+<p>My name is Aida. I am ten years old.<br>I have the right to go to school and learn new things.<br>I also have the right to play with my friends and to be safe at home.<br>I must do my homework, listen to my parents and teachers, and be kind to other children.</p>
+</div>
+<ol>
+<li>What rights does Aida have?<br><input id="r1" type="text"></li><br>
+<li>What must she do at school?<br><input id="r2" type="text"></li><br>
+<li>How must she treat other children?<br><input id="r3" type="text"></li>
+</ol>
+<button class="btn" onclick="checkReading()">Check reading ✅</button>
+<div id="readStars" style="font-size:1.1rem;margin-top:8px;"></div>
+</section>
 
-    <p>4) responsibility to be kind  
-      <button class="btn" onclick="speakVocab('Children have the responsibility to be kind to other people.')">▶ Play</button>
-      <button class="btn" onclick="stopBayan()">⏹ Stop</button>
-    </p>
-    <label><input type="radio" name="v4" value="1"> обязанность быть добрым</label><br>
-    <label><input type="radio" name="v4" value="0"> право кричать на других</label><br>
+<!-- WRITING -->
+<section>
+<h3>✍ Writing — About Me <span class="round-label">Writing</span></h3>
+<p>Write 3 sentences about your rights and responsibilities.</p>
+<input id="w1" type="text" placeholder="Example: I have the right to go to school."><br>
+<input id="w2" type="text" placeholder="Example: I must do my homework."><br>
+<input id="w3" type="text" placeholder="Example: I must be kind to others."><br>
+<button class="btn" onclick="checkWriting()">Check writing ✅</button>
+<div id="writeStars" style="font-size:1.1rem;margin-top:8px;"></div>
+</section>
 
-    <p>5) responsibility to help at home  
-      <button class="btn" onclick="speakVocab('Children can help at home. This is a responsibility.')">▶ Play</button>
-      <button class="btn" onclick="stopBayan()">⏹ Stop</button>
-    </p>
-    <label><input type="radio" name="v5" value="1"> обязанность помогать дома</label><br>
-    <label><input type="radio" name="v5" value="0"> право не слушаться родителей</label><br>
-
-    <button class="btn" onclick="checkVocab()">Check vocabulary ✅</button>
-    <div id="vocabStars" style="font-size:1.1rem;margin-top:8px;"></div>
-  </section>
-
-  <!-- ===== GRAMMAR ===== -->
-  <section>
-    <h3>📘 Grammar — Must / Mustn’t <span class="round-label">Grammar</span></h3>
-    <p><b>We use “must” for things that are important to do, and “mustn’t” for things we are not allowed to do.</b></p>
-    <p>Example: Children must go to school.  
-       Children mustn’t hurt other children.</p>
-
-    <p>1) You ___ be kind to your classmates.</p>
-    <label><input type="radio" name="g1" value="must"> must</label><br>
-    <label><input type="radio" name="g1" value="mustnt"> mustn’t</label><br>
-
-    <p>2) You ___ hit other children.</p>
-    <label><input type="radio" name="g2" value="mustnt"> mustn’t</label><br>
-    <label><input type="radio" name="g2" value="must"> must</label><br>
-
-    <p>3) Children ___ do their homework.</p>
-    <label><input type="radio" name="g3" value="must"> must</label><br>
-    <label><input type="radio" name="g3" value="mustnt"> mustn’t</label><br>
-
-    <button class="btn" onclick="checkGrammar()">Check grammar ✅</button>
-    <div id="grammarStars" style="font-size:1.1rem;margin-top:8px;"></div>
-  </section>
-
-  <!-- ===== LISTENING ===== -->
-  <section>
-    <h3>🎧 Listening — In the Classroom <span class="round-label">Listening</span></h3>
-    <p><b>Listen and choose True or False.</b></p>
-    <button class="btn" onclick="bayanListening()">▶ Play</button>
-    <button class="btn" onclick="stopBayan()">⏹ Stop</button>
-
-    <p>1) Children in the story have the right to learn at school.</p>
-    <select id="t1"><option>—</option><option>True</option><option>False</option></select>
-
-    <p>2) They must be kind and help each other.</p>
-    <select id="t2"><option>—</option><option>True</option><option>False</option></select>
-
-    <p>3) They must shout at the teacher.</p>
-    <select id="t3"><option>—</option><option>True</option><option>False</option></select>
-
-    <button class="btn" onclick="checkListening()">Check listening ✅</button>
-    <div id="listenStars" style="font-size:1.1rem;margin-top:8px;"></div>
-  </section>
-
-  <!-- ===== READING ===== -->
-  <section>
-    <h3>📖 Reading — My Rights and My Duties <span class="round-label">Reading</span></h3>
-    <p><b>Read or listen:</b></p>
-    <button class="btn" onclick="bayanReading()">▶ Play</button>
-    <button class="btn" onclick="stopBayan()">⏹ Stop</button>
-
-    <div style="margin-top:10px;background:#e1f5fe;border-radius:10px;padding:10px;">
-      <p>
-        My name is Aida. I am ten years old.  
-        I have the right to go to school and learn new things.  
-        I also have the right to play with my friends and to be safe at home.  
-        I must do my homework, listen to my parents and teachers,  
-        and be kind to other children.
-      </p>
-    </div>
-
-    <ol>
-      <li>What rights does Aida have?<br>
-        <input id="r1" type="text" placeholder="Your answer..."></li><br>
-      <li>What must she do at school?<br>
-        <input id="r2" type="text" placeholder="Your answer..."></li><br>
-      <li>How must she treat other children?<br>
-        <input id="r3" type="text" placeholder="Your answer..."></li>
-    </ol>
-
-    <button class="btn" onclick="checkReading()">Check reading ✅</button>
-    <div id="readStars" style="font-size:1.1rem;margin-top:8px;"></div>
-  </section>
-
-  <!-- ===== WRITING ===== -->
-  <section>
-    <h3>✍ Writing — About Me <span class="round-label">Writing</span></h3>
-    <p>Write 3 sentences about your rights and responsibilities.</p>
-    <input id="w1" type="text" placeholder="Example: I have the right to go to school."><br>
-    <input id="w2" type="text" placeholder="Example: I must do my homework."><br>
-    <input id="w3" type="text" placeholder="Example: I must be kind to others."><br>
-
-    <button class="btn" onclick="checkWriting()">Check writing ✅</button>
-    <div id="writeStars" style="font-size:1.1rem;margin-top:8px;"></div>
-  </section>
-
-  <!-- ===== LESSON COMPLETE ===== -->
-  <section style="text-align:center;margin-top:25px;">
-    <h3>🎯 Lesson Complete!</h3>
-    <p>You have earned <b><span id="finalStars">0</span> ⭐</b> in this lesson.</p>
-    <button class="btn" onclick="finishLesson()">Save & Show Result ✅</button>
-    <div id="finalMessage" style="margin-top:10px;font-size:1.1rem;color:#0d47a1;"></div>
-    <div style="margin-top:18px;">
-      <button class="btn" onclick="goBack()">⬅ Back</button>
-      <button class="btn" onclick="goMenu()">🏠 Main Menu</button>
-      <button class="btn" onclick="goNext()">Next ➡️</button>
-    </div>
-  </section>
+<!-- COMPLETE -->
+<section style="text-align:center;margin-top:25px;">
+<h3>🎯 Lesson Complete!</h3>
+<p>You have earned <b><span id="finalStars">0</span> ⭐</b> in this lesson.</p>
+<button class="btn" onclick="finishLesson()">Save & Show Result ✅</button>
+<div id="finalMessage" style="margin-top:10px;font-size:1.1rem;color:#0d47a1;"></div>
+<div style="margin-top:18px;">
+<button class="btn" onclick="goBack()">⬅ Back</button>
+<button class="btn" onclick="goMenu()">🏠 Main Menu</button>
+<button class="btn" onclick="goNext()">Next ➡️</button>
+</div>
+</section>
 </main>
 
 <script>
-let totalStars = 0;
-function addStar(){
-  totalStars++;
-  document.getElementById('lessonStarsLine').innerText =
-    "You have " + totalStars + " ⭐ in this lesson.";
-  document.getElementById('finalStars').innerText = totalStars;
-}
-
-// TTS
-function speakBayanText(text){
-  if(!('speechSynthesis' in window)) return;
-  const utter = new SpeechSynthesisUtterance(text);
-  utter.lang = "en-US";
-  utter.rate = 0.9;
-  utter.pitch = 1.05;
-  speechSynthesis.speak(utter);
-}
-function stopBayan(){ speechSynthesis.cancel(); }
-function speakVocab(t){ speakBayanText(t); }
-
-// mark ✓ / ✗
-function markAnswer(el, ok){
-  let m = el.parentElement.querySelector('.mark-icon');
-  if(!m){
-    m = document.createElement('span');
-    el.parentElement.appendChild(m);
-  }
-  m.textContent = ok ? '✅' : '❌';
-  m.className = 'mark-icon ' + (ok ? 'correctMark' : 'wrongMark');
-}
-
-/* ===== VOCABULARY ===== */
-function checkVocab(){
-  let c = 0;
-  ['v1','v2','v3','v4','v5'].forEach(id=>{
-    const q = document.querySelector('input[name="'+id+'"]:checked');
-    if(q){
-      const ok = q.value === '1';
-      markAnswer(q, ok);
-      if(ok) c++;
-    }
-  });
-  if(c>0){
-    addStar();
-    document.getElementById('vocabStars').innerText = '⭐ ' + c + ' correct!';
-  } else {
-    document.getElementById('vocabStars').innerText = 'No correct answers yet. Try again!';
-  }
-}
-
-/* ===== GRAMMAR ===== */
-function checkGrammar(){
-  let c = 0;
-  [['g1','must'],['g2','mustnt'],['g3','must']].forEach(([id,ans])=>{
-    const q = document.querySelector('input[name="'+id+'"]:checked');
-    if(q){
-      const ok = q.value === ans;
-      markAnswer(q, ok);
-      if(ok) c++;
-    }
-  });
-  if(c>0){
-    addStar();
-    document.getElementById('grammarStars').innerText = '⭐ ' + c + ' correct!';
-  } else {
-    document.getElementById('grammarStars').innerText = 'No correct answers yet. Try again!';
-  }
-}
-
-/* ===== LISTENING ===== */
-function bayanListening(){
-  const t =
-    "In the classroom, children have the right to learn. " +
-    "They must listen to the teacher and be kind to each other. " +
-    "They must not shout or hit. Everyone works together and feels safe.";
-  speakBayanText(t);
-}
-function checkListening(){
-  let c = 0;
-  if(document.getElementById('t1').value === 'True') c++;
-  if(document.getElementById('t2').value === 'True') c++;
-  if(document.getElementById('t3').value === 'False') c++;
-  if(c>0){
-    addStar();
-    document.getElementById('listenStars').innerText = '⭐ ' + c + ' correct!';
-  } else {
-    document.getElementById('listenStars').innerText = 'No correct answers yet. Try again!';
-  }
-}
-
-/* ===== READING ===== */
-function bayanReading(){
-  const t =
-    "My name is Aida. I am ten years old. " +
-    "I have the right to go to school and learn new things. " +
-    "I have the right to play with my friends and to be safe at home. " +
-    "I must do my homework, listen to my parents and teachers, " +
-    "and be kind to other children.";
-  speakBayanText(t);
-}
-function checkReading(){
-  let c = 0;
-  const v1 = document.getElementById('r1').value.toLowerCase();
-  const v2 = document.getElementById('r2').value.toLowerCase();
-  const v3 = document.getElementById('r3').value.toLowerCase();
-  if(v1.includes('school') || v1.includes('learn') || v1.includes('play')) c++;
-  if(v2.includes('homework') || v2.includes('listen')) c++;
-  if(v3.includes('kind') || v3.includes('nicely')) c++;
-  if(c>0){
-    addStar();
-    document.getElementById('readStars').innerText = '⭐ ' + c + ' correct!';
-  } else {
-    document.getElementById('readStars').innerText = 'No correct answers yet. Try again!';
-  }
-}
-
-/* ===== WRITING ===== */
-function checkWriting(){
-  let c = 0;
-  ['w1','w2','w3'].forEach(id=>{
-    const el = document.getElementById(id);
-    if(el.value.trim() !== '') c++;
-  });
-  if(c>0){
-    addStar();
-    document.getElementById('writeStars').innerText = '⭐ ' + c + ' good sentences!';
-  } else {
-    document.getElementById('writeStars').innerText = 'Try to write about your rights and responsibilities.';
-  }
-}
-
-/* ===== FINISH + NAV ===== */
-function finishLesson(){
-  document.getElementById('finalStars').innerText = totalStars;
-  let msg = '';
-  if(totalStars >= 10){
-    msg = '🌟 Great job! You understand your rights and responsibilities!';
-  } else if(totalStars >= 5){
-    msg = 'Good work! Keep thinking about your rights and duties.';
-  } else {
-    msg = 'You finished the lesson! Keep learning step by step.';
-  }
-  document.getElementById('finalMessage').innerText = msg;
-
-  const studentName = localStorage.getItem('studentName') || 'Unknown Student';
-  const allResults = JSON.parse(localStorage.getItem('teacherJournal') || '{}');
-  allResults[studentName] = allResults[studentName] || {};
-  allResults[studentName]['Lesson 7'] = totalStars;
-  localStorage.setItem('teacherJournal', JSON.stringify(allResults));
-  localStorage.setItem('lesson7Stars', totalStars);
-  alert('Lesson 7 saved! ' + studentName + ' got ' + totalStars + '⭐.');
-}
-function goBack(){ location.href = 'index.html'; }
-function goMenu(){ location.href = 'index.html'; }
-function goNext(){ location.href = 'theme8.html'; }
+let totalStars=0;
+function addStar(){totalStars++;lessonStarsLine.innerText="You have "+totalStars+" ⭐ in this lesson.";finalStars.innerText=totalStars;}
+function speakBayanText(t){if(!('speechSynthesis'in window))return;const u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=0.9;u.pitch=1.05;speechSynthesis.speak(u);}
+function stopBayan(){speechSynthesis.cancel();}
+function speakVocab(t){speakBayanText(t);}
+function markAnswer(el,ok){let m=el.parentElement.querySelector('.mark-icon');if(!m){m=document.createElement('span');el.parentElement.appendChild(m);}m.textContent=ok?'✅':'❌';m.className='mark-icon '+(ok?'correctMark':'wrongMark');}
+function checkVocab(){let c=0;['v1','v2','v3','v4','v5'].forEach(id=>{const q=document.querySelector('input[name="'+id+'"]:checked');if(q){const ok=q.value==='1';markAnswer(q,ok);if(ok)c++;}});if(c>0){addStar();vocabStars.innerText='⭐ '+c+' correct!';}}
+function checkGrammar(){let c=0;[['g1','must'],['g2','mustnt'],['g3','must']].forEach(([id,a])=>{const q=document.querySelector('input[name="'+id+'"]:checked');if(q){const ok=q.value===a;markAnswer(q,ok);if(ok)c++;}});if(c>0){addStar();grammarStars.innerText='⭐ '+c+' correct!';}}
+function bayanListening(){speakBayanText('In the classroom, children have the right to learn. They must listen to the teacher and be kind to each other. They must not shout or hit. Everyone works together and feels safe.');}
+function checkListening(){let c=0;if(t1.value==='True')c++;if(t2.value==='True')c++;if(t3.value==='False')c++;if(c>0){addStar();listenStars.innerText='⭐ '+c+' correct!';}}
+function bayanReading(){speakBayanText('My name is Aida. I am ten years old. I have the right to go to school and learn new things. I have the right to play with my friends and to be safe at home. I must do my homework, listen to my parents and teachers, and be kind to other children.');}
+function checkReading(){let c=0;if(r1.value.toLowerCase().includes('school')||r1.value.toLowerCase().includes('play'))c++;if(r2.value.toLowerCase().includes('homework')||r2.value.toLowerCase().includes('listen'))c++;if(r3.value.toLowerCase().includes('kind'))c++;if(c>0){addStar();readStars.innerText='⭐ '+c+' correct!';}}
+function checkWriting(){let c=0;[w1,w2,w3].forEach(x=>{if(x.value.trim()!=='')c++;});if(c>0){addStar();writeStars.innerText='⭐ '+c+' good sentences!';}}
+function finishLesson(){finalStars.innerText=totalStars;const msg=totalStars>=10?'🌟 Great job! You understand your rights and responsibilities!':'Keep learning about your duties!';finalMessage.innerText=msg;localStorage.setItem('lesson7Stars',totalStars);alert('Lesson 7 saved! '+totalStars+'⭐');}
+function goBack(){location.href='theme6.html';}
+function goMenu(){location.href='index.html';}
+function goNext(){location.href='theme8.html';}
 </script>
 </body>
 </html>
-
- 
-
-   
-    
-
-        
-    
-
-  
-    
- 
- 
