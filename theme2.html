@@ -7,167 +7,308 @@
 <style>
 body {
   font-family: Verdana, sans-serif;
-  background: radial-gradient(circle at top, #fffdf5 0%, #ffe4b2 40%, #ffc107 100%);
+  background: linear-gradient(180deg,#e5f7ff 0%,#cce6ff 100%);
   margin: 0;
-  color: #4e342e;
+  color: #002b5c;
   text-align: center;
 }
 
 /* 🔹 HEADER */
 header {
-  background: linear-gradient(90deg,#ff9800,#f57c00);
+  background: linear-gradient(90deg,#003366,#0066aa);
   color: white;
   padding: 0.6rem 1rem;
-  border-bottom: 5px solid #ffd54f;
+  border-bottom: 5px solid #00c3ff;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
-header h1 { margin: 0; }
 
-/* 🔹 Контейнер заданий */
-main { padding: 1rem; }
-.task {
-  background: #fff;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  margin: 15px auto;
+/* 🔵 Круглый логотип справа */
+.logo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid #00c3ff;
+  object-fit: cover;
+  background: white;
+  transition: 0.3s;
+}
+.logo:hover {
+  box-shadow: 0 0 25px gold;
+  transform: scale(1.05);
+}
+
+/* 🔹 Основные блоки */
+h2 {color:#003366;}
+section {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
   padding: 15px;
-  max-width: 420px;
+  max-width: 800px;
+  margin: 15px auto;
   text-align: left;
+  line-height: 1.5;
+  font-size: 0.95rem;
 }
-.task h3 { text-align: center; color: #f57c00; }
-
-/* 🔹 Кнопки */
-button {
-  background: #ff9800;
+h3 {
+  background: #003366;
   color: white;
-  border: none;
+  padding: 6px 10px;
   border-radius: 8px;
-  padding: 8px 14px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 8px;
-}
-button:hover { background: #f57c00; }
-
-footer {
-  margin: 20px 0;
-  text-align: center;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
-.correct { color: green; font-weight: bold; }
-.incorrect { color: red; font-weight: bold; }
-.star {
-  color: gold;
-  font-size: 1.3rem;
-  display: inline-block;
-  margin-left: 5px;
+/* 🔹 Кнопки и поля */
+.btn {
+  display:inline-block;
+  margin:6px;
+  padding:8px 14px;
+  border:none;
+  border-radius:10px;
+  background:#003366;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  font-size:0.9rem;
 }
+.btn:hover {background:#00c3ff; color:#003366;}
+textarea,input[type="text"]{
+  width:100%;border-radius:10px;border:1px solid #ccc;padding:6px;
+  font-family:inherit;font-size:0.9rem;
+}
+select{border-radius:8px;padding:2px 4px;font-size:0.9rem;}
 </style>
 </head>
-<body>
 
+<body>
 <header>
-  <h1>Theme 2 — Sports and Exercises 🏃‍♀️</h1>
+  <div style="text-align:left;">
+    <h1 style="margin:0;font-size:1.1rem;">Theme 2 — Sports and Exercises</h1>
+    <p style="margin:0;color:#c9f5ff;">English with AI Bayan (by book)</p>
+  </div>
+  <img src="logo.png" class="logo" alt="AI Bayan logo">
 </header>
 
 <main>
-  <!-- 🏅 Task 1 -->
-  <div class="task" id="task1">
-    <h3>Task 1: Match the sport with the correct equipment.</h3>
-    <p>1. Football — <select id="q1">
-      <option value="">Select</option>
-      <option>Racket</option>
-      <option>Ball</option>
-      <option>Skis</option>
-    </select></p>
-    <p>2. Tennis — <select id="q2">
-      <option value="">Select</option>
-      <option>Skis</option>
-      <option>Racket</option>
-      <option>Helmet</option>
-    </select></p>
-    <p>3. Skiing — <select id="q3">
-      <option value="">Select</option>
-      <option>Racket</option>
-      <option>Ball</option>
-      <option>Skis</option>
-    </select></p>
-    <button onclick="checkTask1()">Check Answers</button>
-    <p id="result1"></p>
-  </div>
+  <h2>🏃 Sports and Exercises</h2>
+  <p style="font-style:italic;">Children playing, moving and having fun</p>
+  <p id="lessonStarsLine"><b>You have 0 ⭐ in this lesson.</b></p>
 
-  <!-- 💬 Task 2 -->
-  <div class="task" id="task2">
-    <h3>Task 2: What sports do you like?</h3>
-    <textarea id="answer2" rows="3" style="width:100%;border-radius:8px;border:1px solid #ccc;padding:6px;"></textarea>
-    <button onclick="submitTask2()">Submit</button>
-    <p id="result2"></p>
-  </div>
+  <!-- 🧠 VOCABULARY -->
+  <section>
+    <h3>🧠 VOCABULARY — Sports and games</h3>
+    <p><b>AI Bayan говорит предложение. Ребёнок выбирает правильный перевод.</b></p>
 
-  <!-- 🎧 Task 3 -->
-  <div class="task" id="task3">
-    <h3>Task 3: Listen and repeat the names of sports.</h3>
-    <button onclick="playAudio()">🔊 Play Audio</button>
-    <p id="result3"></p>
-    <audio id="sportsAudio" src="sports.mp3"></audio>
-  </div>
+    <p>1) AI Bayan:
+      <button class="btn" onclick="speakVocab('I like playing football.')">▶ Play</button>
+      <button class="btn" onclick="stopBayan()">⏹ Stop</button></p>
+    <p>Choose the correct translation:</p>
+    <label><input type="radio" name="v1" value="1"> Я люблю играть в футбол.</label><br>
+    <label><input type="radio" name="v1" value="0"> Я люблю смотреть фильмы.</label><br>
+    <label><input type="radio" name="v1" value="0"> Я люблю кататься на велосипеде.</label><br>
 
-  <footer>
-    <p>You earned: <span id="stars">0</span> ⭐</p>
-    <a href="index.html">⬅ Back to Main Menu</a>
-  </footer>
+    <p>2) AI Bayan:
+      <button class="btn" onclick="speakVocab('She plays volleyball after school.')">▶ Play</button>
+      <button class="btn" onclick="stopBayan()">⏹ Stop</button></p>
+    <p>Choose the correct translation:</p>
+    <label><input type="radio" name="v2" value="0"> Она играет в теннис после школы.</label><br>
+    <label><input type="radio" name="v2" value="1"> Она играет в волейбол после школы.</label><br>
+    <label><input type="radio" name="v2" value="0"> Она плавает после школы.</label><br>
+
+    <p>3) AI Bayan:
+      <button class="btn" onclick="speakVocab('We go swimming on Saturdays.')">▶ Play</button>
+      <button class="btn" onclick="stopBayan()">⏹ Stop</button></p>
+    <p>Choose the correct translation:</p>
+    <label><input type="radio" name="v3" value="0"> Мы играем в баскетбол по субботам.</label><br>
+    <label><input type="radio" name="v3" value="1"> Мы ходим плавать по субботам.</label><br>
+    <label><input type="radio" name="v3" value="0"> Мы бегаем по субботам.</label><br>
+
+    <p>4) AI Bayan:
+      <button class="btn" onclick="speakVocab('They are playing hide-and-seek in the park.')">▶ Play</button>
+      <button class="btn" onclick="stopBayan()">⏹ Stop</button></p>
+    <p>Choose the correct translation:</p>
+    <label><input type="radio" name="v4" value="1"> Они играют в прятки в парке.</label><br>
+    <label><input type="radio" name="v4" value="0"> Они катаются на коньках.</label><br>
+    <label><input type="radio" name="v4" value="0"> Они играют в теннис.</label><br>
+
+    <button class="btn" onclick="checkVocab()">Check ✅</button>
+    <div id="vocabStars" style="font-size:1.1rem;margin-top:8px;"></div>
+  </section>
+
+  <!-- 📘 GRAMMAR -->
+  <section>
+    <h3>📘 GRAMMAR — Present Continuous & Pronouns</h3>
+    <p><b>1. Present Continuous:</b> am / is / are + verb-ing <br>I am running. She is playing tennis. They are swimming.</p>
+
+    <p>He ___ playing tennis.</p>
+    <label><input type="radio" name="q1" value="is"> is</label><br>
+    <label><input type="radio" name="q1" value="are"> are</label><br>
+
+    <p>They ___ playing football.</p>
+    <label><input type="radio" name="q2" value="is"> is</label><br>
+    <label><input type="radio" name="q2" value="are"> are</label><br>
+
+    <p>I ___ going running in the morning.</p>
+    <label><input type="radio" name="q3" value="am"> am</label><br>
+    <label><input type="radio" name="q3" value="is"> is</label><br>
+
+    <hr>
+    <p><b>Pronouns:</b> I/you/he/she/it/we/they | me/you/him/her/us/them | my/your/his/her/our/their | mine/yours/his/hers/ours/theirs</p>
+
+    <p>This is my brother. I play basketball with ___.</p>
+    <label><input type="radio" name="q4" value="him"> him</label><br>
+    <label><input type="radio" name="q4" value="he"> he</label><br>
+
+    <p>We have a new volleyball. It is ___ volleyball.</p>
+    <label><input type="radio" name="q5" value="our"> our</label><br>
+    <label><input type="radio" name="q5" value="ours"> ours</label><br>
+
+    <p>These skates are ___. (They belong to me.)</p>
+    <label><input type="radio" name="q6" value="my"> my</label><br>
+    <label><input type="radio" name="q6" value="mine"> mine</label><br>
+
+    <p>Aidos and Ali are friends. This ball is ___. (belongs to them)</p>
+    <label><input type="radio" name="q7" value="their"> their</label><br>
+    <label><input type="radio" name="q7" value="theirs"> theirs</label><br>
+
+    <button class="btn" onclick="checkGrammar()">Check ✅</button>
+    <div id="grammarStars" style="font-size:1.1rem;margin-top:8px;"></div>
+  </section>
+
+  <!-- 🎧 LISTENING -->
+  <section>
+    <h3>🎧 LISTENING — Friends and Sports</h3>
+    <button class="btn" onclick="bayanListening()">▶ Play</button>
+    <button class="btn" onclick="stopBayan()">⏹ Stop</button>
+
+    <p>1) Alex plays ice hockey.</p>
+    <select id="t1"><option>—</option><option>True</option><option>False</option></select>
+    <p>2) Lee plays basketball.</p>
+    <select id="t2"><option>—</option><option>True</option><option>False</option></select>
+    <p>3) Oraz goes ice skating at the weekend.</p>
+    <select id="t3"><option>—</option><option>True</option><option>False</option></select>
+
+    <button class="btn" onclick="checkListening()">Check ✅</button>
+    <div id="listenStars" style="font-size:1.1rem;margin-top:8px;"></div>
+  </section>
+
+  <!-- 📖 READING -->
+  <section>
+    <h3>📖 READING — Our Favourite Sports</h3>
+    <button class="btn" onclick="bayanReading()">▶ Play</button>
+    <button class="btn" onclick="stopBayan()">⏹ Stop</button>
+    <div style="margin-top:10px;background:#e9fff4;border-radius:10px;padding:10px;">
+      <p>My friends and I love sports. I like playing football and volleyball. My friend Dana likes playing tennis and table tennis. My brother enjoys going swimming and running in the park. At the weekend, we all play games together and have fun.</p>
+    </div>
+
+    <ol>
+      <li>What sports do I like playing?<br><input id="r1" type="text"></li><br>
+      <li>What sports does Dana like?<br><input id="r2" type="text"></li><br>
+      <li>What does my brother enjoy doing?<br><input id="r3" type="text"></li>
+    </ol>
+    <button class="btn" onclick="checkReading()">Check ✅</button>
+    <div id="readStars" style="font-size:1.1rem;margin-top:8px;"></div>
+  </section>
+
+  <!-- 🗣️ SPEAKING -->
+  <section>
+    <h3>🗣️ SPEAKING — Talk about Sports</h3>
+    <button class="btn" onclick="bayanSpeaking()">▶ Play Questions</button>
+    <button class="btn" onclick="stopBayan()">⏹ Stop</button>
+    <ul>
+      <li>What sports do you like playing?</li>
+      <li>Do you like running or swimming?</li>
+      <li>Who do you play sports with?</li>
+    </ul>
+    <button class="btn" onclick="startSpeak()">🎙 Start</button>
+    <button class="btn" onclick="stopSpeak()">⏹ Stop</button>
+    <div id="speakStars" style="font-size:1.1rem;margin-top:10px;"></div>
+  </section>
+
+  <!-- ✍️ WRITING -->
+  <section>
+    <h3>✍️ WRITING — Translation & Dictation</h3>
+    <p>Translate into English:</p>
+    <p>1) Они играют в волейбол после школы.</p>
+    <textarea id="w1"></textarea>
+    <p>2) Мой брат любит плавать и бегать.</p>
+    <textarea id="w2"></textarea>
+    <p>3) Это наша ракетка. Она наша.</p>
+    <textarea id="w3"></textarea>
+    <button class="btn" onclick="checkWritingTranslate()">Check ✅</button>
+    <div id="writeTransStars" style="font-size:1.1rem;margin-top:6px;"></div>
+
+    <hr>
+    <p><b>B. Dictation by AI Bayan:</b></p>
+    <button class="btn" onclick="bayanWords()">▶ Words</button>
+    <button class="btn" onclick="bayanDictation()">▶ Text</button>
+    <button class="btn" onclick="stopBayan()">⏹ Stop</button>
+    <textarea id="writeBox" rows="4"></textarea><br>
+    <button class="btn" onclick="checkDictation()">Check ✅</button>
+    <div id="dictStars" style="font-size:1.1rem;margin-top:6px;"></div>
+  </section>
+
+  <!-- 🎯 RESULT -->
+  <section style="text-align:center;margin-top:25px;">
+    <h3>🎯 Lesson Complete!</h3>
+    <p>You have earned <b><span id="finalStars">0</span> ⭐</b> in this lesson.</p>
+    <button class="btn" onclick="finishLesson()">Save Result ✅</button>
+    <div id="finalMessage" style="margin-top:10px;font-size:1.1rem;color:#003366;"></div>
+    <div style="margin-top:18px;">
+      <button class="btn" onclick="goBack()">⬅ Back</button>
+      <button class="btn" onclick="goMenu()">🏠 Menu</button>
+      <button class="btn" onclick="goNext()">Next ➡️</button>
+    </div>
+  </section>
 </main>
 
+<!-- ================== SCRIPTS ================== -->
 <script>
-let stars = 0;
-
-// ✅ Task 1
-function checkTask1() {
-  const a1 = document.getElementById("q1").value;
-  const a2 = document.getElementById("q2").value;
-  const a3 = document.getElementById("q3").value;
-  let score = 0;
-
-  if (a1 === "Ball") score++;
-  if (a2 === "Racket") score++;
-  if (a3 === "Skis") score++;
-
-  if (score === 3) {
-    document.getElementById("result1").innerHTML = "<span class='correct'>Excellent! All correct!</span> ⭐";
-    addStar();
-  } else {
-    document.getElementById("result1").innerHTML = "<span class='incorrect'>Check again! (" + score + "/3 correct)</span>";
-  }
+let totalStars=0;
+function addStar(){totalStars++;updateStarsText();}
+function updateStarsText(){
+  document.getElementById('lessonStarsLine').innerText="You have "+totalStars+" ⭐ in this lesson.";
+  document.getElementById('finalStars').innerText=totalStars;
 }
+const scored={};
 
-// 💬 Task 2
-function submitTask2() {
-  const ans = document.getElementById("answer2").value.trim();
-  if (ans.length < 3) {
-    document.getElementById("result2").innerHTML = "<span class='incorrect'>Please write a bit more!</span>";
-  } else {
-    document.getElementById("result2").innerHTML = "<span class='correct'>Nice! Great answer!</span> ⭐";
-    addStar();
-  }
-}
+// ---------- SPEECH ----------
+function speakBayanText(t){if(!('speechSynthesis'in window)){alert('No voice support');return;}
+  const u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=0.9;u.pitch=1.05;speechSynthesis.speak(u);}
+function stopBayan(){speechSynthesis.cancel();}
+function speakVocab(t){speakBayanText(t);}
 
-// 🎧 Task 3
-function playAudio() {
-  const audio = document.getElementById("sportsAudio");
-  audio.play();
-  document.getElementById("result3").innerHTML = "<span class='correct'>Good job! Repeat after the speaker!</span> ⭐";
-  addStar();
-}
-
-// ⭐ Add Star
-function addStar() {
-  stars++;
-  document.getElementById("stars").textContent = stars;
-}
+// ---------- CHECKS ----------
+function checkVocab(){['v1','v2','v3','v4'].forEach((n)=>{const i=document.querySelector('input[name="'+n+'"]:checked');
+  if(i&&i.value==='1'&&!scored[n]){scored[n]=true;addStar();}});document.getElementById('vocabStars').innerText='✅ Checked!';}
+function checkGrammar(){const c={q1:'is',q2:'are',q3:'am',q4:'him',q5:'our',q6:'mine',q7:'theirs'};
+  Object.keys(c).forEach(k=>{const i=document.querySelector('input[name="'+k+'"]:checked');
+  if(i&&i.value===c[k]&&!scored[k]){scored[k]=true;addStar();}});document.getElementById('grammarStars').innerText='✅ Checked!';}
+function bayanListening(){speakBayanText('Alex plays ice hockey. Lee plays table tennis. Oraz goes ice skating.');}
+function checkListening(){if(document.getElementById('t1').value==='True'&&!scored.t1){addStar();scored.t1=true;}
+  if(document.getElementById('t2').value==='False'&&!scored.t2){addStar();scored.t2=true;}
+  if(document.getElementById('t3').value==='True'&&!scored.t3){addStar();scored.t3=true;}
+  document.getElementById('listenStars').innerText='✅ Checked!';}
+function bayanReading(){speakBayanText('My friends and I love sports. I like playing football and volleyball. Dana likes tennis.');}
+function checkReading(){['r1','r2','r3'].forEach(id=>{const v=document.getElementById(id).value.toLowerCase();
+  if(!scored[id]&&(v.includes('football')||v.includes('tennis')||v.includes('swimming'))){scored[id]=true;addStar();}});
+  document.getElementById('readStars').innerText='✅ Checked!';}
+function bayanSpeaking(){speakBayanText('What sports do you like playing? Who do you play sports with?');}
+function startSpeak(){alert('🎙 Say your answer aloud!');addStar();}
+function stopSpeak(){speechSynthesis.cancel();}
+function checkWritingTranslate(){['w1','w2','w3'].forEach(id=>{if(!scored[id]&&document.getElementById(id).value.trim().length>5){scored[id]=true;addStar();}});
+  document.getElementById('writeTransStars').innerText='✅ Checked!';}
+function bayanWords(){speakBayanText('football, volleyball, basketball, tennis, running, swimming');}
+function bayanDictation(){speakBayanText('We like playing football and volleyball at school.');}
+function checkDictation(){if(!scored.dict&&document.getElementById('writeBox').value.length>10){addStar();scored.dict=true;}
+  document.getElementById('dictStars').innerText='✅ Checked!';}
+function finishLesson(){alert('Lesson saved! You got '+totalStars+'⭐');}
+function goBack(){window.location='index.html';}
+function goMenu(){window.location='index.html';}
+function goNext(){window.location='theme3.html';}
+updateStarsText();
 </script>
-
 </body>
 </html>
