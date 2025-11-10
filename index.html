@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+проверь правильно или нет <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -56,7 +56,6 @@ header h2{
   margin-bottom:6px;
 }
 
-/* 🔒 LOGIN */
 .overlay{
   position:fixed;inset:0;
   background:rgba(0,0,0,0.55);
@@ -82,10 +81,8 @@ header h2{
   cursor:pointer;margin:6px;font-size:0.9rem;
 }
 .btn:hover{background:#FFD54F;color:#002D72;}
-
 main{padding:12px 8px 90px;}
 #mainMenu{display:none;}
-
 .topics-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
@@ -118,7 +115,6 @@ main{padding:12px 8px 90px;}
 }
 .topic-btn .num{font-weight:bold;}
 .topic-btn .icon{font-size:1.3rem;}
-
 #welcomeBox{
   margin:16px auto 0;
   background:white;
@@ -130,7 +126,6 @@ main{padding:12px 8px 90px;}
   font-weight:bold;
   box-shadow:0 3px 6px rgba(0,0,0,0.1);
 }
-
 #extraBtns{margin-top:10px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;}
 .extra-btn{
   background:white;
@@ -144,7 +139,7 @@ main{padding:12px 8px 90px;}
 }
 .extra-btn:hover{background:#002D72;color:#fff;}
 
-/* 🌟 Кнопка установки */
+/* 🌟 Красивая кнопка установки */
 .install-btn{
   position:fixed;
   bottom:20px;left:50%;
@@ -172,7 +167,7 @@ main{padding:12px 8px 90px;}
 
 <body>
 
-<!-- 🔐 LOGIN -->
+<!-- LOGIN -->
 <div class="overlay" id="loginOverlay">
   <div class="overlay-card">
     <h2>English with AI Bayan</h2>
@@ -199,19 +194,19 @@ main{padding:12px 8px 90px;}
     </div>
 
     <div class="topics-grid">
-      <button class="topic-btn" onclick="openTheme(1)"><span class="num">1.</span>🎨 Let’s Have Fun!</button>
-      <button class="topic-btn" onclick="openTheme(2)">🏃‍♂️ Sports and Exercises</button>
-      <button class="topic-btn" onclick="openTheme(3)">🌍 Sports Around the World</button>
-      <button class="topic-btn" onclick="openTheme(4)">🎵 Arts and Music</button>
-      <button class="topic-btn" onclick="openTheme(5)">⚽ Popular Team Sports</button>
-      <button class="topic-btn" onclick="openTheme(6)">🎻 Museum of Kazakh Instruments</button>
-      <button class="topic-btn" onclick="openTheme(7)">📜 Children’s Rights</button>
-      <button class="topic-btn" onclick="openTheme(8)">🧰 Different Jobs</button>
-      <button class="topic-btn" onclick="openTheme(9)">👩‍⚕️ Professions</button>
-      <button class="topic-btn" onclick="openTheme(10)">🏢 People at Work</button>
-      <button class="topic-btn" onclick="openTheme(11)">💬 What Do You Do?</button>
-      <button class="topic-btn" onclick="openTheme(12)">❤️ You Can Help!</button>
-      <button class="topic-btn" onclick="openTheme(13)">🎯 Final Challenge</button>
+      <button class="topic-btn" onclick="openTheme(1)"><span class="num">1.</span><span class="icon">🎨</span>Let’s Have Fun!</button>
+      <button class="topic-btn" onclick="openTheme(2)"><span class="num">2.</span><span class="icon">🏃‍♂️</span>Sports and Exercises</button>
+      <button class="topic-btn" onclick="openTheme(3)"><span class="num">3.</span><span class="icon">🌍</span>Sports Around the World</button>
+      <button class="topic-btn" onclick="openTheme(4)"><span class="num">4.</span><span class="icon">🎵</span>Arts and Music</button>
+      <button class="topic-btn" onclick="openTheme(5)"><span class="num">5.</span><span class="icon">⚽</span>Popular Team Sports</button>
+      <button class="topic-btn" onclick="openTheme(6)"><span class="num">6.</span><span class="icon">🎻</span>Museum of Kazakh Instruments</button>
+      <button class="topic-btn" onclick="openTheme(7)"><span class="num">7.</span><span class="icon">📜</span>Children’s Rights</button>
+      <button class="topic-btn" onclick="openTheme(8)"><span class="num">8.</span><span class="icon">🧰</span>Different Jobs</button>
+      <button class="topic-btn" onclick="openTheme(9)"><span class="num">9.</span><span class="icon">👩‍⚕️</span>Professions</button>
+      <button class="topic-btn" onclick="openTheme(10)"><span class="num">10.</span><span class="icon">🏢</span>People at Work</button>
+      <button class="topic-btn" onclick="openTheme(11)"><span class="num">11.</span><span class="icon">💬</span>What Do You Do?</button>
+      <button class="topic-btn" onclick="openTheme(12)"><span class="num">12.</span><span class="icon">❤️</span>You Can Help!</button>
+      <button class="topic-btn" onclick="openTheme(13)"><span class="num">13.</span><span class="icon">🎯</span>Final Challenge</button>
     </div>
 
     <div id="extraBtns">
@@ -221,26 +216,23 @@ main{padding:12px 8px 90px;}
   </div>
 </main>
 
-<!-- 🌟 Кнопка установки -->
 <button id="installBtn" class="install-btn">📲 Install AI Bayan App</button>
 
-<script>
-// 🌟 Регистрация service worker
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('service-worker.js?v=2')
-    .then(() => console.log('✅ Service Worker активен (v2)'))
-    .catch(err => console.log('❌ Ошибка SW:', err));
+<script><script>
+// 🌟 Регистрация service worker// 🌟 Register service worker
+if ('serviceWorker' in navigator) {if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js?v=2')  navigator.serviceWorker.register('service-worker.js?v=2')
+    .then(() => console.log('✅ Service Worker активен (v2)'))    .then(() => console.log(✅ Service Worker is active (v2)))
+    .catch(err => console.log('❌ Ошибка SW:', err));    .catch(err => console.log(❌ SW Error:, err));
 }
 
-// ✅ Разрешённые имена
-const allowedNames=[
-  "Aytach2","Aylin2","Alvi2","Zhahangir2","Narmin2","Balman2",
-  "Ilyas2","Dmitry2","Irada2","Shyngys2","Kiril2","Sultan2",
-  "Kira2","Allahverdy2","Aziza2","Emir2","Monya2","Aeka2",
+const allowedNames=[const allowedNames=[
+  "Aytach2","Aylin2","Alvi2","Zhahangir2","Narmin2","Balman2",  Aytach2,Aylin2,Alvi2,Zhahangir2,Narmin2,Balman2,
+  "Ilyas2","Dmitry2","Irada2","Shyngys2","Kiril2","Sultan2",  Ilyas2,Dmitry2,Irada2,Shyngys2,Kiril2,Sultan2,
+  "Kira2","Allahverdy2","Aziza2","Emir2","Monya2","Aeka2",  Kira2,Allahverdy2,Aziza2,Emir2,Monya2,Aeka2,
   "Bayan2","Arai2","Jury2","Jury1","Meyirim2"
 ];
 
-// 🔐 Проверка входа
 function checkLogin(){
   const n=document.getElementById("nameInput").value.trim().toLowerCase();
   const p=document.getElementById("pinInput").value.trim();
@@ -256,30 +248,30 @@ function checkLogin(){
   }else alert("❌ Wrong name or PIN");
 }
 
-// 🌟 Переходы
+// 🌟 Переходы// 🌟 Transitions
 function openTheme(n){ window.location.href = "theme" + n + ".html"; }
 function openChat(){ window.location.href = "chat.html"; }
 function openTeacherJournal(){ window.location.href = "teacher.html"; }
 
-// 🌟 Установка PWA
+// 🌟 Установка PWA// 🌟 PWA Installation
 let deferredPrompt=null;
-const installBtn=document.getElementById("installBtn");
-window.addEventListener("beforeinstallprompt",(e)=>{
-  e.preventDefault();
-  deferredPrompt=e;
-  installBtn.style.display="inline-flex";
+const installBtn=document.getElementById("installBtn");const installBtn=document.getElementById(installBtn);
+window.addEventListener("beforeinstallprompt",(e)=>{window.addEventListener(beforeinstallprompt,(e)=>{
+  e.preventDefault();  e.preventDefault();
+  deferredPrompt=e;  deferredPrompt=e;
+  installBtn.style.display="inline-flex";  installBtn.style.display=inline-flex;
 });
-installBtn.addEventListener("click",async()=>{
-  if(!deferredPrompt){
-    alert("Открой меню браузера → «Добавить на главный экран».");
-    return;
+installBtn.addEventListener("click",async()=>{installBtn.addEventListener(click,async()=>{
+  if(!deferredPrompt){  if(!deferredPrompt){
+    alert("Открой меню браузера → «Добавить на главный экран».");    alert(Open the browser menu → «Add to Home Screen».);
+    return;    return;
   }
-  deferredPrompt.prompt();
-  const { outcome } = await deferredPrompt.userChoice;
-  console.log("Реакция пользователя:", outcome);
-  deferredPrompt=null;
-  installBtn.style.display="none";
-});
-</script>
+  deferredPrompt.prompt();  deferredPrompt.prompt();
+  const { outcome } = await deferredPrompt.userChoice;  const { outcome } = await deferredPrompt.userChoice;
+  console.log("Реакция пользователя:", outcome);  console.log(User reaction:, outcome);
+  deferredPrompt=null;  deferredPrompt=null;
+  installBtn.style.display="none";  installBtn.style.display=none;
+});  
+  </script>
 </body>
 </html>
