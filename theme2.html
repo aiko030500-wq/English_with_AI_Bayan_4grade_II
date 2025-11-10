@@ -246,7 +246,36 @@ function bayanReading(){speakBayanText('I get up early and do exercises every mo
 function checkReading(){let c=0;if(r1.value.toLowerCase().includes('exercise'))c++;if(r2.value.toLowerCase().includes('fruit')||r2.value.toLowerCase().includes('milk'))c++;if(r3.value.toLowerCase().includes('after'))c++;if(c>0){addStar();readStars.innerText='⭐ '+c+' correct!';}}
 function checkWriting(){let c=0;[w1,w2,w3].forEach(x=>{if(x.value.trim()!=='')c++;});if(c>0){addStar();writeStars.innerText='⭐ '+c+' good sentences!';}}
 function finishLesson(){finalStars.innerText=totalStars;let msg=totalStars>=10?'🌟 You are a real sports star!':'Keep training and learning!';finalMessage.innerText=msg;localStorage.setItem('lesson2Stars',totalStars);alert('Lesson 2 saved! '+totalStars+'⭐');}
-function goBack(){location.href='index.html';}function goMenu(){location.href='index.html';}function goNext(){location.href='theme3.html';}
-</script>
+// 🔹 Универсальная навигация между страницами AI Bayan
+function goBack() {
+  // если ученик пришёл со страницы темы — возвращает назад
+  if (document.referrer && document.referrer.includes("theme")) {
+    history.back();
+  } else {
+    // если открыл напрямую — в главное меню
+    location.href = "./index.html";
+  }
+}
+
+function goMenu() {
+  // всегда возвращает в корень, где лежит index.html
+  const base = window.location.origin + window.location.pathname.split("/").slice(0, -1).join("/");
+  location.href = base + "/index.html";
+}
+
+function goNext() {
+  // определяем текущий номер темы
+  const current = window.location.pathname.match(/theme(\d+)/);
+  if (current && current[1]) {
+    const nextNum = parseInt(current[1]) + 1;
+    const nextFile = "theme" + nextNum + ".html";
+    location.href = nextFile;
+  } else {
+    // если не удалось определить — возвращаемся в меню
+    goMenu();
+  }
+}
+
+  <script>
 </body>
 </html>
