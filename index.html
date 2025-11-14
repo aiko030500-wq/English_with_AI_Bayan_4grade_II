@@ -49,6 +49,7 @@ header h2{
   margin-bottom:6px;
 }
 
+/* LOGIN OVERLAY */
 .overlay{
   position:fixed;inset:0;
   background:rgba(0,0,0,0.55);
@@ -74,8 +75,10 @@ header h2{
   cursor:pointer;margin:6px;font-size:0.9rem;
 }
 .btn:hover{background:#FFD54F;color:#002D72;}
+
 main{padding:12px 8px 90px;}
 #mainMenu{display:none;}
+
 .topics-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
@@ -106,6 +109,7 @@ main{padding:12px 8px 90px;}
   transform:translateY(-3px);
   box-shadow:0 4px 12px rgba(0,0,0,0.3);
 }
+
 #welcomeBox{
   margin:16px auto 0;
   background:white;
@@ -117,7 +121,14 @@ main{padding:12px 8px 90px;}
   font-weight:bold;
   box-shadow:0 3px 6px rgba(0,0,0,0.1);
 }
-#extraBtns{margin-top:10px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;}
+
+#extraBtns{
+  margin-top:10px;
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
 .extra-btn{
   background:white;
   border:2px solid #004AAD;
@@ -199,7 +210,8 @@ function checkLogin(){
   const nameLower = nameInput.toLowerCase();
   const allowedLower = allowedNames.map(n => n.toLowerCase());
 
-  if (allowedLower.includes(nameLower) && pinInput === "1484") {
+  // 🔑 Новый PIN = 2844
+  if (allowedLower.includes(nameLower) && pinInput === "2844") {
     document.getElementById("loginOverlay").style.display = "none";
     document.getElementById("mainMenu").style.display = "block";
     document.getElementById("welcomeText").innerText = "Hello, " + nameInput + "!";
